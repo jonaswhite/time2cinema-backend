@@ -121,8 +121,8 @@ const formatShowtimesData = async (): Promise<TheaterShowtimes[]> => {
     });
     
     // 將分組數據轉換為前端需要的格式
-    cinemas.forEach(cinema => {
-      const showtimesByDate = showtimesByCinema[cinema.id];
+    cinemas.forEach((cinema: any) => {
+      const showtimesByDate = showtimesByCinema[(cinema as any).id];
       
       if (!showtimesByDate) {
         return; // 跳過沒有場次的電影院
@@ -225,8 +225,8 @@ export const getShowtimesByTheater = async (req: Request, res: Response) => {
     });
     
     const theaterShowtimes = {
-      theater_id: cinema.id.toString(),
-      theater_name: cinema.name,
+      theater_id: (cinema as any).id.toString(),
+      theater_name: (cinema as any).name,
       showtimes_by_date: formattedDates
     };
     
