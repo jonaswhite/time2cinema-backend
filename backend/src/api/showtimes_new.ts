@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import { pool } from '../db';
+import pool from '../db';
 
 // 定義場次資料的介面
 interface Showtime {
