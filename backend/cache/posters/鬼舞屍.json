@@ -1,0 +1,69 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    27,
+    18
+  ],
+  "id": 1328020,
+  "original_language": "th",
+  "original_title": "มาลี",
+  "overview": "阿欣、迪恩、喬巴和肯四個好朋友在迪恩的母親過世後相聚，他們自願留下來陪伴迪恩，幫助他整理曾為舞蹈學校，現今空無一人的老宅。但當他們踏進這間屋子怪事便不斷發生，尤其在阿欣戴上了一頂瑪諾拉舞者的尖頂寶冠「差達」後，似乎有什麼存在被喚醒了…。",
+  "popularity": 0.1178,
+  "poster_path": "/1R0ZgDLFxFSSG9GFv02lCz4qycv.jpg",
+  "release_date": "2024-11-14",
+  "title": "鬼舞屍",
+  "video": false,
+  "vote_average": 6,
+  "vote_count": 1,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 27,
+      "name": "恐怖"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt34538720",
+  "origin_country": [
+    "TH"
+  ],
+  "production_companies": [
+    {
+      "id": 221835,
+      "logo_path": null,
+      "name": "THAM Studio 19",
+      "origin_country": "TH"
+    },
+    {
+      "id": 236043,
+      "logo_path": null,
+      "name": "Champada",
+      "origin_country": "TH"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "TH",
+      "name": "Thailand"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 87,
+  "spoken_languages": [
+    {
+      "english_name": "Thai",
+      "iso_639_1": "th",
+      "name": "ภาษาไทย"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/1R0ZgDLFxFSSG9GFv02lCz4qycv.jpg",
+  "fullBackdropPath": null
+}

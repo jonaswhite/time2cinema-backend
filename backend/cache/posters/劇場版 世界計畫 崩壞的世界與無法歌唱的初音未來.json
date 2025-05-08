@@ -1,0 +1,79 @@
+{
+  "adult": false,
+  "backdrop_path": "/kLpIAD9WWku0VhGNWJ7bjUilPjK.jpg",
+  "genre_ids": [
+    16,
+    10402,
+    18,
+    878
+  ],
+  "id": 1322752,
+  "original_language": "ja",
+  "original_title": "劇場版プロジェクトセカイ 壊れたセカイと歌えないミク",
+  "overview": "星乃一歌偶然在唱片行聽到一首從未聽過的初音「新歌」，正感疑惑時，發現螢幕上竟出現一位從沒見過的「初音未來」，在星乃的驚呼中，初音彷彿受到驚嚇，瞬間消失了。在某日街頭表演結束後，一歌的手機上竟出現了之前唱片行遇見的初音！她低頭無語，面露孤單的神情，詢問後才知道初音有想要傳遞歌聲的對象，但無論怎麼賣力歌唱，初音的聲音卻無法傳達出去。看著一歌的演出，初音覺得如果能更了解一歌，也許她也能把歌聲傳送到更多人心裡...。  面對初音的願望，一歌帶著溫柔的微笑回答她：「如果我可以幫上忙的話。」就這樣，一歌與虛擬歌手初音未來相遇的全新故事就此展開。",
+  "popularity": 13.887,
+  "poster_path": "/vCIfP3PFQ6vx23U4ZCMMygrc1eB.jpg",
+  "release_date": "2025-01-17",
+  "title": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來",
+  "video": false,
+  "vote_average": 9,
+  "vote_count": 1,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 10402,
+      "name": "音乐"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 878,
+      "name": "科幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt33050528",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 20867,
+      "logo_path": "/8xKcaZSIRdsR616LQ7nMptjkUvg.png",
+      "name": "P.A.WORKS",
+      "origin_country": "JP"
+    },
+    {
+      "id": 177220,
+      "logo_path": "/5yMptt5Q3VCIBcZvFDnbsPvfZYO.png",
+      "name": "CyberAgent",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 10582853,
+  "runtime": 105,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "♪ 3.28 夢響啟航 ♪",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/vCIfP3PFQ6vx23U4ZCMMygrc1eB.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/kLpIAD9WWku0VhGNWJ7bjUilPjK.jpg"
+}

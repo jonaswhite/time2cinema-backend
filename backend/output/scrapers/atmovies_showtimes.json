@@ -1,0 +1,7890 @@
+[
+  {
+    "atmovies_theater_id": "t02a01",
+    "atmovies_theater_name": "台北信義威秀",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "10:25",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:05",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "22:55",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:45",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "22:40",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "14:35",
+            "movie_name": "銀魂劇場版2D 金魂篇"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "銀魂劇場版2D 金魂篇"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "12:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "劇場版「進擊的巨人」完結篇"
+          },
+          {
+            "time": "17:35",
+            "movie_name": "劇場版「進擊的巨人」完結篇"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02a07",
+    "atmovies_theater_name": "新民生戲院",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "23:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "MINECRAFT麥塊電影"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02a03",
+    "atmovies_theater_name": "微風影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:15",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "罪人"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02a08",
+    "atmovies_theater_name": "誠品電影院",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "15:45",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "13:55",
+            "movie_name": "女警撞到夫"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "帶針的女孩"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "青春末世物語"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "粗獷派建築師"
+          },
+          {
+            "time": "16:55",
+            "movie_name": "秘密會議"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "秘密會議"
+          },
+          {
+            "time": "11:50",
+            "movie_name": "我依然在此"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "QUEER"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02a09",
+    "atmovies_theater_name": "喜樂時代影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:35",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:35",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "16:25",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "11:25",
+            "movie_name": "飆風男孩"
+          },
+          {
+            "time": "15:05",
+            "movie_name": "飆風男孩"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "飆風男孩"
+          },
+          {
+            "time": "11:25",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "14:25",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "20:35",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "藍色太陽宮"
+          },
+          {
+            "time": "15:05",
+            "movie_name": "藍色太陽宮"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "藍色太陽宮"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:05",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:25",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "小王子"
+          },
+          {
+            "time": "17:05",
+            "movie_name": "小王子"
+          },
+          {
+            "time": "11:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "北極小迷狐：吉娜&尤克"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "19:45",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "犯罪直播"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "11:25",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "刺心切骨"
+          },
+          {
+            "time": "11:25",
+            "movie_name": "銀魂劇場版2D 金魂篇"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "器子"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "器子"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "器子"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "器子"
+          },
+          {
+            "time": "11:25",
+            "movie_name": "叛逃公主歷險記"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:55",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:15",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "14:25",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "19:35",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "我在平行時空戀上妳"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "我在平行時空戀上妳"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "警上添花"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "青春末世物語"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "天氣之子"
+          },
+          {
+            "time": "11:45",
+            "movie_name": "封神第二部：戰火西岐"
+          },
+          {
+            "time": "15:25",
+            "movie_name": "喵的奇幻漂流"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "366日"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "重裝制裁"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "白雪公主"
+          },
+          {
+            "time": "13:15",
+            "movie_name": "型男主廚三星夢：巴黎篇"
+          },
+          {
+            "time": "21:05",
+            "movie_name": "型男主廚三星夢：巴黎篇"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "秘密會議"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "咒術屍戰"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02a11",
+    "atmovies_theater_name": "MUVIE CINEMAS台北松仁威秀",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "22:25",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "11:05",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "復仇反擊戰"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "器子"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "秘密會議"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:25",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "罪人"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02a05",
+    "atmovies_theater_name": "總督影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "直到黎明"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02a06",
+    "atmovies_theater_name": "哈拉影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "09:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "16:15",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "09:50",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:45",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "11:50",
+            "movie_name": "北極小迷狐：吉娜&尤克"
+          },
+          {
+            "time": "12:15",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "12:15",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          },
+          {
+            "time": "09:50",
+            "movie_name": "喵的奇幻漂流"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b05",
+    "atmovies_theater_name": "台北新光影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "14:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "16:25",
+            "movie_name": "有病才會喜歡你"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b03",
+    "atmovies_theater_name": "樂聲影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "09:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "00:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "02:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "03:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "00:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "02:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "03:25",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "09:35",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "23:40",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "09:35",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:15",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "01:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "15:45",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "23:30",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "03:00",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "23:15",
+            "movie_name": "鬼迷藏"
+          },
+          {
+            "time": "01:15",
+            "movie_name": "鬼迷藏"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "鬼才要回家"
+          },
+          {
+            "time": "11:55",
+            "movie_name": "天氣之子"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "重裝制裁"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "喜幹會"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b14",
+    "atmovies_theater_name": "台北京站威秀",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "23:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:35",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:35",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:45",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "20:55",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:05",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:55",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:15",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "11:05",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "11:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "11:05",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "15:25",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "學姊是男孩劇場版：雨後天晴"
+          },
+          {
+            "time": "19:05",
+            "movie_name": "學姊是男孩劇場版：雨後天晴"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:55",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "銀魂劇場版2D 金魂篇"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "器子"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b12",
+    "atmovies_theater_name": "in89豪華數位影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "少年與狗"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "器子"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "器子"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b07",
+    "atmovies_theater_name": "真善美戲院",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "12:15",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "飆風男孩"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "少年與狗"
+          },
+          {
+            "time": "10:25",
+            "movie_name": "小王子"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "警上添花"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b01",
+    "atmovies_theater_name": "國賓戲院",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b06",
+    "atmovies_theater_name": "喜樂時代影城西門今日店",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:55",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:55",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "10:35",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "10:25",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "17:55",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "飆風男孩"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "18:55",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "10:25",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "12:40",
+            "movie_name": "小王子"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "少年與狗"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "器子"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "10:25",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "14:55",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "22:05",
+            "movie_name": "有病才會喜歡你"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b08",
+    "atmovies_theater_name": "台北西門威秀影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:25",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "銀魂劇場版2D 金魂篇"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02b16",
+    "atmovies_theater_name": "光點華山電影館",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": []
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02c01",
+    "atmovies_theater_name": "百老匯影城公館店",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "15:05",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "10:50",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "北極小迷狐：吉娜&尤克"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "北極小迷狐：吉娜&尤克"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "罪人"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02d05",
+    "atmovies_theater_name": "美麗華大直",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "10:15",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "少年與狗"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "22:45",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "10:15",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "復仇反擊戰"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "器子"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "12:15",
+            "movie_name": "超人力霸王雅克 THE MOVIE 超次元大決戰！光與暗的雅克"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02d04",
+    "atmovies_theater_name": "台北天母新光影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:35",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:25",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:05",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:05",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:35",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "11:35",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "16:55",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "19:25",
+            "movie_name": "有病才會喜歡你"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02d03",
+    "atmovies_theater_name": "欣欣秀泰影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "23:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "23:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "18:15",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "13:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "23:15",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "14:55",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "復仇反擊戰"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "器子"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "器子"
+          },
+          {
+            "time": "15:05",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "我在平行時空戀上妳"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          },
+          {
+            "time": "21:55",
+            "movie_name": "封神第二部：戰火西岐"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "型男主廚三星夢：巴黎篇"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "秘密會議"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02d02",
+    "atmovies_theater_name": "國賓長春影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "15:35",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "10:50",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "11:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:15",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "17:35",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "21:35",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "11:10",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "10:50",
+            "movie_name": "少年與狗"
+          },
+          {
+            "time": "10:50",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "15:25",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:15",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "復仇反擊戰"
+          },
+          {
+            "time": "22:45",
+            "movie_name": "器子"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "秘密會議"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "秘密會議"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "秘密會議"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "青春末世物語"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "我在平行時空戀上妳"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "366日"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "命中註定那頭鵝"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "我依然在此"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "米奇17號"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "客製化先生"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02d06",
+    "atmovies_theater_name": "美麗新大直皇家影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "14:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:55",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:55",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:55",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "22:25",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "13:55",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "MINECRAFT麥塊電影"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02d20",
+    "atmovies_theater_name": "光點台北電影院",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "21:00",
+            "movie_name": "少年與狗"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "女警撞到夫"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "女警撞到夫"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "犯罪直播"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "青春末世物語"
+          },
+          {
+            "time": "16:55",
+            "movie_name": "情書"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e07",
+    "atmovies_theater_name": "板橋大遠百威秀影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "16:35",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "21:55",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:55",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:25",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:05",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:55",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "13:35",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "14:25",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "11:45",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "14:05",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "11:35",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:05",
+            "movie_name": "器子"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:15",
+            "movie_name": "雷霆特攻隊"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e12",
+    "atmovies_theater_name": "林口三井OUTLET威秀影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "12:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "12:15",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "12:15",
+            "movie_name": "學姊是男孩劇場版：雨後天晴"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "飆風男孩"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "復仇反擊戰"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "器子"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "劇場版「進擊的巨人」完結篇"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e03",
+    "atmovies_theater_name": "新莊鴻金寶麻吉影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "00:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "23:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "10:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:35",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "00:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:25",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "20:55",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "23:05",
+            "movie_name": "有病才會喜歡你"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e09",
+    "atmovies_theater_name": "板橋秀泰影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "鬼迷藏"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "犯罪直播"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "復仇反擊戰"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "復仇反擊戰"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "器子"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "器子"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "天氣之子"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "喵的奇幻漂流"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e04",
+    "atmovies_theater_name": "三重天台戲院",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:40",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "23:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:05",
+            "movie_name": "器子"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "有病才會喜歡你"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e10",
+    "atmovies_theater_name": "國賓林口昕境廣場",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:25",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:35",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:45",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "20:05",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "萬王之王"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e11",
+    "atmovies_theater_name": "國賓新莊晶冠廣場影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "18:05",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:15",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "10:50",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "13:45",
+            "movie_name": "器子"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e13",
+    "atmovies_theater_name": "樹林秀泰影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:25",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:55",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "10:40",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "10:50",
+            "movie_name": "器子"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "器子"
+          },
+          {
+            "time": "11:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:10",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e15",
+    "atmovies_theater_name": "土城秀泰影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "12:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "器子"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "超人力霸王雅克 THE MOVIE 超次元大決戰！光與暗的雅克"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e18",
+    "atmovies_theater_name": "國賓影城淡水禮萊廣場",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "13:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:25",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "19:25",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "20:05",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:25",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "復仇反擊戰"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e17",
+    "atmovies_theater_name": "永和喜樂時代影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "22:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "11:10",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "22:05",
+            "movie_name": "復活劫"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "17:05",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "11:25",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:35",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:45",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "喬王出任務"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "小王子"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "19:45",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "22:15",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "北極小迷狐：吉娜&尤克"
+          },
+          {
+            "time": "10:50",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "12:45",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "16:25",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "22:10",
+            "movie_name": "器子"
+          },
+          {
+            "time": "10:45",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "12:45",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:45",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:45",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "10:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "21:15",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e19",
+    "atmovies_theater_name": "美麗新宏匯影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "13:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "15:05",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:35",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "17:10",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "鬼房客"
+          },
+          {
+            "time": "14:40",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "15:20",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:45",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "20:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "13:00",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "復仇反擊戰"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e20",
+    "atmovies_theater_name": "中和環球威秀影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "18:00",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:30",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:35",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "16:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "12:15",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "14:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "19:05",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "21:25",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "17:50",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "19:25",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "13:25",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "14:55",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "11:35",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "器子"
+          },
+          {
+            "time": "13:50",
+            "movie_name": "超人力霸王雅克 THE MOVIE 超次元大決戰！光與暗的雅克"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "復仇反擊戰"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "鬼房客"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e21",
+    "atmovies_theater_name": "新店裕隆城威秀影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:30",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "13:55",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:15",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:40",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "18:45",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:05",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "14:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "21:40",
+            "movie_name": "會計師2"
+          },
+          {
+            "time": "11:50",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "聖夜：惡魔都市"
+          },
+          {
+            "time": "11:35",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "13:35",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "15:35",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:35",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "19:35",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "21:35",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "13:55",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "16:15",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "夏日最後的祕密"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "16:10",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "14:05",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "18:10",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "11:30",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "16:05",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "21:20",
+            "movie_name": "罪人"
+          },
+          {
+            "time": "12:00",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "20:20",
+            "movie_name": "取精急轉彎"
+          },
+          {
+            "time": "12:30",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "16:45",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "19:10",
+            "movie_name": "怪獸8號：Mission Recon"
+          },
+          {
+            "time": "11:35",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "有病才會喜歡你"
+          },
+          {
+            "time": "14:00",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "跳進部落的孩子"
+          },
+          {
+            "time": "14:05",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "直到黎明"
+          },
+          {
+            "time": "13:45",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "看我今天怎麼說"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "GIVEN被贈與的未來劇場版：去海邊"
+          },
+          {
+            "time": "12:50",
+            "movie_name": "花束般的戀愛"
+          },
+          {
+            "time": "13:40",
+            "movie_name": "長安三萬里"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "沈睡的水下巨人"
+          },
+          {
+            "time": "11:40",
+            "movie_name": "秘密會議"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "飆風男孩"
+          },
+          {
+            "time": "22:00",
+            "movie_name": "器子"
+          },
+          {
+            "time": "17:45",
+            "movie_name": "學姊是男孩劇場版：雨後天晴"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "藍色太陽宮"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "14:35",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "19:25",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "21:50",
+            "movie_name": "雷霆特攻隊"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e08",
+    "atmovies_theater_name": "府中15",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": []
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02e22",
+    "atmovies_theater_name": "國家電影及視聽文化中心",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": []
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02f05",
+    "atmovies_theater_name": "景美佳佳戲院",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "11:00",
+            "movie_name": "非紳士特攻隊"
+          },
+          {
+            "time": "14:45",
+            "movie_name": "非紳士特攻隊"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "非紳士特攻隊"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "窒息倒數"
+          },
+          {
+            "time": "16:50",
+            "movie_name": "窒息倒數"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "破·地獄"
+          },
+          {
+            "time": "14:50",
+            "movie_name": "破·地獄"
+          },
+          {
+            "time": "18:40",
+            "movie_name": "破·地獄"
+          },
+          {
+            "time": "13:10",
+            "movie_name": "征服山的少年"
+          },
+          {
+            "time": "17:00",
+            "movie_name": "征服山的少年"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "鑽石大劫案：極盜戰"
+          },
+          {
+            "time": "15:00",
+            "movie_name": "鑽石大劫案：極盜戰"
+          },
+          {
+            "time": "19:00",
+            "movie_name": "鑽石大劫案：極盜戰"
+          },
+          {
+            "time": "13:15",
+            "movie_name": "狼人"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "狼人"
+          }
+        ]
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t02a12",
+    "atmovies_theater_name": "台北南港LaLaport威秀影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250508",
+        "label": "今天",
+        "showtimes": []
+      },
+      {
+        "date": "20250509",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250510",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  }
+]

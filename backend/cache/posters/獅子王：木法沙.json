@@ -1,0 +1,73 @@
+{
+  "adult": false,
+  "backdrop_path": "/oHPoF0Gzu8xwK4CtdXDaWdcuZxZ.jpg",
+  "genre_ids": [
+    12,
+    10751,
+    16
+  ],
+  "id": 762509,
+  "original_language": "en",
+  "original_title": "Mufasa: The Lion King",
+  "overview": "故事開始由拉飛奇為辛巴與娜娜的小獅子女兒琪拉雅敘述榮耀國傳奇木法沙的故事，更由澎澎與丁滿在旁為故事加入幽默又搞笑的見解。故事以回述方式呈現…木法沙曾是一個孤兒幼獅，徬徨漂泊異地，直到他遇見了溫暖的皇室繼承人塔卡，這場相遇開啟了一場不凡的旅程，一路上更碰到了一群看似格格不入的旅伴，友情卻將它們緊緊相連。它們相互扶持抗致命的威脅，命運也考驗著他們的連結…",
+  "popularity": 96.5867,
+  "poster_path": "/c2wpotRQdZeGoaoJQzr7MQpJBjE.jpg",
+  "release_date": "2024-12-18",
+  "title": "獅子王：木法沙",
+  "video": false,
+  "vote_average": 7.41,
+  "vote_count": 2064,
+  "belongs_to_collection": {
+    "id": 762512,
+    "name": "獅子王（重啟）系列",
+    "poster_path": "/dGpIRn4Nqi63JO1RlKxjcPbQSAw.jpg",
+    "backdrop_path": "/1KeXF239BkqLChcAcF8gKl1stZz.jpg"
+  },
+  "budget": 200000000,
+  "genres": [
+    {
+      "id": 12,
+      "name": "冒险"
+    },
+    {
+      "id": 10751,
+      "name": "家庭"
+    },
+    {
+      "id": 16,
+      "name": "动画"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt13186482",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 2,
+      "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+      "name": "Walt Disney Pictures",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 721046090,
+  "runtime": 118,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "從孤兒 到異響 終成王",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/c2wpotRQdZeGoaoJQzr7MQpJBjE.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/oHPoF0Gzu8xwK4CtdXDaWdcuZxZ.jpg"
+}

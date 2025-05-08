@@ -1,0 +1,70 @@
+{
+  "adult": false,
+  "backdrop_path": "/Auvm2LlesmQkGVjXogZ5ItlHN4y.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 1317090,
+  "original_language": "ja",
+  "original_title": "少年と犬",
+  "overview": "震災後六個月的宮城縣仙台，失業青年和正（高橋文哉飾演）與同樣在震災中失去主人的狗狗多聞相遇。聰明的多聞，很快就成為和正和他家人生活中不可或缺的存在。為了維持家庭生計，和正不得已開始從事犯罪工作，並捲入一起事件當中，而多聞更在這場混亂中消失無蹤…。隨著時光流逝，多聞來到滋賀縣，與擁有悲傷過往的女性美羽（西野七瀬飾演）一同生活。因為多聞的陪伴，美羽逐漸找回平靜的日常。就在此時，為了尋找多聞的和正出現了。起初，美羽對和正抱持敵意，但因為多聞的關係，兩人也逐漸產生心靈上的交流。不過，美羽過去的傷痛仍舊逼迫著她…。在那之後，多聞開始西行，踏上一段尋找「少年」的旅程，並在當中與不同帶有傷痛的人們相逢，並見識到各種人生中的哀愁與苦痛，以及那意想不到的奇蹟…。",
+  "popularity": 0.4872,
+  "poster_path": "/1XbrDPFfzwErQG21DgEjqgaQoi9.jpg",
+  "release_date": "2025-03-20",
+  "title": "少年與狗",
+  "video": false,
+  "vote_average": 7.7,
+  "vote_count": 3,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 882,
+      "logo_path": "/fRSWWjquvzcHjACbtF53utZFIll.png",
+      "name": "TOHO",
+      "origin_country": "JP"
+    },
+    {
+      "id": 5072,
+      "logo_path": null,
+      "name": "Twins Japan",
+      "origin_country": "JP"
+    },
+    {
+      "id": 101877,
+      "logo_path": "/uJp7iE2VieJdGEMU8pgY2uWrLrh.png",
+      "name": "Bungeishunju",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 0,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/1XbrDPFfzwErQG21DgEjqgaQoi9.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/Auvm2LlesmQkGVjXogZ5ItlHN4y.jpg"
+}

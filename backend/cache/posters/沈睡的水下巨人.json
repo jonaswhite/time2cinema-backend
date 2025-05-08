@@ -1,0 +1,51 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    99
+  ],
+  "id": 1452246,
+  "original_language": "zh",
+  "original_title": "沈睡的水下巨人",
+  "overview": "台灣四面環海，卻鮮少有人深入探索海底世界的奧秘，許多沈船被時間遺忘，但它們卻成為海洋生物的庇護所，孕育出繁榮的生態。《沈睡的水下巨人》將大家平常看不到的海洋深處推上銀幕，透過這些「鋼鐵巨人」來詮釋台灣的海洋生態，沈船是海洋生物的家，是生物最容易聚集的地方，是海洋生態的指標；生態系良好的海，沈船會是滿滿的魚群與各式軟硬珊瑚，相反的，空蕩蕩的沈船，代表海洋資源的枯竭。",
+  "popularity": 0.1061,
+  "poster_path": "/7DdvzQcKfGtd00tKsrmCB4ofemu.jpg",
+  "release_date": "2025-04-25",
+  "title": "沈睡的水下巨人",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 99,
+      "name": "纪录"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 0,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/7DdvzQcKfGtd00tKsrmCB4ofemu.jpg",
+  "fullBackdropPath": null
+}

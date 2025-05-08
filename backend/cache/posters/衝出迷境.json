@@ -1,0 +1,73 @@
+{
+  "adult": false,
+  "backdrop_path": "/1CcRNVxAYXLRVew7cQXoVPwi3Es.jpg",
+  "genre_ids": [
+    16,
+    18,
+    12,
+    14
+  ],
+  "id": 597398,
+  "original_language": "lv",
+  "original_title": "Projām",
+  "overview": "少年揹著降落傘在陌生異地醒來，黑色靈魂緊隨在側試圖吞蝕他，他只能憑一台摩托車、一只背包，及一隻小鳥的陪伴，克服心中恐懼，展開冒險。沿途奇特的風景、際遇及珍貴的友情，都讓他更加堅定找到回家的路。《喵的奇幻漂流》導演金茲斯巴洛迪斯作為初試啼聲的第一部動畫長片，耗費花費3年半的時間，一人獨立完成編劇、動畫製作、電影配樂以及全數後製工程，才完成這部嘔心瀝血之作，電影中虛實交錯的旅程，不只反映了導演獨力完成長片的心路歷程，還有他面對人生突破困境的勇氣與反思。",
+  "popularity": 0.8845,
+  "poster_path": "/9JO7h9IjgUVllAGYsrOyNj3Tl9e.jpg",
+  "release_date": "2019-11-15",
+  "title": "衝出迷境",
+  "video": false,
+  "vote_average": 6.397,
+  "vote_count": 92,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 12,
+      "name": "冒险"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt8288450",
+  "origin_country": [
+    "LV"
+  ],
+  "production_companies": [
+    {
+      "id": 88340,
+      "logo_path": null,
+      "name": "Bilibaba",
+      "origin_country": "LV"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "LV",
+      "name": "Latvia"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 75,
+  "spoken_languages": [
+    {
+      "english_name": "No Language",
+      "iso_639_1": "xx",
+      "name": "No Language"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/9JO7h9IjgUVllAGYsrOyNj3Tl9e.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/1CcRNVxAYXLRVew7cQXoVPwi3Es.jpg"
+}

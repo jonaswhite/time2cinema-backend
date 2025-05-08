@@ -1,0 +1,74 @@
+{
+  "adult": false,
+  "backdrop_path": "/xb9wpY31SeVZbfkevYuolhfV63w.jpg",
+  "genre_ids": [
+    10751,
+    14
+  ],
+  "id": 447273,
+  "original_language": "en",
+  "original_title": "Snow White",
+  "overview": "迪士尼白雪公主真人版，《戀夏500日》、《天才的禮物》馬克偉柏執導，由《西城故事》瑞秋曾格勒飾演白雪公主，蓋兒加朵飾演壞皇后。電影音樂歌曲將由《樂來越愛你》、《大娛樂家》班傑帕塞克與賈斯汀保羅擔任創作。",
+  "popularity": 42.1223,
+  "poster_path": "/wt1eqcRGcRRJhCoNY26I5f5Qlap.jpg",
+  "release_date": "2025-03-19",
+  "title": "白雪公主",
+  "video": false,
+  "vote_average": 4.5,
+  "vote_count": 612,
+  "belongs_to_collection": null,
+  "budget": 270000000,
+  "genres": [
+    {
+      "id": 10751,
+      "name": "家庭"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt6208148",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 2,
+      "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+      "name": "Walt Disney Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 2527,
+      "logo_path": "/osO7TGmlRMistSQ5JZusPhbKUHk.png",
+      "name": "Marc Platt Productions",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 200279718,
+  "runtime": 109,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/wt1eqcRGcRRJhCoNY26I5f5Qlap.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/xb9wpY31SeVZbfkevYuolhfV63w.jpg"
+}

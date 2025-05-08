@@ -1,0 +1,51 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    99
+  ],
+  "id": 1377013,
+  "original_language": "zh",
+  "original_title": "台灣超人",
+  "overview": "台灣超人正是曲導演執掌鏡頭36年來最動人的紀錄，走訪全台，用鏡頭溫柔凝視超人的慈悲與堅韌，台灣超人具備是翻轉向上的能量，這正是一趟充實飽滿的生命旅程。美麗的心就有一股力量，跟著曲全立導演走進超人們象徵希望的光，帶您看見那個「很美又很有力量」的台灣，一起拾起屬於自己的披風，讓光在社會中蔓延。",
+  "popularity": 0.0286,
+  "poster_path": "/81EHAKhMbE2CQyW8EtEB0l7yjFr.jpg",
+  "release_date": "2024-12-06",
+  "title": "台灣超人",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 99,
+      "name": "纪录"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 0,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/81EHAKhMbE2CQyW8EtEB0l7yjFr.jpg",
+  "fullBackdropPath": null
+}

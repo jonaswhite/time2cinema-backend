@@ -1,0 +1,63 @@
+{
+  "adult": false,
+  "backdrop_path": "/8qCO07RAU2qpTHHOJoASQ0EBLH7.jpg",
+  "genre_ids": [
+    53,
+    27
+  ],
+  "id": 1063857,
+  "original_language": "cn",
+  "original_title": "贖夢",
+  "overview": "精神科醫生文醫生（劉俊謙 飾）擅長挖掘病患最深層的秘密，甚至不惜違規介入患者生活試圖導正。他偶然搭上夜班計程車司機蔡辛強（張家輝 飾）的車，發現蔡辛強的舉止不尋常，原來蔡辛強飽受惡夢所苦不敢入睡，他近乎瘋狂的妻子 （陳法拉 飾）堅信他們被鬼纏身，家內外貼滿詭異符咒，成日擔驚受怕、疑神疑鬼。文醫生察覺蔡辛強無法分辦夢境與現實，身體機能出現衰退，決心找出問題根源，但追查病因過程中怪事不斷，駭人真相即將一一揭開……。",
+  "popularity": 0.7353,
+  "poster_path": "/AtErBPZrXn7Hau8eotPQI9ArCNS.jpg",
+  "release_date": "2025-03-27",
+  "title": "贖夢",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 53,
+      "name": "惊悚"
+    },
+    {
+      "id": 27,
+      "name": "恐怖"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt32851910",
+  "origin_country": [
+    "HK"
+  ],
+  "production_companies": [
+    {
+      "id": 44177,
+      "logo_path": null,
+      "name": "United Filmmakers Organisation (UFO)",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "HK",
+      "name": "Hong Kong"
+    }
+  ],
+  "revenue": 419333,
+  "runtime": 98,
+  "spoken_languages": [
+    {
+      "english_name": "Cantonese",
+      "iso_639_1": "cn",
+      "name": "广州话 / 廣州話"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/AtErBPZrXn7Hau8eotPQI9ArCNS.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/8qCO07RAU2qpTHHOJoASQ0EBLH7.jpg"
+}

@@ -1,0 +1,85 @@
+{
+  "adult": false,
+  "backdrop_path": "/nAxGnGHOsfzufThz20zgmRwKur3.jpg",
+  "genre_ids": [
+    28,
+    27,
+    53
+  ],
+  "id": 1233413,
+  "original_language": "en",
+  "original_title": "Sinners",
+  "overview": "「夜路走多的人，有天會發現有東西跟著你回家…」 雙胞胎兄弟（麥可·B·喬丹　飾演）試圖擺脫不愉快的過往，回到家鄉想重新開始，但卻發現更為恐怖的邪惡勢力正等待著他們的回歸…",
+  "popularity": 173.3564,
+  "poster_path": "/9hRm4WVM3D5HzjMBTKSsPBOd50c.jpg",
+  "release_date": "2025-04-16",
+  "title": "罪人",
+  "video": false,
+  "vote_average": 7.576,
+  "vote_count": 583,
+  "belongs_to_collection": null,
+  "budget": 90000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 27,
+      "name": "恐怖"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt31193180",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 174,
+      "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+      "name": "Warner Bros. Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 148495,
+      "logo_path": "/2fQRDickgp9vuDIxJTlDLEs7j0y.png",
+      "name": "Proximity Media",
+      "origin_country": "US"
+    },
+    {
+      "id": 216687,
+      "logo_path": "/kKVYqekveOvLK1IgqdJojLjQvtu.png",
+      "name": "Domain Entertainment",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 237331032,
+  "runtime": 138,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/9hRm4WVM3D5HzjMBTKSsPBOd50c.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/nAxGnGHOsfzufThz20zgmRwKur3.jpg"
+}

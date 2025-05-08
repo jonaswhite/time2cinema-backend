@@ -1,0 +1,89 @@
+{
+  "adult": false,
+  "backdrop_path": "/yOn8w3aGd6Rf9JYki7XaC9ZiyDg.jpg",
+  "genre_ids": [
+    18,
+    36,
+    53,
+    80,
+    10752,
+    28
+  ],
+  "id": 919207,
+  "original_language": "ko",
+  "original_title": "서울의 봄",
+  "overview": "1979年10月26日發生總統遇刺事件後，在首爾迎來新氣象之際，12月12日保安司令官全斗光發起政變，動員軍方內部的私人組織，甚至還召回最前線的前方部隊到首爾。被權力蒙蔽雙眼的全斗光所帶領的叛軍，以及與其對抗的首都警備司令官李泰臣的鎮壓軍之間，一觸即發的9個小時正在流逝……賭上性命的兩大勢力旗鼓相當的對立，今晚，將在韓國首都展開最熾熱的戰爭！",
+  "popularity": 45.3603,
+  "poster_path": "/yCSH3cim8Y1pAGBFsyfATTCf9Z9.jpg",
+  "release_date": "2023-11-22",
+  "title": "12.12：首爾之春",
+  "video": false,
+  "vote_average": 7.5,
+  "vote_count": 110,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 36,
+      "name": "历史"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    },
+    {
+      "id": 80,
+      "name": "犯罪"
+    },
+    {
+      "id": 10752,
+      "name": "战争"
+    },
+    {
+      "id": 28,
+      "name": "动作"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt22507524",
+  "origin_country": [
+    "KR"
+  ],
+  "production_companies": [
+    {
+      "id": 108532,
+      "logo_path": "/lHzoqEuTPHwKSFiBx9skKpp9vCc.png",
+      "name": "Hive Media Corp",
+      "origin_country": "KR"
+    },
+    {
+      "id": 91505,
+      "logo_path": "/c6ggS6OO4tyEcgBQ7sHs67LDfES.png",
+      "name": "Plus M Entertainment",
+      "origin_country": "KR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 142,
+  "spoken_languages": [
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    }
+  ],
+  "status": "Released",
+  "tagline": "徹底改變亞洲命運的震撼9小時！民主歷史上最糟糕的一天！",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/yCSH3cim8Y1pAGBFsyfATTCf9Z9.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/yOn8w3aGd6Rf9JYki7XaC9ZiyDg.jpg"
+}

@@ -1,0 +1,78 @@
+{
+  "adult": false,
+  "backdrop_path": "/9I1vkFmEGqJiod3lbWFSj47HDo8.jpg",
+  "genre_ids": [
+    35,
+    10751,
+    27,
+    18
+  ],
+  "id": 1396079,
+  "original_language": "vi",
+  "original_title": "Nhà Gia Tiên",
+  "overview": "與家人關係疏遠的美田（方美芝 飾）是一名Z世代的網紅，不相信鬼神之說的她，為了拍攝時下最流行的超自然影片，回到她的家族世居的祖厝，結果意外見到在她小時候過世的哥哥嘉明（黃立 飾）的鬼魂，為了讓嘉明能夠安心去投胎，美田必須協助他完成遺願：阻止家人們把祖厝賣掉……。",
+  "popularity": 0.5589,
+  "poster_path": "/ddbDdGF2xFUgwXPb1zhCoGWuOdV.jpg",
+  "release_date": "2025-02-21",
+  "title": "鬼才要回家",
+  "video": false,
+  "vote_average": 10,
+  "vote_count": 1,
+  "belongs_to_collection": {
+    "id": 1447831,
+    "name": "LOẠT PHIM ĐIỆN ẢNH CỦA 17 PRODUCTION",
+    "poster_path": null,
+    "backdrop_path": null
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 10751,
+      "name": "家庭"
+    },
+    {
+      "id": 27,
+      "name": "恐怖"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "VN"
+  ],
+  "production_companies": [
+    {
+      "id": 246127,
+      "logo_path": "/ohQKV1t0Jz3VreUL8DvSemlsC10.png",
+      "name": "17 Production",
+      "origin_country": "VN"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "VN",
+      "name": "Vietnam"
+    }
+  ],
+  "revenue": 9396117,
+  "runtime": 117,
+  "spoken_languages": [
+    {
+      "english_name": "Vietnamese",
+      "iso_639_1": "vi",
+      "name": "Tiếng Việt"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/ddbDdGF2xFUgwXPb1zhCoGWuOdV.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/9I1vkFmEGqJiod3lbWFSj47HDo8.jpg"
+}

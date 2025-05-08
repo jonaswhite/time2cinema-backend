@@ -1,0 +1,58 @@
+{
+  "adult": false,
+  "backdrop_path": "/1g4PAl7KVat36Z8zp2MX2ht9J2x.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 1287986,
+  "original_language": "en",
+  "original_title": "Pig at the Crossing",
+  "overview": "《高山上的世界盃》欽哲諾布最新編導作品，如果有一天 生命毫無預警戛然而止，在現實與虛幻之間，死亡與轉生之間，用盡全力試圖彌補生前未竟之事，究竟是救贖還是執念？",
+  "popularity": 0.0487,
+  "poster_path": "/gY5QrFznHiGzDnLmUeaiT3SfLug.jpg",
+  "release_date": "2024-10-25",
+  "title": "十字路口的豬",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt32547207",
+  "origin_country": [
+    "BT"
+  ],
+  "production_companies": [
+    {
+      "id": 228578,
+      "logo_path": null,
+      "name": "Norling Studios",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [],
+  "revenue": 0,
+  "runtime": 117,
+  "spoken_languages": [
+    {
+      "english_name": "Dzongkha",
+      "iso_639_1": "dz",
+      "name": ""
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/gY5QrFznHiGzDnLmUeaiT3SfLug.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/1g4PAl7KVat36Z8zp2MX2ht9J2x.jpg"
+}

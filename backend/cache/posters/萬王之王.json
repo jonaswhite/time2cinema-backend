@@ -1,0 +1,89 @@
+{
+  "adult": false,
+  "backdrop_path": "/gN0eu6s2qIzsHgznnsgMIfbPw3u.jpg",
+  "genre_ids": [
+    16,
+    18,
+    10751,
+    14
+  ],
+  "id": 1181107,
+  "original_language": "en",
+  "original_title": "The King of Kings",
+  "overview": "英國文豪查爾斯狄更斯透過一個孩子天真的眼睛講述了我們主耶穌基督的故事。",
+  "popularity": 16.75,
+  "poster_path": "/n66WEgkJGndAgaM6igMn43U6qHz.jpg",
+  "release_date": "2025-04-07",
+  "title": "萬王之王",
+  "video": false,
+  "vote_average": 7.972,
+  "vote_count": 18,
+  "belongs_to_collection": null,
+  "budget": 15000000,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 10751,
+      "name": "家庭"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt7967302",
+  "origin_country": [
+    "KR"
+  ],
+  "production_companies": [
+    {
+      "id": 101045,
+      "logo_path": "/zS0ickpMVfdgBsKqwxwrEmpajbt.png",
+      "name": "MOFAC",
+      "origin_country": "KR"
+    },
+    {
+      "id": 247807,
+      "logo_path": "/j39Tm15NC6vwIZzyUR9y42I4y2B.png",
+      "name": "GIANTSTEP",
+      "origin_country": "KR"
+    },
+    {
+      "id": 247808,
+      "logo_path": "/fw3oydqYP6BlzqqHEjBeaXgYso.png",
+      "name": "Blue Harbor Entertainment",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 48797286,
+  "runtime": 104,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/n66WEgkJGndAgaM6igMn43U6qHz.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/gN0eu6s2qIzsHgznnsgMIfbPw3u.jpg"
+}

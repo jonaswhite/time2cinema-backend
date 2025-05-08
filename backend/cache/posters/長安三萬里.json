@@ -1,0 +1,63 @@
+{
+  "adult": false,
+  "backdrop_path": "/q4y0PmDGRX193kfdtVk26O7Ujrk.jpg",
+  "genre_ids": [
+    16,
+    36
+  ],
+  "id": 1089654,
+  "original_language": "zh",
+  "original_title": "长安三万里",
+  "overview": "安史之亂爆發後數年，吐蕃大軍攻打西南方。 大唐節度使高適交戰不利，長安岌岌可危。 困守孤城的高適向監軍太監回憶起自己與李白的一生往事。",
+  "popularity": 1.1906,
+  "poster_path": "/7wxk8Ka5AGUIjCpEPg4vBOwSSul.jpg",
+  "release_date": "2023-07-02",
+  "title": "長安三萬里",
+  "video": false,
+  "vote_average": 7.569,
+  "vote_count": 51,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 36,
+      "name": "历史"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt27922374",
+  "origin_country": [
+    "CN"
+  ],
+  "production_companies": [
+    {
+      "id": 67089,
+      "logo_path": "/1wnxolUB5NHZARmeeZjVXKpGKaI.png",
+      "name": "Light Chaser Animation Studios",
+      "origin_country": "CN"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "CN",
+      "name": "China"
+    }
+  ],
+  "revenue": 252520750,
+  "runtime": 168,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/7wxk8Ka5AGUIjCpEPg4vBOwSSul.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/q4y0PmDGRX193kfdtVk26O7Ujrk.jpg"
+}

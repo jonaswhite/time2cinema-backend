@@ -1,0 +1,100 @@
+{
+  "adult": false,
+  "backdrop_path": "/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg",
+  "genre_ids": [
+    16,
+    14,
+    12
+  ],
+  "id": 823219,
+  "original_language": "lv",
+  "original_title": "Straume",
+  "overview": "當世界即將走向末日，卻充斥著人類存在的痕跡。而當一隻黑貓的家園被大洪水摧毀後， 登上一艘小船當作牠的避難所，卻發現船上住著各式各樣的動物，儘管牠們無法溝通，但 牠們仍必須合作，穿梭於神秘的漂流世界，面對各種挑戰和危險。",
+  "popularity": 45.6221,
+  "poster_path": "/tn89woD33WgLgT7ZMUr1r47hnql.jpg",
+  "release_date": "2024-08-29",
+  "title": "喵的奇幻漂流",
+  "video": false,
+  "vote_average": 8.194,
+  "vote_count": 1903,
+  "belongs_to_collection": null,
+  "budget": 3700000,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    },
+    {
+      "id": 12,
+      "name": "冒险"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt4772188",
+  "origin_country": [
+    "LV"
+  ],
+  "production_companies": [
+    {
+      "id": 153335,
+      "logo_path": "/bEsO7l12cRGAY25Uqt1a66Ife1U.png",
+      "name": "Dream Well Studio",
+      "origin_country": "LV"
+    },
+    {
+      "id": 12433,
+      "logo_path": "/sKu7Gr83ie8w6waDwYNHMBEaSah.png",
+      "name": "Sacrebleu Productions",
+      "origin_country": "FR"
+    },
+    {
+      "id": 101516,
+      "logo_path": "/q7ynwvgbkht96N8qPFexUW3QFeR.png",
+      "name": "Take Five",
+      "origin_country": "BE"
+    },
+    {
+      "id": 94,
+      "logo_path": "/huC7HqorvUThGIrENrbcHmQVUA0.png",
+      "name": "ARTE France Cinéma",
+      "origin_country": "FR"
+    },
+    {
+      "id": 792,
+      "logo_path": "/cRhBQP1FFNugNxKkO1pUgeD2Rkr.png",
+      "name": "RTBF",
+      "origin_country": "BE"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "LV",
+      "name": "Latvia"
+    },
+    {
+      "iso_3166_1": "BE",
+      "name": "Belgium"
+    },
+    {
+      "iso_3166_1": "FR",
+      "name": "France"
+    }
+  ],
+  "revenue": 17660107,
+  "runtime": 85,
+  "spoken_languages": [
+    {
+      "english_name": "No Language",
+      "iso_639_1": "xx",
+      "name": "No Language"
+    }
+  ],
+  "status": "Released",
+  "tagline": "在未知的世界，你需要一群可靠的夥伴們",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/tn89woD33WgLgT7ZMUr1r47hnql.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/b3mdmjYTEL70j7nuXATUAD9qgu4.jpg"
+}

@@ -1,0 +1,112 @@
+{
+  "adult": false,
+  "backdrop_path": "/shWIpYYqbgpUUefpPj1VrYbPonE.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 730251,
+  "original_language": "ja",
+  "original_title": "HAPPYEND",
+  "overview": "東京的夜晚燈火閃爍，高中生悠多、小幸與朋友盡情蹉跎光陰玩樂享受。從夜店警察臨檢中逃脫、潛入教室放送電音節奏，瞧不起體制歧視的勢利造作。一次惡作劇卻引發校長追究，安裝電子保全全面監控，不料竟打亂校園生活、掀起了思潮風波。悠多只想活在當下追逐音樂夢，小幸則因身分認同覺醒走上街頭，在地震頻繁的壓抑氛圍中，他們的友誼也在畢業前夕逐漸失控。",
+  "popularity": 4.1082,
+  "poster_path": "/lIHRSdRuxKcSRDAuigveXKIlf98.jpg",
+  "release_date": "2024-10-04",
+  "title": "青春末世物語",
+  "video": false,
+  "vote_average": 7.2,
+  "vote_count": 8,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt29279903",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 108191,
+      "logo_path": "/75bTMGTS7NEazJRg7uaeGReynKU.png",
+      "name": "Cineric Creative",
+      "origin_country": "US"
+    },
+    {
+      "id": 204575,
+      "logo_path": "/7pjTsox3kXeT2bv4lNGXePnymqc.png",
+      "name": "Cinema Inutile",
+      "origin_country": "US"
+    },
+    {
+      "id": 137865,
+      "logo_path": null,
+      "name": "Zakkubalan",
+      "origin_country": "US"
+    },
+    {
+      "id": 249355,
+      "logo_path": null,
+      "name": "K-Garage",
+      "origin_country": ""
+    },
+    {
+      "id": 149522,
+      "logo_path": "/iFSOhZejd4p6o8me3cCGhfBXC5X.png",
+      "name": "Sons of Rigor",
+      "origin_country": "GB"
+    },
+    {
+      "id": 191842,
+      "logo_path": "/aGne4vOerQTqqMLnGLRzaDGYCtx.png",
+      "name": "Spark Features",
+      "origin_country": "US"
+    },
+    {
+      "id": 221553,
+      "logo_path": "/jlcdARivqz1Q3VFLYUvkxbLvXIH.png",
+      "name": "Purple Tree Content",
+      "origin_country": "SG"
+    },
+    {
+      "id": 95425,
+      "logo_path": "/AbMalyMcfqq8uFuzv2rwszdyui6.png",
+      "name": "Giraffe Pictures",
+      "origin_country": "SG"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    },
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    },
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    },
+    {
+      "iso_3166_1": "SG",
+      "name": "Singapore"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 113,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/lIHRSdRuxKcSRDAuigveXKIlf98.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/shWIpYYqbgpUUefpPj1VrYbPonE.jpg"
+}

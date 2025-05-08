@@ -1,0 +1,518 @@
+[2025-05-06T06:50:22.776Z] 開始資料庫更新流程
+[2025-05-06T06:50:22.782Z] 開始ATMovies 場次爬蟲...
+[2025-05-06T07:05:10.686Z] ATMovies 場次爬蟲警告: /Users/jonaswhite/CascadeProjects/.venv/lib/python3.9/site-packages/urllib3/__init__.py:35: NotOpenSSLWarning: urllib3 v2 only supports OpenSSL 1.1.1+, currently the 'ssl' module is compiled with 'LibreSSL 2.8.3'. See: https://github.com/urllib3/urllib3/issues/3020
+  warnings.warn(
+2025-05-06 14:50:23,704 - INFO - 開始執行爬蟲...
+2025-05-06 14:50:23,705 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/
+2025-05-06 14:50:23,815 - INFO - 成功載入 1 個區域（只抽取台北區域）
+2025-05-06 14:50:23,815 - INFO - 抽取今天、明天和後天共 3 天的場次資訊
+2025-05-06 14:50:23,815 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/a02/
+2025-05-06 14:50:23,870 - INFO - 在區域 台北 找到 42 家電影院
+2025-05-06 14:50:24,874 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a01/a02/
+2025-05-06 14:50:24,991 - INFO - 確認電影院名稱: 台北信義威秀
+2025-05-06 14:50:24,994 - INFO - 在 台北信義威秀 - 今天 找到 31 個場次
+2025-05-06 14:50:25,999 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a01/a02/20250507/
+2025-05-06 14:50:36,007 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02a01/a02/20250507/
+2025-05-06 14:50:36,008 - INFO - 等待 3 秒後重試...
+2025-05-06 14:50:39,009 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a01/a02/20250507/
+2025-05-06 14:50:46,423 - INFO - 確認電影院名稱: 台北信義威秀
+2025-05-06 14:50:46,426 - INFO - 在 台北信義威秀 - 明天 找到 77 個場次
+2025-05-06 14:50:47,431 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a01/a02/20250508/
+2025-05-06 14:50:56,422 - INFO - 確認電影院名稱: 台北信義威秀
+2025-05-06 14:50:56,425 - INFO - 在 台北信義威秀 - 後天 找到 77 個場次
+2025-05-06 14:50:57,430 - INFO - 完成電影院 台北信義威秀 的資料收集
+2025-05-06 14:50:57,430 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a07/a02/
+2025-05-06 14:51:00,662 - INFO - 確認電影院名稱: 新民生戲院
+2025-05-06 14:51:00,664 - INFO - 在 新民生戲院 - 今天 找到 13 個場次
+2025-05-06 14:51:01,668 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a07/a02/20250507/
+2025-05-06 14:51:04,511 - INFO - 確認電影院名稱: 新民生戲院
+2025-05-06 14:51:04,512 - INFO - 在 新民生戲院 - 明天 找到 13 個場次
+2025-05-06 14:51:05,516 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a07/a02/20250508/
+2025-05-06 14:51:06,249 - INFO - 確認電影院名稱: 新民生戲院
+2025-05-06 14:51:06,250 - INFO - 在 新民生戲院 - 後天 找到 13 個場次
+2025-05-06 14:51:07,256 - INFO - 完成電影院 新民生戲院 的資料收集
+2025-05-06 14:51:07,258 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-06 14:51:07,339 - INFO - 確認電影院名稱: 微風影城
+2025-05-06 14:51:07,340 - INFO - 在 微風影城 - 今天 找到 8 個場次
+2025-05-06 14:51:08,344 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a03/a02/20250507/
+2025-05-06 14:51:09,211 - INFO - 確認電影院名稱: 微風影城
+2025-05-06 14:51:09,212 - INFO - 在 微風影城 - 明天 找到 11 個場次
+2025-05-06 14:51:10,217 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a03/a02/20250508/
+2025-05-06 14:51:11,260 - INFO - 確認電影院名稱: 微風影城
+2025-05-06 14:51:11,261 - INFO - 在 微風影城 - 後天 找到 11 個場次
+2025-05-06 14:51:12,266 - INFO - 完成電影院 微風影城 的資料收集
+2025-05-06 14:51:12,266 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-06 14:51:12,345 - INFO - 確認電影院名稱: 誠品電影院
+2025-05-06 14:51:12,347 - INFO - 在 誠品電影院 - 今天 找到 15 個場次
+2025-05-06 14:51:13,353 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a08/a02/20250507/
+2025-05-06 14:51:14,951 - INFO - 確認電影院名稱: 誠品電影院
+2025-05-06 14:51:14,953 - INFO - 在 誠品電影院 - 明天 找到 14 個場次
+2025-05-06 14:51:15,956 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a08/a02/20250508/
+2025-05-06 14:51:18,738 - INFO - 確認電影院名稱: 誠品電影院
+2025-05-06 14:51:18,739 - INFO - 在 誠品電影院 - 後天 找到 14 個場次
+2025-05-06 14:51:19,742 - INFO - 完成電影院 誠品電影院 的資料收集
+2025-05-06 14:51:19,742 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-06 14:51:19,843 - INFO - 確認電影院名稱: 喜樂時代影城
+2025-05-06 14:51:19,848 - INFO - 在 喜樂時代影城 - 今天 找到 139 個場次
+2025-05-06 14:51:20,853 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a09/a02/20250507/
+2025-05-06 14:51:28,796 - INFO - 確認電影院名稱: 喜樂時代影城
+2025-05-06 14:51:28,801 - INFO - 在 喜樂時代影城 - 明天 找到 140 個場次
+2025-05-06 14:51:29,806 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a09/a02/20250508/
+2025-05-06 14:51:36,166 - INFO - 確認電影院名稱: 喜樂時代影城
+2025-05-06 14:51:36,170 - INFO - 在 喜樂時代影城 - 後天 找到 140 個場次
+2025-05-06 14:51:37,175 - INFO - 完成電影院 喜樂時代影城 的資料收集
+2025-05-06 14:51:37,176 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a11/a02/
+2025-05-06 14:51:40,373 - INFO - 確認電影院名稱: MUVIE CINEMAS台北松仁威秀
+2025-05-06 14:51:40,377 - INFO - 在 MUVIE CINEMAS台北松仁威秀 - 今天 找到 41 個場次
+2025-05-06 14:51:41,383 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a11/a02/20250507/
+2025-05-06 14:51:47,781 - INFO - 確認電影院名稱: MUVIE CINEMAS台北松仁威秀
+2025-05-06 14:51:47,783 - INFO - 在 MUVIE CINEMAS台北松仁威秀 - 明天 找到 33 個場次
+2025-05-06 14:51:48,788 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a11/a02/20250508/
+2025-05-06 14:51:58,797 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02a11/a02/20250508/
+2025-05-06 14:51:58,798 - INFO - 等待 3 秒後重試...
+2025-05-06 14:52:01,802 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a11/a02/20250508/
+2025-05-06 14:52:14,926 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02a11/a02/20250508/
+2025-05-06 14:52:14,927 - INFO - 等待 6 秒後重試...
+2025-05-06 14:52:20,932 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a11/a02/20250508/
+2025-05-06 14:52:31,008 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02a11/a02/20250508/
+2025-05-06 14:52:31,008 - ERROR - 已達最大重試次數，跳過 URL: https://www.atmovies.com.tw/showtime/t02a11/a02/20250508/
+2025-05-06 14:52:31,008 - ERROR - 無法獲取場次資訊: MUVIE CINEMAS台北松仁威秀 - 後天
+2025-05-06 14:52:32,013 - INFO - 完成電影院 MUVIE CINEMAS台北松仁威秀 的資料收集
+2025-05-06 14:52:32,013 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-06 14:52:32,174 - INFO - 確認電影院名稱: 總督影城
+2025-05-06 14:52:32,175 - INFO - 在 總督影城 - 今天 找到 8 個場次
+2025-05-06 14:52:33,180 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a05/a02/20250507/
+2025-05-06 14:52:33,369 - INFO - 確認電影院名稱: 總督影城
+2025-05-06 14:52:33,370 - INFO - 在 總督影城 - 明天 找到 0 個場次
+2025-05-06 14:52:34,373 - INFO - 由於 總督影城 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 14:52:34,373 - INFO - 完成電影院 總督影城 的資料收集
+2025-05-06 14:52:34,373 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-06 14:52:34,492 - INFO - 確認電影院名稱: 哈拉影城
+2025-05-06 14:52:34,494 - INFO - 在 哈拉影城 - 今天 找到 50 個場次
+2025-05-06 14:52:35,500 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a06/a02/20250507/
+2025-05-06 14:52:45,507 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02a06/a02/20250507/
+2025-05-06 14:52:45,508 - INFO - 等待 3 秒後重試...
+2025-05-06 14:52:48,513 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a06/a02/20250507/
+2025-05-06 14:52:57,883 - INFO - 確認電影院名稱: 哈拉影城
+2025-05-06 14:52:57,886 - INFO - 在 哈拉影城 - 明天 找到 51 個場次
+2025-05-06 14:52:58,891 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a06/a02/20250508/
+2025-05-06 14:53:06,771 - INFO - 確認電影院名稱: 哈拉影城
+2025-05-06 14:53:06,774 - INFO - 在 哈拉影城 - 後天 找到 51 個場次
+2025-05-06 14:53:07,779 - INFO - 完成電影院 哈拉影城 的資料收集
+2025-05-06 14:53:07,779 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b05/a02/
+2025-05-06 14:53:11,029 - INFO - 確認電影院名稱: 台北新光影城
+2025-05-06 14:53:11,030 - INFO - 在 台北新光影城 - 今天 找到 9 個場次
+2025-05-06 14:53:12,035 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b05/a02/20250507/
+2025-05-06 14:53:16,089 - INFO - 確認電影院名稱: 台北新光影城
+2025-05-06 14:53:16,090 - INFO - 在 台北新光影城 - 明天 找到 9 個場次
+2025-05-06 14:53:17,096 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b05/a02/20250508/
+2025-05-06 14:53:18,755 - INFO - 確認電影院名稱: 台北新光影城
+2025-05-06 14:53:18,756 - INFO - 在 台北新光影城 - 後天 找到 9 個場次
+2025-05-06 14:53:19,761 - INFO - 完成電影院 台北新光影城 的資料收集
+2025-05-06 14:53:19,761 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b03/a02/
+2025-05-06 14:53:19,848 - INFO - 確認電影院名稱: 樂聲影城
+2025-05-06 14:53:19,850 - INFO - 在 樂聲影城 - 今天 找到 45 個場次
+2025-05-06 14:53:20,855 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b03/a02/20250507/
+2025-05-06 14:53:30,863 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02b03/a02/20250507/
+2025-05-06 14:53:30,864 - INFO - 等待 3 秒後重試...
+2025-05-06 14:53:33,867 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b03/a02/20250507/
+2025-05-06 14:53:43,954 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02b03/a02/20250507/
+2025-05-06 14:53:43,955 - INFO - 等待 6 秒後重試...
+2025-05-06 14:53:49,960 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b03/a02/20250507/
+2025-05-06 14:54:02,344 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02b03/a02/20250507/
+2025-05-06 14:54:02,346 - ERROR - 已達最大重試次數，跳過 URL: https://www.atmovies.com.tw/showtime/t02b03/a02/20250507/
+2025-05-06 14:54:02,346 - ERROR - 無法獲取場次資訊: 樂聲影城 - 明天
+2025-05-06 14:54:03,347 - INFO - 由於 樂聲影城 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 14:54:03,347 - INFO - 完成電影院 樂聲影城 的資料收集
+2025-05-06 14:54:03,348 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b14/a02/
+2025-05-06 14:54:03,525 - INFO - 確認電影院名稱: 台北京站威秀
+2025-05-06 14:54:03,527 - INFO - 在 台北京站威秀 - 今天 找到 54 個場次
+2025-05-06 14:54:04,532 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b14/a02/20250507/
+2025-05-06 14:54:11,815 - INFO - 確認電影院名稱: 台北京站威秀
+2025-05-06 14:54:11,817 - INFO - 在 台北京站威秀 - 明天 找到 54 個場次
+2025-05-06 14:54:12,823 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b14/a02/20250508/
+2025-05-06 14:54:20,093 - INFO - 確認電影院名稱: 台北京站威秀
+2025-05-06 14:54:20,096 - INFO - 在 台北京站威秀 - 後天 找到 53 個場次
+2025-05-06 14:54:21,101 - INFO - 完成電影院 台北京站威秀 的資料收集
+2025-05-06 14:54:21,102 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b12/a02/
+2025-05-06 14:54:21,200 - INFO - 確認電影院名稱: in89豪華數位影城
+2025-05-06 14:54:21,203 - INFO - 在 in89豪華數位影城 - 今天 找到 55 個場次
+2025-05-06 14:54:22,208 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b12/a02/20250507/
+2025-05-06 14:54:26,650 - INFO - 確認電影院名稱: in89豪華數位影城
+2025-05-06 14:54:26,652 - INFO - 在 in89豪華數位影城 - 明天 找到 55 個場次
+2025-05-06 14:54:27,657 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b12/a02/20250508/
+2025-05-06 14:54:35,665 - INFO - 確認電影院名稱: in89豪華數位影城
+2025-05-06 14:54:35,668 - INFO - 在 in89豪華數位影城 - 後天 找到 55 個場次
+2025-05-06 14:54:36,670 - INFO - 完成電影院 in89豪華數位影城 的資料收集
+2025-05-06 14:54:36,672 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b07/a02/
+2025-05-06 14:54:36,789 - INFO - 確認電影院名稱: 真善美戲院
+2025-05-06 14:54:36,790 - INFO - 在 真善美戲院 - 今天 找到 13 個場次
+2025-05-06 14:54:37,791 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b07/a02/20250507/
+2025-05-06 14:54:42,009 - INFO - 確認電影院名稱: 真善美戲院
+2025-05-06 14:54:42,011 - INFO - 在 真善美戲院 - 明天 找到 14 個場次
+2025-05-06 14:54:43,016 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b07/a02/20250508/
+2025-05-06 14:54:47,842 - INFO - 確認電影院名稱: 真善美戲院
+2025-05-06 14:54:47,844 - INFO - 在 真善美戲院 - 後天 找到 13 個場次
+2025-05-06 14:54:48,849 - INFO - 完成電影院 真善美戲院 的資料收集
+2025-05-06 14:54:48,850 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b01/a02/
+2025-05-06 14:54:48,942 - INFO - 確認電影院名稱: 國賓戲院
+2025-05-06 14:54:48,943 - INFO - 在 國賓戲院 - 今天 找到 13 個場次
+2025-05-06 14:54:49,946 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b01/a02/20250507/
+2025-05-06 14:54:53,232 - INFO - 確認電影院名稱: 國賓戲院
+2025-05-06 14:54:53,233 - INFO - 在 國賓戲院 - 明天 找到 14 個場次
+2025-05-06 14:54:54,239 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b01/a02/20250508/
+2025-05-06 14:54:59,925 - INFO - 確認電影院名稱: 國賓戲院
+2025-05-06 14:54:59,926 - INFO - 在 國賓戲院 - 後天 找到 14 個場次
+2025-05-06 14:55:00,932 - INFO - 完成電影院 國賓戲院 的資料收集
+2025-05-06 14:55:00,932 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b06/a02/
+2025-05-06 14:55:01,047 - INFO - 確認電影院名稱: 喜樂時代影城西門今日店
+2025-05-06 14:55:01,050 - INFO - 在 喜樂時代影城西門今日店 - 今天 找到 55 個場次
+2025-05-06 14:55:02,055 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b06/a02/20250507/
+2025-05-06 14:55:08,191 - INFO - 確認電影院名稱: 喜樂時代影城西門今日店
+2025-05-06 14:55:08,194 - INFO - 在 喜樂時代影城西門今日店 - 明天 找到 52 個場次
+2025-05-06 14:55:09,199 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b06/a02/20250508/
+2025-05-06 14:55:14,366 - INFO - 確認電影院名稱: 喜樂時代影城西門今日店
+2025-05-06 14:55:14,368 - INFO - 在 喜樂時代影城西門今日店 - 後天 找到 54 個場次
+2025-05-06 14:55:15,374 - INFO - 完成電影院 喜樂時代影城西門今日店 的資料收集
+2025-05-06 14:55:15,375 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b08/a02/
+2025-05-06 14:55:15,471 - INFO - 確認電影院名稱: 台北西門威秀影城
+2025-05-06 14:55:15,473 - INFO - 在 台北西門威秀影城 - 今天 找到 53 個場次
+2025-05-06 14:55:16,478 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b08/a02/20250507/
+2025-05-06 14:55:24,504 - INFO - 確認電影院名稱: 台北西門威秀影城
+2025-05-06 14:55:24,507 - INFO - 在 台北西門威秀影城 - 明天 找到 53 個場次
+2025-05-06 14:55:25,513 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b08/a02/20250508/
+2025-05-06 14:55:28,425 - INFO - 確認電影院名稱: 台北西門威秀影城
+2025-05-06 14:55:28,427 - INFO - 在 台北西門威秀影城 - 後天 找到 52 個場次
+2025-05-06 14:55:29,433 - INFO - 完成電影院 台北西門威秀影城 的資料收集
+2025-05-06 14:55:29,433 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02b16/a02/
+2025-05-06 14:55:29,537 - INFO - 確認電影院名稱: 光點華山電影館
+2025-05-06 14:55:29,538 - INFO - 在 光點華山電影館 - 今天 找到 0 個場次
+2025-05-06 14:55:30,542 - INFO - 由於 光點華山電影館 在 今天 沒有場次資料，跳過 明天 的資料收集
+2025-05-06 14:55:30,542 - INFO - 由於 光點華山電影館 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 14:55:30,542 - INFO - 完成電影院 光點華山電影館 的資料收集
+2025-05-06 14:55:30,542 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02c01/a02/
+2025-05-06 14:55:30,659 - INFO - 確認電影院名稱: 百老匯影城公館店
+2025-05-06 14:55:30,661 - INFO - 在 百老匯影城公館店 - 今天 找到 61 個場次
+2025-05-06 14:55:31,666 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02c01/a02/20250507/
+2025-05-06 14:55:34,134 - INFO - 確認電影院名稱: 百老匯影城公館店
+2025-05-06 14:55:34,136 - INFO - 在 百老匯影城公館店 - 明天 找到 59 個場次
+2025-05-06 14:55:35,141 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02c01/a02/20250508/
+2025-05-06 14:55:37,922 - INFO - 確認電影院名稱: 百老匯影城公館店
+2025-05-06 14:55:37,924 - INFO - 在 百老匯影城公館店 - 後天 找到 61 個場次
+2025-05-06 14:55:38,925 - INFO - 完成電影院 百老匯影城公館店 的資料收集
+2025-05-06 14:55:38,926 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d05/a02/
+2025-05-06 14:55:39,055 - INFO - 確認電影院名稱: 美麗華大直
+2025-05-06 14:55:39,058 - INFO - 在 美麗華大直 - 今天 找到 62 個場次
+2025-05-06 14:55:40,063 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d05/a02/20250507/
+2025-05-06 14:55:44,711 - INFO - 確認電影院名稱: 美麗華大直
+2025-05-06 14:55:44,715 - INFO - 在 美麗華大直 - 明天 找到 62 個場次
+2025-05-06 14:55:45,716 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d05/a02/20250508/
+2025-05-06 14:55:55,732 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02d05/a02/20250508/
+2025-05-06 14:55:55,733 - INFO - 等待 3 秒後重試...
+2025-05-06 14:55:58,738 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d05/a02/20250508/
+2025-05-06 14:56:11,942 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02d05/a02/20250508/
+2025-05-06 14:56:11,944 - INFO - 等待 6 秒後重試...
+2025-05-06 14:56:17,949 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d05/a02/20250508/
+2025-05-06 14:56:28,029 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02d05/a02/20250508/
+2025-05-06 14:56:28,031 - ERROR - 已達最大重試次數，跳過 URL: https://www.atmovies.com.tw/showtime/t02d05/a02/20250508/
+2025-05-06 14:56:28,031 - ERROR - 無法獲取場次資訊: 美麗華大直 - 後天
+2025-05-06 14:56:29,032 - INFO - 完成電影院 美麗華大直 的資料收集
+2025-05-06 14:56:29,032 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d04/a02/
+2025-05-06 14:56:35,340 - INFO - 確認電影院名稱: 台北天母新光影城
+2025-05-06 14:56:35,343 - INFO - 在 台北天母新光影城 - 今天 找到 39 個場次
+2025-05-06 14:56:36,348 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d04/a02/20250507/
+2025-05-06 14:56:46,367 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02d04/a02/20250507/
+2025-05-06 14:56:46,368 - INFO - 等待 3 秒後重試...
+2025-05-06 14:56:49,370 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d04/a02/20250507/
+2025-05-06 14:56:59,442 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02d04/a02/20250507/
+2025-05-06 14:56:59,444 - INFO - 等待 6 秒後重試...
+2025-05-06 14:57:05,446 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d04/a02/20250507/
+2025-05-06 14:57:17,161 - INFO - 確認電影院名稱: 台北天母新光影城
+2025-05-06 14:57:17,164 - INFO - 在 台北天母新光影城 - 明天 找到 39 個場次
+2025-05-06 14:57:18,169 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d04/a02/20250508/
+2025-05-06 14:57:28,177 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02d04/a02/20250508/
+2025-05-06 14:57:28,178 - INFO - 等待 3 秒後重試...
+2025-05-06 14:57:31,183 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d04/a02/20250508/
+2025-05-06 14:57:43,895 - INFO - 確認電影院名稱: 台北天母新光影城
+2025-05-06 14:57:43,899 - INFO - 在 台北天母新光影城 - 後天 找到 39 個場次
+2025-05-06 14:57:44,904 - INFO - 完成電影院 台北天母新光影城 的資料收集
+2025-05-06 14:57:44,904 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d03/a02/
+2025-05-06 14:57:45,013 - INFO - 確認電影院名稱: 欣欣秀泰影城
+2025-05-06 14:57:45,019 - INFO - 在 欣欣秀泰影城 - 今天 找到 69 個場次
+2025-05-06 14:57:46,024 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d03/a02/20250507/
+2025-05-06 14:57:51,387 - INFO - 確認電影院名稱: 欣欣秀泰影城
+2025-05-06 14:57:51,392 - INFO - 在 欣欣秀泰影城 - 明天 找到 69 個場次
+2025-05-06 14:57:52,398 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d03/a02/20250508/
+2025-05-06 14:58:02,253 - INFO - 確認電影院名稱: 欣欣秀泰影城
+2025-05-06 14:58:02,260 - INFO - 在 欣欣秀泰影城 - 後天 找到 69 個場次
+2025-05-06 14:58:03,262 - INFO - 完成電影院 欣欣秀泰影城 的資料收集
+2025-05-06 14:58:03,262 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d02/a02/
+2025-05-06 14:58:03,391 - INFO - 確認電影院名稱: 國賓長春影城
+2025-05-06 14:58:03,397 - INFO - 在 國賓長春影城 - 今天 找到 82 個場次
+2025-05-06 14:58:04,398 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d02/a02/20250507/
+2025-05-06 14:58:14,409 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02d02/a02/20250507/
+2025-05-06 14:58:14,411 - INFO - 等待 3 秒後重試...
+2025-05-06 14:58:17,415 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d02/a02/20250507/
+2025-05-06 14:58:30,604 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02d02/a02/20250507/
+2025-05-06 14:58:30,605 - INFO - 等待 6 秒後重試...
+2025-05-06 14:58:36,608 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d02/a02/20250507/
+2025-05-06 14:58:45,232 - INFO - 確認電影院名稱: 國賓長春影城
+2025-05-06 14:58:45,236 - INFO - 在 國賓長春影城 - 明天 找到 82 個場次
+2025-05-06 14:58:46,241 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d02/a02/20250508/
+2025-05-06 14:58:51,986 - INFO - 確認電影院名稱: 國賓長春影城
+2025-05-06 14:58:51,990 - INFO - 在 國賓長春影城 - 後天 找到 82 個場次
+2025-05-06 14:58:52,993 - INFO - 完成電影院 國賓長春影城 的資料收集
+2025-05-06 14:58:52,993 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d06/a02/
+2025-05-06 14:58:53,077 - INFO - 確認電影院名稱: 美麗新大直皇家影城
+2025-05-06 14:58:53,078 - INFO - 在 美麗新大直皇家影城 - 今天 找到 35 個場次
+2025-05-06 14:58:54,084 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d06/a02/20250507/
+2025-05-06 14:58:55,906 - INFO - 確認電影院名稱: 美麗新大直皇家影城
+2025-05-06 14:58:55,908 - INFO - 在 美麗新大直皇家影城 - 明天 找到 35 個場次
+2025-05-06 14:58:56,911 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d06/a02/20250508/
+2025-05-06 14:58:57,999 - INFO - 確認電影院名稱: 美麗新大直皇家影城
+2025-05-06 14:58:58,001 - INFO - 在 美麗新大直皇家影城 - 後天 找到 35 個場次
+2025-05-06 14:58:59,006 - INFO - 完成電影院 美麗新大直皇家影城 的資料收集
+2025-05-06 14:58:59,006 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d20/a02/
+2025-05-06 14:58:59,124 - INFO - 確認電影院名稱: 光點台北電影院
+2025-05-06 14:58:59,125 - INFO - 在 光點台北電影院 - 今天 找到 6 個場次
+2025-05-06 14:59:00,129 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d20/a02/20250507/
+2025-05-06 14:59:01,047 - INFO - 確認電影院名稱: 光點台北電影院
+2025-05-06 14:59:01,048 - INFO - 在 光點台北電影院 - 明天 找到 6 個場次
+2025-05-06 14:59:02,053 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02d20/a02/20250508/
+2025-05-06 14:59:02,921 - INFO - 確認電影院名稱: 光點台北電影院
+2025-05-06 14:59:02,922 - INFO - 在 光點台北電影院 - 後天 找到 6 個場次
+2025-05-06 14:59:03,927 - INFO - 完成電影院 光點台北電影院 的資料收集
+2025-05-06 14:59:03,927 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e07/a02/
+2025-05-06 14:59:04,010 - INFO - 確認電影院名稱: 板橋大遠百威秀影城
+2025-05-06 14:59:04,012 - INFO - 在 板橋大遠百威秀影城 - 今天 找到 48 個場次
+2025-05-06 14:59:05,014 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e07/a02/20250507/
+2025-05-06 14:59:07,539 - INFO - 確認電影院名稱: 板橋大遠百威秀影城
+2025-05-06 14:59:07,542 - INFO - 在 板橋大遠百威秀影城 - 明天 找到 48 個場次
+2025-05-06 14:59:08,543 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e07/a02/20250508/
+2025-05-06 14:59:12,452 - INFO - 確認電影院名稱: 板橋大遠百威秀影城
+2025-05-06 14:59:12,454 - INFO - 在 板橋大遠百威秀影城 - 後天 找到 48 個場次
+2025-05-06 14:59:13,460 - INFO - 完成電影院 板橋大遠百威秀影城 的資料收集
+2025-05-06 14:59:13,461 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e12/a02/
+2025-05-06 14:59:13,571 - INFO - 確認電影院名稱: 林口三井OUTLET威秀影城
+2025-05-06 14:59:13,574 - INFO - 在 林口三井OUTLET威秀影城 - 今天 找到 45 個場次
+2025-05-06 14:59:14,579 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e12/a02/20250507/
+2025-05-06 14:59:19,418 - INFO - 確認電影院名稱: 林口三井OUTLET威秀影城
+2025-05-06 14:59:19,421 - INFO - 在 林口三井OUTLET威秀影城 - 明天 找到 45 個場次
+2025-05-06 14:59:20,427 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e12/a02/20250508/
+2025-05-06 14:59:23,103 - INFO - 確認電影院名稱: 林口三井OUTLET威秀影城
+2025-05-06 14:59:23,105 - INFO - 在 林口三井OUTLET威秀影城 - 後天 找到 45 個場次
+2025-05-06 14:59:24,110 - INFO - 完成電影院 林口三井OUTLET威秀影城 的資料收集
+2025-05-06 14:59:24,111 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e03/a02/
+2025-05-06 14:59:24,194 - INFO - 確認電影院名稱: 新莊鴻金寶麻吉影城
+2025-05-06 14:59:24,195 - INFO - 在 新莊鴻金寶麻吉影城 - 今天 找到 34 個場次
+2025-05-06 14:59:25,201 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e03/a02/20250507/
+2025-05-06 14:59:28,418 - INFO - 確認電影院名稱: 新莊鴻金寶麻吉影城
+2025-05-06 14:59:28,420 - INFO - 在 新莊鴻金寶麻吉影城 - 明天 找到 34 個場次
+2025-05-06 14:59:29,425 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e03/a02/20250508/
+2025-05-06 14:59:37,862 - INFO - 確認電影院名稱: 新莊鴻金寶麻吉影城
+2025-05-06 14:59:37,866 - INFO - 在 新莊鴻金寶麻吉影城 - 後天 找到 34 個場次
+2025-05-06 14:59:38,871 - INFO - 完成電影院 新莊鴻金寶麻吉影城 的資料收集
+2025-05-06 14:59:38,872 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e09/a02/
+2025-05-06 14:59:38,974 - INFO - 確認電影院名稱: 板橋秀泰影城
+2025-05-06 14:59:38,977 - INFO - 在 板橋秀泰影城 - 今天 找到 76 個場次
+2025-05-06 14:59:39,982 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e09/a02/20250507/
+2025-05-06 14:59:44,613 - INFO - 確認電影院名稱: 板橋秀泰影城
+2025-05-06 14:59:44,617 - INFO - 在 板橋秀泰影城 - 明天 找到 76 個場次
+2025-05-06 14:59:45,622 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e09/a02/20250508/
+2025-05-06 14:59:49,277 - INFO - 確認電影院名稱: 板橋秀泰影城
+2025-05-06 14:59:49,280 - INFO - 在 板橋秀泰影城 - 後天 找到 76 個場次
+2025-05-06 14:59:50,285 - INFO - 完成電影院 板橋秀泰影城 的資料收集
+2025-05-06 14:59:50,285 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e04/a02/
+2025-05-06 14:59:50,381 - INFO - 確認電影院名稱: 三重天台戲院
+2025-05-06 14:59:50,383 - INFO - 在 三重天台戲院 - 今天 找到 28 個場次
+2025-05-06 14:59:51,388 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e04/a02/20250507/
+2025-05-06 14:59:51,498 - INFO - 確認電影院名稱: 三重天台戲院
+2025-05-06 14:59:51,499 - INFO - 在 三重天台戲院 - 明天 找到 0 個場次
+2025-05-06 14:59:52,504 - INFO - 由於 三重天台戲院 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 14:59:52,505 - INFO - 完成電影院 三重天台戲院 的資料收集
+2025-05-06 14:59:52,505 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e10/a02/
+2025-05-06 14:59:53,269 - INFO - 確認電影院名稱: 國賓林口昕境廣場
+2025-05-06 14:59:53,271 - INFO - 在 國賓林口昕境廣場 - 今天 找到 38 個場次
+2025-05-06 14:59:54,274 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e10/a02/20250507/
+2025-05-06 14:59:59,872 - INFO - 確認電影院名稱: 國賓林口昕境廣場
+2025-05-06 14:59:59,875 - INFO - 在 國賓林口昕境廣場 - 明天 找到 38 個場次
+2025-05-06 15:00:00,879 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e10/a02/20250508/
+2025-05-06 15:00:08,987 - INFO - 確認電影院名稱: 國賓林口昕境廣場
+2025-05-06 15:00:08,989 - INFO - 在 國賓林口昕境廣場 - 後天 找到 38 個場次
+2025-05-06 15:00:09,994 - INFO - 完成電影院 國賓林口昕境廣場 的資料收集
+2025-05-06 15:00:09,995 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e11/a02/
+2025-05-06 15:00:10,116 - INFO - 確認電影院名稱: 國賓新莊晶冠廣場影城
+2025-05-06 15:00:10,118 - INFO - 在 國賓新莊晶冠廣場影城 - 今天 找到 70 個場次
+2025-05-06 15:00:11,123 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e11/a02/20250507/
+2025-05-06 15:00:16,047 - INFO - 確認電影院名稱: 國賓新莊晶冠廣場影城
+2025-05-06 15:00:16,050 - INFO - 在 國賓新莊晶冠廣場影城 - 明天 找到 70 個場次
+2025-05-06 15:00:17,055 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e11/a02/20250508/
+2025-05-06 15:00:21,781 - INFO - 確認電影院名稱: 國賓新莊晶冠廣場影城
+2025-05-06 15:00:21,785 - INFO - 在 國賓新莊晶冠廣場影城 - 後天 找到 70 個場次
+2025-05-06 15:00:22,790 - INFO - 完成電影院 國賓新莊晶冠廣場影城 的資料收集
+2025-05-06 15:00:22,790 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e13/a02/
+2025-05-06 15:00:22,895 - INFO - 確認電影院名稱: 樹林秀泰影城
+2025-05-06 15:00:22,897 - INFO - 在 樹林秀泰影城 - 今天 找到 58 個場次
+2025-05-06 15:00:23,898 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e13/a02/20250507/
+2025-05-06 15:00:28,739 - INFO - 確認電影院名稱: 樹林秀泰影城
+2025-05-06 15:00:28,742 - INFO - 在 樹林秀泰影城 - 明天 找到 58 個場次
+2025-05-06 15:00:29,747 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e13/a02/20250508/
+2025-05-06 15:00:34,499 - INFO - 確認電影院名稱: 樹林秀泰影城
+2025-05-06 15:00:34,501 - INFO - 在 樹林秀泰影城 - 後天 找到 58 個場次
+2025-05-06 15:00:35,507 - INFO - 完成電影院 樹林秀泰影城 的資料收集
+2025-05-06 15:00:35,507 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e15/a02/
+2025-05-06 15:00:35,586 - INFO - 確認電影院名稱: 土城秀泰影城
+2025-05-06 15:00:35,588 - INFO - 在 土城秀泰影城 - 今天 找到 39 個場次
+2025-05-06 15:00:36,593 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e15/a02/20250507/
+2025-05-06 15:00:44,114 - INFO - 確認電影院名稱: 土城秀泰影城
+2025-05-06 15:00:44,117 - INFO - 在 土城秀泰影城 - 明天 找到 39 個場次
+2025-05-06 15:00:45,122 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e15/a02/20250508/
+2025-05-06 15:00:49,280 - INFO - 確認電影院名稱: 土城秀泰影城
+2025-05-06 15:00:49,282 - INFO - 在 土城秀泰影城 - 後天 找到 39 個場次
+2025-05-06 15:00:50,286 - INFO - 完成電影院 土城秀泰影城 的資料收集
+2025-05-06 15:00:50,286 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e18/a02/
+2025-05-06 15:00:50,370 - INFO - 確認電影院名稱: 國賓影城淡水禮萊廣場
+2025-05-06 15:00:50,372 - INFO - 在 國賓影城淡水禮萊廣場 - 今天 找到 38 個場次
+2025-05-06 15:00:51,377 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e18/a02/20250507/
+2025-05-06 15:01:01,383 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e18/a02/20250507/
+2025-05-06 15:01:01,383 - INFO - 等待 3 秒後重試...
+2025-05-06 15:01:04,389 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e18/a02/20250507/
+2025-05-06 15:01:13,091 - INFO - 確認電影院名稱: 國賓影城淡水禮萊廣場
+2025-05-06 15:01:13,094 - INFO - 在 國賓影城淡水禮萊廣場 - 明天 找到 38 個場次
+2025-05-06 15:01:14,099 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e18/a02/20250508/
+2025-05-06 15:01:20,250 - INFO - 確認電影院名稱: 國賓影城淡水禮萊廣場
+2025-05-06 15:01:20,253 - INFO - 在 國賓影城淡水禮萊廣場 - 後天 找到 38 個場次
+2025-05-06 15:01:21,254 - INFO - 完成電影院 國賓影城淡水禮萊廣場 的資料收集
+2025-05-06 15:01:21,254 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e17/a02/
+2025-05-06 15:01:21,376 - INFO - 確認電影院名稱: 永和喜樂時代影城
+2025-05-06 15:01:21,379 - INFO - 在 永和喜樂時代影城 - 今天 找到 77 個場次
+2025-05-06 15:01:22,384 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e17/a02/20250507/
+2025-05-06 15:01:32,391 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e17/a02/20250507/
+2025-05-06 15:01:32,392 - INFO - 等待 3 秒後重試...
+2025-05-06 15:01:35,394 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e17/a02/20250507/
+2025-05-06 15:01:45,455 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e17/a02/20250507/
+2025-05-06 15:01:45,456 - INFO - 等待 6 秒後重試...
+2025-05-06 15:01:51,458 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e17/a02/20250507/
+2025-05-06 15:02:01,512 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e17/a02/20250507/
+2025-05-06 15:02:01,514 - ERROR - 已達最大重試次數，跳過 URL: https://www.atmovies.com.tw/showtime/t02e17/a02/20250507/
+2025-05-06 15:02:01,514 - ERROR - 無法獲取場次資訊: 永和喜樂時代影城 - 明天
+2025-05-06 15:02:02,517 - INFO - 由於 永和喜樂時代影城 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 15:02:02,517 - INFO - 完成電影院 永和喜樂時代影城 的資料收集
+2025-05-06 15:02:02,517 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e19/a02/
+2025-05-06 15:02:08,969 - INFO - 確認電影院名稱: 美麗新宏匯影城
+2025-05-06 15:02:08,972 - INFO - 在 美麗新宏匯影城 - 今天 找到 54 個場次
+2025-05-06 15:02:09,975 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e19/a02/20250507/
+2025-05-06 15:02:19,983 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e19/a02/20250507/
+2025-05-06 15:02:19,984 - INFO - 等待 3 秒後重試...
+2025-05-06 15:02:22,989 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e19/a02/20250507/
+2025-05-06 15:02:33,057 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e19/a02/20250507/
+2025-05-06 15:02:33,057 - INFO - 等待 6 秒後重試...
+2025-05-06 15:02:39,063 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e19/a02/20250507/
+2025-05-06 15:02:49,118 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e19/a02/20250507/
+2025-05-06 15:02:49,120 - ERROR - 已達最大重試次數，跳過 URL: https://www.atmovies.com.tw/showtime/t02e19/a02/20250507/
+2025-05-06 15:02:49,120 - ERROR - 無法獲取場次資訊: 美麗新宏匯影城 - 明天
+2025-05-06 15:02:50,125 - INFO - 由於 美麗新宏匯影城 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 15:02:50,125 - INFO - 完成電影院 美麗新宏匯影城 的資料收集
+2025-05-06 15:02:50,126 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e20/a02/
+2025-05-06 15:03:00,199 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e20/a02/
+2025-05-06 15:03:00,200 - INFO - 等待 3 秒後重試...
+2025-05-06 15:03:03,201 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e20/a02/
+2025-05-06 15:03:13,256 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e20/a02/
+2025-05-06 15:03:13,258 - INFO - 等待 6 秒後重試...
+2025-05-06 15:03:19,263 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e20/a02/
+2025-05-06 15:03:29,643 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e20/a02/
+2025-05-06 15:03:29,644 - ERROR - 已達最大重試次數，跳過 URL: https://www.atmovies.com.tw/showtime/t02e20/a02/
+2025-05-06 15:03:29,644 - ERROR - 無法獲取場次資訊: 中和環球威秀影城 - 今天
+2025-05-06 15:03:30,646 - INFO - 由於 中和環球威秀影城 在 今天 沒有場次資料，跳過 明天 的資料收集
+2025-05-06 15:03:30,646 - INFO - 由於 中和環球威秀影城 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 15:03:30,646 - INFO - 完成電影院 中和環球威秀影城 的資料收集
+2025-05-06 15:03:30,646 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e21/a02/
+2025-05-06 15:03:35,097 - INFO - 確認電影院名稱: 新店裕隆城威秀影城
+2025-05-06 15:03:35,100 - INFO - 在 新店裕隆城威秀影城 - 今天 找到 71 個場次
+2025-05-06 15:03:36,104 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e21/a02/20250507/
+2025-05-06 15:03:46,120 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e21/a02/20250507/
+2025-05-06 15:03:46,121 - INFO - 等待 3 秒後重試...
+2025-05-06 15:03:49,122 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e21/a02/20250507/
+2025-05-06 15:03:59,186 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e21/a02/20250507/
+2025-05-06 15:03:59,186 - INFO - 等待 6 秒後重試...
+2025-05-06 15:04:05,191 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e21/a02/20250507/
+2025-05-06 15:04:15,256 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e21/a02/20250507/
+2025-05-06 15:04:15,257 - ERROR - 已達最大重試次數，跳過 URL: https://www.atmovies.com.tw/showtime/t02e21/a02/20250507/
+2025-05-06 15:04:15,257 - ERROR - 無法獲取場次資訊: 新店裕隆城威秀影城 - 明天
+2025-05-06 15:04:16,263 - INFO - 由於 新店裕隆城威秀影城 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 15:04:16,263 - INFO - 完成電影院 新店裕隆城威秀影城 的資料收集
+2025-05-06 15:04:16,263 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e08/a02/
+2025-05-06 15:04:26,329 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e08/a02/
+2025-05-06 15:04:26,330 - INFO - 等待 3 秒後重試...
+2025-05-06 15:04:29,331 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e08/a02/
+2025-05-06 15:04:44,398 - ERROR - 請求錯誤: HTTPSConnectionPool(host='www.atmovies.com.tw', port=443): Read timed out. (read timeout=10) - https://www.atmovies.com.tw/showtime/t02e08/a02/
+2025-05-06 15:04:44,400 - INFO - 等待 6 秒後重試...
+2025-05-06 15:04:50,403 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e08/a02/
+2025-05-06 15:05:00,465 - INFO - 確認電影院名稱: 府中15
+2025-05-06 15:05:00,466 - INFO - 在 府中15 - 今天 找到 0 個場次
+2025-05-06 15:05:01,471 - INFO - 由於 府中15 在 今天 沒有場次資料，跳過 明天 的資料收集
+2025-05-06 15:05:01,472 - INFO - 由於 府中15 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 15:05:01,472 - INFO - 完成電影院 府中15 的資料收集
+2025-05-06 15:05:01,472 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02e22/a02/
+2025-05-06 15:05:03,466 - INFO - 確認電影院名稱: 國家電影及視聽文化中心
+2025-05-06 15:05:03,467 - INFO - 在 國家電影及視聽文化中心 - 今天 找到 0 個場次
+2025-05-06 15:05:04,472 - INFO - 由於 國家電影及視聽文化中心 在 今天 沒有場次資料，跳過 明天 的資料收集
+2025-05-06 15:05:04,472 - INFO - 由於 國家電影及視聽文化中心 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 15:05:04,473 - INFO - 完成電影院 國家電影及視聽文化中心 的資料收集
+2025-05-06 15:05:04,473 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02f05/a02/
+2025-05-06 15:05:06,657 - INFO - 確認電影院名稱: 景美佳佳戲院
+2025-05-06 15:05:06,659 - INFO - 在 景美佳佳戲院 - 今天 找到 15 個場次
+2025-05-06 15:05:07,659 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02f05/a02/20250507/
+2025-05-06 15:05:08,446 - INFO - 確認電影院名稱: 景美佳佳戲院
+2025-05-06 15:05:08,447 - INFO - 在 景美佳佳戲院 - 明天 找到 0 個場次
+2025-05-06 15:05:09,449 - INFO - 由於 景美佳佳戲院 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 15:05:09,449 - INFO - 完成電影院 景美佳佳戲院 的資料收集
+2025-05-06 15:05:09,449 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a12/a02/
+2025-05-06 15:05:09,606 - INFO - 確認電影院名稱: 台北南港LaLaport威秀影城
+2025-05-06 15:05:09,607 - INFO - 在 台北南港LaLaport威秀影城 - 今天 找到 0 個場次
+2025-05-06 15:05:10,612 - INFO - 由於 台北南港LaLaport威秀影城 在 今天 沒有場次資料，跳過 明天 的資料收集
+2025-05-06 15:05:10,613 - INFO - 由於 台北南港LaLaport威秀影城 在 明天 沒有場次資料，跳過 後天 的資料收集
+2025-05-06 15:05:10,613 - INFO - 完成電影院 台北南港LaLaport威秀影城 的資料收集
+2025-05-06 15:05:10,642 - INFO - 已將資料保存至 output/atmovies_showtimes.json
+2025-05-06 15:05:10,648 - INFO - 已將資料保存至 output/atmovies_showtimes.csv
+2025-05-06 15:05:10,648 - INFO - 爬蟲完成! 總耗時: 886.94 秒
+2025-05-06 15:05:10,648 - INFO - 結果已保存至: output/atmovies_showtimes.json, output/atmovies_showtimes.csv
+
+[2025-05-06T07:05:10.690Z] ATMovies 場次爬蟲成功: 
+[2025-05-06T07:05:10.690Z] 開始票房排行榜爬蟲...
+[2025-05-06T07:05:10.768Z] 票房排行榜爬蟲失敗: Command failed: node /Users/jonaswhite/CascadeProjects/movie-time/backend/scripts/download-boxoffice-no-duplicates.js
+node:internal/modules/cjs/loader:1404
+  throw err;
+  ^
+
+Error: Cannot find module '/Users/jonaswhite/CascadeProjects/movie-time/backend/scripts/download-boxoffice-no-duplicates.js'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1401:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)
+    at Function._load (node:internal/modules/cjs/loader:1211:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.15.0
+
+[2025-05-06T07:05:10.768Z] 開始場次資料匯入資料庫...
+[2025-05-06T07:05:11.305Z] 場次資料匯入資料庫成功: 連線成功，開始匯入場次資料...
+找到 219 個電影院名稱對應
+找不到電影院對應: 喜樂時代影城
+找不到電影院對應: MUVIE CINEMAS台北松仁威秀
+找不到電影院對應: 台北新光影城
+找不到電影院對應: in89豪華數位影城
+找不到電影院對應: 真善美戲院
+找不到電影院對應: 國賓戲院
+找不到電影院對應: 喜樂時代影城西門今日店
+找不到電影院對應: 百老匯影城公館店
+找不到電影院對應: ...
+[2025-05-06T07:05:11.305Z] 由於爬蟲失敗，跳過票房資料匯入
+[2025-05-06T07:05:11.305Z] 資料庫更新流程完成
+[2025-05-06T07:36:40.184Z] 開始資料庫更新流程
+[2025-05-06T07:36:40.197Z] 開始ATMovies 場次爬蟲...

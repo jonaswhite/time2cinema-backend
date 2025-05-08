@@ -1,0 +1,95 @@
+{
+  "adult": false,
+  "backdrop_path": "/9ogScSDdzU98lLkbLSdtKbJLrEy.jpg",
+  "genre_ids": [
+    16,
+    28,
+    12,
+    18,
+    35
+  ],
+  "id": 1279788,
+  "original_language": "ja",
+  "original_title": "劇場版 忍たま乱太郎 ドクタケ忍者隊最強の軍師",
+  "overview": "土井老師接受與黃昏時城忍者諸泉尊奈門的決鬥後下落不明，聽聞此事的山田老師和六年級生們隨即展開搜尋。然而，因土井老師的缺席，一年葉組竟找來黃昏時城忍者隊首領─雜渡昆奈門和諸泉尊奈門來擔任代課老師！讓這群忍蛋們狀況百出。在一片混亂的局勢中，霧丸無意間發現土井老師的所在線索。同一時間，在六年級生的搜尋行動時，黃昏時城忍者隊中的冷酷軍師─天鬼突如其來現身，令人震驚的是，天鬼的長相竟與土井老師如出一轍！強敵在前，忍蛋們必須展現強大的「羈絆」，才能克服這場前所未有的考驗。亂太郎、霧丸和新兵衛能否成功救回土井老師？",
+  "popularity": 3.4206,
+  "poster_path": "/A5qQXbNf7UMKxX01pL9Y8YuXpGo.jpg",
+  "release_date": "2024-12-20",
+  "title": "劇場版 忍者亂太郎 毒竹忍者隊最強之軍師",
+  "video": false,
+  "vote_average": 6,
+  "vote_count": 1,
+  "belongs_to_collection": {
+    "id": 1279792,
+    "name": "劇場版 忍たま乱太郎",
+    "poster_path": "/hub4QkiBKuLP0YgLwL3EJhp53ly.jpg",
+    "backdrop_path": "/4HHC2cct0xJ0UQgwyI7V8I0GxBR.jpg"
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 12,
+      "name": "冒险"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt33615466",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 43368,
+      "logo_path": "/cDPK8iNO14z2oxbl57Dcd8m23RZ.png",
+      "name": "Ajiado",
+      "origin_country": "JP"
+    },
+    {
+      "id": 192,
+      "logo_path": "/93eAKlnQecDdMtucfOprzcjMw9V.png",
+      "name": "Shochiku",
+      "origin_country": "JP"
+    },
+    {
+      "id": 104392,
+      "logo_path": null,
+      "name": "Audio Planning U",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 90,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/A5qQXbNf7UMKxX01pL9Y8YuXpGo.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/9ogScSDdzU98lLkbLSdtKbJLrEy.jpg"
+}

@@ -1,0 +1,80 @@
+{
+  "adult": false,
+  "backdrop_path": "/jPfEC0GqH3ehBzzPhuDYUo2cz02.jpg",
+  "genre_ids": [
+    10402,
+    99
+  ],
+  "id": 1443823,
+  "original_language": "ko",
+  "original_title": "세븐틴 [라잇 히어] 월드 투어 인 시네마",
+  "overview": "",
+  "popularity": 0.9939,
+  "poster_path": "/4VuIdZxvnXaWLzKqgO7C34UGo91.jpg",
+  "release_date": "2025-04-02",
+  "title": "세븐틴 [라잇 히어] 월드 투어 인 시네마",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 10402,
+      "name": "音乐"
+    },
+    {
+      "id": 99,
+      "name": "纪录"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt36049393",
+  "origin_country": [
+    "KR"
+  ],
+  "production_companies": [
+    {
+      "id": 147778,
+      "logo_path": "/bcN2GlMY5Jk2fRpMNdjunHGyWDG.png",
+      "name": "CJ 4DFLEX",
+      "origin_country": "KR"
+    },
+    {
+      "id": 210725,
+      "logo_path": "/q7oDDx9OvPtxmjAxc9uQTYHCO67.png",
+      "name": "ScreenX Studio",
+      "origin_country": "KR"
+    },
+    {
+      "id": 170163,
+      "logo_path": "/n6MAcCk8qpmze5bxCrAvQv0wXRJ.png",
+      "name": "HYBE",
+      "origin_country": "KR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 132,
+  "spoken_languages": [
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/zN70EbcgcYO8hC7BCs7ZHnSRRKa.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/jPfEC0GqH3ehBzzPhuDYUo2cz02.jpg"
+}

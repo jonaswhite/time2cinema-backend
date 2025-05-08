@@ -1,0 +1,101 @@
+{
+  "adult": false,
+  "backdrop_path": "/ceo3DkR2z8wSrbFVKIVnZLlyN3u.jpg",
+  "genre_ids": [
+    28,
+    80,
+    53
+  ],
+  "id": 604685,
+  "original_language": "en",
+  "original_title": "Den of Thieves 2: Pantera",
+  "overview": "犯下劫鈔案而展開逃亡的主謀唐尼，來到歐洲的他，與惡名昭彰的黑幫「黑豹」勾搭上，以全球最大鑽石交易所為目標，策劃一場驚心動魄的搶劫案。另一方面，未能成功攔截唐尼的警探尼克陷入人生低潮。一心想要復仇的他，也來到歐洲找上唐尼，向他表示自己已無任何東西可以失去，決定與他聯手這樁史上最大鑽石搶案。",
+  "popularity": 19.0686,
+  "poster_path": "/6l5fR5alRSWcWtOTSvNo4G6zXy7.jpg",
+  "release_date": "2025-01-08",
+  "title": "鑽石大劫案：極盜戰",
+  "video": false,
+  "vote_average": 6.8,
+  "vote_count": 455,
+  "belongs_to_collection": {
+    "id": 933989,
+    "name": "極盜戰（系列）",
+    "poster_path": "/7EYwFHpzDoIuY8Dsd1k9RUyi3hA.jpg",
+    "backdrop_path": "/oCjCDF4LoBK0YtFhBEPpjE8FdcT.jpg"
+  },
+  "budget": 40000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 80,
+      "name": "犯罪"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt8008948",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 103330,
+      "logo_path": null,
+      "name": "Diamond Film Productions",
+      "origin_country": "US"
+    },
+    {
+      "id": 103331,
+      "logo_path": "/nxkmGpo1Ym74DkBzNtoMz5cl6DJ.png",
+      "name": "G-BASE",
+      "origin_country": "US"
+    },
+    {
+      "id": 100033,
+      "logo_path": "/74LDJbOFdya1ijNT11uh0mM5eg0.png",
+      "name": "Tucker Tooley Entertainment",
+      "origin_country": "US"
+    },
+    {
+      "id": 1632,
+      "logo_path": "/cisLn1YAUuptXVBa0xjq7ST9cH0.png",
+      "name": "Lionsgate",
+      "origin_country": "US"
+    },
+    {
+      "id": 69850,
+      "logo_path": "/jmrRZgqHnYmJC4uePQI2sLijpSk.png",
+      "name": "Entertainment One Features",
+      "origin_country": "CA"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "CA",
+      "name": "Canada"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 54586117,
+  "runtime": 144,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "要搶，就搶最大的！",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/6l5fR5alRSWcWtOTSvNo4G6zXy7.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/ceo3DkR2z8wSrbFVKIVnZLlyN3u.jpg"
+}

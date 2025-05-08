@@ -1,0 +1,135 @@
+{
+  "adult": false,
+  "backdrop_path": "/hmZnqijPaaACjenDkrbWcCmcADI.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 549509,
+  "original_language": "en",
+  "original_title": "The Brutalist",
+  "overview": "匈牙利裔猶太建築師拉斯洛托特在納粹大屠殺中倖存下來，移民到美國展開新生活，同時等待妻子艾莉莎貝的到來。拉斯洛來到西方後，發現美國與他想像的截然不同，美國夢只是一場虛幻...",
+  "popularity": 16.6423,
+  "poster_path": "/eWqcmFJMt3ib7AMOHl1PQQUjrVG.jpg",
+  "release_date": "2024-12-20",
+  "title": "粗獷派建築師",
+  "video": false,
+  "vote_average": 7.052,
+  "vote_count": 1025,
+  "belongs_to_collection": null,
+  "budget": 9600000,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt8999762",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 237811,
+      "logo_path": "/9lTZCHoAiGnY5oPJVQHU9ilHr0G.png",
+      "name": "Brookstreet Pictures",
+      "origin_country": "GB"
+    },
+    {
+      "id": 236171,
+      "logo_path": null,
+      "name": "Kaplan Morrison",
+      "origin_country": "US"
+    },
+    {
+      "id": 153971,
+      "logo_path": "/fKr7g5Q4NFl94TOijKgzmhtb9eu.png",
+      "name": "Intake Films",
+      "origin_country": "GB"
+    },
+    {
+      "id": 19194,
+      "logo_path": "/pi73D7m6qBeQ6TtXi5bv5QeEwNK.png",
+      "name": "Andrew Lauren Productions",
+      "origin_country": "US"
+    },
+    {
+      "id": 9987,
+      "logo_path": "/o5OTKAw7Acl5fTZYPyl8M8D9570.png",
+      "name": "Lipsync Productions",
+      "origin_country": "GB"
+    },
+    {
+      "id": 215964,
+      "logo_path": "/hgueKTQkSwc6r7rNfMaC155E1bl.png",
+      "name": "Richmond Pictures",
+      "origin_country": "GB"
+    },
+    {
+      "id": 236172,
+      "logo_path": null,
+      "name": "Meyohas Studio",
+      "origin_country": "US"
+    },
+    {
+      "id": 171436,
+      "logo_path": "/2PCuIrmhOMX9eGpxs8PQWjxfU3s.png",
+      "name": "Carte Blanche",
+      "origin_country": "US"
+    },
+    {
+      "id": 242541,
+      "logo_path": "/1jtSImaZfXUYoqKlyQoYIwwvfx2.png",
+      "name": "Pierce Capital Entertainment",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 50145227,
+  "runtime": 215,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Italian",
+      "iso_639_1": "it",
+      "name": "Italiano"
+    },
+    {
+      "english_name": "Russian",
+      "iso_639_1": "ru",
+      "name": "Pусский"
+    },
+    {
+      "english_name": "Hebrew",
+      "iso_639_1": "he",
+      "name": "עִבְרִית"
+    },
+    {
+      "english_name": "Hungarian",
+      "iso_639_1": "hu",
+      "name": "Magyar"
+    },
+    {
+      "english_name": "Yiddish",
+      "iso_639_1": "yi",
+      "name": ""
+    }
+  ],
+  "status": "Released",
+  "tagline": "劃時代炬作",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/eWqcmFJMt3ib7AMOHl1PQQUjrVG.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/hmZnqijPaaACjenDkrbWcCmcADI.jpg"
+}

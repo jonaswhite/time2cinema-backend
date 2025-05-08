@@ -1,0 +1,58 @@
+{
+  "adult": false,
+  "backdrop_path": "/oljS0LzemMxyEPyqLxEqkGu9XTU.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 1239041,
+  "original_language": "cn",
+  "original_title": "看我今天怎麼說",
+  "overview": "到底怎麼樣才是「正常人」？素恩和Alan戴上人工耳蝸，成為宣傳大使，苦練口語，融入聽人社會；但Alan的童年摯友子信卻始終以打手語為傲，樂觀沉浸在無聲世界，為人賣力洗車，夢想成為潛水教練。素恩與子信初為冤家，卻漸被彼此影響而敞開新世界的大門。然而現實的枷鎖，也考驗著三人的情誼。《狂舞派》導演黃修平新作，以輕盈節拍，捕捉聾人青年生機蓬勃的青春，拍出手語的動人生命力。",
+  "popularity": 0.6934,
+  "poster_path": "/rCStzXR7CYqCf0rqAuLkIxW9k75.jpg",
+  "release_date": "2025-01-18",
+  "title": "看我今天怎麼說",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt31660693",
+  "origin_country": [
+    "HK"
+  ],
+  "production_companies": [
+    {
+      "id": 69437,
+      "logo_path": null,
+      "name": "One Cool Pictures",
+      "origin_country": "HK"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "HK",
+      "name": "Hong Kong"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 132,
+  "spoken_languages": [
+    {
+      "english_name": "Cantonese",
+      "iso_639_1": "cn",
+      "name": "广州话 / 廣州話"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/z2MG8zc2wyHSkiILUjYCMNvmoY1.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/oljS0LzemMxyEPyqLxEqkGu9XTU.jpg"
+}

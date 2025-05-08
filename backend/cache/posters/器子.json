@@ -1,0 +1,61 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    28,
+    18,
+    80
+  ],
+  "id": 1005985,
+  "original_language": "zh",
+  "original_title": "器子",
+  "overview": "女兒在三個月大時失蹤，疑似被販嬰集團偷走，妻子過度自責後自戕，他為追查真相反被誣陷入獄，出獄後查出女兒是落入活摘器官集團，成為被取走心臟的「器子」。他悲憤難當，對犯罪集團連翻展開以暴制暴的復仇行動，全力營救作為「器子」的女兒。",
+  "popularity": 0.2582,
+  "poster_path": "/1S1vakUhL2hDEDQVhL2kmZGKztJ.jpg",
+  "release_date": "2025-04-11",
+  "title": "器子",
+  "video": false,
+  "vote_average": 5.25,
+  "vote_count": 2,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 80,
+      "name": "犯罪"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt36593616",
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 109,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/1S1vakUhL2hDEDQVhL2kmZGKztJ.jpg",
+  "fullBackdropPath": null
+}

@@ -1,0 +1,112 @@
+{
+  "adult": false,
+  "backdrop_path": "/sc1abgWNXc29wSBaerrjGBih06l.jpg",
+  "genre_ids": [
+    27,
+    878,
+    53
+  ],
+  "id": 1084199,
+  "original_language": "en",
+  "original_title": "Companion",
+  "overview": "宅男魯蛇喬許與超正女神艾莉絲在超市意外相遇，兩人一見鍾情，當場陷入愛河，更成為眾人眼中的完美伴侶，不料在一場與朋友狂歡的聚會上，竟意外揭露這段看似完美的感情背後，所藏著駭人真相。",
+  "popularity": 37.8046,
+  "poster_path": "/gDr3gQme9seqs9inYpewleZXe3A.jpg",
+  "release_date": "2025-01-22",
+  "title": "完美伴侶",
+  "video": false,
+  "vote_average": 7.076,
+  "vote_count": 1230,
+  "belongs_to_collection": null,
+  "budget": 10000000,
+  "genres": [
+    {
+      "id": 27,
+      "name": "恐怖"
+    },
+    {
+      "id": 878,
+      "name": "科幻"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt26584495",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 18609,
+      "logo_path": "/cYhbt3q231mWEkiMn3WPLCcXXl9.png",
+      "name": "BoulderLight Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 12,
+      "logo_path": "/2ycs64eqV5rqKYHyQK0GVoKGvfX.png",
+      "name": "New Line Cinema",
+      "origin_country": "US"
+    },
+    {
+      "id": 829,
+      "logo_path": "/aXqwCvJSCDbTclkxAYfsT1l4Dsa.png",
+      "name": "Vertigo Entertainment",
+      "origin_country": "US"
+    },
+    {
+      "id": 240675,
+      "logo_path": null,
+      "name": "Subconscious",
+      "origin_country": "US"
+    },
+    {
+      "id": 216687,
+      "logo_path": "/kKVYqekveOvLK1IgqdJojLjQvtu.png",
+      "name": "Domain Entertainment",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 36709101,
+  "runtime": 97,
+  "spoken_languages": [
+    {
+      "english_name": "German",
+      "iso_639_1": "de",
+      "name": "Deutsch"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    },
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    },
+    {
+      "english_name": "Russian",
+      "iso_639_1": "ru",
+      "name": "Pусский"
+    }
+  ],
+  "status": "Released",
+  "tagline": "為你而生，愛你到死",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/gDr3gQme9seqs9inYpewleZXe3A.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/sc1abgWNXc29wSBaerrjGBih06l.jpg"
+}

@@ -1,0 +1,69 @@
+{
+  "adult": false,
+  "backdrop_path": "/cK1iDGZoLClngQwJULXDJhewK7Y.jpg",
+  "genre_ids": [
+    18,
+    35
+  ],
+  "id": 900235,
+  "original_language": "de",
+  "original_title": "Andrea lässt sich scheiden",
+  "overview": "女警安卓雅為了擺脫不快樂的婚姻，決定調職開啟新人生，某天，她在回家途中撞見即將離婚的醉酒丈夫，慌亂之下逃離現場。第二天，一位戒酒教師居然無端替她背黑鍋，作為警察的她也開始思考，未竟的夢想、錯失的幸福、命運的相遇—— 老天開的這場玩笑，究竟底線在哪？",
+  "popularity": 0.3015,
+  "poster_path": "/5o8AN2T88AbVeQEgZay203m4HbQ.jpg",
+  "release_date": "2024-02-23",
+  "title": "女警撞到夫",
+  "video": false,
+  "vote_average": 5.5,
+  "vote_count": 15,
+  "belongs_to_collection": null,
+  "budget": 3300000,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt21186614",
+  "origin_country": [
+    "AT"
+  ],
+  "production_companies": [
+    {
+      "id": 224,
+      "logo_path": "/fCv129CE3olInpdEiOWcC5s2YbQ.png",
+      "name": "Wega Film",
+      "origin_country": "AT"
+    },
+    {
+      "id": 64330,
+      "logo_path": "/bX6prvUt6ZuO4rrdVUtHG6LqfSm.png",
+      "name": "Golden Girls Filmproduktion",
+      "origin_country": "AT"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "AT",
+      "name": "Austria"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 94,
+  "spoken_languages": [
+    {
+      "english_name": "German",
+      "iso_639_1": "de",
+      "name": "Deutsch"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/fUiRJH7CRGSnNK7uM0LtoAjz3GM.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/cK1iDGZoLClngQwJULXDJhewK7Y.jpg"
+}

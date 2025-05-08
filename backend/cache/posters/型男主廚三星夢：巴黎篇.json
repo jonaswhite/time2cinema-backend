@@ -1,0 +1,116 @@
+{
+  "adult": false,
+  "backdrop_path": "/2CbaANDPjZkrC9kKbp4UlDw7y2Q.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 1306061,
+  "original_language": "ja",
+  "original_title": "グランメゾン・パリ",
+  "overview": "遠赴法國取景，木村拓哉攜手原班人馬踏上米其林征服之路！  自從「Grand Maison東京」在日本榮獲米其林最高榮譽「三星」肯定之後，接著又歷經疫情衝擊與大企業對抗等種種危機，早見倫子（鈴木京香飾演）將主廚身分交棒後輩，跟隨昔日夥伴尾花夏樹（木村拓哉飾演），兩人重返法國料理發源地「巴黎」開設新店「Grand Maison巴黎」，再度為了米其林三星奮力一搏，並目標成為首位獲得米其林三星肯定的亞洲主廚。然而在眾多名廚競爭的巴黎，尾花卻遲遲無法交出滿意的成績，甚至在一場大型晚宴上意外失誤。這讓尾花下定決心，向昔日恩師承諾：「倘若下次評選無法取得三顆星，就將辭職離開法國。」究竟他能否與夥伴們，再度攀上米其林的星級巔峰呢？",
+  "popularity": 1.4829,
+  "poster_path": "/7eNHCTDRWmectIHLYIt14kqQHbc.jpg",
+  "release_date": "2024-12-30",
+  "title": "型男主廚三星夢：巴黎篇",
+  "video": false,
+  "vote_average": 7,
+  "vote_count": 1,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt32868318",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 139446,
+      "logo_path": "/4uMH3FFbHgK5dKBiGMXKQCM8ln9.png",
+      "name": "TBS Sparkle",
+      "origin_country": "JP"
+    },
+    {
+      "id": 1393,
+      "logo_path": "/lUACMATs6jcscXIrzNCQzbvNVN5.png",
+      "name": "TBS",
+      "origin_country": "JP"
+    },
+    {
+      "id": 882,
+      "logo_path": "/fRSWWjquvzcHjACbtF53utZFIll.png",
+      "name": "TOHO",
+      "origin_country": "JP"
+    },
+    {
+      "id": 82346,
+      "logo_path": "/jqgK6CSkPrEsIv6Nk390JaBcXYF.png",
+      "name": "Sony Pictures",
+      "origin_country": "JP"
+    },
+    {
+      "id": 3363,
+      "logo_path": "/sj3vD7n63bTCih7bcf6GnWvRf1Q.png",
+      "name": "MBS",
+      "origin_country": "JP"
+    },
+    {
+      "id": 12384,
+      "logo_path": "/qNooLje0YQh1y3y9LUM2Y5QCtiF.png",
+      "name": "CBC",
+      "origin_country": "JP"
+    },
+    {
+      "id": 127264,
+      "logo_path": "/8K9U5yxdQqWa79z85DXxZ2TgDmb.png",
+      "name": "TC Entertainment",
+      "origin_country": "JP"
+    },
+    {
+      "id": 12385,
+      "logo_path": "/piV4KOvWfuxhZUkDbdb5ZWDEpRJ.png",
+      "name": "RKB Mainichi Broadcasting Corporation",
+      "origin_country": "JP"
+    },
+    {
+      "id": 7093,
+      "logo_path": "/noWiZlQLfjCyDAUJlA0miLClsHI.png",
+      "name": "Hokkaido Broadcasting Co.",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 8896978,
+  "runtime": 111,
+  "spoken_languages": [
+    {
+      "english_name": "French",
+      "iso_639_1": "fr",
+      "name": "Français"
+    },
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    },
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/7eNHCTDRWmectIHLYIt14kqQHbc.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/2CbaANDPjZkrC9kKbp4UlDw7y2Q.jpg"
+}

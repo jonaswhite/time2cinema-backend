@@ -1,0 +1,5 @@
+# 每天凌晨 3 點執行場次更新腳本
+0 3 * * * cd /Users/jonaswhite/CascadeProjects/movie-time/backend/scripts && ./utils/update_cron.sh
+
+# 每天凌晨 4 點執行票房更新
+0 4 * * * cd /Users/jonaswhite/CascadeProjects/movie-time/backend/scripts && node importers/import_boxoffice.js >> utils/update_cron.log 2>&1

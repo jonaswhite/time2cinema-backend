@@ -1,0 +1,101 @@
+{
+  "adult": false,
+  "backdrop_path": "/4ggd2yJ0YpWEpAwnJ75NUzByRkc.jpg",
+  "genre_ids": [
+    18,
+    9648,
+    53
+  ],
+  "id": 940247,
+  "original_language": "zh",
+  "original_title": "刺心切骨",
+  "overview": "當得知他危險而詭祕莫測的哥哥即將出獄後，高中擊劍選手子傑相信他已改過自新，並違抗了想將哥哥的存在徹底抹除的母親，下定決心要不計一切代價幫助他。",
+  "popularity": 0.7571,
+  "poster_path": "/ctMqFfhkCvYLFX0kHdazQo8Wojy.jpg",
+  "release_date": "2024-11-07",
+  "title": "刺心切骨",
+  "video": false,
+  "vote_average": 7.5,
+  "vote_count": 2,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 9648,
+      "name": "悬疑"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt15424716",
+  "origin_country": [
+    "SG",
+    "TW"
+  ],
+  "production_companies": [
+    {
+      "id": 123568,
+      "logo_path": "/ksokydHO08gNsR8W2Vh3j7i4xse.png",
+      "name": "Purin Pictures",
+      "origin_country": "TH"
+    },
+    {
+      "id": 99502,
+      "logo_path": "/nP45gRAxUu2rlMCf6sODAZF73hD.png",
+      "name": "PŌTOCOL",
+      "origin_country": "SG"
+    },
+    {
+      "id": 86711,
+      "logo_path": "/jru86ZeTCB3vcuUZ6XN4I2VhEQA.png",
+      "name": "Flash Forward Entertainment",
+      "origin_country": "TW"
+    },
+    {
+      "id": 82294,
+      "logo_path": "/z2WExPhsX9E8NGruZrEWosQoC86.png",
+      "name": "Fixafilm",
+      "origin_country": "PL"
+    },
+    {
+      "id": 140170,
+      "logo_path": null,
+      "name": "Harine Films",
+      "origin_country": "PL"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "SG",
+      "name": "Singapore"
+    },
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    },
+    {
+      "iso_3166_1": "PL",
+      "name": "Poland"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 109,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/ctMqFfhkCvYLFX0kHdazQo8Wojy.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/4ggd2yJ0YpWEpAwnJ75NUzByRkc.jpg"
+}

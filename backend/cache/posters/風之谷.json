@@ -1,0 +1,68 @@
+{
+  "adult": false,
+  "backdrop_path": "/ulVUa2MvnJAjAeRt7h23FFJVRKH.jpg",
+  "genre_ids": [
+    12,
+    16,
+    14
+  ],
+  "id": 81,
+  "original_language": "ja",
+  "original_title": "風の谷のナウシカ",
+  "overview": "該作品背景設定在未來，千年前世界的科技文明達到巔峰後，經歷一場稱為「火之七日」的戰爭而毀於一旦。世界被一種由菌類構成，名叫腐海的新生態體系所掩蓋，然而只有巨型昆蟲能夠適應其中，人類們生活在僅存的小面積土地上，在面對巨型昆蟲和會釋放瘴氣的腐海森林包圍威脅下積極求存。「風之谷」是一個靠海的小王國，因為海風的庇護不被腐海森林的孢子侵入而得以保持原貌。小王國的公主娜烏西卡是一位善良、聰明及勇敢的16歲女孩，擅於駕馭噴氣式滑翔翼，能知道風及御風，還擁有和王蟲溝通的能力。一架搭載著千年前火之七日戰爭中，毀滅大地一切的生化武器「巨神兵」的多魯美奇亞運輸機不幸墜毀於風之谷，之後風之谷和娜烏西卡捲入了爭奪巨神兵的戰爭旋渦中。",
+  "popularity": 6.1437,
+  "poster_path": "/2qYsvbv87NjFtfpDPZdXlUDiKiG.jpg",
+  "release_date": "1984-03-11",
+  "title": "風之谷",
+  "video": false,
+  "vote_average": 7.951,
+  "vote_count": 3708,
+  "belongs_to_collection": null,
+  "budget": 1000000,
+  "genres": [
+    {
+      "id": 12,
+      "name": "冒险"
+    },
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt0087544",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 29,
+      "logo_path": "/2ZGkaLO1oVR39zxtQca8iDaU7fR.png",
+      "name": "Topcraft",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 9016411,
+  "runtime": 117,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/2qYsvbv87NjFtfpDPZdXlUDiKiG.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/ulVUa2MvnJAjAeRt7h23FFJVRKH.jpg"
+}

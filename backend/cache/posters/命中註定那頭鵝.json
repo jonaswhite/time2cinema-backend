@@ -1,0 +1,63 @@
+{
+  "adult": false,
+  "backdrop_path": "/2YpNYJTqhwZT1Vka4DzQfk1jvUi.jpg",
+  "genre_ids": [
+    18,
+    10749
+  ],
+  "id": 1203524,
+  "original_language": "zh",
+  "original_title": "命中註定那頭鵝",
+  "overview": "女主角月鵝是阿德利企鵝的頭號粉絲，一心嚮往前進南極做研究，相信愛情的本質跟企鵝的婚姻價值觀一樣很純粹，自己必定能遇見「命中註定的那頭鵝」，但當現實世界的愛情與夢想互相牴觸時，她該如何做決定？",
+  "popularity": 0.1739,
+  "poster_path": "/br3AfKrOzZwpe121dcufxGAmfRR.jpg",
+  "release_date": "2025-03-14",
+  "title": "命中註定那頭鵝",
+  "video": false,
+  "vote_average": 6,
+  "vote_count": 5,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 10749,
+      "name": "爱情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt33303900",
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [
+    {
+      "id": 141990,
+      "logo_path": "/pgpgc9aSuCSJRbjO2jyqZov5cCm.png",
+      "name": "Each Other Films",
+      "origin_country": "TW"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 98,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/br3AfKrOzZwpe121dcufxGAmfRR.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/2YpNYJTqhwZT1Vka4DzQfk1jvUi.jpg"
+}

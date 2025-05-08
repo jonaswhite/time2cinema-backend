@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="zh-tw"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="application-name" content="全國電影票房統計資訊">
+    <meta name="subject" content="全國電影票房統計資訊">
+    <meta name="description" content="國家電影及視聽文化中心全國電影票房統計資訊系統。">
+    <meta property="og:site_name" content="全國電影票房統計資訊">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="電影票房統計">
+    <meta property="og:description" content="國家電影及視聽文化中心全國電影票房統計資訊系統。">
+    <meta property="og:image" content="https://www.tfi.org.tw/Content/Styles/front/img/logo.svg">
+    
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>電影票房統計 - 全國電影票房統計資訊</title>
+    <link rel="stylesheet" href="/css/site.css?v=-m55DatVa3i7vQ6s_RLUWBVSr3rop5hmOm0SlEu1n8g">
+    
+    <link rel="stylesheet" href="/css/WeekPeriodSelector.css?v=hbzztk5LVSx_2xhcLdvZWqq_Q-ywPyPkLFgqpVLsxV0">
+    <link rel="stylesheet" href="/css/statistic-list.css?v=7nuyzj6ZO083Llgk9YRQ0D1QQB4bYY_JFIEztJnxHjY">
+
+<style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
+<body class="sm">
+    <header>
+        <a class="title" href="/">全國電影票房統計資訊 Box Office Taiwan</a>
+        <span class="sub-title">本站公布映演七日後全國電影票房統計數據</span>
+        <nav class="min-lg">
+            <a href="/search" data-target="film">單片查詢</a>
+            <a href="/statistic" data-target="statistic" class="active">電影票房統計</a>
+        </nav>
+        <button id="mobile-nav-button" type="button" class="max-md">
+            <div class="group">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    <main role="main" class="sm">
+        <section id="mode-bar">
+    <div role="group">
+        <button type="button" data-mode="Week" class="active">週票房</button>
+        <button type="button" data-mode="Weekend">週末票房</button>
+        <button type="button" data-mode="Month">月票房</button>
+        <button type="button" data-mode="Season">季票房</button>
+        <button type="button" data-mode="Year">年票房</button>
+        <button type="button" data-mode="Since2016">2016年至今票房</button>
+    </div>
+</section>
+<section id="filter-bar">
+    <form>
+        <input id="mode-data-input" type="hidden" data-val="true" data-val-required="The Mode field is required." name="Mode" value="Week">
+        <input id="start-data-input" type="hidden" name="Start" value="2025-04-28">
+        <input id="end-data-input" type="hidden" name="End" value="undefined">
+        <input id="ascending-data-input" type="hidden" data-val="true" data-val-required="The Ascending field is required." name="Ascending" value="False">
+        <input id="ordered-column-data-input" type="hidden" name="OrderedColumn" value="ReleaseDate">
+        <input id="page-data-input" type="hidden" data-val="true" data-val-required="The Page field is required." name="Page" value="0">
+        <input id="size-data-input" type="hidden" data-val="true" data-val-required="The Size field is required." name="Size" value="10">
+        <input id="region-data-input" type="hidden" name="Region" value="all">
+        <div role="grid">
+                <div id="week-period-input-group" role="group">
+                    <label>週別</label>
+                    <button id="week-period-button" class="week-period-button" type="button"><span class="start">2025-04-28</span><span class="to">到</span><span class="end">2025-05-04</span></button>
+                </div>
+            <div id="region-input-group" role="group" class="select-group">
+                <label for="region-input">國別</label>
+                <select id="region-input">
+                            <option value="all" selected="">全部</option>
+                            <option value="中華民國">中華民國</option>
+                            <option value="中國大陸">中國大陸</option>
+                            <option value="大陸">大陸</option>
+                            <option value="中國(含大陸)">中國(含大陸)</option>
+                            <option value="香港">香港</option>
+                            <option value="澳門">澳門</option>
+                            <option value="南韓">南韓</option>
+                            <option value="日本">日本</option>
+                            <option value="新加坡">新加坡</option>
+                            <option value="印度">印度</option>
+                            <option value="菲律賓">菲律賓</option>
+                            <option value="馬來西亞">馬來西亞</option>
+                            <option value="泰國">泰國</option>
+                            <option value="緬甸">緬甸</option>
+                            <option value="印尼">印尼</option>
+                            <option value="寮國">寮國</option>
+                            <option value="越南">越南</option>
+                            <option value="不丹">不丹</option>
+                            <option value="巴基斯坦">巴基斯坦</option>
+                            <option value="賽普勒斯">賽普勒斯</option>
+                            <option value="喬治亞">喬治亞</option>
+                            <option value="蒙古">蒙古</option>
+                            <option value="柬埔寨">柬埔寨</option>
+                            <option value="尼泊爾">尼泊爾</option>
+                            <option value="阿拉伯聯合大公國">阿拉伯聯合大公國</option>
+                            <option value="巴勒斯坦">巴勒斯坦</option>
+                            <option value="伊朗">伊朗</option>
+                            <option value="以色列">以色列</option>
+                            <option value="土耳其">土耳其</option>
+                            <option value="阿富汗">阿富汗</option>
+                            <option value="黎巴嫩">黎巴嫩</option>
+                            <option value="卡達">卡達</option>
+                            <option value="英國">英國</option>
+                            <option value="法國">法國</option>
+                            <option value="荷蘭">荷蘭</option>
+                            <option value="比利時">比利時</option>
+                            <option value="挪威">挪威</option>
+                            <option value="瑞士">瑞士</option>
+                            <option value="南斯拉夫">南斯拉夫</option>
+                            <option value="義大利">義大利</option>
+                            <option value="德國">德國</option>
+                            <option value="盧森堡">盧森堡</option>
+                            <option value="冰島">冰島</option>
+                            <option value="丹麥">丹麥</option>
+                            <option value="奧地利">奧地利</option>
+                            <option value="瑞典">瑞典</option>
+                            <option value="羅馬尼亞">羅馬尼亞</option>
+                            <option value="波蘭">波蘭</option>
+                            <option value="愛爾蘭">愛爾蘭</option>
+                            <option value="匈牙利">匈牙利</option>
+                            <option value="保加利亞">保加利亞</option>
+                            <option value="西班牙">西班牙</option>
+                            <option value="葡萄牙">葡萄牙</option>
+                            <option value="芬蘭">芬蘭</option>
+                            <option value="捷克">捷克</option>
+                            <option value="烏克蘭">烏克蘭</option>
+                            <option value="愛沙尼亞">愛沙尼亞</option>
+                            <option value="立陶宛">立陶宛</option>
+                            <option value="克羅埃西亞">克羅埃西亞</option>
+                            <option value="摩爾多瓦">摩爾多瓦</option>
+                            <option value="斯洛伐克">斯洛伐克</option>
+                            <option value="希臘">希臘</option>
+                            <option value="塞爾維亞">塞爾維亞</option>
+                            <option value="拉脫維亞">拉脫維亞</option>
+                            <option value="北馬其頓">北馬其頓</option>
+                            <option value="白俄羅斯">白俄羅斯</option>
+                            <option value="俄羅斯">俄羅斯</option>
+                            <option value="美國">美國</option>
+                            <option value="加拿大">加拿大</option>
+                            <option value="英屬維京群島">英屬維京群島</option>
+                            <option value="墨西哥">墨西哥</option>
+                            <option value="巴拉圭">巴拉圭</option>
+                            <option value="智利">智利</option>
+                            <option value="哥倫比亞">哥倫比亞</option>
+                            <option value="委內瑞拉">委內瑞拉</option>
+                            <option value="烏拉圭">烏拉圭</option>
+                            <option value="巴西">巴西</option>
+                            <option value="阿根廷">阿根廷</option>
+                            <option value="瓜地馬拉">瓜地馬拉</option>
+                            <option value="秘魯">秘魯</option>
+                            <option value="巴拿馬">巴拿馬</option>
+                            <option value="玻利維亞">玻利維亞</option>
+                            <option value="澳洲">澳洲</option>
+                            <option value="紐西蘭">紐西蘭</option>
+                            <option value="烏干達">烏干達</option>
+                            <option value="突尼西亞">突尼西亞</option>
+                            <option value="埃及">埃及</option>
+                            <option value="阿爾及利亞">阿爾及利亞</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="rev">
+            <svg aria-hidden="true" focusable="false" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                </path>
+            </svg>
+            <span class="text min-md">查詢</span>
+        </button>
+    </form>
+</section>
+<section id="summaries">
+    <div role="gridcell">
+        <div class="title">上映部數</div>
+        <div class="info"><span class="value" data-target="totalCount"></span></div>
+    </div>
+    <div role="gridcell">
+        <div class="title">銷售總票數</div>
+        <div class="info"><span class="value" data-target="totalTickets"></span></div>
+    </div>
+    <div role="gridcell">
+        <div class="title">銷售總金額量</div>
+        <div class="info"><span class="value" data-target="totalAmount"></span></div>
+    </div>
+</section>
+<section id="chart-table">
+    <div role="row">
+        <div class="cell">
+            <div class="title">觀影排名</div>
+            <div class="content">
+                <div class="full without-title">
+                    <div id="ticket-of-films" class="chart bar-chart" data-api="Top10OfFilms" data-mode="Week" data-start="2025-05-02" data-region="all"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <div class="loading-container" style="display: none;"><div class="loading-animation"><span></span><span></span><span></span></div><div class="loading-text">載入中</div></div><canvas width="740" style="width: 740px; height: 300px; display: block;" height="300" class="chartjs-render-monitor"></canvas></div>
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="title">銷售金額排名</div>
+            <div class="content">
+                <div class="full without-title">
+                    <div id="amount-of-films" class="chart bar-chart" data-api="TrendOfWeek" data-mode="Week" data-start="2025-05-02" data-region="all"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <div class="loading-container" style="display: none;"><div class="loading-animation"><span></span><span></span><span></span></div><div class="loading-text">載入中</div></div><canvas width="740" style="width: 740px; height: 300px; display: block;" height="300" class="chartjs-render-monitor"></canvas></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="statistic-table-section">
+    <div id="export-button-container" class="statistic-table-export" role="group">
+        匯出&nbsp;»&nbsp;
+        <button type="button" class="rev" data-type="Excel" data-ext="xlsx">Excel</button>
+        <button type="button" class="rev" data-type="JSON" data-ext="json">JSON</button>
+        <button type="button" class="rev" data-type="CSV" data-ext="csv">CSV</button>
+    </div>
+    <div class="statistic-table-container">
+        <div class="loading-container show">
+            <div class="loading-animation"><span></span><span></span><span></span></div>
+            <div class="loading-text">載入中</div>
+        </div>
+        <table id="statistic-table" class="statistic-table">
+            <thead>
+                <tr>
+                    <th data-name="Rank" data-type="number">
+                        <span class="text">序號</span>
+                    </th>
+                    <th data-name="Region" data-orderable="true" data-type="string" class="left">
+                        <span class="text">國別</span>
+                        <span class="order-arrow"></span>
+                    </th>
+                    <th data-name="Name" data-orderable="true" data-type="string" class="left min-60">
+                        <span class="text">片名</span>
+                        <span class="order-arrow"></span>
+                    </th>
+                    <th data-name="ReleaseDate" data-orderable="true" data-type="string" class="nowrap">
+                        <span class="text">上映日</span>
+                        <span class="order-arrow"></span>
+                    </th>
+                    <th data-name="Publisher" data-type="string-list" class="left">
+                        <span class="text">出品</span>
+                    </th>
+                    <th data-name="TheaterCount" data-orderable="true" data-type="number" class="right">
+                        <span class="text">院數</span>
+                        <span class="order-arrow"></span>
+                    </th>
+                        <th data-name="Amount" data-orderable="true" data-type="number" class="right">
+                            <span class="text">金額</span>
+                            <span class="order-arrow"></span>
+                        </th>
+                            <th data-name="AmountRate" data-type="percentage" class="right">
+                                <span class="text">金額變動</span>
+                            </th>
+                        <th data-name="Tickets" data-orderable="true" data-type="number" class="right">
+                            <span class="text">票數</span>
+                            <span class="order-arrow"></span>
+                        </th>
+                            <th data-name="TicketRate" data-type="percentage" class="right">
+                                <span class="text">票數變動</span>
+                            </th>
+                        <th data-name="MarketShare" data-orderable="true" data-type="percentage" class="right">
+                            <span class="text">市占率</span>
+                            <span class="order-arrow"></span>
+                        </th>
+                    <th data-name="TotalDayCount" data-orderable="true" data-type="number" class="right">
+                        <span class="text">總日數</span>
+                        <span class="order-arrow"></span>
+                    </th>
+                    <th data-name="TotalAmount" data-orderable="true" data-type="number" class="right">
+                        <span class="text">總金額</span>
+                        <span class="order-arrow"></span>
+                    </th>
+                    <th data-name="TotalTickets" data-orderable="true" data-type="number" class="right">
+                        <span class="text">總票數</span>
+                        <span class="order-arrow"></span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div role="group">
+        <div id="page-list"></div>
+    </div>
+</section>
+        <footer>
+            <section class="left">
+                <a href="https://www.tfi.org.tw/"><img src="/images/TFAI_LOGO_COLOUR_1.png" height="70"></a>
+                <a href="https://www.facebook.com/TaiwanFilmAndAudiovisualInstitute/"><img src="/images/logo-fb.jpg" width="50"></a>
+                <a href="http://www.funscreen.com.tw/"><img src="/images/logo-fs.jpg" width="130"></a>
+                <a href="https://www.moc.gov.tw/"><img src="/images/logo-moc-0.jpg" width="130"></a>
+                <a href="https://www.bamid.gov.tw/"><img src="/images/logo-moc-1.jpg" width="130"></a>
+            </section>
+            <section class="right">
+                <p>
+                    <a href="/home/about">關於本站</a> |
+                    <a href="/home/sitemap">網站導覽</a> |
+                    <a href="/home/copyright">版權宣告</a> |
+                    <a href="mailto:box.admin@mail.tfi.org.tw" title="box.admin@mail.tfi.org.tw">意見回饋</a> |
+                    <a href="/home/qanda">常見問答</a>
+                </p>
+                <p>聯絡電話：02-8522-8000</p>
+                <p>版權所有 © 2025 國家電影及視聽文化中心</p>
+            </section>
+        </footer>
+    </main>
+    <div id="mobile-nav-menu" role="menu">
+        <div role="group">
+            <a href="/">首頁</a>
+            <a href="/search">單片查詢</a>
+            <a href="/statistic">電影票房統計</a>
+        </div>
+    </div>
+    <script src="/lib/polyfills/promise-polyfill.js?v=Od3mdmpxfchGICmFFwUPOkbjON2KovKdomH2Kigdi3c"></script>
+    <script src="/lib/polyfills/polyfills.js?v=C_9zd0Lk8s6rg0kO84xvP4KTsw3RkflJ-RBn8nHA3Tc"></script>
+    <script src="/js/site.js?v=OnKdvDLsjy66wWiWFbN9aXH8SEcFICvNTYGEryyKSXI"></script>
+    <script src="/js/share.js?v=CMvuFIZ4UEoDeONtZ6MNyL7AKjQ6cT6BpsmhsD3dfv4"></script>
+    <script src="/js/components/BaseChart.js?v=vQkVnRKDCsbDJ3PqYzbjneMBB1NA4FasThGtEA6Ivq8"></script>
+    
+    <script src="/lib/chartjs/Chart.min.js?v=NbfQrKSThKXYuVaEBwxc9oH-OCHLcDclYdr25GGIGb8"></script>
+    <script src="/js/components/LineChart.js?v=xnetRxOlT6pgkPgLk8sNJknGVqF90UTQj8FutHYEV6c"></script>
+    <script src="/js/components/BarChart.js?v=Fe623bpV2w05F5XHxZAz_IwJAZl2-hOireJY0_sVwlg"></script>
+    <script src="/js/components/PieChart.js?v=Vh0znJPsosp8bpK9Y0qaG4_LtkQ5RvtA4UYJA1SPiY8"></script>
+    <script src="/js/components/WeekPeriodSelector.js?v=wfwTr0cJReR4iX5ryCREXg6UNSvq79NaVeS80BCECeQ"></script>
+    <script src="/js/statistic-list.js?v=aGXO_UrbMIgOMZ-4g6UXZbFLog-j80NLz-72YUveFC4"></script>
+
+
+
+<div id="week-period-selector-container"><div class="backdrop"></div><div id="week-period-selector"><div class="header"><span class="title">請選擇週別</span><button class="close-button" type="button"></button></div><div class="body"><div class="title-row"><button class="previous-button"></button><span class="title">2025 五月</span><button class="next-button"></button></div><div class="calendar-container"><div class="calendar"><div class="row week-head-row"><div class="cell"><span>一</span></div><div class="cell"><span>二</span></div><div class="cell"><span>三</span></div><div class="cell"><span>四</span></div><div class="cell"><span>五</span></div><div class="cell"><span>六</span></div><div class="cell"><span>日</span></div></div><div class="row week-row active" data-week="2025-04-28" data-last-date="2025-05-04"><div class="cell off" data-date="2025-04-28"><span>28</span></div><div class="cell off" data-date="2025-04-29"><span>29</span></div><div class="cell off" data-date="2025-04-30"><span>30</span></div><div class="cell" data-date="2025-05-01"><span>1</span></div><div class="cell" data-date="2025-05-02"><span>2</span></div><div class="cell" data-date="2025-05-03"><span>3</span></div><div class="cell" data-date="2025-05-04"><span>4</span></div></div><div class="row week-row" data-week="2025-05-05" data-last-date="2025-05-11"><div class="cell" data-date="2025-05-05"><span>5</span></div><div class="cell" data-date="2025-05-06"><span>6</span></div><div class="cell" data-date="2025-05-07"><span>7</span></div><div class="cell" data-date="2025-05-08"><span>8</span></div><div class="cell" data-date="2025-05-09"><span>9</span></div><div class="cell" data-date="2025-05-10"><span>10</span></div><div class="cell" data-date="2025-05-11"><span>11</span></div></div><div class="row week-row" data-week="2025-05-12" data-last-date="2025-05-18"><div class="cell" data-date="2025-05-12"><span>12</span></div><div class="cell" data-date="2025-05-13"><span>13</span></div><div class="cell" data-date="2025-05-14"><span>14</span></div><div class="cell" data-date="2025-05-15"><span>15</span></div><div class="cell" data-date="2025-05-16"><span>16</span></div><div class="cell" data-date="2025-05-17"><span>17</span></div><div class="cell" data-date="2025-05-18"><span>18</span></div></div><div class="row week-row" data-week="2025-05-19" data-last-date="2025-05-25"><div class="cell" data-date="2025-05-19"><span>19</span></div><div class="cell" data-date="2025-05-20"><span>20</span></div><div class="cell" data-date="2025-05-21"><span>21</span></div><div class="cell" data-date="2025-05-22"><span>22</span></div><div class="cell" data-date="2025-05-23"><span>23</span></div><div class="cell" data-date="2025-05-24"><span>24</span></div><div class="cell" data-date="2025-05-25"><span>25</span></div></div><div class="row week-row" data-week="2025-05-26" data-last-date="2025-06-01"><div class="cell" data-date="2025-05-26"><span>26</span></div><div class="cell" data-date="2025-05-27"><span>27</span></div><div class="cell" data-date="2025-05-28"><span>28</span></div><div class="cell" data-date="2025-05-29"><span>29</span></div><div class="cell" data-date="2025-05-30"><span>30</span></div><div class="cell" data-date="2025-05-31"><span>31</span></div><div class="cell off" data-date="2025-06-01"><span>1</span></div></div><div class="row week-row" data-week="2025-06-02" data-last-date="2025-06-08"><div class="cell off" data-date="2025-06-02"><span>2</span></div><div class="cell off" data-date="2025-06-03"><span>3</span></div><div class="cell off" data-date="2025-06-04"><span>4</span></div><div class="cell off" data-date="2025-06-05"><span>5</span></div><div class="cell off" data-date="2025-06-06"><span>6</span></div><div class="cell off" data-date="2025-06-07"><span>7</span></div><div class="cell off" data-date="2025-06-08"><span>8</span></div></div></div></div></div><div class="footer"></div></div></div></body></html>

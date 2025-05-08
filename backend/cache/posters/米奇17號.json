@@ -1,0 +1,97 @@
+{
+  "adult": false,
+  "backdrop_path": "/qUc0Hol3eP74dbW4YyqT6oRLYgT.jpg",
+  "genre_ids": [
+    878,
+    35,
+    12
+  ],
+  "id": 696506,
+  "original_language": "en",
+  "original_title": "Mickey 17",
+  "overview": "故事講述了一個出乎意料的英雄米奇巴恩斯（羅伯派汀森飾），他發現自己陷入了一個極不尋常的處境：為了完成僱主的要求，他必須不斷經歷死亡，才能換取生存。",
+  "popularity": 49.9129,
+  "poster_path": "/nxurv5ccvnqqz7WRTBMvV9ZARS0.jpg",
+  "release_date": "2025-02-28",
+  "title": "米奇17號",
+  "video": false,
+  "vote_average": 6.897,
+  "vote_count": 1848,
+  "belongs_to_collection": null,
+  "budget": 118000000,
+  "genres": [
+    {
+      "id": 878,
+      "name": "科幻"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 12,
+      "name": "冒险"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt12299608",
+  "origin_country": [
+    "GB",
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 174,
+      "logo_path": "/zhD3hhtKB5qyv7ZeL4uLpNxgMVU.png",
+      "name": "Warner Bros. Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 81,
+      "logo_path": "/8wOfUhA7vwU2gbPjQy7Vv3EiF0o.png",
+      "name": "Plan B Entertainment",
+      "origin_country": "US"
+    },
+    {
+      "id": 168228,
+      "logo_path": null,
+      "name": "Offscreen",
+      "origin_country": "GB"
+    },
+    {
+      "id": 81024,
+      "logo_path": null,
+      "name": "Kate Street Picture Company",
+      "origin_country": "US"
+    },
+    {
+      "id": 216687,
+      "logo_path": "/kKVYqekveOvLK1IgqdJojLjQvtu.png",
+      "name": "Domain Entertainment",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    },
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    }
+  ],
+  "revenue": 131847147,
+  "runtime": 137,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "他死活都要拯救人類",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/nxurv5ccvnqqz7WRTBMvV9ZARS0.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/qUc0Hol3eP74dbW4YyqT6oRLYgT.jpg"
+}

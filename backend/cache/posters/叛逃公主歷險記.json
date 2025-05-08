@@ -1,0 +1,89 @@
+{
+  "adult": false,
+  "backdrop_path": "/l30cJrcUOCYFyyMZ5nRxknq9fVR.jpg",
+  "genre_ids": [
+    16,
+    35,
+    10751,
+    14,
+    12
+  ],
+  "id": 1275261,
+  "original_language": "en",
+  "original_title": "Rebellious",
+  "overview": "一位任性的公主米娜遭到邪惡的巫師綁架，國王祭出了拯救親愛女兒的計畫：凡是成功救援公主米娜的勇敢男子，就能與她結婚。為了與公主成親而獲得廣大的權力，各地的公爵與王子們紛紛出走，只為了救援公主。而米娜早已許定的真愛——她博學又聰明的未婚夫羅南，必須運用他的智慧想辦法成功拯救公主，而且要快！被軟禁的公主也不是省油的燈，她發現了邪惡巫師的秘密，並且策劃了一次大膽的逃跑計畫…",
+  "popularity": 0.7874,
+  "poster_path": "/1uHey2Eo0HQDL6SBGfUJfP2XOGq.jpg",
+  "release_date": "2024-10-25",
+  "title": "叛逃公主歷險記",
+  "video": false,
+  "vote_average": 7.4,
+  "vote_count": 4,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 10751,
+      "name": "家庭"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    },
+    {
+      "id": 12,
+      "name": "冒险"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt32155919",
+  "origin_country": [
+    "GB",
+    "CY"
+  ],
+  "production_companies": [
+    {
+      "id": 226282,
+      "logo_path": null,
+      "name": "Creation Entertainment Media",
+      "origin_country": ""
+    },
+    {
+      "id": 226283,
+      "logo_path": null,
+      "name": "Magic Frame Animation",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "CY",
+      "name": "Cyprus"
+    },
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 94,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/1uHey2Eo0HQDL6SBGfUJfP2XOGq.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/l30cJrcUOCYFyyMZ5nRxknq9fVR.jpg"
+}

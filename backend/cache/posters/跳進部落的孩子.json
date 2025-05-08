@@ -1,0 +1,51 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    99
+  ],
+  "id": 1369302,
+  "original_language": "zh",
+  "original_title": "跳進部落的孩子",
+  "overview": "曾經為了夢想離開，如今舞蹈又帶著他回來。排灣族編舞家布拉瑞揚在職業生涯高峰，站在世界舞台上，卻想與族人共享榮耀。於是他回到故鄉台東創立舞團，帶著一群年輕的原住民舞者，一同入山勞動、臨岸吟唱，用身體將生活跳成舞作。看著這群隨性又自由、多非科班出身的孩子，彷彿看見當年奮力從部落朝外跳的自己────同樣渴望登台縱舞，同樣難獲父輩認同。",
+  "popularity": 0.0645,
+  "poster_path": "/nfpp4DyCwnN9ow9SXK9AjF3pqng.jpg",
+  "release_date": "2025-04-30",
+  "title": "跳進部落的孩子",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 99,
+      "name": "纪录"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 90,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/nfpp4DyCwnN9ow9SXK9AjF3pqng.jpg",
+  "fullBackdropPath": null
+}

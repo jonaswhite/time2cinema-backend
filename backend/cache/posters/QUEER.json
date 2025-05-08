@@ -1,0 +1,89 @@
+{
+  "adult": false,
+  "backdrop_path": "/7bUYzlDz8eel1BVL1Y0YcF9NQmd.jpg",
+  "genre_ids": [
+    18,
+    10749
+  ],
+  "id": 1059128,
+  "original_language": "en",
+  "original_title": "Queer",
+  "overview": "1950年代的墨西哥，年近50歲的美國移民威廉李居住在當地的美國小社區當中，日復一日地在孤獨的陰影中度過。某天，他邂逅了年輕俊美、剛到墨西哥的尤金阿勒頓。隨著兩人的關係逐漸發展，威廉的內心世界被深深觸動，並在孤獨與渴望的交織之下，讓他開始面對一段無法預測的愛情旅程。",
+  "popularity": 9.5521,
+  "poster_path": "/hlpnTeeoPr1PzQIoDK9qQqsRa9B.jpg",
+  "release_date": "2024-11-27",
+  "title": "QUEER",
+  "video": false,
+  "vote_average": 6.736,
+  "vote_count": 331,
+  "belongs_to_collection": null,
+  "budget": 53400000,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 10749,
+      "name": "爱情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt24176060",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 121813,
+      "logo_path": "/7OwtRpQAFKU3KWA7InBg3h3PxqI.png",
+      "name": "Fremantle",
+      "origin_country": "US"
+    },
+    {
+      "id": 128344,
+      "logo_path": "/zNBa6RAZ5TKWZUEhxx6sxc9tdrr.png",
+      "name": "The Apartment Pictures",
+      "origin_country": "IT"
+    },
+    {
+      "id": 46344,
+      "logo_path": "/qpSdIjnGHiz6UNIQWGIJkDnG79l.png",
+      "name": "Frenesy Film",
+      "origin_country": "IT"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "IT",
+      "name": "Italy"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 5450715,
+  "runtime": 136,
+  "spoken_languages": [
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "French",
+      "iso_639_1": "fr",
+      "name": "Français"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/hlpnTeeoPr1PzQIoDK9qQqsRa9B.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/7bUYzlDz8eel1BVL1Y0YcF9NQmd.jpg"
+}
