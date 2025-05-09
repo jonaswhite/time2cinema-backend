@@ -9,14 +9,16 @@ const db_1 = __importDefault(require("../db"));
 const router = express_1.default.Router();
 // 獲取所有票房資料（統一回傳格式）
 router.get('/', (req, res) => {
-    db_1.default.query('SELECT movie_id, rank, tickets FROM boxoffice ORDER BY rank')
+    db_1.default.query('SELECT movie_id, rank, tickets, totalsales, release_date, week_start_date FROM boxoffice ORDER BY rank')
         .then(result => {
-        // 統一格式，補上 totalsales 欄位（目前為 null）
+        // 統一格式，包含 totalsales 和 release_date 欄位
         const formatted = result.rows.map(row => ({
             movie_id: row.movie_id,
             rank: row.rank,
             tickets: row.tickets,
-            totalsales: null // 若未來有 totalsales 欄位可直接帶入
+            totalsales: row.totalsales,
+            release_date: row.release_date ? row.release_date.toISOString().split('T')[0] : null,
+            week_start_date: row.week_start_date ? row.week_start_date.toISOString().split('T')[0] : null
         }));
         res.json(formatted);
     })
@@ -32,13 +34,15 @@ router.get('/date/:date', (req, res) => {
         res.status(400).json({ error: '請提供日期' });
         return;
     }
-    db_1.default.query('SELECT movie_id, rank, tickets FROM boxoffice WHERE week_start_date = $1 ORDER BY rank', [date])
+    db_1.default.query('SELECT movie_id, rank, tickets, totalsales, release_date, week_start_date FROM boxoffice WHERE week_start_date = $1 ORDER BY rank', [date])
         .then(result => {
         const formatted = result.rows.map(row => ({
             movie_id: row.movie_id,
             rank: row.rank,
             tickets: row.tickets,
-            totalsales: null
+            totalsales: row.totalsales,
+            release_date: row.release_date ? row.release_date.toISOString().split('T')[0] : null,
+            week_start_date: row.week_start_date ? row.week_start_date.toISOString().split('T')[0] : null
         }));
         res.json(formatted);
     })
@@ -55,7 +59,7 @@ router.get('/movie/:movieName', (req, res) => {
         return;
     }
     const decodedMovieName = decodeURIComponent(movieName);
-    db_1.default.query('SELECT movie_id, rank, tickets FROM boxoffice WHERE movie_id = $1 ORDER BY week_start_date DESC', [decodedMovieName])
+    db_1.default.query('SELECT movie_id, rank, tickets, totalsales, release_date, week_start_date FROM boxoffice WHERE movie_id = $1 ORDER BY week_start_date DESC', [decodedMovieName])
         .then(result => {
         if (result.rows.length === 0) {
             res.status(404).json({ error: '找不到指定電影的票房資料' });
@@ -65,7 +69,9 @@ router.get('/movie/:movieName', (req, res) => {
             movie_id: row.movie_id,
             rank: row.rank,
             tickets: row.tickets,
-            totalsales: null
+            totalsales: row.totalsales,
+            release_date: row.release_date ? row.release_date.toISOString().split('T')[0] : null,
+            week_start_date: row.week_start_date ? row.week_start_date.toISOString().split('T')[0] : null
         }));
         res.json(formatted);
     })
@@ -85,7 +91,7 @@ router.get('/latest', (req, res) => {
         }
         const latestDate = dateResult.rows[0].week_start_date;
         // 獲取該日期的票房排行榜
-        return db_1.default.query('SELECT movie_id, rank, tickets FROM boxoffice WHERE week_start_date = $1 ORDER BY rank', [latestDate]);
+        return db_1.default.query('SELECT movie_id, rank, tickets, totalsales, release_date, week_start_date FROM boxoffice WHERE week_start_date = $1 ORDER BY rank', [latestDate]);
     })
         .then(result => {
         if (result) {
@@ -93,7 +99,9 @@ router.get('/latest', (req, res) => {
                 movie_id: row.movie_id,
                 rank: row.rank,
                 tickets: row.tickets,
-                totalsales: null
+                totalsales: row.totalsales,
+                release_date: row.release_date ? row.release_date.toISOString().split('T')[0] : null,
+                week_start_date: row.week_start_date ? row.week_start_date.toISOString().split('T')[0] : null
             }));
             res.json(formatted);
         }
