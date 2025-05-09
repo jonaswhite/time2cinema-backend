@@ -74,9 +74,9 @@ router.get('/boxoffice-with-posters', async (req, res) => {
                 const result = await db_1.default.query('SELECT * FROM boxoffice WHERE date(week_start_date) = $1 ORDER BY rank', [dateStr]);
                 boxOfficeData = result.rows.map(row => ({
                     title: row.movie_id, // 使用 movie_id 作為電影標題，因為這是實際存儲電影名稱的欄位
-                    releaseDate: row.release_date,
-                    totalGross: row.total_gross,
-                    totalSales: row.total_sales,
+                    releaseDate: row.release_date ? row.release_date.toISOString().split('T')[0] : null,
+                    totalGross: row.totalsales,
+                    totalSales: row.totalsales,
                     rank: row.rank
                 }));
                 console.log(`從資料庫查詢到 ${boxOfficeData.length} 筆基本票房資料`);
