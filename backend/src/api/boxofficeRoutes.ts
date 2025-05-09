@@ -5,14 +5,16 @@ const router = express.Router();
 
 // 獲取所有票房資料（統一回傳格式）
 router.get('/', (req: Request, res: Response): void => {
-  pool.query('SELECT movie_id, rank, tickets FROM boxoffice ORDER BY rank')
+  pool.query('SELECT movie_id, rank, tickets, totalsales, release_date, week_start_date FROM boxoffice WHERE week_start_date = (SELECT MAX(week_start_date) FROM boxoffice) ORDER BY rank')
     .then(result => {
-      // 統一格式，補上 totalsales 欄位（目前為 null）
+      // 統一格式，包含 totalsales 和 release_date 欄位
       const formatted = result.rows.map(row => ({
         movie_id: row.movie_id,
         rank: row.rank,
         tickets: row.tickets,
-        totalsales: null // 若未來有 totalsales 欄位可直接帶入
+        totalsales: row.totalsales,
+        release_date: row.release_date ? row.release_date.toISOString().split('T')[0] : null,
+        week_start_date: row.week_start_date.toISOString().split('T')[0]
       }));
       res.json(formatted);
     })
@@ -32,7 +34,7 @@ router.get('/date/:date', (req: Request, res: Response): void => {
   }
   
   pool.query(
-    'SELECT movie_id, rank, tickets FROM boxoffice WHERE week_start_date = $1 ORDER BY rank',
+    'SELECT movie_id, rank, tickets, totalsales, release_date, week_start_date FROM boxoffice WHERE week_start_date = $1 ORDER BY rank',
     [date]
   )
     .then(result => {
@@ -40,7 +42,9 @@ router.get('/date/:date', (req: Request, res: Response): void => {
         movie_id: row.movie_id,
         rank: row.rank,
         tickets: row.tickets,
-        totalsales: null
+        totalsales: row.totalsales,
+        release_date: row.release_date ? row.release_date.toISOString().split('T')[0] : null,
+        week_start_date: row.week_start_date.toISOString().split('T')[0]
       }));
       res.json(formatted);
     })

@@ -8,8 +8,12 @@ import {
   getMoviesNotFoundOnTMDB,
   cleanupNotFoundMovies,
   BoxOfficeMovieWithTMDB,
-  BoxOfficeMovie
+  BoxOfficeMovie,
+  searchMovieFromTMDB
 } from './tmdb';
+
+// TMDB API 配置
+const TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
 
 const router = express.Router();
 const CACHE_DIR = path.resolve(__dirname, '../../cache');
@@ -84,7 +88,7 @@ router.get('/boxoffice-with-posters', async (req: Request, res: Response) => {
         );
         
         boxOfficeData = result.rows.map(row => ({
-          title: row.movie_name,
+          title: row.movie_id, // 使用 movie_id 作為電影標題，因為這是實際存儲電影名稱的欄位
           releaseDate: row.release_date,
           totalGross: row.total_gross,
           totalSales: row.total_sales,
@@ -119,7 +123,19 @@ router.get('/boxoffice-with-posters', async (req: Request, res: Response) => {
     res.json(simpleMovies);
 
   } catch (err) {
-    console.error('獲取帶有海報的票房資料失敗:', err instanceof Error ? err.message : String(err));
+    console.error('獲取帶有海報的票房資料失敗:', err);
+    console.error('錯誤詳情:', err instanceof Error ? err.stack : String(err));
+    
+    // 檢查是否為資料庫連接問題
+    if (err instanceof Error && err.message.includes('database')) {
+      console.error('可能是資料庫連接問題');
+    }
+    
+    // 檢查是否為 TMDB API 問題
+    if (err instanceof Error && err.message.includes('TMDB')) {
+      console.error('可能是 TMDB API 問題');
+    }
+    
     res.status(500).json({ 
       error: 'Failed to fetch box office data with posters', 
       detail: err instanceof Error ? err.message : String(err) 
@@ -145,6 +161,65 @@ router.get('/not-found-movies', async (req: Request, res: Response) => {
     console.error('獲取未找到電影列表失敗:', err instanceof Error ? err.message : String(err));
     res.status(500).json({ 
       error: 'Failed to get not found movies', 
+      detail: err instanceof Error ? err.message : String(err) 
+    });
+  }
+});
+
+// 新增端點：批量獲取電影海報資訊
+// @ts-ignore - 繁過 TypeScript 的類型檢查，因為 Express 的類型定義問題
+router.post('/posters', async (req: Request, res: Response) => {
+  try {
+    const { movieTitles } = req.body;
+    
+    if (!movieTitles || !Array.isArray(movieTitles) || movieTitles.length === 0) {
+      return res.status(400).json({ error: 'Invalid request. Please provide an array of movie titles.' });
+    }
+    
+    console.log(`收到海報請求，共 ${movieTitles.length} 部電影`);
+    
+    // 將所有電影標題轉換為 Promise
+    const promises = movieTitles.map(async (title: string) => {
+      try {
+        const tmdbData = await searchMovieFromTMDB(title);
+        return {
+          movieTitle: title,
+          posterUrl: tmdbData && tmdbData.poster_path
+            ? `${TMDB_IMAGE_BASE_URL}${tmdbData.poster_path}`
+            : null
+        };
+      } catch (error) {
+        console.error(`為電影 ${title} 獲取海報時發生錯誤:`, error);
+        return {
+          movieTitle: title,
+          posterUrl: null
+        };
+      }
+    });
+    
+    // 使用 Promise.allSettled 並行處理所有電影的海報請求
+    const results = await Promise.allSettled(promises);
+
+    // 處理結果
+    const posterData = results.map(result => {
+      if (result.status === 'fulfilled') {
+        return result.value;
+      } else {
+        // 如果失敗，返回空海報
+        return { 
+          movieTitle: 'unknown',
+          posterUrl: null 
+        };
+      }
+    }).filter(item => item.movieTitle !== 'unknown'); // 過濾掉未知電影
+    
+    console.log(`成功處理 ${posterData.length} 部電影的海報資訊`);
+    res.json(posterData);
+    
+  } catch (err) {
+    console.error('處理海報請求時發生錯誤:', err);
+    res.status(500).json({ 
+      error: 'Failed to process poster requests', 
       detail: err instanceof Error ? err.message : String(err) 
     });
   }

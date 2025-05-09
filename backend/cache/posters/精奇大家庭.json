@@ -1,0 +1,63 @@
+{
+  "adult": false,
+  "backdrop_path": "/qdl3SlctJM72sUbv8zo2UjHoIpv.jpg",
+  "genre_ids": [
+    18,
+    35
+  ],
+  "id": 1064205,
+  "original_language": "ko",
+  "original_title": "대가족",
+  "overview": "無玉（金倫奭 飾）是美食老店「平滿屋」的老闆，客人總是絡繹不絕。但自從無玉的獨子文錫（李昇基 飾）出家成為僧侶後，無人能為家族傳宗接代，這令無玉擔心不已。然而某日，自稱是文錫兒女的孩子們竟找上平滿屋！原以為家族會就此斷後的無玉，體驗到前所未有的幸福。文錫在回想成為僧侶前的生活時，竟得知令人震驚的事實……",
+  "popularity": 0.6572,
+  "poster_path": "/iQVOQ2DbbyNU1b1wEbauhTs827T.jpg",
+  "release_date": "2024-12-11",
+  "title": "精奇大家庭",
+  "video": false,
+  "vote_average": 7,
+  "vote_count": 3,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt26224870",
+  "origin_country": [
+    "KR"
+  ],
+  "production_companies": [
+    {
+      "id": 122311,
+      "logo_path": "/nuUaNuKlX2lsU98oN2FbMDvQ8rZ.png",
+      "name": "Studio Genius",
+      "origin_country": "KR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 106,
+  "spoken_languages": [
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/iQVOQ2DbbyNU1b1wEbauhTs827T.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/qdl3SlctJM72sUbv8zo2UjHoIpv.jpg"
+}

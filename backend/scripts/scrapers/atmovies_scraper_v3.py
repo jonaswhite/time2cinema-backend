@@ -26,8 +26,11 @@ logger = logging.getLogger(__name__)
 # 常數設定
 BASE_URL = "https://www.atmovies.com.tw/showtime/"
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
     'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'Connection': 'keep-alive',
+    'Cache-Control': 'max-age=0'
 }
 MAX_RETRIES = 2  # 最大重試次數
 TIMEOUT = 10  # 請求超時時間

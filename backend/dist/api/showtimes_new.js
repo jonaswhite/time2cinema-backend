@@ -1,14 +1,17 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getShowtimesByDate = exports.getShowtimesByMovie = exports.getShowtimesByTheater = exports.router = void 0;
 const express_1 = require("express");
-const db_1 = require("../db");
+const db_1 = __importDefault(require("../db"));
 // 設定路由
 exports.router = (0, express_1.Router)();
 // 獲取所有場次資料
 exports.router.get('/', async (req, res) => {
     try {
-        const result = await db_1.pool.query('SELECT * FROM showtimes');
+        const result = await db_1.default.query('SELECT * FROM showtimes');
         res.json(result.rows);
     }
     catch (error) {
@@ -45,7 +48,7 @@ function getDateLabel(date) {
 const formatShowtimesData = async () => {
     try {
         // 獲取所有電影院
-        const cinemasResult = await db_1.pool.query('SELECT id, name FROM cinemas');
+        const cinemasResult = await db_1.default.query('SELECT id, name FROM cinemas');
         const cinemas = cinemasResult.rows;
         // 獲取未來三天的場次數據（使用台灣時間）
         const now = new Date();
@@ -60,7 +63,7 @@ const formatShowtimesData = async () => {
         };
         const todayStr = formatDate(taiwanNow);
         // 獲取未來三天的場次數據
-        const showtimesResult = await db_1.pool.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+        const showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
             'JOIN cinemas c ON s.cinema_id = c.id ' +
             'WHERE DATE(s.date) >= $1 ' +
             'ORDER BY s.cinema_id, s.date, s.time', [todayStr]);
@@ -84,7 +87,7 @@ const formatShowtimesData = async () => {
             });
         });
         // 將分組數據轉換為前端需要的格式
-        cinemas.forEach(cinema => {
+        cinemas.forEach((cinema) => {
             const showtimesByDate = showtimesByCinema[cinema.id];
             if (!showtimesByDate) {
                 return; // 跳過沒有場次的電影院
@@ -120,7 +123,7 @@ const getShowtimesByTheater = async (req, res) => {
             return res.status(400).json({ error: '請提供電影院ID' });
         }
         // 獲取電影院資訊
-        const cinemaResult = await db_1.pool.query('SELECT id, name FROM cinemas WHERE id = $1', [theaterId]);
+        const cinemaResult = await db_1.default.query('SELECT id, name FROM cinemas WHERE id = $1', [theaterId]);
         if (cinemaResult.rowCount === 0) {
             return res.status(404).json({ error: '找不到指定的電影院' });
         }
@@ -135,7 +138,7 @@ const getShowtimesByTheater = async (req, res) => {
         };
         const todayStr = formatDate(now);
         // 獲取該電影院的場次
-        const showtimesResult = await db_1.pool.query('SELECT date, time, movie_name FROM showtimes ' +
+        const showtimesResult = await db_1.default.query('SELECT date, time, movie_name FROM showtimes ' +
             'WHERE cinema_id = $1 AND DATE(date) >= $2 ' +
             'ORDER BY date, time', [theaterId, todayStr]);
         // 按日期分組
@@ -241,7 +244,7 @@ const getShowtimesByMovie = async (req, res) => {
         let showtimesResult = { rowCount: 0, rows: [] };
         // 嘗試精確匹配
         triedVariations.push(movieNameVariations[0]);
-        showtimesResult = await db_1.pool.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+        showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
             'JOIN cinemas c ON s.cinema_id = c.id ' +
             'WHERE s.movie_name = $1 AND DATE(s.date) = $2 ' +
             'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[0], queryDate]);
@@ -249,7 +252,7 @@ const getShowtimesByMovie = async (req, res) => {
         if (showtimesResult.rowCount === 0) {
             console.log(`精確匹配沒有結果，嘗試模糊匹配: "${movieNameVariations[1]}"`);
             triedVariations.push(movieNameVariations[1]);
-            showtimesResult = await db_1.pool.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+            showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
                 'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = $2 ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[1], queryDate]);
@@ -258,7 +261,7 @@ const getShowtimesByMovie = async (req, res) => {
         if (showtimesResult.rowCount === 0) {
             console.log(`模糊匹配沒有結果，嘗試去除空格後精確匹配: "${movieNameVariations[2]}"`);
             triedVariations.push(movieNameVariations[2]);
-            showtimesResult = await db_1.pool.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+            showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
                 'WHERE s.movie_name = $1 AND DATE(s.date) = $2 ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[2], queryDate]);
@@ -267,7 +270,7 @@ const getShowtimesByMovie = async (req, res) => {
         if (showtimesResult.rowCount === 0) {
             console.log(`去除空格後精確匹配沒有結果，嘗試去除空格後模糊匹配: "${movieNameVariations[3]}"`);
             triedVariations.push(movieNameVariations[3]);
-            showtimesResult = await db_1.pool.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+            showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
                 'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = $2 ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[3], queryDate]);
@@ -276,7 +279,7 @@ const getShowtimesByMovie = async (req, res) => {
         if (showtimesResult.rowCount === 0) {
             console.log(`去除空格後模糊匹配沒有結果，嘗試只匹配第一個詞: "${movieNameVariations[4]}"`);
             triedVariations.push(movieNameVariations[4]);
-            showtimesResult = await db_1.pool.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+            showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
                 'WHERE s.movie_name = $1 AND DATE(s.date) = $2 ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[4], queryDate]);
@@ -285,7 +288,7 @@ const getShowtimesByMovie = async (req, res) => {
         if (showtimesResult.rowCount === 0) {
             console.log(`只匹配第一個詞沒有結果，嘗試模糊匹配第一個詞: "${movieNameVariations[5]}"`);
             triedVariations.push(movieNameVariations[5]);
-            showtimesResult = await db_1.pool.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+            showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
                 'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = $2 ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[5], queryDate]);
@@ -363,7 +366,7 @@ const getShowtimesByDate = async (req, res) => {
         }
         console.log(`查詢日期: ${date}, 目標日期: ${targetDate.toISOString()}`);
         // 直接從資料庫查詢特定日期的場次，使用 DATE() 函數確保只比較日期部分
-        const showtimesResult = await db_1.pool.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+        const showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
             'JOIN cinemas c ON s.cinema_id = c.id ' +
             'WHERE DATE(s.date) = DATE($1) ' +
             'ORDER BY s.cinema_id, s.time', [date] // 直接使用輸入的日期字串

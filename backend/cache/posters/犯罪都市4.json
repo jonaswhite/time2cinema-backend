@@ -1,0 +1,111 @@
+{
+  "adult": false,
+  "backdrop_path": "/mO9oOVXM8tTlC11VFM4FBBNnL3f.jpg",
+  "genre_ids": [
+    28,
+    80,
+    18,
+    53,
+    35
+  ],
+  "id": 1017163,
+  "original_language": "ko",
+  "original_title": "범죄도시 4",
+  "overview": "「怪物刑警」馬錫道（馬東石 飾）在搜查利用外送APP販毒的案件時，發現遭通緝的APP開發者在菲律賓死亡的案件與大規模的網路非法賭博組織有關。特種部隊傭兵出身的白昌其（金武烈 飾），在菲律賓設置據點，以殘忍手段掌控韓國網路非法賭博市場；IT業界出身的天才CEO．張東哲（李東輝 飾）則在韓國籌備規模更大的計畫。馬錫道為了將壞傢伙們一網打盡，決定與張夷帥（朴智煥 飾）、廣搜隊及網路搜查隊合作，展開更勝以往的掃蕩行動！",
+  "popularity": 4.8004,
+  "poster_path": "/mIFpxKDE5GgDX3e3EEG4j6MKSee.jpg",
+  "release_date": "2024-04-24",
+  "title": "犯罪都市4",
+  "video": false,
+  "vote_average": 6.8,
+  "vote_count": 129,
+  "belongs_to_collection": {
+    "id": 619802,
+    "name": "犯罪都市（系列）",
+    "poster_path": "/is27CMmGW9peeVl9r7ph0r4XHox.jpg",
+    "backdrop_path": "/ra2aSkkwOQRoymeg5p19PfnC9r9.jpg"
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 80,
+      "name": "犯罪"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt27811040",
+  "origin_country": [
+    "KR"
+  ],
+  "production_companies": [
+    {
+      "id": 84678,
+      "logo_path": "/8pjrX8L669kQUdCqCCpv3uWOSBC.png",
+      "name": "BA Entertainment",
+      "origin_country": "KR"
+    },
+    {
+      "id": 96989,
+      "logo_path": null,
+      "name": "Hong Film",
+      "origin_country": "KR"
+    },
+    {
+      "id": 129217,
+      "logo_path": "/s5rN5NUfE9yx21Yh0CuLULAGH5Y.png",
+      "name": "Big Punch Pictures",
+      "origin_country": "KR"
+    },
+    {
+      "id": 139571,
+      "logo_path": null,
+      "name": "ABO Entertainment",
+      "origin_country": "KR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "revenue": 83703350,
+  "runtime": 109,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    },
+    {
+      "english_name": "Tagalog",
+      "iso_639_1": "tl",
+      "name": ""
+    }
+  ],
+  "status": "Released",
+  "tagline": "我會負責將他們一網打盡",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/mIFpxKDE5GgDX3e3EEG4j6MKSee.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/mO9oOVXM8tTlC11VFM4FBBNnL3f.jpg"
+}

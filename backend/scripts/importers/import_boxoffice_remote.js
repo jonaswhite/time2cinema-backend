@@ -2,13 +2,10 @@ const fs = require('fs');
 const { Client } = require('pg');
 const path = require('path');
 
-// PostgreSQL 連線設定
+// 線上 PostgreSQL 連線設定
 const client = new Client({
-  user: 'jonaswhite',
-  host: 'localhost',
-  database: 'jonaswhite',
-  password: '',
-  port: 5432,
+  connectionString: 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
+  ssl: { rejectUnauthorized: false }
 });
 
 // 找出最新的 boxoffice 檔案
@@ -91,7 +88,7 @@ async function importBoxoffice() {
     console.log(`週一日期: ${weekStartDate}`);
     
     await client.connect();
-    console.log('連線成功，開始匯入票房資料...');
+    console.log('連線到線上資料庫成功，開始匯入票房資料...');
     
     // 設定資料庫時區為台灣時區
     await client.query("SET timezone = 'Asia/Taipei'");
@@ -168,7 +165,7 @@ async function importBoxoffice() {
       }
     }
     
-    console.log(`匯入完成！共匯入 ${importedCount} 筆票房資料`);
+    console.log(`匯入完成！共匯入 ${importedCount} 筆票房資料到線上資料庫`);
     
   } catch (err) {
     console.error('匯入過程發生錯誤:', err);

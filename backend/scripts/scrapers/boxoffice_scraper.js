@@ -55,9 +55,6 @@ async function downloadBoxOfficeNoDuplicates(outputDir = './', maxPages = 20, wa
     await new Promise(resolve => setTimeout(resolve, waitTimeMs)); // 額外等待時間
     console.log('頁面加載完成');
     
-    // 截圖保存（初始頁面）
-    await page.screenshot({ path: path.join(outputDir, 'boxoffice-initial.png'), fullPage: true });
-    
     // 點擊票數欄位進行排序（只點擊一次，實現降冪排序）
     console.log('點擊票數欄位進行降冪排序...');
     await page.evaluate(() => {

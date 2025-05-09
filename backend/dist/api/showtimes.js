@@ -35,15 +35,23 @@ const formatShowtimesData = async () => {
             const cinemaShowtimes = showtimesByCinema[cinema.id] || [];
             // 按日期分組
             const showtimesByDate = {};
+            // 取得今天的日期字串，用於比較
+            const todayStr = (0, exports.formatDate)(today);
+            console.log(`今天日期字串: ${todayStr}`);
             cinemaShowtimes.forEach((showtime) => {
-                const dateStr = showtime.date.toISOString().split('T')[0];
-                if (!showtimesByDate[dateStr]) {
-                    showtimesByDate[dateStr] = [];
+                // 將場次日期轉換為 YYYY-MM-DD 格式
+                const showDateObj = new Date(showtime.date);
+                const dateStr = (0, exports.formatDate)(showDateObj);
+                // 只處理今天及以後的場次
+                if (dateStr >= todayStr) {
+                    if (!showtimesByDate[dateStr]) {
+                        showtimesByDate[dateStr] = [];
+                    }
+                    showtimesByDate[dateStr].push({
+                        time: showtime.time,
+                        movie_name: showtime.movie_name
+                    });
                 }
-                showtimesByDate[dateStr].push({
-                    time: showtime.time,
-                    movie_name: showtime.movie_name
-                });
             });
             // 格式化日期數據
             const formattedDates = [];
@@ -247,78 +255,85 @@ const getShowtimesByMovie = async (req, res) => {
         console.log(`查詢特定日期的場次: ${queryDate}`);
         // 使用多種匹配策略，以提高查詢成功率
         console.log(`實際查詢電影名稱: "${decodedMovieName}"`);
+        console.log(`使用 DATE() 函數確保只比較日期部分，查詢日期: ${queryDate}`);
         // 先準備各種可能的電影名稱變形
         const movieNameVariations = [
             decodedMovieName, // 原始名稱（精確匹配）
             `%${decodedMovieName}%`, // 模糊匹配
             decodedMovieName.replace(/\s+/g, ''), // 去除空格
             `%${decodedMovieName.replace(/\s+/g, '')}%`, // 去除空格後模糊匹配
-            decodedMovieName.split(/\s+/)[0], // 只取第一個詞
-            `%${decodedMovieName.split(/\s+/)[0]}%` // 第一個詞模糊匹配
+            decodedMovieName.split(' ')[0], // 只取第一個詞（精確匹配）
+            `%${decodedMovieName.split(' ')[0]}%` // 只取第一個詞（模糊匹配）
         ];
-        // 記錄所有已嘗試的電影名稱變形
+        console.log(`準備的電影名稱變形: ${movieNameVariations.join(', ')}`);
+        // 記錄已嘗試的電影名稱變形
         const triedVariations = [];
-        let showtimesResult = { rowCount: 0, rows: [] };
-        // 嘗試精確匹配
+        // 先嘗試精確匹配原始名稱
+        console.log(`嘗試精確匹配原始名稱: "${movieNameVariations[0]}"`);
         triedVariations.push(movieNameVariations[0]);
-        showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
+        let showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
             'JOIN cinemas c ON s.cinema_id = c.id ' +
-            'WHERE s.movie_name = $1 AND DATE(s.date) = $2 ' +
+            'WHERE s.movie_name = $1 AND DATE(s.date) = DATE($2) ' +
             'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[0], queryDate]);
         // 如果精確匹配沒有結果，嘗試模糊匹配
-        if (showtimesResult.rowCount === 0) {
+        if (!showtimesResult || showtimesResult.rowCount === 0) {
             console.log(`精確匹配沒有結果，嘗試模糊匹配: "${movieNameVariations[1]}"`);
             triedVariations.push(movieNameVariations[1]);
             showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
-                'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = $2 ' +
+                'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = DATE($2) ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[1], queryDate]);
         }
         // 如果仍然沒有結果，嘗試去除空格後精確匹配
-        if (showtimesResult.rowCount === 0) {
+        if (!showtimesResult || showtimesResult.rowCount === 0) {
             console.log(`模糊匹配沒有結果，嘗試去除空格後精確匹配: "${movieNameVariations[2]}"`);
             triedVariations.push(movieNameVariations[2]);
             showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
-                'WHERE s.movie_name = $1 AND DATE(s.date) = $2 ' +
+                'WHERE s.movie_name = $1 AND DATE(s.date) = DATE($2) ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[2], queryDate]);
         }
         // 如果仍然沒有結果，嘗試去除空格後模糊匹配
-        if (showtimesResult.rowCount === 0) {
+        if (!showtimesResult || showtimesResult.rowCount === 0) {
             console.log(`去除空格後精確匹配沒有結果，嘗試去除空格後模糊匹配: "${movieNameVariations[3]}"`);
             triedVariations.push(movieNameVariations[3]);
             showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
-                'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = $2 ' +
+                'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = DATE($2) ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[3], queryDate]);
         }
         // 如果仍然沒有結果，嘗試只匹配第一個詞（精確匹配）
-        if (showtimesResult.rowCount === 0) {
+        if (!showtimesResult || showtimesResult.rowCount === 0) {
             console.log(`去除空格後模糊匹配沒有結果，嘗試只匹配第一個詞: "${movieNameVariations[4]}"`);
             triedVariations.push(movieNameVariations[4]);
             showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
-                'WHERE s.movie_name = $1 AND DATE(s.date) = $2 ' +
+                'WHERE s.movie_name = $1 AND DATE(s.date) = DATE($2) ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[4], queryDate]);
         }
         // 如果仍然沒有結果，嘗試只匹配第一個詞（模糊匹配）
-        if (showtimesResult.rowCount === 0) {
+        if (!showtimesResult || showtimesResult.rowCount === 0) {
             console.log(`只匹配第一個詞沒有結果，嘗試模糊匹配第一個詞: "${movieNameVariations[5]}"`);
             triedVariations.push(movieNameVariations[5]);
             showtimesResult = await db_1.default.query('SELECT s.cinema_id, s.date, s.time, s.movie_name, c.name as cinema_name FROM showtimes s ' +
                 'JOIN cinemas c ON s.cinema_id = c.id ' +
-                'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = $2 ' +
+                'WHERE s.movie_name ILIKE $1 AND DATE(s.date) = DATE($2) ' +
                 'ORDER BY s.cinema_id, s.date, s.time', [movieNameVariations[5], queryDate]);
         }
         // 記錄所有已嘗試的電影名稱變形
         console.log(`已嘗試的電影名稱變形: ${triedVariations.join(', ')}`);
-        if (showtimesResult.rowCount > 0) {
+        // 確保 showtimesResult 不為 null
+        if (showtimesResult && showtimesResult.rowCount !== null && showtimesResult.rowCount > 0 &&
+            showtimesResult.rows && showtimesResult.rows.length > 0 && showtimesResult.rows[0]) {
             console.log(`成功匹配到電影名稱: ${showtimesResult.rows[0].movie_name}`);
         }
-        console.log(`查詢結果: 找到 ${showtimesResult.rowCount} 筆場次資料`);
+        // 安全地計算行數，確保不會出現 null 錯誤
+        const rowCount = showtimesResult && showtimesResult.rowCount !== null ? showtimesResult.rowCount : 0;
+        console.log(`查詢結果: 找到 ${rowCount} 筆場次資料`);
         // 按電影院和日期分組
         const theaterMap = {};
-        if (!showtimesResult.rows || showtimesResult.rows.length === 0) {
+        // 確保 showtimesResult 不為 null
+        if (!showtimesResult || !showtimesResult.rows || showtimesResult.rows.length === 0) {
             // 如果沒有找到任何場次，返回空數組
             return res.json([]);
         }
@@ -333,7 +348,9 @@ const getShowtimesByMovie = async (req, res) => {
                 console.warn(`無效的日期格式: ${row.date}`);
                 return; // 跳過無效的日期
             }
-            const dateStr = dateObj.toISOString().split('T')[0];
+            // 使用查詢日期作為返回的日期，而不是使用資料庫中的日期
+            // 這樣可以確保前端收到的日期是正確的
+            const dateStr = queryDate;
             if (!theaterMap[cinemaId]) {
                 theaterMap[cinemaId] = {
                     theater_id: cinemaId,

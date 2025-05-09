@@ -119,20 +119,71 @@ async function searchMovieFromTMDB(title, releaseDate) {
  */
 async function enrichMoviesWithTMDBData(movies) {
     const TMDB_IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
-    const enrichedMovies = await Promise.all(movies.map(async (movie) => {
-        const tmdbData = await searchMovieFromTMDB(movie.title, movie.releaseDate);
-        // 只返回需要的欄位
-        return {
+    try {
+        // 使用 Promise.allSettled 而非 Promise.all，以避免單個電影的錯誤導致整個處理失敗
+        const results = await Promise.allSettled(movies.map(async (movie) => {
+            try {
+                const tmdbData = await searchMovieFromTMDB(movie.title, movie.releaseDate);
+                // 只返回需要的欄位
+                return {
+                    title: movie.title,
+                    releaseDate: movie.releaseDate,
+                    totalGross: movie.totalGross,
+                    totalSales: movie.totalSales,
+                    posterUrl: tmdbData && tmdbData.poster_path
+                        ? `${TMDB_IMAGE_BASE_URL}${tmdbData.poster_path}`
+                        : null
+                };
+            }
+            catch (error) {
+                console.error(`為電影 ${movie.title} 加入 TMDB 資訊時發生錯誤:`, error);
+                // 即使發生錯誤，仍然返回基本電影資訊，但沒有海報
+                return {
+                    title: movie.title,
+                    releaseDate: movie.releaseDate,
+                    totalGross: movie.totalGross,
+                    totalSales: movie.totalSales,
+                    posterUrl: null
+                };
+            }
+        }));
+        // 處理 Promise.allSettled 的結果
+        const enrichedMovies = results.map(result => {
+            if (result.status === 'fulfilled' && result.value && result.value.title) {
+                return result.value;
+            }
+            else if (result.status === 'fulfilled' && result.value) {
+                // 確保有 title 屬性
+                if (!result.value.title) {
+                    console.error('電影物件缺少 title 屬性:', result.value);
+                    result.value.title = '未知電影';
+                }
+                return result.value;
+            }
+            else if (result.status === 'rejected') {
+                console.error('處理電影時發生錯誤:', result.reason);
+                // 如果有錯誤，返回一個空對象，後續會過濾掉
+                return null;
+            }
+            else {
+                // 其他意外情況
+                console.error('處理電影時發生未知錯誤');
+                return null;
+            }
+        }).filter(movie => movie !== null); // 過濾掉空值
+        return enrichedMovies;
+    }
+    catch (error) {
+        console.error('處理電影海報時發生全局錯誤:', error);
+        // 如果發生全局錯誤，返回原始電影列表，但沒有海報
+        return movies.map(movie => ({
             title: movie.title,
             releaseDate: movie.releaseDate,
             totalGross: movie.totalGross,
             totalSales: movie.totalSales,
-            posterUrl: tmdbData && tmdbData.poster_path
-                ? `${TMDB_IMAGE_BASE_URL}${tmdbData.poster_path}`
-                : null
-        };
-    }));
-    return enrichedMovies;
+            posterUrl: null
+        }));
+    }
 }
 /**
  * 獲取未找到的電影列表
