@@ -2,6 +2,9 @@ import axios from 'axios';
 import fs from 'fs-extra';
 import path from 'path';
 import dayjs from 'dayjs';
+import { getMovieFromCache, saveMovieToCache } from '../db/tmdbCache';
+import { getTmdbIdByTitle } from '../db/movieMapping';
+import { data } from 'cheerio/dist/commonjs/api/attributes';
 
 // 定義票房資料介面
 export interface BoxOfficeMovie {
@@ -36,6 +39,7 @@ export interface TMDBMovie {
   overview?: string;
   vote_average?: number;
   release_date?: string;
+  runtime?: number; // 片長（分鐘）
   genres?: Array<{ id: number; name: string }>;
   fullPosterPath?: string;
   fullBackdropPath?: string;
@@ -65,14 +69,24 @@ interface NotFoundMovie {
  */
 export async function searchMovieFromTMDB(title: string, releaseDate?: string): Promise<TMDBMovie | null> {
   try {
-    // 建立快取檔案名稱，使用電影標題作為檔名
+    // 先從資料庫快取中查詢
+    const cachedMovie = await getMovieFromCache(title);
+    if (cachedMovie) {
+      console.log(`從資料庫快取返回 ${title} 的 TMDB 資訊`);
+      return cachedMovie;
+    }
+    
+    // 如果資料庫中沒有，則檢查文件快取
     const safeTitle = title.replace(/[\/:*?"<>|]/g, '_');
     const cacheFile = path.join(POSTER_CACHE_DIR, `${safeTitle}.json`);
     
-    // 檢查快取是否存在
     if (await fs.pathExists(cacheFile)) {
       const cachedData = await fs.readJSON(cacheFile);
-      console.log(`從快取返回 ${title} 的 TMDB 資訊`);
+      console.log(`從文件快取返回 ${title} 的 TMDB 資訊`);
+      
+      // 將文件快取中的資料保存到資料庫
+      await saveMovieToCache(cachedData);
+      
       return cachedData;
     }
     
@@ -98,20 +112,47 @@ export async function searchMovieFromTMDB(title: string, releaseDate?: string): 
       }
     }
     
-    // 搜索電影
-    const searchUrl = `${TMDB_BASE_URL}/search/movie`;
-    const { data } = await axios.get(searchUrl, {
-      params: {
-        api_key: TMDB_API_KEY,
-        query: title,
-        year: year || undefined,
-        language: 'zh-TW'
-      }
-    });
+    // 先檢查是否有手動映射
+    const mappedTmdbId = getTmdbIdByTitle(title);
+    let movieData;
     
-    if (data.results && data.results.length > 0) {
+    if (mappedTmdbId) {
+      console.log(`使用手動映射獲取 ${title} 的 TMDB ID: ${mappedTmdbId}`);
+      // 直接使用 ID 獲取電影詳細資訊
+      try {
+        const detailUrl = `${TMDB_BASE_URL}/movie/${mappedTmdbId}`;
+        const { data: movieDetail } = await axios.get(detailUrl, {
+          params: {
+            api_key: TMDB_API_KEY,
+            language: 'zh-TW'
+          }
+        });
+        movieData = { results: [movieDetail] };
+      } catch (detailError) {
+        console.error(`無法使用映射的 ID 獲取 ${title} 的詳細資訊:`, detailError);
+        // 如果映射失敗，回退到正常搜索
+        movieData = null;
+      }
+    }
+    
+    // 如果沒有映射或映射失敗，使用正常搜索
+    if (!movieData) {
+      // 搜索電影
+      const searchUrl = `${TMDB_BASE_URL}/search/movie`;
+      const { data } = await axios.get(searchUrl, {
+        params: {
+          api_key: TMDB_API_KEY,
+          query: title,
+          year: year || undefined,
+          language: 'zh-TW'
+        }
+      });
+      movieData = data;
+    }
+    
+    if (movieData.results && movieData.results.length > 0) {
       // 取得最相關的結果
-      const movie = data.results[0];
+      const movie = movieData.results[0];
       
       // 如果有電影 ID，再取得詳細資訊
       if (movie.id) {
@@ -132,21 +173,27 @@ export async function searchMovieFromTMDB(title: string, releaseDate?: string): 
             fullBackdropPath: movie.backdrop_path ? `${TMDB_IMAGE_BASE_URL}${movie.backdrop_path}` : null
           };
           
-          // 寫入快取
+          // 寫入文件快取
           await fs.writeJSON(cacheFile, result, { spaces: 2 });
-          console.log(`已將 ${title} 的 TMDB 資訊寫入快取`);
+          console.log(`已將 ${title} 的 TMDB 資訊寫入文件快取`);
+          
+          // 同時寫入資料庫快取
+          await saveMovieToCache(result);
+          console.log(`已將 ${title} 的 TMDB 資訊寫入資料庫快取`);
           
           return result;
         } catch (detailError) {
           console.error(`無法獲取 ${title} 的詳細資訊:`, detailError);
           // 如果取得詳細資訊失敗，仍然返回搜索結果
           await fs.writeJSON(cacheFile, movie, { spaces: 2 });
+          await saveMovieToCache(movie);
           return movie;
         }
       }
       
       // 寫入快取
       await fs.writeJSON(cacheFile, movie, { spaces: 2 });
+      await saveMovieToCache(movie);
       return movie;
     }
     
