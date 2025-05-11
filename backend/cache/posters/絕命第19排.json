@@ -1,0 +1,81 @@
+{
+  "adult": false,
+  "backdrop_path": "/f7YIqQmPuBLhheNCpvmLVMLH4Gn.jpg",
+  "genre_ids": [
+    27,
+    53
+  ],
+  "id": 659384,
+  "original_language": "ru",
+  "original_title": "Ряд 19",
+  "overview": "一名年輕女醫生帶著她六歲大的女兒搭乘夜間航班時，不幸遇到一場可怕的風暴，機艙內的乘客開始因為不明原因接連死亡，這名女醫生開始意識到現實與惡夢的界線逐漸模糊，她被迫再次經歷童年無法抹滅的夢魘……。",
+  "popularity": 1.2096,
+  "poster_path": "/mMIHggBKdwVGN8cwkiOHG30DIMu.jpg",
+  "release_date": "2021-11-11",
+  "title": "絕命第19排",
+  "video": false,
+  "vote_average": 5.5,
+  "vote_count": 124,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 27,
+      "name": "恐怖"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt12036270",
+  "origin_country": [
+    "RU"
+  ],
+  "production_companies": [
+    {
+      "id": 99796,
+      "logo_path": "/9mf2AFZUoQP4ovnNiSOg7SKJjZa.png",
+      "name": "KIT Film Studio",
+      "origin_country": "RU"
+    },
+    {
+      "id": 3419,
+      "logo_path": "/byrxE2pJD9JLyBCIzyK0pYVanyG.png",
+      "name": "Central Partnership",
+      "origin_country": "RU"
+    },
+    {
+      "id": 13089,
+      "logo_path": "/tFfL2fNtL9edHIKoqIFRAaxAvrK.png",
+      "name": "Monumental Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 78673,
+      "logo_path": "/AqtEF7Cw7XjBtjvqNp4BS2p21Kp.png",
+      "name": "IKa Film",
+      "origin_country": "RU"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "RU",
+      "name": "Russia"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 77,
+  "spoken_languages": [
+    {
+      "english_name": "Russian",
+      "iso_639_1": "ru",
+      "name": "Pусский"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/mMIHggBKdwVGN8cwkiOHG30DIMu.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/f7YIqQmPuBLhheNCpvmLVMLH4Gn.jpg"
+}

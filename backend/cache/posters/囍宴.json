@@ -1,0 +1,90 @@
+{
+  "adult": false,
+  "backdrop_path": "/bqqthiW4JzYK3hz9LrqNZQWbNz6.jpg",
+  "genre_ids": [
+    35,
+    10749,
+    18
+  ],
+  "id": 1278827,
+  "original_language": "en",
+  "original_title": "The Wedding Banquet",
+  "overview": "一名韓裔男同志向男友求婚失敗，情急之下竟想與女同志好友假結婚，提供她與伴侶人工受孕的資金換取美國身份。遠在韓國的奶奶卻突然現身打亂計畫，婚禮迫在眉睫，兩對情侶的關係更面臨前所未有的考驗。",
+  "popularity": 2.3702,
+  "poster_path": "/lnwwaMDR7L42DWZXCzkEiQMKqxs.jpg",
+  "release_date": "2025-04-18",
+  "title": "囍宴",
+  "video": false,
+  "vote_average": 8.5,
+  "vote_count": 4,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 10749,
+      "name": "爱情"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt32214413",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 103536,
+      "logo_path": null,
+      "name": "Symbolic Exchange",
+      "origin_country": "US"
+    },
+    {
+      "id": 118246,
+      "logo_path": "/thGsoSlp0SEayiulTOOofmnKD4z.png",
+      "name": "Kindred Spirit",
+      "origin_country": "US"
+    },
+    {
+      "id": 33603,
+      "logo_path": "/K1SdQd49Kx3QRx0djfHbzeotCz.png",
+      "name": "Shivhans Pictures",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 1664509,
+  "runtime": 103,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/lnwwaMDR7L42DWZXCzkEiQMKqxs.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/bqqthiW4JzYK3hz9LrqNZQWbNz6.jpg"
+}

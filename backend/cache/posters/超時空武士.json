@@ -1,0 +1,64 @@
+{
+  "adult": false,
+  "backdrop_path": "/tTUr3JaMRhA7Jt64lmrskF7xNRO.jpg",
+  "genre_ids": [
+    35
+  ],
+  "id": 1287819,
+  "original_language": "ja",
+  "original_title": "侍タイムスリッパー",
+  "overview": "幕末戰火綿延，新座衛門和同伴深夜與仇敵對決，剎那間雷鳴閃電，再醒來竟已是白天，街道風景沒變但周遭對話不斷重演，想助人一臂之力還被罵不要干擾拍片。原來他已穿越百年，太平世代無需武士拔劍。頓失所依的他暈倒在寺廟前，被廟主撿回休養一起看電視吃甜點，放映的時代劇讓他從驚嚇不已看到淚流滿面，就此決心轉行去當臨演。本以為能安穩度日與過去再無關聯，沒想到那一夜有著更多祕密等著他去發現⋯⋯。",
+  "popularity": 1.2461,
+  "poster_path": "/5sLOYRzdP7JTyZwZaOcl3aufGTQ.jpg",
+  "release_date": "2024-08-17",
+  "title": "超時空武士",
+  "video": false,
+  "vote_average": 8.7,
+  "vote_count": 3,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt32277931",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 254133,
+      "logo_path": null,
+      "name": "Mirai Eigasha",
+      "origin_country": "JP"
+    },
+    {
+      "id": 134391,
+      "logo_path": null,
+      "name": "Toei Studios Kyoto",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 131,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/5sLOYRzdP7JTyZwZaOcl3aufGTQ.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/tTUr3JaMRhA7Jt64lmrskF7xNRO.jpg"
+}

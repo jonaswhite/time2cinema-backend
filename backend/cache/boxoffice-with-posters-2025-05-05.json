@@ -1,342 +1,457 @@
 [
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "雷霆特攻隊",
+    "releaseDate": "2025-04-29T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/vU3Ir6FXUvHvm3ASYN7Wl0qhgLn.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "會計師 2",
+    "releaseDate": "2025-04-20T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qY8gDFoRncaKh0B7e9wjT5wdrAv.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "聖夜：惡魔都市",
+    "releaseDate": "2025-04-29T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/mZ9AEdlSrRd7apiUMMmzPSvEJTj.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "花束般的戀愛",
+    "releaseDate": "2021-07-15T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3Z8ezMWxB7lH8MfRCV0X0RHQLWz.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "罪人",
+    "releaseDate": "2025-04-15T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9hRm4WVM3D5HzjMBTKSsPBOd50c.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "夏日最後的祕密",
+    "releaseDate": "2025-04-29T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/kMFzAI0CGtkgTso0KE1CeJVEPDQ.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "有病才會喜歡你",
+    "releaseDate": "2025-04-01T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dSAagxNVZmvA7eohvky20CFv5iC.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "取精急轉彎",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dZ57Jy8oohLNjXpk9CIQozpRFF9.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "MINECRAFT 麥塊電影",
+    "releaseDate": "2025-04-01T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rONvP6UsL1jaZyjrIquumYTZKvB.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "怪獸8號：Mission Recon",
+    "releaseDate": "2025-04-30T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gGjJIqPkPYLnbEvsACDQn8ZIEBh.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "直到黎明",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/kT6rj31OS5r0jLahUAxuDlApuY6.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "GIVEN被贈與的未來劇場版：去海邊",
+    "releaseDate": "2025-03-28T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "萬王之王",
+    "releaseDate": "2025-04-17T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/n66WEgkJGndAgaM6igMn43U6qHz.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "台灣超人",
+    "releaseDate": "2024-12-05T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/81EHAKhMbE2CQyW8EtEB0l7yjFr.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "器子",
+    "releaseDate": "2025-04-10T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1S1vakUhL2hDEDQVhL2kmZGKztJ.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "沈睡的水下巨人",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7DdvzQcKfGtd00tKsrmCB4ofemu.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "長安三萬里",
+    "releaseDate": "2025-04-29T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7wxk8Ka5AGUIjCpEPg4vBOwSSul.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "劇場版「進擊的巨人」完結篇THE LAST ATTACK",
+    "releaseDate": "2025-01-02T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/kkbGiEFXaLFWKLuJzMMJ4oEjUXS.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "秘密會議",
+    "releaseDate": "2025-03-06T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1BWhKsbUTiBD0WQhrOfQlU6zrc5.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "鬼房客",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/vyrK4aOD14ozbi56JiuLGPa7wmn.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "學姊是男孩劇場版：雨後天晴",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qOCnr7MNK3jbWcLFusveOd2wsIe.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "跳進部落的孩子",
+    "releaseDate": "2025-04-16T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/nfpp4DyCwnN9ow9SXK9AjF3pqng.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "劇場版 世界計畫 崩壞的世界與無法歌唱的初音未來",
+    "releaseDate": "2025-03-25T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/vCIfP3PFQ6vx23U4ZCMMygrc1eB.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "看我今天怎麼說",
+    "releaseDate": "2025-04-21T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rCStzXR7CYqCf0rqAuLkIxW9k75.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "小王子經典10週年 重返大銀幕（法）",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "復仇反擊戰",
+    "releaseDate": "2025-04-10T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/bgkVm20XVVLdRlwzaIfMSvXVApF.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "青春末世物語",
+    "releaseDate": "2025-03-20T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lIHRSdRuxKcSRDAuigveXKIlf98.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "銀魂劇場版 2D 金魂篇",
+    "releaseDate": "2025-04-15T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "破·地獄",
+    "releaseDate": "2024-11-18T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/fA27nlZSOhCY8Zol2NHqaTdHo3w.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "鑽石大劫案：極盜戰",
+    "releaseDate": "2025-01-19T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/6l5fR5alRSWcWtOTSvNo4G6zXy7.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "少年與狗",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1XbrDPFfzwErQG21DgEjqgaQoi9.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "喬王出任務",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/5mXPE4N99lpCBnvb4hDWjbB0wxJ.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "窒息倒數",
+    "releaseDate": "2025-02-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3UkUzS10UTdl9rfT0hkxQ9qTTBP.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "復活劫",
+    "releaseDate": "2025-04-29T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/w0kvHuCoJs8oUhaLCnjfyPaugkX.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "藍色太陽宮",
+    "releaseDate": "2025-04-29T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/yR4T3KHbD4Y4HVm173HcbgHuna7.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "白雪公主",
+    "releaseDate": "2025-03-19T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/wt1eqcRGcRRJhCoNY26I5f5Qlap.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "我在平行時空戀上妳",
+    "releaseDate": "2025-04-01T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "喵的奇幻漂流",
+    "releaseDate": "2025-01-20T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tn89woD33WgLgT7ZMUr1r47hnql.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "精奇大家庭",
+    "releaseDate": "2025-04-10T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/iQVOQ2DbbyNU1b1wEbauhTs827T.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "重裝制裁",
+    "releaseDate": "2025-03-27T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/8Z9Yd8NCUGfeTZIpCLTkkNs6KE0.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "燈塔水母的秘密",
+    "releaseDate": "2025-03-27T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rJTMifPmfQZhlrZVBx2lToiBO5G.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "帶針的女孩",
+    "releaseDate": "2025-04-17T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lSpGVC00eSWKrnAXUQqyQlcSDxC.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "天氣之子",
+    "releaseDate": "2019-09-11T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/4IKNr9R9HpaIUFVHivTDa3Vdplj.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "哈爾濱",
+    "releaseDate": "2025-01-28T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/m1fbsYMGdEbUtfmbfJCksMcYYV.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "鬼迷藏",
+    "releaseDate": "2025-04-17T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/zJFilnOFNMZsYueSX4BzW3XXZXp.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "北極小迷狐:吉娜&尤克",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/2RgTd54xEtKEf2zbxP2LFlmAVfa.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "命中註定那頭鵝",
+    "releaseDate": "2025-03-13T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/br3AfKrOzZwpe121dcufxGAmfRR.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "我依然在此",
+    "releaseDate": "2025-03-22T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rO3V8ANyrA5BSfkVPx2w72udsTD.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "深淵宇宙",
+    "releaseDate": "2025-04-17T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/aBwXFFVcVnd977DwdjY1gsPAo93.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "海洋奇緣2",
+    "releaseDate": "2024-11-27T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/vyAk20KmD0GVp95ZcOgDkoXKq30.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "粗獷派建築師",
+    "releaseDate": "2025-02-26T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/eWqcmFJMt3ib7AMOHl1PQQUjrVG.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "QUEER",
+    "releaseDate": "2025-03-20T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/hlpnTeeoPr1PzQIoDK9qQqsRa9B.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "老狐狸",
+    "releaseDate": "2023-11-23T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gtcmhRXV8qkXW0XhTJ0CPyKi67t.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "傷痕-老兵的故事",
+    "releaseDate": "2024-12-05T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/yHtLDMnBCZiQQSr2uIxgXdzK8q4.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "完美伴侶",
+    "releaseDate": "2025-01-28T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gDr3gQme9seqs9inYpewleZXe3A.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "超人力霸王雅克 THE MOVIE 超次元大決戰！光與暗的雅克",
+    "releaseDate": "2025-04-01T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tdU5hCURLcRy8JTYwLfti0mchYi.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "情書",
+    "releaseDate": "1996-08-06T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3maCoQMBjYiuCwt18mzg9gCrUHd.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "型男主廚三星夢：巴黎篇",
+    "releaseDate": "2025-03-27T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7eNHCTDRWmectIHLYIt14kqQHbc.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "誤判",
+    "releaseDate": "2024-12-26T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tnE3kZkpgsj095xfaqBlan4Vu3W.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "犯罪直播",
+    "releaseDate": "2025-04-14T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/guXX0ZOGDBxcPffLXU7cmvjmqUB.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "夏之庭 4K數位修復版",
+    "releaseDate": "2025-04-01T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "警上添花",
+    "releaseDate": "2025-04-17T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/oLt9JUtKZF7xTid1MNhdWK9RFLO.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "獅子王：木法沙",
+    "releaseDate": "2024-12-18T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/c2wpotRQdZeGoaoJQzr7MQpJBjE.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "366日",
+    "releaseDate": "2025-02-28T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/jtYhFAyFy5PLaeMQIq544ymzmgO.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "鬼才要回家",
+    "releaseDate": "2025-04-01T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ddbDdGF2xFUgwXPb1zhCoGWuOdV.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "當我們懶在一起",
+    "releaseDate": "2025-03-27T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "飆風男孩",
+    "releaseDate": "2025-04-29T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ntCjDlhu81oZO5gSWWuav6QbQC2.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "狂人法則",
+    "releaseDate": "2025-01-05T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/cp2x877pmWmPYMOJtkIam55BPr4.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "封神第二部：戰火西岐",
+    "releaseDate": "2025-03-13T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/5bBgvH3hTxlANUsLP1ov0lEKmJp.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "米奇17號",
+    "releaseDate": "2025-03-05T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/nxurv5ccvnqqz7WRTBMvV9ZARS0.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "2046 4K數位修復版",
+    "releaseDate": "2024-01-13T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "客製化先生",
+    "releaseDate": "2025-04-17T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/xqGBa7WAIi1EWqlFZeCn9joXi4W.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "女警撞到夫",
+    "releaseDate": "2025-04-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/5o8AN2T88AbVeQEgZay203m4HbQ.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "逆轉拍賣師",
+    "releaseDate": "2025-04-10T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "叛逃公主歷險記",
+    "releaseDate": "2025-04-03T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1uHey2Eo0HQDL6SBGfUJfP2XOGq.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "刺心切骨",
+    "releaseDate": "2025-04-17T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/ctMqFfhkCvYLFX0kHdazQo8Wojy.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "贖夢",
+    "releaseDate": "2025-04-10T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/AtErBPZrXn7Hau8eotPQI9ArCNS.jpg"
   },
   {
-    "title": "未知電影",
+    "title": "電影蠟筆小新：我們的恐龍日記",
+    "releaseDate": "2024-08-15T16:00:00.000Z",
     "posterUrl": null
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "十字路口的豬",
+    "releaseDate": "2024-10-24T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gY5QrFznHiGzDnLmUeaiT3SfLug.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "電影版孤獨的美食家",
+    "releaseDate": "2025-03-13T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/sW4JlzjMGbAogtFP4IzJvbhjhoI.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "犯罪都市4",
+    "releaseDate": "2024-04-25T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/mIFpxKDE5GgDX3e3EEG4j6MKSee.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "鬼舞屍",
+    "releaseDate": "2025-04-10T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1R0ZgDLFxFSSG9GFv02lCz4qycv.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "喜幹會",
+    "releaseDate": "2023-08-17T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/u2aiAEDA7FCczBPDCZ99ulTPtz8.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "衝出迷境",
+    "releaseDate": "2025-04-10T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9JO7h9IjgUVllAGYsrOyNj3Tl9e.jpg"
   },
   {
-    "title": "未知電影",
-    "posterUrl": null
+    "title": "風之谷",
+    "releaseDate": "2025-03-05T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/2qYsvbv87NjFtfpDPZdXlUDiKiG.jpg"
+  },
+  {
+    "title": "12.12：首爾之春",
+    "releaseDate": "2023-12-14T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/yCSH3cim8Y1pAGBFsyfATTCf9Z9.jpg"
+  },
+  {
+    "title": "咒術屍戰",
+    "releaseDate": "2021-08-19T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qcL6bBs4maqjdoGxX7R8hoNPb1I.jpg"
+  },
+  {
+    "title": "刺客密令",
+    "releaseDate": "2021-09-07T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/trvRZ19px8zt58OOrqRwP2MXZ6z.jpg"
+  },
+  {
+    "title": "罪之聲",
+    "releaseDate": "2021-07-29T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/vqM2xg2ZgYaRcIc3xPWxWTIUSWL.jpg"
+  },
+  {
+    "title": "撼山河 撼向世界",
+    "releaseDate": "2023-11-16T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/jTkOO53xEysW43oHg1Yrad1w50h.jpg"
+  },
+  {
+    "title": "惡靈陷阱",
+    "releaseDate": "2021-09-23T16:00:00.000Z",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/l5fJNBIUrd2kdnJZmWuJ1kX1YAO.jpg"
   }
 ]
