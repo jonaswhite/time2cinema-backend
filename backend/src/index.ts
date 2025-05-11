@@ -3,6 +3,7 @@ import { boxofficeRouter } from './api/boxofficeRoutes';
 import { tmdbRouter } from './api/tmdbRoutes';
 import { cinemaRouter } from './api/cinemaRoutes';
 import { showtimesRouter } from './api/showtimesRoutes';
+import { nowShowingMoviesRouter } from './api/nowShowingMoviesRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -55,10 +56,14 @@ app.use('/api/cinemas', cinemaRouter);
 // 使用場次路由
 app.use('/api/showtimes', showtimesRouter);
 
+// 使用上映中電影路由
+app.use('/api/movies/now-showing', nowShowingMoviesRouter);
+
 app.listen(PORT, () => {
   console.log(`Backend server running at http://localhost:${PORT}`);
   console.log(`票房 API 網址: http://localhost:${PORT}/api/boxoffice`);
   console.log(`TMDB API 網址: http://localhost:${PORT}/api/tmdb`);
   console.log(`電影院 API 網址: http://localhost:${PORT}/api/cinemas`);
   console.log(`場次 API 網址: http://localhost:${PORT}/api/showtimes`);
+  console.log(`上映中電影 API 網址: http://localhost:${PORT}/api/movies/now-showing`);
 });
