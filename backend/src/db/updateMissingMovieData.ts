@@ -1,12 +1,9 @@
 import axios from 'axios';
 import pool from '../db';
-import dotenv from 'dotenv';
-
-// 載入環境變數
-dotenv.config();
 
 // TMDB API 配置
-const TMDB_API_KEY = process.env.TMDB_API_KEY || 'd4c9092656c3aa3cfa5761fbf093f7d0';
+// 直接使用硬編碼的 API Key
+const TMDB_API_KEY = 'd4c9092656c3aa3cfa5761fbf093f7d0';
 const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3';
 
 // 介面定義

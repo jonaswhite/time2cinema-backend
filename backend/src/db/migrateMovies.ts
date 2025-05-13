@@ -1,6 +1,24 @@
 import pool from '../db';
 import { ensureTMDBCacheTable, getMovieFromCache } from './tmdbCache';
-import { movieTitleMapping } from './movieMapping';
+
+// 電影標題映射表
+const movieTitleMapping: Record<string, string> = {
+  // 票房榜熱門電影
+  "雷霆特攻隊": "The Thunderbolts",
+  "會計師2": "The Accountant 2",
+  "會計師 2": "The Accountant 2",
+  "沙丘：第二部": "Dune: Part Two",
+  "少年與狗": "The Boy and the Heron",
+  "時空旅人": "The Time Traveler's Wife",
+  "天才少女": "Gifted",
+  "超能力家族": "The Incredibles",
+  
+  // 其他電影
+  "夏之庭": "The Friends",
+  "2046": "2046",
+  "電影蘇筆小新：我們的恐龍日記": "Crayon Shin-chan: Our Dinosaur Diary",
+  "電影版孤獨的美食家": "Solitary Gourmet: The Movie"
+};
 
 // 根據中文電影標題獲取英文標題的輔助函數
 async function getEnglishTitleByChinese(chineseTitle: string): Promise<string | null> {
