@@ -1,6 +1,24 @@
 import pool from '../db';
 import { ensureTMDBCacheTable, getMovieFromCache } from './tmdbCache';
-import { getEnglishTitleByChinese } from './movieMapping';
+import { movieTitleMapping } from './movieMapping';
+
+// 根據中文電影標題獲取英文標題的輔助函數
+async function getEnglishTitleByChinese(chineseTitle: string): Promise<string | null> {
+  // 從 movieTitleMapping 中查找
+  if (chineseTitle in movieTitleMapping) {
+    return movieTitleMapping[chineseTitle];
+  }
+  
+  // 嘗試忽略空格匹配
+  const normalizedTitle = chineseTitle.replace(/\s+/g, '');
+  for (const [key, value] of Object.entries(movieTitleMapping)) {
+    if (key.replace(/\s+/g, '') === normalizedTitle) {
+      return value;
+    }
+  }
+  
+  return null;
+}
 
 // 確保 movies 表存在（先刪除舊表，再創建新表）
 export async function ensureMoviesTable(): Promise<boolean> {
