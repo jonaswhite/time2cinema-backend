@@ -86,16 +86,14 @@ class ATMoviesScraper:
         return None
         
     async def fetch_page(self, url: str, session: aiohttp.ClientSession) -> Optional[BeautifulSoup]:
-        """非同步獲取並解析網頁內容，處理重試邏輯 (保留兼容性)"""
-        # 在 GitHub Actions 環境中，我們使用同步方法
-        if os.environ.get('GITHUB_ACTIONS') == 'true':
-            return self.fetch_page_sync(url)
-            
+        """非同步獲取並解析網頁內容，處理重試邏輯"""
         retries = 0
         async with self.semaphore:  # 限制並發請求數
             while retries <= MAX_RETRIES:
                 try:
-                    logger.info(f"正在非同步抓取: {url}")
+                    logger.info(f"正在抓取: {url}")
+                    # 減少隨機延遲，加速爬蟲
+                    await asyncio.sleep(0.2 * random.random())
                     async with session.get(url, headers=HEADERS, timeout=TIMEOUT) as response:
                         if response.status == 200:
                             html = await response.text()
@@ -107,7 +105,7 @@ class ATMoviesScraper:
                 
                 retries += 1
                 if retries <= MAX_RETRIES:
-                    wait_time = retries * 3  # 指數退避
+                    wait_time = retries  # 減少等待時間，加速重試
                     logger.info(f"等待 {wait_time} 秒後重試...")
                     await asyncio.sleep(wait_time)
                 else:
@@ -277,38 +275,41 @@ class ATMoviesScraper:
         return showtimes
     
     async def process_theater(self, theater: Dict[str, str], dates: List[Dict[str, str]], session: aiohttp.ClientSession) -> Dict[str, Any]:
-        """處理單個電影院的所有日期場次"""
+        """非同步處理單個電影院的所有日期場次，使用並行處理加速"""
+        logger.info(f"開始處理電影院: {theater['atmovies_theater_name']}")
+        
         theater_data = {
             'atmovies_theater_id': theater['atmovies_theater_id'],
             'atmovies_theater_name': theater['atmovies_theater_name'],
             'atmovies_showtimes_by_date': []
         }
         
-        # 依序獲取今天、明天、後天的場次，如果前一天沒有資料，就不找下一天
-        for i, date in enumerate(dates):
-            # 檢查是否需要跳過這一天
-            if i > 0:  # 如果不是今天
-                # 檢查前一天是否有資料
-                prev_date_data = theater_data['atmovies_showtimes_by_date'][i-1]
-                if len(prev_date_data['showtimes']) == 0:
-                    # 前一天沒有資料，跳過這一天
-                    logger.info(f"由於 {theater['atmovies_theater_name']} 在 {dates[i-1]['label']} 沒有場次資料，跳過 {date['label']} 的資料收集")
-                    theater_data['atmovies_showtimes_by_date'].append({
-                        'date': date['date'],
-                        'label': date['label'],
-                        'showtimes': []
-                    })
-                    continue
-            
-            # 獲取當天場次
-            showtimes = await self.get_showtimes(theater, date, session)
-            
-            # 添加到結果中
-            theater_data['atmovies_showtimes_by_date'].append({
-                'date': date['date'],
-                'label': date['label'],
-                'showtimes': showtimes
-            })
+        # 並行獲取所有日期的場次資料
+        date_tasks = []
+        for date in dates:
+            task = asyncio.create_task(self.get_showtimes(theater, date, session))
+            date_tasks.append((date, task))
+        
+        # 等待所有日期的場次資料獲取完成
+        for date, task in date_tasks:
+            try:
+                showtimes = await task
+                theater_data['atmovies_showtimes_by_date'].append({
+                    'date': date['date'],
+                    'label': date['label'],
+                    'showtimes': showtimes
+                })
+                logger.info(f"已獲取 {theater['atmovies_theater_name']} 在 {date['label']} 的場次資料，共 {len(showtimes)} 筆")
+            except Exception as e:
+                logger.error(f"獲取 {theater['atmovies_theater_name']} 在 {date['label']} 的場次資料時出錯: {e}")
+                theater_data['atmovies_showtimes_by_date'].append({
+                    'date': date['date'],
+                    'label': date['label'],
+                    'showtimes': []
+                })
+        
+        # 按日期排序
+        theater_data['atmovies_showtimes_by_date'].sort(key=lambda x: x['date'])
         
         logger.info(f"完成電影院 {theater['atmovies_theater_name']} 的資料收集")
         return theater_data
@@ -322,21 +323,41 @@ class ATMoviesScraper:
         dates = self.get_dates()
         
         async with aiohttp.ClientSession(headers=HEADERS) as session:
-            # 3. 對每個區域，獲取所有電影院
-            all_theaters = []
+            # 3. 並行獲取所有區域的電影院
+            region_tasks = []
             for region in regions:
-                theaters = await self.get_theaters_in_region(region, session)
+                task = asyncio.create_task(self.get_theaters_in_region(region, session))
+                region_tasks.append(task)
+            
+            # 等待所有區域的電影院資料獲取完成
+            theaters_results = await asyncio.gather(*region_tasks)
+            
+            # 將所有電影院合併到一個列表
+            all_theaters = []
+            for theaters in theaters_results:
                 all_theaters.extend(theaters)
             
-            # 4. 並行處理所有電影院
-            tasks = []
-            for theater in all_theaters:
-                task = asyncio.create_task(self.process_theater(theater, dates, session))
-                tasks.append(task)
+            logger.info(f"共找到 {len(all_theaters)} 家電影院需要處理")
             
-            # 等待所有任務完成
-            results = await asyncio.gather(*tasks)
-            self.data = results
+            # 4. 並行處理所有電影院，使用更大的並發數
+            # 分批處理以避免同時開啟太多任務
+            batch_size = 10  # 每批處理的電影院數量
+            all_results = []
+            
+            for i in range(0, len(all_theaters), batch_size):
+                batch = all_theaters[i:i+batch_size]
+                logger.info(f"處理電影院批次 {i//batch_size + 1}/{(len(all_theaters)-1)//batch_size + 1} (共 {len(batch)} 家電影院)")
+                
+                tasks = []
+                for theater in batch:
+                    task = asyncio.create_task(self.process_theater(theater, dates, session))
+                    tasks.append(task)
+                
+                # 等待當前批次完成
+                batch_results = await asyncio.gather(*tasks)
+                all_results.extend(batch_results)
+            
+            self.data = all_results
         
         return self.data
     
