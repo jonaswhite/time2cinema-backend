@@ -29,6 +29,9 @@ const remoteDbConfig = {
   ssl: { rejectUnauthorized: false }
 };
 
+// 電影名稱到 ID 的映射緩存
+let movieNameToIdMap = {};
+
 // 將 YYYYMMDD 格式轉換為 YYYY-MM-DD
 function formatDate(dateStr) {
   // 確保日期格式正確
@@ -42,6 +45,65 @@ function formatDate(dateStr) {
   const month = String(today.getMonth() + 1).padStart(2, '0');
   const day = String(today.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
+}
+
+// 根據電影名稱獲取電影 ID
+async function getOrCreateMovieId(dbClient, movieName) {
+  // 如果已經在緩存中，直接返回
+  if (movieNameToIdMap[movieName]) {
+    return movieNameToIdMap[movieName];
+  }
+  
+  try {
+    // 第一步：先查詢電影是否存在
+    const checkQuery = 'SELECT id FROM movies WHERE title = $1';
+    const checkResult = await dbClient.query(checkQuery, [movieName]);
+    
+    // 如果電影存在，返回其 ID
+    if (checkResult.rows.length > 0) {
+      const movieId = checkResult.rows[0].id;
+      // 加入緩存
+      movieNameToIdMap[movieName] = movieId;
+      return movieId;
+    }
+    
+    // 第二步：如果電影不存在，創建新電影
+    console.log(`電影「${movieName}」不存在於資料庫中，正在創建...`);
+    
+    try {
+      // 插入新電影
+      const insertQuery = `
+        INSERT INTO movies (title, source, created_at, updated_at)
+        VALUES ($1, $2, NOW(), NOW())
+        RETURNING id
+      `;
+      
+      const insertResult = await dbClient.query(insertQuery, [movieName, 'atmovies']);
+      const newMovieId = insertResult.rows[0].id;
+      
+      // 加入緩存
+      movieNameToIdMap[movieName] = newMovieId;
+      console.log(`已成功創建電影「${movieName}」，ID: ${newMovieId}`);
+      
+      return newMovieId;
+    } catch (insertErr) {
+      console.error(`創建電影失敗「${movieName}」:`, insertErr.message);
+      
+      // 再次嘗試查詢，可能是競爭條件導致的失敗
+      const finalCheckResult = await dbClient.query(checkQuery, [movieName]);
+      if (finalCheckResult.rows.length > 0) {
+        const movieId = finalCheckResult.rows[0].id;
+        movieNameToIdMap[movieName] = movieId;
+        console.log(`在插入失敗後找到電影「${movieName}」，ID: ${movieId}`);
+        return movieId;
+      }
+      
+      return null;
+    }
+  } catch (err) {
+    console.error(`獲取或創建電影 ID 時發生錯誤 (${movieName}):`, err.message);
+    return null;
+  }
 }
 
 // 建立電影院名稱對應表
@@ -117,6 +179,7 @@ async function importShowtimes(dbClient, isRemote = false) {
     // 計數器
     let totalImported = 0;
     let skippedDueToCinema = 0;
+    let skippedDueToMovie = 0;
     
     // 設定資料庫時區為台灣時區
     await dbClient.query("SET timezone = 'Asia/Taipei'");
@@ -125,6 +188,25 @@ async function importShowtimes(dbClient, isRemote = false) {
     // 清空舊資料
     await dbClient.query('TRUNCATE TABLE showtimes');
     console.log('已清空舊的場次資料');
+    
+    // 先收集所有電影名稱並確保它們存在於資料庫中
+    const allMovieNames = new Set();
+    for (const theater of showtimesData) {
+      for (const dateInfo of theater.atmovies_showtimes_by_date) {
+        for (const showtime of dateInfo.showtimes) {
+          allMovieNames.add(showtime.movie_name);
+        }
+      }
+    }
+    
+    console.log(`共發現 ${allMovieNames.size} 部不同的電影，正在確保它們存在於資料庫中...`);
+    
+    // 確保所有電影存在於資料庫中
+    for (const movieName of allMovieNames) {
+      await getOrCreateMovieId(dbClient, movieName);
+    }
+    
+    console.log('所有電影已確保存在於資料庫中，開始匯入場次資料...');
     
     // 開始匯入
     for (const theater of showtimesData) {
@@ -154,22 +236,69 @@ async function importShowtimes(dbClient, isRemote = false) {
       for (const dateInfo of theater.atmovies_showtimes_by_date) {
         const formattedDate = formatDate(dateInfo.date);
         
+        // 先收集所有電影名稱
+        const movieNames = dateInfo.showtimes.map(s => s.movie_name);
+        const uniqueMovieNames = [...new Set(movieNames)];
+        
+        // 先確保所有電影存在
+        for (const movieName of uniqueMovieNames) {
+          try {
+            // 先查詢電影是否存在
+            const checkQuery = 'SELECT id FROM movies WHERE title = $1';
+            const checkResult = await dbClient.query(checkQuery, [movieName]);
+            
+            // 如果電影不存在，創建新電影
+            if (checkResult.rows.length === 0) {
+              console.log(`電影「${movieName}」不存在，正在創建...`);
+              
+              const insertQuery = `
+                INSERT INTO movies (title, source, created_at, updated_at)
+                VALUES ($1, $2, NOW(), NOW())
+                RETURNING id
+              `;
+              
+              const insertResult = await dbClient.query(insertQuery, [movieName, 'atmovies']);
+              const newMovieId = insertResult.rows[0].id;
+              
+              // 加入緩存
+              movieNameToIdMap[movieName] = newMovieId;
+              console.log(`已創建電影「${movieName}」，ID: ${newMovieId}`);
+            } else {
+              // 如果電影存在，記錄 ID
+              const movieId = checkResult.rows[0].id;
+              movieNameToIdMap[movieName] = movieId;
+            }
+          } catch (err) {
+            console.error(`創建電影錯誤「${movieName}」:`, err.message);
+          }
+        }
+        
         // 處理每個場次
         for (const showtime of dateInfo.showtimes) {
-          const query = `
-            INSERT INTO showtimes (cinema_id, date, time, movie_name, source)
-            VALUES ($1, $2, $3, $4, $5)
-          `;
+          // 從緩存中獲取電影 ID
+          const movieId = movieNameToIdMap[showtime.movie_name];
           
-          const values = [
-            cinemaId,
-            formattedDate,
-            showtime.time,
-            showtime.movie_name,
-            'atmovies'
-          ];
+          if (!movieId) {
+            console.log(`無法獲取電影 ID: ${showtime.movie_name}`);
+            skippedDueToMovie++;
+            continue;
+          }
           
+          // 使用事務確保原子性
           try {
+            const query = `
+              INSERT INTO showtimes (cinema_id, date, time, movie_id, source)
+              VALUES ($1, $2, $3, $4, $5)
+            `;
+            
+            const values = [
+              cinemaId,
+              formattedDate,
+              showtime.time,
+              movieId,
+              'atmovies'
+            ];
+            
             await dbClient.query(query, values);
             totalImported++;
           } catch (err) {
@@ -181,8 +310,9 @@ async function importShowtimes(dbClient, isRemote = false) {
     
     console.log(`匯入${isRemote ? '線上' : '本地'}資料庫完成！共匯入 ${totalImported} 筆場次資料`);
     console.log(`跳過 ${skippedDueToCinema} 個找不到對應電影院的資料`);
+    console.log(`跳過 ${skippedDueToMovie} 個無法獲取電影 ID 的場次`);
     
-    return { totalImported, skippedDueToCinema };
+    return { totalImported, skippedDueToCinema, skippedDueToMovie };
   } catch (err) {
     console.error(`匯入${isRemote ? '線上' : '本地'}資料庫過程發生錯誤:`, err);
     return { error: err.message };
