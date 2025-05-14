@@ -9,6 +9,7 @@ import os
 import re
 import asyncio
 import aiohttp
+import random
 from typing import Dict, List, Any, Optional
 from urllib.parse import urljoin
 
@@ -26,14 +27,24 @@ logger = logging.getLogger(__name__)
 # 常數設定
 BASE_URL = "https://www.atmovies.com.tw/showtime/"
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
     'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
     'Connection': 'keep-alive',
-    'Cache-Control': 'max-age=0'
+    'Cache-Control': 'no-cache',
+    'Pragma': 'no-cache',
+    'Referer': 'https://www.atmovies.com.tw/',
+    'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'Sec-Fetch-Dest': 'document',
+    'Sec-Fetch-Mode': 'navigate',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-User': '?1',
+    'Upgrade-Insecure-Requests': '1'
 }
-MAX_RETRIES = 2  # 最大重試次數
-TIMEOUT = 10  # 請求超時時間
+MAX_RETRIES = 5  # 增加最大重試次數
+TIMEOUT = 30  # 增加請求超時時間
 # 統一輸出目錄到 backend/output/scrapers
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'output', 'scrapers')
@@ -48,14 +59,44 @@ class ATMoviesScraper:
         self.data = []
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
     
+    def fetch_page_sync(self, url: str) -> Optional[BeautifulSoup]:
+        """同步獲取並解析網頁內容，處理重試邏輯"""
+        retries = 0
+        while retries <= MAX_RETRIES:
+            try:
+                logger.info(f"正在抓取: {url}")
+                # 使用隨機延遲避免被封
+                time.sleep(1 + random.random() * 2)
+                response = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+                if response.status_code == 200:
+                    return BeautifulSoup(response.text, 'html.parser')
+                else:
+                    logger.warning(f"HTTP錯誤: {response.status_code} - {url}")
+            except Exception as e:
+                logger.error(f"請求錯誤: {e} - {url}")
+            
+            retries += 1
+            if retries <= MAX_RETRIES:
+                wait_time = retries * 3  # 指數退避
+                logger.info(f"等待 {wait_time} 秒後重試...")
+                time.sleep(wait_time)
+            else:
+                logger.error(f"已達最大重試次數，跳過 URL: {url}")
+        
+        return None
+        
     async def fetch_page(self, url: str, session: aiohttp.ClientSession) -> Optional[BeautifulSoup]:
-        """非同步獲取並解析網頁內容，處理重試邏輯"""
+        """非同步獲取並解析網頁內容，處理重試邏輯 (保留兼容性)"""
+        # 在 GitHub Actions 環境中，我們使用同步方法
+        if os.environ.get('GITHUB_ACTIONS') == 'true':
+            return self.fetch_page_sync(url)
+            
         retries = 0
         async with self.semaphore:  # 限制並發請求數
             while retries <= MAX_RETRIES:
                 try:
-                    logger.info(f"正在抓取: {url}")
-                    async with session.get(url, timeout=TIMEOUT) as response:
+                    logger.info(f"正在非同步抓取: {url}")
+                    async with session.get(url, headers=HEADERS, timeout=TIMEOUT) as response:
                         if response.status == 200:
                             html = await response.text()
                             return BeautifulSoup(html, 'html.parser')
