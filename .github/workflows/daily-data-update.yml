@@ -1,0 +1,94 @@
+name: Daily Data Update
+
+on:
+  schedule:
+    # 每天台灣時間凌晨 3 點運行 (UTC+8)，對應 UTC 時間 19:00
+    - cron: '0 19 * * *'
+  # 允許手動觸發工作流程
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Node.js dependencies
+        run: |
+          cd backend
+          npm install
+
+      - name: Install Python dependencies
+        run: |
+          cd backend/scripts/scrapers
+          pip install -r requirements.txt || echo "No requirements.txt found, installing common packages"
+          pip install requests beautifulsoup4 pandas lxml
+
+      - name: Create necessary directories
+        run: |
+          mkdir -p backend/output/scrapers
+          mkdir -p backend/output/importers
+          mkdir -p backend/output/utils
+          mkdir -p backend/output/cache
+
+      # 執行 ATMovies 爬蟲
+      - name: Run ATMovies scraper
+        run: |
+          cd backend
+          python scripts/scrapers/atmovies_scraper_v3.py
+        continue-on-error: true
+
+      # 執行票房爬蟲
+      - name: Run boxoffice scraper
+        run: |
+          cd backend
+          node scripts/scrapers/boxoffice_scraper.js "./cache" 20 5000
+        continue-on-error: true
+
+      # 匯入票房資料到線上資料庫
+      - name: Import boxoffice data to online database
+        run: |
+          cd backend
+          node scripts/importers/import_boxoffice_remote.js
+        env:
+          DATABASE_URL: postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db
+        continue-on-error: true
+
+      # 匯入場次資料到線上資料庫
+      - name: Import showtimes data to online database
+        run: |
+          cd backend
+          node scripts/importers/import_showtimes.js
+        env:
+          DATABASE_URL: postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db
+        continue-on-error: true
+
+      # 記錄執行結果
+      - name: Create log file
+        run: |
+          echo "Data update completed at $(date)" > update_log.txt
+          echo "Boxoffice files:" >> update_log.txt
+          ls -la backend/cache/boxoffice-* >> update_log.txt || echo "No boxoffice files found" >> update_log.txt
+          echo "Showtimes files:" >> update_log.txt
+          ls -la backend/output/scrapers/atmovies_showtimes.json >> update_log.txt || echo "No showtimes file found" >> update_log.txt
+
+      # 提交更新的資料文件（可選）
+      - name: Commit and push updated data files
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add backend/cache/boxoffice-*.json backend/output/scrapers/atmovies_showtimes.json update_log.txt || true
+          git commit -m "Auto update data $(date)" || echo "No changes to commit"
+          git push
+        continue-on-error: true
