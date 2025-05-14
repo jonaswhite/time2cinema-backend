@@ -382,10 +382,12 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
         return res.json([]);
       }
       
-      const movieId = movieResult.rows[0].id;
-      console.log(`找到電影ID: ${movieId}`);
+      console.log(`找到 ${movieResult.rows.length} 個相關電影`);
       
-      // 使用電影ID查詢場次
+      // 取得所有相關電影的 ID
+      const movieIds = movieResult.rows.map(row => row.id);
+      
+      // 使用 IN 查詢所有相關電影的場次
       showtimesResult = await pool.query(`
         SELECT 
           s.cinema_id, s.date, s.time, s.movie_id, 
@@ -397,10 +399,32 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
         LEFT JOIN 
           cinemas c ON s.cinema_id = c.id
         WHERE 
-          s.movie_id = $1 AND DATE(s.date) = DATE($2)
+          s.movie_id = ANY($1) AND DATE(s.date) = DATE($2)
         ORDER BY 
           s.cinema_id, s.date, s.time
-      `, [movieId, queryDate]);
+      `, [movieIds, queryDate]);
+      
+      // 如果沒有找到場次，嘗試使用模糊查詢
+      if (!showtimesResult || !showtimesResult.rows || showtimesResult.rows.length === 0) {
+        console.log(`使用電影ID查詢沒有找到場次，嘗試使用電影名稱直接查詢`);
+        
+        // 嘗試使用電影名稱直接查詢場次
+        showtimesResult = await pool.query(`
+          SELECT 
+            s.cinema_id, s.date, s.time, s.movie_id, 
+            m.title as movie_title, c.name as cinema_name
+          FROM 
+            showtimes s
+          LEFT JOIN 
+            movies m ON s.movie_id = m.id
+          LEFT JOIN 
+            cinemas c ON s.cinema_id = c.id
+          WHERE 
+            (m.title ILIKE $1 OR m.original_title ILIKE $1) AND DATE(s.date) = DATE($2)
+          ORDER BY 
+            s.cinema_id, s.date, s.time
+        `, [`%${decodedMovieName}%`, queryDate]);
+      }
     }
     
     // 安全地計算行數，確保不會出現 null 錯誤
