@@ -98,8 +98,9 @@ async function importBoxoffice() {
     await client.query('DELETE FROM boxoffice WHERE week_start_date = $1', [weekStartDate]);
     console.log(`已刪除週一日期為 ${weekStartDate} 的舊票房資料`);
     
-    // 開始匯入
+    // 開始匹入
     let importedCount = 0;
+    let moviesAddedCount = 0;
     
     for (const movie of boxofficeData) {
       // 新格式的票房資料中，電影名稱在 "片名" 欄位，票數在 "票數" 欄位
@@ -141,27 +142,67 @@ async function importBoxoffice() {
         }
       }
       
-      const query = `
-        INSERT INTO boxoffice (movie_id, rank, tickets, totalsales, week_start_date, source, release_date)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
-      `;
-      
-      // 由於我們不使用 movies 資料表，這裡用電影名稱作為 movie_id
-      const values = [
-        movieName,
-        rank,
-        tickets,
-        totalsales,
-        weekStartDate,
-        'tfai',
-        releaseDate
-      ];
-      
+      // 步驟 1: 確保電影存在於 movies 資料表中
       try {
+        // 先檢查電影是否已存在
+        const checkMovieQuery = `
+          SELECT id FROM movies WHERE title = $1
+        `;
+        const checkResult = await client.query(checkMovieQuery, [movieName]);
+        
+        let movieId;
+        
+        if (checkResult.rows.length === 0) {
+          // 如果電影不存在，則新增到 movies 資料表
+          const insertMovieQuery = `
+            INSERT INTO movies (title, release_date, created_at, updated_at)
+            VALUES ($1, $2, NOW(), NOW())
+            RETURNING id
+          `;
+          const insertResult = await client.query(insertMovieQuery, [movieName, releaseDate]);
+          movieId = insertResult.rows[0].id;
+          console.log(`新增電影到 movies 資料表: ${movieName}, ID: ${movieId}`);
+          moviesAddedCount++;
+        } else {
+          // 如果電影已存在，取得其 ID
+          movieId = checkResult.rows[0].id;
+          console.log(`電影已存在於 movies 資料表: ${movieName}, ID: ${movieId}`);
+          
+          // 更新電影的上映日期（如果原本沒有）
+          if (releaseDate) {
+            const updateMovieQuery = `
+              UPDATE movies 
+              SET release_date = COALESCE(release_date, $2), updated_at = NOW()
+              WHERE id = $1
+            `;
+            await client.query(updateMovieQuery, [movieId, releaseDate]);
+            console.log(`更新電影上映日期: ${movieName}, 日期: ${releaseDate}`);
+          }
+        }
+        
+        // 步驟 2: 將票房資料匹入 boxoffice 資料表
+        const query = `
+          INSERT INTO boxoffice (movie_id, rank, tickets, totalsales, week_start_date, source, release_date)
+          VALUES ($1, $2, $3, $4, $5, $6, $7)
+        `;
+        
+        // 使用實際的 movie_id，而不是電影名稱
+        const values = [
+          movieId,
+          rank,
+          tickets,
+          totalsales,
+          weekStartDate,
+          'tfai',
+          releaseDate
+        ];
+        
         await client.query(query, values);
         importedCount++;
+        console.log(`成功匹入票房資料: ${movieName}, ID: ${movieId}, 排名: ${rank}`);
+        
       } catch (err) {
-        console.error(`匯入票房錯誤 (${movieName}):`, err.message);
+        console.error(`處理電影和票房資料錯誤 (${movieName}):`, err.message);
       }
     }
     
