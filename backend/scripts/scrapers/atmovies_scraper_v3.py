@@ -43,8 +43,8 @@ HEADERS = {
     'Sec-Fetch-User': '?1',
     'Upgrade-Insecure-Requests': '1'
 }
-MAX_RETRIES = 5  # 增加最大重試次數
-TIMEOUT = 30  # 增加請求超時時間
+MAX_RETRIES = 2  # 最大重試次數
+TIMEOUT = 10  # 請求超時時間
 # 統一輸出目錄到 backend/output/scrapers
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'output', 'scrapers')
