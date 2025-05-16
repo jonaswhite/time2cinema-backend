@@ -8,10 +8,14 @@ exports.enrichMoviesWithTMDBData = enrichMoviesWithTMDBData;
 exports.getNotFoundMovies = getNotFoundMovies;
 exports.getMoviesNotFoundOnTMDB = getMoviesNotFoundOnTMDB;
 exports.cleanupNotFoundMovies = cleanupNotFoundMovies;
+exports.smartSearchMoviePoster = smartSearchMoviePoster;
 const axios_1 = __importDefault(require("axios"));
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const path_1 = __importDefault(require("path"));
 const dayjs_1 = __importDefault(require("dayjs"));
+const tmdbCache_1 = require("../db/tmdbCache");
+const movieMapping_1 = require("../db/movieMapping");
+const db_1 = __importDefault(require("../db"));
 // TMDB API 配置
 const TMDB_API_KEY = 'd4c9092656c3aa3cfa5761fbf093f7d0';
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
@@ -28,13 +32,20 @@ fs_extra_1.default.ensureDirSync(POSTER_CACHE_DIR);
  */
 async function searchMovieFromTMDB(title, releaseDate) {
     try {
-        // 建立快取檔案名稱，使用電影標題作為檔名
+        // 先從資料庫快取中查詢
+        const cachedMovie = await (0, tmdbCache_1.getMovieFromCache)(title);
+        if (cachedMovie) {
+            console.log(`從資料庫快取返回 ${title} 的 TMDB 資訊`);
+            return cachedMovie;
+        }
+        // 如果資料庫中沒有，則檢查文件快取
         const safeTitle = title.replace(/[\/:*?"<>|]/g, '_');
         const cacheFile = path_1.default.join(POSTER_CACHE_DIR, `${safeTitle}.json`);
-        // 檢查快取是否存在
         if (await fs_extra_1.default.pathExists(cacheFile)) {
             const cachedData = await fs_extra_1.default.readJSON(cacheFile);
-            console.log(`從快取返回 ${title} 的 TMDB 資訊`);
+            console.log(`從文件快取返回 ${title} 的 TMDB 資訊`);
+            // 將文件快取中的資料保存到資料庫
+            await (0, tmdbCache_1.saveMovieToCache)(cachedData);
             return cachedData;
         }
         // 檢查是否在未找到列表中
@@ -54,19 +65,45 @@ async function searchMovieFromTMDB(title, releaseDate) {
                 year = match[0];
             }
         }
-        // 搜索電影
-        const searchUrl = `${TMDB_BASE_URL}/search/movie`;
-        const { data } = await axios_1.default.get(searchUrl, {
-            params: {
-                api_key: TMDB_API_KEY,
-                query: title,
-                year: year || undefined,
-                language: 'zh-TW'
+        // 先檢查是否有手動映射
+        const mappedTmdbId = (0, movieMapping_1.getTmdbIdByTitle)(title);
+        let movieData;
+        if (mappedTmdbId) {
+            console.log(`使用手動映射獲取 ${title} 的 TMDB ID: ${mappedTmdbId}`);
+            // 直接使用 ID 獲取電影詳細資訊
+            try {
+                const detailUrl = `${TMDB_BASE_URL}/movie/${mappedTmdbId}`;
+                const { data: movieDetail } = await axios_1.default.get(detailUrl, {
+                    params: {
+                        api_key: TMDB_API_KEY,
+                        language: 'zh-TW'
+                    }
+                });
+                movieData = { results: [movieDetail] };
             }
-        });
-        if (data.results && data.results.length > 0) {
+            catch (detailError) {
+                console.error(`無法使用映射的 ID 獲取 ${title} 的詳細資訊:`, detailError);
+                // 如果映射失敗，回退到正常搜索
+                movieData = null;
+            }
+        }
+        // 如果沒有映射或映射失敗，使用正常搜索
+        if (!movieData) {
+            // 搜索電影
+            const searchUrl = `${TMDB_BASE_URL}/search/movie`;
+            const { data } = await axios_1.default.get(searchUrl, {
+                params: {
+                    api_key: TMDB_API_KEY,
+                    query: title,
+                    year: year || undefined,
+                    language: 'zh-TW'
+                }
+            });
+            movieData = data;
+        }
+        if (movieData.results && movieData.results.length > 0) {
             // 取得最相關的結果
-            const movie = data.results[0];
+            const movie = movieData.results[0];
             // 如果有電影 ID，再取得詳細資訊
             if (movie.id) {
                 try {
@@ -84,20 +121,25 @@ async function searchMovieFromTMDB(title, releaseDate) {
                         fullPosterPath: movie.poster_path ? `${TMDB_IMAGE_BASE_URL}${movie.poster_path}` : null,
                         fullBackdropPath: movie.backdrop_path ? `${TMDB_IMAGE_BASE_URL}${movie.backdrop_path}` : null
                     };
-                    // 寫入快取
+                    // 寫入文件快取
                     await fs_extra_1.default.writeJSON(cacheFile, result, { spaces: 2 });
-                    console.log(`已將 ${title} 的 TMDB 資訊寫入快取`);
+                    console.log(`已將 ${title} 的 TMDB 資訊寫入文件快取`);
+                    // 同時寫入資料庫快取
+                    await (0, tmdbCache_1.saveMovieToCache)(result);
+                    console.log(`已將 ${title} 的 TMDB 資訊寫入資料庫快取`);
                     return result;
                 }
                 catch (detailError) {
                     console.error(`無法獲取 ${title} 的詳細資訊:`, detailError);
                     // 如果取得詳細資訊失敗，仍然返回搜索結果
                     await fs_extra_1.default.writeJSON(cacheFile, movie, { spaces: 2 });
+                    await (0, tmdbCache_1.saveMovieToCache)(movie);
                     return movie;
                 }
             }
             // 寫入快取
             await fs_extra_1.default.writeJSON(cacheFile, movie, { spaces: 2 });
+            await (0, tmdbCache_1.saveMovieToCache)(movie);
             return movie;
         }
         // 沒有搜索結果，添加到未找到列表
@@ -248,5 +290,81 @@ async function cleanupNotFoundMovies(daysToKeep = 7) {
     }
     catch (error) {
         console.error('清理未找到電影列表失敗:', error);
+    }
+}
+/**
+ * 智能搜索電影海報
+ * 使用多種方法嘗試獲取電影海報
+ */
+async function smartSearchMoviePoster(movieTitle, releaseDate) {
+    console.log(`開始智能搜索電影 "${movieTitle}" 的海報`);
+    try {
+        // 方法 1: 直接使用原始標題搜索
+        let tmdbMovie = await searchMovieFromTMDB(movieTitle, releaseDate);
+        if (tmdbMovie?.poster_path) {
+            console.log(`使用原始標題 "${movieTitle}" 找到海報`);
+            return `${TMDB_IMAGE_BASE_URL}${tmdbMovie.poster_path}`;
+        }
+        // 方法 2: 檢查中英文對照表
+        // 先查詢資料庫中是否有這部電影的英文名稱
+        const movieMappingQuery = `
+      SELECT english_title FROM movie_title_mapping WHERE chinese_title = $1
+    `;
+        try {
+            const mappingResult = await db_1.default.query(movieMappingQuery, [movieTitle]);
+            if (mappingResult.rows.length > 0) {
+                const englishTitle = mappingResult.rows[0].english_title;
+                console.log(`從對照表找到 "${movieTitle}" 的英文名稱: "${englishTitle}"`);
+                tmdbMovie = await searchMovieFromTMDB(englishTitle, releaseDate);
+                if (tmdbMovie?.poster_path) {
+                    console.log(`使用英文標題 "${englishTitle}" 找到海報`);
+                    return `${TMDB_IMAGE_BASE_URL}${tmdbMovie.poster_path}`;
+                }
+            }
+        }
+        catch (dbError) {
+            console.error(`查詢電影對照表時出錯:`, dbError);
+            // 繼續嘗試其他方法
+        }
+        // 方法 3: 逐步縮短標題搜索
+        const words = movieTitle.split(/\s+|(?=[\u4e00-\u9fa5])/g).filter(w => w.trim().length > 0);
+        if (words.length > 1) {
+            // 從最長的子字符串開始，逐步縮短
+            for (let length = words.length - 1; length >= 1; length--) {
+                const shortenedTitle = words.slice(0, length).join('');
+                console.log(`嘗試縮短標題: "${shortenedTitle}"`);
+                tmdbMovie = await searchMovieFromTMDB(shortenedTitle, releaseDate);
+                if (tmdbMovie?.poster_path) {
+                    console.log(`使用縮短標題 "${shortenedTitle}" 找到海報`);
+                    return `${TMDB_IMAGE_BASE_URL}${tmdbMovie.poster_path}`;
+                }
+            }
+        }
+        // 方法 4: 使用模糊匹配
+        // 這裡我們可以使用 TMDB API 的搜索功能，它本身就有一定的模糊匹配能力
+        const searchUrl = `${TMDB_BASE_URL}/search/movie`;
+        const { data: searchResults } = await axios_1.default.get(searchUrl, {
+            params: {
+                api_key: TMDB_API_KEY,
+                language: 'zh-TW',
+                query: movieTitle,
+                year: releaseDate ? releaseDate.substring(0, 4) : undefined
+            }
+        });
+        if (searchResults.results && searchResults.results.length > 0) {
+            // 找到最可能的匹配
+            const bestMatch = searchResults.results[0];
+            console.log(`使用模糊匹配找到可能的電影: "${bestMatch.title}"`);
+            if (bestMatch.poster_path) {
+                return `${TMDB_IMAGE_BASE_URL}${bestMatch.poster_path}`;
+            }
+        }
+        // 如果所有方法都失敗，返回 null
+        console.log(`無法找到電影 "${movieTitle}" 的海報`);
+        return null;
+    }
+    catch (error) {
+        console.error(`智能搜索電影 "${movieTitle}" 海報時出錯:`, error);
+        return null;
     }
 }

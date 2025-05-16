@@ -1,0 +1,196 @@
+
+# Time2Cinema 資料搬遷計劃規格書
+
+## 目標
+將資料庫中的電影資料轉換為以 ATMovies 為主要資料來源，解決目前因資料來源不統一導致的電影資訊缺失問題。
+
+## 1. 資料庫結構調整
+首先需要調整 movies 表的結構：
+
+```sql
+-- 修改欄位名稱
+ALTER TABLE movies RENAME COLUMN title TO display_title;
+
+-- 移除不需要的欄位
+ALTER TABLE movies DROP COLUMN backdrop_url;
+ALTER TABLE movies DROP COLUMN vote_average;
+ALTER TABLE movies DROP COLUMN genres;
+
+-- 移除唯一約束
+ALTER TABLE movies DROP CONSTRAINT IF EXISTS movies_tmdb_id_key;
+
+-- 暫時移除外鍵約束
+ALTER TABLE boxoffice DROP CONSTRAINT IF EXISTS fk_boxoffice_movie;
+ALTER TABLE showtimes DROP CONSTRAINT IF EXISTS fk_showtimes_movie;
+```
+
+## 2. 資料爬取與處理流程
+
+### 2.1 ATMovies 電影資訊爬蟲
+
+#### 功能需求
+- 爬取 ATMovies 上所有電影的基本資訊
+- 重點獲取：atmovies_id、電影標題、原始標題、上映日期、片長等
+- 從最新上映的電影開始同步
+- 如果連續發現 3 部已存在於資料庫的電影，則停止更新流程
+
+我們要爬個兩個頁面，需要找到這兩個頁面的所有電影的資料
+首輪電影清單：https://www.atmovies.com.tw/movie/now/1/
+二輪電影清單：https://www.atmovies.com.tw/movie/now2/1/
+
+以下附上各個資料的 SELECTOR PATH 構造
+
+1.atmovies_id、電影標題(body > div.container > div.container > div.l-content.container > div.l-main > div.c-section > article:nth-child(3) > div.filmTitle)
+2.片長、上映日期(body > div.container > div.container > div.l-content.container > div.l-main > div.c-section > article:nth-child(3) > div.runtime)
+
+
+### 2.2 TMDB 海報處理
+
+#### 功能需求
+- 對於新增的電影，嘗試通過電影標題或原始標題在 TMDB 查詢對應電影
+- 若找到匹配，獲取海報 URL 並更新 tmdb_id
+- 若未找到匹配，保留空值，後續可手動處理
+
+
+
+## 3. 具體實現步驟
+
+### 3.1 第一階段：資料庫準備
+
+1. **備份當前資料庫**
+   ```bash
+   pg_dump -h dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com -U time2cinema_db_user -d time2cinema_db > time2cinema_backup_$(date +%Y%m%d).sql
+   ```
+
+2. **執行資料庫結構調整 SQL**
+   - 執行第 1 節中的 SQL 語句
+
+3. **創建臨時表用於存儲爬取的 ATMovies 資料**
+   ```sql
+   CREATE TABLE temp_atmovies_movies (
+       atmovies_id TEXT PRIMARY KEY,
+       title TEXT NOT NULL,
+       original_title TEXT,
+       release_date DATE,
+       runtime INTEGER,
+       processed BOOLEAN DEFAULT FALSE
+   );
+   ```
+
+### 3.2 第二階段：資料爬取與遷移
+
+1. **開發並測試 ATMovies 電影資訊爬蟲**
+   - 基於現有的 `atmovies_scraper_v3.py` 擴展功能
+   - 添加電影詳情頁面的解析邏輯
+   - 實現「連續 3 部已存在則停止」的邏輯
+
+2. **執行爬蟲，獲取所有當前電影資訊**
+   ```bash
+   python scripts/scrapers/atmovies_movie_scraper.py
+   ```
+
+3. **實現資料處理邏輯，將爬取的資料寫入臨時表**
+   ```python
+   async def save_to_temp_table(self, movie_data):
+       query = """
+       INSERT INTO temp_atmovies_movies 
+       (atmovies_id, title, original_title, release_date, runtime) 
+       VALUES ($1, $2, $3, $4, $5)
+       ON CONFLICT (atmovies_id) DO UPDATE 
+       SET title = $2, original_title = $3, release_date = $4, runtime = $5
+       """
+       await self.db.execute(query, movie_data['atmovies_id'], movie_data['title'], 
+                          movie_data.get('original_title'), movie_data.get('release_date'), 
+                          movie_data.get('runtime'))
+   ```
+
+4. **開發 TMDB 海報獲取功能，補充海報資訊**
+   - 實現 `TMDBPosterFetcher` 類
+   - 對臨時表中的每部電影嘗試獲取海報
+
+### 3.3 第三階段：資料整合
+
+1. **開發資料整合腳本，從臨時表將資料合併到主表**
+   ```python
+   async def integrate_data(self):
+       # 獲取臨時表中未處理的電影
+       movies = await self.db.fetch("SELECT * FROM temp_atmovies_movies WHERE processed = FALSE")
+       
+       for movie in movies:
+           # 檢查是否已存在
+           existing = await self.db.fetchrow("SELECT id FROM movies WHERE atmovies_id = $1", movie['atmovies_id'])
+           
+           if existing:
+               # 更新現有記錄
+               await self.update_existing_movie(existing['id'], movie)
+           else:
+               # 創建新記錄
+               await self.create_new_movie(movie)
+           
+           # 標記為已處理
+           await self.db.execute("UPDATE temp_atmovies_movies SET processed = TRUE WHERE atmovies_id = $1", movie['atmovies_id'])
+   ```
+
+2. **執行資料整合，優先處理最新上映的電影**
+   ```bash
+   python scripts/data_migration/integrate_atmovies_data.py
+   ```
+
+3. **驗證資料完整性和正確性**
+   - 檢查所有電影是否都有基本資訊
+   - 驗證海報 URL 是否有效
+   - 確保沒有資料丟失
+
+### 3.4 第四階段：自動化維護
+
+1. **設置每日自動爬蟲任務，使用 GitHub Actions**
+   ```yaml
+   # .github/workflows/daily-atmovies-movie-update.yml
+   name: Daily ATMovies Movie Update
+   
+   on:
+     schedule:
+       - cron: '0 3 * * *'  # 每天台北時間上午 11 點 (UTC+8)
+     workflow_dispatch:  # 允許手動觸發
+   
+   jobs:
+     update_movies:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v3
+         - name: Set up Python
+           uses: actions/setup-python@v4
+           with:
+             python-version: '3.9'
+         - name: Install dependencies
+           run: |
+             pip install -r requirements.txt
+         - name: Run ATMovies movie scraper
+           run: |
+             python scripts/scrapers/atmovies_movie_scraper.py
+   ```
+
+2. **添加錯誤監控和報告機制**
+   - 實現電子郵件或 Slack 通知功能
+   - 記錄詳細的執行日誌
+
+## 4. 注意事項與風險管理
+
+### 4.1 資料一致性
+- 確保在遷移過程中不會丟失重要資料
+- 保留足夠的日誌以便回溯問題
+- 定期驗證資料的完整性
+
+### 4.2 性能考慮
+- 大批量資料處理可能影響系統性能
+- 考慮分批處理或在非高峰時段執行
+- 設置適當的超時和重試機制
+
+### 4.3 錯誤處理
+- 對於無法在 ATMovies 找到的電影，保留原有資料
+- 設置監控機制，及時發現並處理異常
+- 實現自動重試和恢復機制
+
+### 4.4 回滾計劃
+- 如果遷移過程出現嚴重問題，準備回滾到備份資料的方案
+- 保留所有原始資料的備份至少 30 天

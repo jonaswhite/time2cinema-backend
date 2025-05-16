@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 設定專案路徑
-PROJECT_PATH="/Users/jonaswhite/CascadeProjects/movie-time"
+PROJECT_PATH="/Users/jonaswhite/CascadeProjects/Time2Cinema"
 UPDATE_SCRIPT="$PROJECT_PATH/backend/scripts/utils/update_cron.sh"
 
 # 確保腳本有執行權限

@@ -176,9 +176,16 @@ async function updateDatabase() {
   // 如果找到檔案，則進行匯入
   if (boxofficeReady) {
     log(`使用票房檔案: ${fileToUse}`);
+    // 匯入本地資料庫
     await runCommand(
       `node ${path.join(PROJECT_ROOT, 'scripts', 'importers', 'import_boxoffice.js')} "${fileToUse}"`,
-      '票房資料匯入資料庫'
+      '票房資料匯入本地資料庫'
+    );
+    
+    // 匯入線上資料庫
+    await runCommand(
+      `node ${path.join(PROJECT_ROOT, 'scripts', 'importers', 'import_boxoffice_remote.js')} "${fileToUse}"`,
+      '票房資料匯入線上資料庫'
     );
   } else {
     log('無法找到票房檔案，跳過匯入');

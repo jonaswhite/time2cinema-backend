@@ -1,0 +1,51 @@
+{
+  "adult": false,
+  "backdrop_path": "/hm2rWgEZJrxHP8gv9Pg6yRhOZFB.jpg",
+  "genre_ids": [
+    10749
+  ],
+  "id": 1335881,
+  "original_language": "zh",
+  "original_title": "夜校女生",
+  "overview": "1997年，就讀一女中夜間部的女生小愛，與使用同一張桌子的日間部女生敏敏成為「桌友」，二人更一同喜歡上數理資優班的路克。小愛為了方便蹺課而換上日間部校服，但也令她嚐到日間部學生因成績較好而獲得的優待，更無法擺脫享受這種光環的誘惑，卻也令她的生活逐漸失控。",
+  "popularity": 0.3128,
+  "poster_path": "/a1xWMqQLgW3xqnzS99HU9fN628E.jpg",
+  "release_date": "2025-02-27",
+  "title": "夜校女生",
+  "video": false,
+  "vote_average": 7,
+  "vote_count": 1,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 10749,
+      "name": "爱情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt33708235",
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 110,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "制服寄生上流，青春力爭上游。",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/a1xWMqQLgW3xqnzS99HU9fN628E.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/hm2rWgEZJrxHP8gv9Pg6yRhOZFB.jpg"
+}

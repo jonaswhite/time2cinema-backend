@@ -1,0 +1,308 @@
+[
+  {
+    "id": 161,
+    "title": "絕命終結站 血脈",
+    "original_title": "Final Destination Bloodlines",
+    "release_date": "2025-05-08",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/w6398xh1whfqUAMjwWZgwbPYeni.jpg",
+    "runtime": 110,
+    "tmdb_id": null
+  },
+  {
+    "id": 150,
+    "title": "宮?駿的奇幻世界",
+    "original_title": "Miyazaki, l'esprit de la nature",
+    "release_date": "2025-05-08",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/2vKKMcUqfhtgpXQguBNr56jXDEM.jpg",
+    "runtime": 84,
+    "tmdb_id": null
+  },
+  {
+    "id": 91,
+    "title": "禁夜屍",
+    "original_title": "Rosario",
+    "release_date": "2025-04-30",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/k43Ckees8yXAPc6IfLsfjT6Ql7N.jpg",
+    "runtime": 88,
+    "tmdb_id": 1297028
+  },
+  {
+    "id": 138,
+    "title": "獵金·遊戲",
+    "original_title": "猎金·游戏",
+    "release_date": "2025-04-30",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9HnrAAdEPWhhzNIgoCQYtnyQI38.jpg",
+    "runtime": 110,
+    "tmdb_id": null
+  },
+  {
+    "id": 59,
+    "title": "聖夜：惡魔都市",
+    "original_title": "거룩한 밤: 데몬 헌터스",
+    "release_date": "2025-04-29",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/mZ9AEdlSrRd7apiUMMmzPSvEJTj.jpg",
+    "runtime": 92,
+    "tmdb_id": 793387
+  },
+  {
+    "id": 64,
+    "title": "跳進部落的孩子",
+    "original_title": "跳進部落的孩子",
+    "release_date": "2025-04-29",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/nfpp4DyCwnN9ow9SXK9AjF3pqng.jpg",
+    "runtime": 90,
+    "tmdb_id": 1369302
+  },
+  {
+    "id": 134,
+    "title": "雷霆特攻隊",
+    "original_title": "Thunderbolts*",
+    "release_date": "2025-04-29",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/vU3Ir6FXUvHvm3ASYN7Wl0qhgLn.jpg",
+    "runtime": 127,
+    "tmdb_id": null
+  },
+  {
+    "id": 24,
+    "title": "夏日最後的祕密",
+    "original_title": "夏日最後的祕密",
+    "release_date": "2025-04-29",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/kMFzAI0CGtkgTso0KE1CeJVEPDQ.jpg",
+    "runtime": 0,
+    "tmdb_id": 1414620
+  },
+  {
+    "id": 22,
+    "title": "沈睡的水下巨人",
+    "original_title": "沈睡的水下巨人",
+    "release_date": "2025-04-24",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/7DdvzQcKfGtd00tKsrmCB4ofemu.jpg",
+    "runtime": 0,
+    "tmdb_id": 1452246
+  },
+  {
+    "id": 46,
+    "title": "直到黎明",
+    "original_title": "Until Dawn",
+    "release_date": "2025-04-22",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/kT6rj31OS5r0jLahUAxuDlApuY6.jpg",
+    "runtime": 103,
+    "tmdb_id": 1232546
+  },
+  {
+    "id": 112,
+    "title": "會計師2",
+    "original_title": "The Accountant 2",
+    "release_date": "2025-04-22",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qY8gDFoRncaKh0B7e9wjT5wdrAv.jpg",
+    "runtime": 133,
+    "tmdb_id": 870028
+  },
+  {
+    "id": 85,
+    "title": "囍宴",
+    "original_title": "The Wedding Banquet",
+    "release_date": "2025-04-17",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lnwwaMDR7L42DWZXCzkEiQMKqxs.jpg",
+    "runtime": 103,
+    "tmdb_id": 1278827
+  },
+  {
+    "id": 51,
+    "title": "罪人",
+    "original_title": "Sinners",
+    "release_date": "2025-04-15",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/9hRm4WVM3D5HzjMBTKSsPBOd50c.jpg",
+    "runtime": 138,
+    "tmdb_id": 1233413
+  },
+  {
+    "id": 61,
+    "title": "萬王之王",
+    "original_title": "The King of Kings",
+    "release_date": "2025-04-06",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/n66WEgkJGndAgaM6igMn43U6qHz.jpg",
+    "runtime": 104,
+    "tmdb_id": 1181107
+  },
+  {
+    "id": 33,
+    "title": "有病才會喜歡你",
+    "original_title": "有病才會喜歡你",
+    "release_date": "2025-04-01",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dSAagxNVZmvA7eohvky20CFv5iC.jpg",
+    "runtime": 111,
+    "tmdb_id": 1321139
+  },
+  {
+    "id": 7,
+    "title": "MINECRAFT麥塊電影",
+    "original_title": "A Minecraft Movie",
+    "release_date": "2025-03-30",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rONvP6UsL1jaZyjrIquumYTZKvB.jpg",
+    "runtime": 101,
+    "tmdb_id": 950387
+  },
+  {
+    "id": 31,
+    "title": "怪獸8號：Mission Recon",
+    "original_title": "アニメ『怪獣８号』第１期総集編／同時上映「保科の休日」",
+    "release_date": "2025-03-27",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/gGjJIqPkPYLnbEvsACDQn8ZIEBh.jpg",
+    "runtime": 110,
+    "tmdb_id": 1326106
+  },
+  {
+    "id": 18,
+    "title": "取精急轉彎",
+    "original_title": "Spermageddon",
+    "release_date": "2025-02-20",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/dZ57Jy8oohLNjXpk9CIQozpRFF9.jpg",
+    "runtime": 80,
+    "tmdb_id": 1064307
+  },
+  {
+    "id": 83,
+    "title": "歌劇生死戀",
+    "original_title": "The Opera! - Arie per un'eclissi",
+    "release_date": "2025-01-19",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/hBobr2XoBH3zvKd5AfEexThxwnr.jpg",
+    "runtime": 106,
+    "tmdb_id": 1261049
+  },
+  {
+    "id": 47,
+    "title": "看我今天怎麼說",
+    "original_title": "看我今天怎麼說",
+    "release_date": "2025-01-17",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rCStzXR7CYqCf0rqAuLkIxW9k75.jpg",
+    "runtime": 132,
+    "tmdb_id": 1239041
+  },
+  {
+    "id": 55,
+    "title": "粗獷派建築師",
+    "original_title": "The Brutalist",
+    "release_date": "2024-12-19",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/eWqcmFJMt3ib7AMOHl1PQQUjrVG.jpg",
+    "runtime": 215,
+    "tmdb_id": 549509
+  },
+  {
+    "id": 93,
+    "title": "奧德蓋任務",
+    "original_title": "Old Guy",
+    "release_date": "2024-12-12",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/rNsJtq50HuBGQ6jaIYR0zGSuiv2.jpg",
+    "runtime": 100,
+    "tmdb_id": 1077782
+  },
+  {
+    "id": 52,
+    "title": "秘密會議",
+    "original_title": "Conclave",
+    "release_date": "2024-10-24",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/1BWhKsbUTiBD0WQhrOfQlU6zrc5.jpg",
+    "runtime": 120,
+    "tmdb_id": 974576
+  },
+  {
+    "id": 77,
+    "title": "青春末世物語",
+    "original_title": "HAPPYEND",
+    "release_date": "2024-10-03",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lIHRSdRuxKcSRDAuigveXKIlf98.jpg",
+    "runtime": 113,
+    "tmdb_id": 730251
+  },
+  {
+    "id": 41,
+    "title": "帶針的女孩",
+    "original_title": "Pigen med nålen",
+    "release_date": "2024-09-05",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/lSpGVC00eSWKrnAXUQqyQlcSDxC.jpg",
+    "runtime": 123,
+    "tmdb_id": 1232827
+  },
+  {
+    "id": 100,
+    "title": "喵的奇幻漂流",
+    "original_title": "Straume",
+    "release_date": "2024-08-28",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/tn89woD33WgLgT7ZMUr1r47hnql.jpg",
+    "runtime": 85,
+    "tmdb_id": 823219
+  },
+  {
+    "id": 89,
+    "title": "超時空武士",
+    "original_title": "侍タイムスリッパー",
+    "release_date": "2024-08-16",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/5sLOYRzdP7JTyZwZaOcl3aufGTQ.jpg",
+    "runtime": 131,
+    "tmdb_id": 1287819
+  },
+  {
+    "id": 39,
+    "title": "復活劫",
+    "original_title": "Håndtering av udøde",
+    "release_date": "2024-02-08",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/w0kvHuCoJs8oUhaLCnjfyPaugkX.jpg",
+    "runtime": 98,
+    "tmdb_id": 1020896
+  },
+  {
+    "id": 151,
+    "title": "何處",
+    "original_title": "Faraway",
+    "release_date": "2023-03-07",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/4IiY3B3hTySsxWvBbDLjBquXVG3.jpg",
+    "runtime": 109,
+    "tmdb_id": null
+  },
+  {
+    "id": 60,
+    "title": "花束般的戀愛",
+    "original_title": "花束みたいな恋をした",
+    "release_date": "2021-01-28",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/3Z8ezMWxB7lH8MfRCV0X0RHQLWz.jpg",
+    "runtime": 124,
+    "tmdb_id": 695932
+  },
+  {
+    "id": 166,
+    "title": "歧路",
+    "original_title": "歧路天堂",
+    "release_date": "2009-04-09",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/QGSHiffoXkmt3I0zL5Tb8sWbfS.jpg",
+    "runtime": 124,
+    "tmdb_id": null
+  },
+  {
+    "id": 95,
+    "title": "頤和園",
+    "original_title": "颐和园",
+    "release_date": "2006-05-17",
+    "posterUrl": "https://image.tmdb.org/t/p/w500/qcHyRAhXJG5vEjwNwmP9zZgdXWU.jpg",
+    "runtime": 135,
+    "tmdb_id": 17422
+  },
+  {
+    "id": 160,
+    "title": "ATEEZ演唱會電影",
+    "original_title": null,
+    "release_date": null,
+    "posterUrl": null,
+    "runtime": null,
+    "tmdb_id": null
+  },
+  {
+    "id": 165,
+    "title": "愛麗絲漫遊城市",
+    "original_title": null,
+    "release_date": null,
+    "posterUrl": null,
+    "runtime": null,
+    "tmdb_id": null
+  }
+]

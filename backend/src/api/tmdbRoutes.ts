@@ -9,7 +9,8 @@ import {
   cleanupNotFoundMovies,
   BoxOfficeMovieWithTMDB,
   BoxOfficeMovie,
-  searchMovieFromTMDB
+  searchMovieFromTMDB,
+  smartSearchMoviePoster
 } from './tmdb';
 
 // TMDB API 配置
@@ -220,6 +221,36 @@ router.post('/posters', async (req: Request, res: Response) => {
     console.error('處理海報請求時發生錯誤:', err);
     res.status(500).json({ 
       error: 'Failed to process poster requests', 
+      detail: err instanceof Error ? err.message : String(err) 
+    });
+  }
+});
+
+// 新增端點：根據電影標題獲取海報（智能搜索）
+// @ts-ignore - 忽略 TypeScript 的類型檢查，因為 Express 的類型定義問題
+router.get('/poster/:movieTitle', async (req: Request, res: Response) => {
+  try {
+    const { movieTitle } = req.params;
+    const releaseDate = req.query.releaseDate as string | undefined;
+    
+    if (!movieTitle) {
+      return res.status(400).json({ error: '請提供電影標題' });
+    }
+    
+    console.log(`收到海報請求，電影標題: ${movieTitle}${releaseDate ? `, 上映日期: ${releaseDate}` : ''}`);
+    
+    // 使用智能海報獲取機制
+    const posterUrl = await smartSearchMoviePoster(decodeURIComponent(movieTitle), releaseDate);
+    
+    res.json({
+      movieTitle: decodeURIComponent(movieTitle),
+      posterUrl: posterUrl
+    });
+    
+  } catch (err) {
+    console.error(`獲取電影 ${req.params.movieTitle} 的海報時發生錯誤:`, err);
+    res.status(500).json({ 
+      error: '獲取電影海報失敗', 
       detail: err instanceof Error ? err.message : String(err) 
     });
   }

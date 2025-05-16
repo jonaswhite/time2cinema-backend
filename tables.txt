@@ -1,0 +1,10 @@
+                    List of relations
+ Schema |       Name       | Type  |        Owner        
+--------+------------------+-------+---------------------
+ public | boxoffice        | table | time2cinema_db_user
+ public | cinemas          | table | time2cinema_db_user
+ public | movies           | table | time2cinema_db_user
+ public | showtimes        | table | time2cinema_db_user
+ public | tmdb_movie_cache | table | time2cinema_db_user
+(5 rows)
+

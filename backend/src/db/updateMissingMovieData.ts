@@ -1,5 +1,14 @@
 import axios from 'axios';
-import pool from '../db';
+import { Pool } from 'pg';
+
+// 線上資料庫配置
+const onlineDbConfig = {
+  connectionString: 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
+  ssl: { rejectUnauthorized: false }
+};
+
+// 創建線上資料庫連接池
+const pool = new Pool(onlineDbConfig);
 
 // TMDB API 配置
 // 直接使用硬編碼的 API Key

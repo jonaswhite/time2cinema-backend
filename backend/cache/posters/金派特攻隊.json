@@ -1,0 +1,69 @@
+{
+  "adult": false,
+  "backdrop_path": "/4AMAfqTnYsYESpZwJ3eXAOKg4al.jpg",
+  "genre_ids": [
+    35,
+    80
+  ],
+  "id": 696047,
+  "original_language": "ko",
+  "original_title": "시민덕희",
+  "overview": "那個騙我錢的傢伙竟打求救電話給我！因經營的洗衣店發生火災，德熙（羅美蘭 飾）考慮貸款以整修洗衣店。某天，交易銀行的孫代理（孔明 飾）打電話表示要提供合理的貸款條件給德熙，並以貸款需要手續費為由騙取德熙的財產。受騙上當的德熙失去全部財產後，只好和孩子們一起流落街頭。某天，孫代理又打來電話，但這次竟是求救電話！為了找回丟失的錢，德熙決定救出孫代理，她與各懷必殺技的同事們一起飛往中國青島……",
+  "popularity": 2.3803,
+  "poster_path": "/r2xH1UdmZYbpfKcc50TgY2BhgaE.jpg",
+  "release_date": "2024-01-24",
+  "title": "金派特攻隊",
+  "video": false,
+  "vote_average": 7.533,
+  "vote_count": 30,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 80,
+      "name": "犯罪"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt30364726",
+  "origin_country": [
+    "KR"
+  ],
+  "production_companies": [
+    {
+      "id": 63014,
+      "logo_path": "/fw6qEw1GXCKf6n51zwN7nJTG42S.png",
+      "name": "CJeS Studios",
+      "origin_country": "KR"
+    },
+    {
+      "id": 154303,
+      "logo_path": "/p8KfkPmYSFA1RGmIoz2KtwnlR67.png",
+      "name": "Page One Film",
+      "origin_country": "KR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "revenue": 11976305,
+  "runtime": 114,
+  "spoken_languages": [
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    }
+  ],
+  "status": "Released",
+  "tagline": "迎接金派鄉民的怒火吧！",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/r2xH1UdmZYbpfKcc50TgY2BhgaE.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/4AMAfqTnYsYESpZwJ3eXAOKg4al.jpg"
+}

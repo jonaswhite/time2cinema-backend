@@ -1,0 +1,15 @@
+                                                     List of relations
+ Schema |          Name           |   Type   |        Owner        | Persistence | Access method |    Size    | Description 
+--------+-------------------------+----------+---------------------+-------------+---------------+------------+-------------
+ public | boxoffice               | table    | time2cinema_db_user | permanent   | heap          | 56 kB      | 
+ public | boxoffice_id_seq        | sequence | time2cinema_db_user | permanent   |               | 8192 bytes | 
+ public | cinemas                 | table    | time2cinema_db_user | permanent   | heap          | 56 kB      | 
+ public | cinemas_id_seq          | sequence | time2cinema_db_user | permanent   |               | 8192 bytes | 
+ public | movies                  | table    | time2cinema_db_user | permanent   | heap          | 184 kB     | 
+ public | movies_id_seq           | sequence | time2cinema_db_user | permanent   |               | 8192 bytes | 
+ public | showtimes               | table    | time2cinema_db_user | permanent   | heap          | 192 kB     | 
+ public | showtimes_id_seq        | sequence | time2cinema_db_user | permanent   |               | 8192 bytes | 
+ public | tmdb_movie_cache        | table    | time2cinema_db_user | permanent   | heap          | 200 kB     | 
+ public | tmdb_movie_cache_id_seq | sequence | time2cinema_db_user | permanent   |               | 8192 bytes | 
+(10 rows)
+

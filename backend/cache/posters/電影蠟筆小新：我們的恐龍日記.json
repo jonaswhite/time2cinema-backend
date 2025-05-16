@@ -1,0 +1,74 @@
+{
+  "adult": false,
+  "backdrop_path": "/r9oTasGQofvkQY5vlUXglneF64Z.jpg",
+  "belongs_to_collection": {
+    "id": 1363124,
+    "name": "全家逃走中 系列",
+    "poster_path": null,
+    "backdrop_path": null
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 10751,
+      "name": "家庭"
+    }
+  ],
+  "homepage": "https://tv.apple.com/tw/movie/umc.cmc.6o6y3wel2lez2tkdu2cv8dzd1?l=zh-Hant-TW",
+  "id": 1029575,
+  "imdb_id": "tt16431870",
+  "origin_country": [
+    "US"
+  ],
+  "original_language": "en",
+  "original_title": "The Family Plan",
+  "overview": "丹摩根身兼多職，他是忠實的丈夫、慈愛的父親、厲害的汽車業務員，也曾經是刺客。當過去陰魂不散，他被迫帶著狀況外的全家人踏上一段前所未有的旅程。",
+  "popularity": 17.0075,
+  "poster_path": "/pHUCVSUCma3LHmb0WUBei1QGUtD.jpg",
+  "production_companies": [
+    {
+      "id": 169668,
+      "logo_path": "/iGEtQO0W5H2PAgqjL0yubcbSgr4.png",
+      "name": "Municipal Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 82819,
+      "logo_path": "/gXfFl9pRPaoaq14jybEn1pHeldr.png",
+      "name": "Skydance Media",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "release_date": "2023-12-14",
+  "revenue": 0,
+  "runtime": 118,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "快快樂樂出門，能不能平平安安回家？",
+  "title": "全家逃走中",
+  "video": false,
+  "vote_average": 7.269,
+  "vote_count": 1511,
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/pHUCVSUCma3LHmb0WUBei1QGUtD.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/r9oTasGQofvkQY5vlUXglneF64Z.jpg"
+}

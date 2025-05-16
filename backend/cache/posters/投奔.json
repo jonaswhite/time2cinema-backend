@@ -1,0 +1,74 @@
+{
+  "adult": false,
+  "backdrop_path": "/8uxcz8W9GZ4dGiL7N6b4PvaZWwh.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 72445,
+  "original_language": "cn",
+  "original_title": "投奔怒海",
+  "overview": "1975年越共解放越南，日本記者芥川汐見在峴港現場採訪實況。3年後，他重遊舊地，認識了琴娘一家，並拍攝了珍貴照片。當地唯一被留下來的酒吧，由媽媽桑經營，祖明是她的情人，正設法逃離越南。芥川與祖明成了朋友，並獲得特許送祖明到新經濟區挖地雷，但每天都有人因此遇到爆炸而死亡。芥川努力安排琴娘及家人逃離越南，祖明也登上難民船，投奔怒海。",
+  "popularity": 0.7533,
+  "poster_path": "/reB2rEzM9QrRhHve28xxkRlPlS5.jpg",
+  "release_date": "1982-10-13",
+  "title": "投奔怒海",
+  "video": false,
+  "vote_average": 7.6,
+  "vote_count": 55,
+  "belongs_to_collection": {
+    "id": 937802,
+    "name": "越南三部曲（系列）",
+    "poster_path": "/xO3RaedfatJMXV8SViU2FXbBSza.jpg",
+    "backdrop_path": "/hgVkrJWvXfB8YhEMC7FTwPLeOBd.jpg"
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt0084807",
+  "origin_country": [
+    "CN",
+    "HK"
+  ],
+  "production_companies": [
+    {
+      "id": 108442,
+      "logo_path": null,
+      "name": "Bluebird Movie Enterprises",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "HK",
+      "name": "Hong Kong"
+    }
+  ],
+  "revenue": 1988145,
+  "runtime": 109,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    },
+    {
+      "english_name": "Vietnamese",
+      "iso_639_1": "vi",
+      "name": "Tiếng Việt"
+    },
+    {
+      "english_name": "Cantonese",
+      "iso_639_1": "cn",
+      "name": "广州话 / 廣州話"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/reB2rEzM9QrRhHve28xxkRlPlS5.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/8uxcz8W9GZ4dGiL7N6b4PvaZWwh.jpg"
+}

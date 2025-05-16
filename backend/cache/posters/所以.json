@@ -1,0 +1,90 @@
+{
+  "adult": false,
+  "backdrop_path": "/7sw8pJj8nY1bHPLCiDCUqkqz6MP.jpg",
+  "genre_ids": [
+    10749,
+    35
+  ],
+  "id": 403582,
+  "original_language": "zh",
+  "original_title": "所以 , 我和黑粉结婚了",
+  "overview": "",
+  "popularity": 0.4987,
+  "poster_path": "/9GyI9UoQrE20fX9uQcqTHaTZAwa.jpg",
+  "release_date": "2016-06-30",
+  "title": "所以 , 我和黑粉结婚了",
+  "video": false,
+  "vote_average": 6.2,
+  "vote_count": 39,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 10749,
+      "name": "爱情"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt5240372",
+  "origin_country": [
+    "CN"
+  ],
+  "production_companies": [
+    {
+      "id": 30148,
+      "logo_path": "/zerhOenUD6CkH8SMgZUhrDkOs4w.png",
+      "name": "Bona Film Group",
+      "origin_country": "CN"
+    },
+    {
+      "id": 83664,
+      "logo_path": null,
+      "name": "Beijing Huanle Pictures",
+      "origin_country": ""
+    },
+    {
+      "id": 83665,
+      "logo_path": null,
+      "name": "The Comedians Pictures",
+      "origin_country": ""
+    },
+    {
+      "id": 83666,
+      "logo_path": null,
+      "name": "Beijing Jiecheng Shidai Media",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "CN",
+      "name": "China"
+    },
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 99,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    },
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/9GyI9UoQrE20fX9uQcqTHaTZAwa.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/7sw8pJj8nY1bHPLCiDCUqkqz6MP.jpg"
+}

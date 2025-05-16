@@ -74,9 +74,9 @@ router.get('/boxoffice-with-posters', async (req, res) => {
                 const result = await db_1.default.query('SELECT * FROM boxoffice WHERE date(week_start_date) = $1 ORDER BY rank', [dateStr]);
                 boxOfficeData = result.rows.map(row => ({
                     title: row.movie_id, // 使用 movie_id 作為電影標題，因為這是實際存儲電影名稱的欄位
-                    releaseDate: row.release_date ? row.release_date.toISOString().split('T')[0] : null,
-                    totalGross: row.totalsales,
-                    totalSales: row.totalsales,
+                    releaseDate: row.release_date,
+                    totalGross: row.total_gross,
+                    totalSales: row.total_sales,
                     rank: row.rank
                 }));
                 console.log(`從資料庫查詢到 ${boxOfficeData.length} 筆基本票房資料`);
@@ -193,6 +193,31 @@ router.post('/posters', async (req, res) => {
         console.error('處理海報請求時發生錯誤:', err);
         res.status(500).json({
             error: 'Failed to process poster requests',
+            detail: err instanceof Error ? err.message : String(err)
+        });
+    }
+});
+// 新增端點：根據電影標題獲取海報（智能搜索）
+// @ts-ignore - 忽略 TypeScript 的類型檢查，因為 Express 的類型定義問題
+router.get('/poster/:movieTitle', async (req, res) => {
+    try {
+        const { movieTitle } = req.params;
+        const releaseDate = req.query.releaseDate;
+        if (!movieTitle) {
+            return res.status(400).json({ error: '請提供電影標題' });
+        }
+        console.log(`收到海報請求，電影標題: ${movieTitle}${releaseDate ? `, 上映日期: ${releaseDate}` : ''}`);
+        // 使用智能海報獲取機制
+        const posterUrl = await (0, tmdb_1.smartSearchMoviePoster)(decodeURIComponent(movieTitle), releaseDate);
+        res.json({
+            movieTitle: decodeURIComponent(movieTitle),
+            posterUrl: posterUrl
+        });
+    }
+    catch (err) {
+        console.error(`獲取電影 ${req.params.movieTitle} 的海報時發生錯誤:`, err);
+        res.status(500).json({
+            error: '獲取電影海報失敗',
             detail: err instanceof Error ? err.message : String(err)
         });
     }

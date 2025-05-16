@@ -1,0 +1,100 @@
+{
+  "adult": false,
+  "backdrop_path": "/2WuR3EaBj8X2WR4fvqa449tnNLn.jpg",
+  "genre_ids": [
+    16,
+    18,
+    10749,
+    53,
+    878
+  ],
+  "id": 823,
+  "original_language": "ja",
+  "original_title": "人狼 JIN-ROH",
+  "overview": "日本首都東京，由於強硬的經濟政策導致失業率及兇殘犯罪急速增加。政府為了徹底控制反政府勢力，於是在首都圈內設立了治安部隊。這支通稱「首都警」的治安部隊，以極快的速度擴展著其勢力範圍。反政府勢力在事後也因為法律的修正而被歸類為非法團體，因而被迫轉至地下發展，這些地下組織與首都警在城內不斷地持續著抗爭與戰鬥。但是一般民眾卻對仗著強大火力與反政府組織對抗的「首都警」感到不能接受，甚至對他們發出譴責。「首都警」也因此變得越來越孤立......。",
+  "popularity": 2.5078,
+  "poster_path": "/cbWpFiOomvA1VhTMoh4bHAizOAu.jpg",
+  "release_date": "1999-11-17",
+  "title": "人狼",
+  "video": false,
+  "vote_average": 7.418,
+  "vote_count": 507,
+  "belongs_to_collection": {
+    "id": 799462,
+    "name": "Kerberos Saga Collection",
+    "poster_path": "/9e61CFX0TRjVnR2KzvYHj2tDnvz.jpg",
+    "backdrop_path": "/gVWu02BISAIPodOej6cFYSdwyTD.jpg"
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 10749,
+      "name": "爱情"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    },
+    {
+      "id": 878,
+      "name": "科幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt0193253",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 528,
+      "logo_path": "/fO3Aof3lXQclYpBByYC8aneTXwA.png",
+      "name": "Bandai Visual",
+      "origin_country": "JP"
+    },
+    {
+      "id": 529,
+      "logo_path": "/rwB6w2aPENQbx756pBWSw44Ouk.png",
+      "name": "Production I.G",
+      "origin_country": "JP"
+    },
+    {
+      "id": 193460,
+      "logo_path": null,
+      "name": "ING",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 94072,
+  "runtime": 102,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/iyLKFR339GCzTKUtrVO4hbeEhub.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/2WuR3EaBj8X2WR4fvqa449tnNLn.jpg"
+}

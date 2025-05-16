@@ -367,7 +367,25 @@ class ATMoviesScraper:
         try:
             with open(filepath, 'w', encoding='utf-8') as f:
                 json.dump(self.data, f, ensure_ascii=False, indent=2)
+            
+            # 計算總場次數
+            total_showtimes = 0
+            for theater in self.data:
+                for date_data in theater['atmovies_showtimes_by_date']:
+                    total_showtimes += len(date_data['showtimes'])
+            
             logger.info(f"已將資料保存至 {filepath}")
+            logger.info(f"總場次數: {total_showtimes}")
+            logger.info(f"總電影院數: {len(self.data)}")
+            
+            # 顯示日期範圍
+            dates = set()
+            for theater in self.data:
+                for date_data in theater['atmovies_showtimes_by_date']:
+                    dates.add(date_data['date'])
+            
+            logger.info(f"日期範圍: {', '.join(sorted(list(dates)))}")
+            
             return filepath
         except Exception as e:
             logger.error(f"保存JSON時出錯: {e}")
@@ -400,12 +418,22 @@ class ATMoviesScraper:
 
 async def main():
     start_time = time.time()
+    logger.info(f"開始執行爬蟲，時間: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    logger.info(f"設置為抓取 3 天的場次資料，最大並發請求數: {MAX_CONCURRENT_REQUESTS}")
+    
     scraper = ATMoviesScraper()
     await scraper.scrape_all()
-    scraper.save_to_json()
-    scraper.save_to_csv()
+    
+    # 保存結果
+    json_path = scraper.save_to_json()
+    csv_path = scraper.save_to_csv()
+    
     end_time = time.time()
-    logger.info(f"爬蟲總耗時: {end_time - start_time:.2f} 秒")
+    duration = end_time - start_time
+    logger.info(f"爬蟲總耗時: {duration:.2f} 秒 ({duration/60:.2f} 分鐘)")
+    logger.info(f"JSON 輸出: {json_path}")
+    logger.info(f"CSV 輸出: {csv_path}")
+    logger.info(f"完成執行爬蟲，時間: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 if __name__ == "__main__":
     asyncio.run(main())

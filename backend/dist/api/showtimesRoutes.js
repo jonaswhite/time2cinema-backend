@@ -19,6 +19,12 @@ router.get('/theater/:theaterId', (req, res) => {
 router.get('/movie/:movieName', (req, res) => {
     (0, showtimes_1.getShowtimesByMovie)(req, res);
 });
+// 獲取特定電影ID的場次
+router.get('/movie-id/:id', (req, res) => {
+    // 將 movieName 參數設置為 ID
+    req.params.movieName = req.params.id;
+    (0, showtimes_1.getShowtimesByMovie)(req, res);
+});
 // 獲取特定日期的場次
 router.get('/date/:date', (req, res) => {
     (0, showtimes_1.getShowtimesByDate)(req, res);

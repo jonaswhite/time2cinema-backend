@@ -48,16 +48,23 @@ jobs:
           mkdir -p backend/output/utils
           mkdir -p backend/output/cache
 
-      # 執行 ATMovies 爬蟲
+      # 設置時區為台灣時間 (UTC+8)
+      - name: Set timezone
+        run: |
+          sudo timedatectl set-timezone Asia/Taipei
+          echo "當前時間: $(date)"
+
+      # 執行 ATMovies 爬蟲 (使用增強版)
       - name: Run ATMovies scraper
         run: |
           cd backend
           # 設置環境變數，讓爬蟲腳本知道它在 GitHub Actions 環境中運行
           export GITHUB_ACTIONS=true
           # 增加調試輸出
-          echo "開始執行 ATMovies 爬蟲..."
-          python -u scripts/scrapers/atmovies_scraper_v3.py
-          echo "ATMovies 爬蟲執行完成"
+          echo "開始執行增強版 ATMovies 爬蟲..."
+          echo "當前時間: $(date)"
+          python -u scripts/scrapers/atmovies_scraper_enhanced.py
+          echo "ATMovies 爬蟲執行完成，時間: $(date)"
           # 檢查輸出文件
           ls -la output/scrapers/
           if [ -f output/scrapers/atmovies_showtimes.json ]; then
@@ -67,6 +74,12 @@ jobs:
             # 檢查文件內容是否為空
             if [ "$(cat output/scrapers/atmovies_showtimes.json | wc -c)" -gt 100 ]; then
               echo "場次數據文件內容有效"
+              # 顯示抓取的日期範圍
+              echo "場次日期範圍預覽:"
+              cat output/scrapers/atmovies_showtimes.json | grep -o '"display_date":"[^"]*"' | sort | uniq
+              # 顯示總場次數
+              echo "總場次數:"
+              cat output/scrapers/atmovies_showtimes.json | grep -o '"time":' | wc -l
             else
               echo "警告：場次數據文件內容可能無效"
             fi

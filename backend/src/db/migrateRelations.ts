@@ -1,4 +1,13 @@
-import pool from '../db';
+import { Pool } from 'pg';
+
+// 線上資料庫配置
+const onlineDbConfig = {
+  connectionString: 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
+  ssl: { rejectUnauthorized: false }
+};
+
+// 創建線上資料庫連接池
+const pool = new Pool(onlineDbConfig);
 
 // 修改 boxoffice 表，將 movie_id 從文本改為整數外鍵
 export async function migrateBoxofficeTable(): Promise<boolean> {
@@ -19,8 +28,17 @@ export async function migrateBoxofficeTable(): Promise<boolean> {
     
     for (const row of boxofficeRows.rows) {
       // 在 movies 表中查找匹配的電影
+      // 檢查 movies 表是否有 title 欄位，否則使用 name 欄位
+      const columnsResult = await pool.query(`
+        SELECT column_name FROM information_schema.columns
+        WHERE table_name = 'movies' AND column_name IN ('title', 'name')
+      `);
+      
+      const columnNames = columnsResult.rows.map(row => row.column_name);
+      const titleColumn = columnNames.includes('title') ? 'title' : 'name';
+      
       const movieResult = await pool.query(`
-        SELECT id FROM movies WHERE title = $1
+        SELECT id FROM movies WHERE ${titleColumn} = $1
       `, [row.movie_id]);
       
       if (movieResult.rows.length > 0) {
@@ -75,8 +93,17 @@ export async function migrateShowtimesTable(): Promise<boolean> {
     
     for (const row of showtimesRows.rows) {
       // 在 movies 表中查找匹配的電影
+      // 檢查 movies 表是否有 title 欄位，否則使用 name 欄位
+      const columnsResult = await pool.query(`
+        SELECT column_name FROM information_schema.columns
+        WHERE table_name = 'movies' AND column_name IN ('title', 'name')
+      `);
+      
+      const columnNames = columnsResult.rows.map(row => row.column_name);
+      const titleColumn = columnNames.includes('title') ? 'title' : 'name';
+      
       const movieResult = await pool.query(`
-        SELECT id FROM movies WHERE title = $1
+        SELECT id FROM movies WHERE ${titleColumn} = $1
       `, [row.movie_name]);
       
       if (movieResult.rows.length > 0) {

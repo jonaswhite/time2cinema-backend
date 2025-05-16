@@ -1,5 +1,14 @@
-import pool from '../db';
+import { Pool } from 'pg';
 import { ensureTMDBCacheTable, getMovieFromCache } from './tmdbCache';
+
+// 線上資料庫配置
+const onlineDbConfig = {
+  connectionString: 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
+  ssl: { rejectUnauthorized: false }
+};
+
+// 創建線上資料庫連接池
+const pool = new Pool(onlineDbConfig);
 
 // 電影標題映射表
 const movieTitleMapping: Record<string, string> = {
@@ -45,46 +54,109 @@ export async function ensureMoviesTable(): Promise<boolean> {
     const checkTableQuery = `
       SELECT EXISTS (
         SELECT FROM information_schema.tables 
-        WHERE table_schema = 'public'
-        AND table_name = 'movies'
+        WHERE table_name = 'movies'
       );
     `;
     
     const tableExists = await pool.query(checkTableQuery);
     
     if (tableExists.rows[0].exists) {
-      console.log('刪除現有的 movies 表...');
-      await pool.query('DROP TABLE movies CASCADE');
-      console.log('現有的 movies 表已刪除');
+      console.log('movies 表已存在，檢查欄位結構...');
+      
+      // 檢查欄位結構
+      const checkColumnsQuery = `
+        SELECT column_name FROM information_schema.columns
+        WHERE table_name = 'movies'
+      `;
+      
+      const columns = await pool.query(checkColumnsQuery);
+      const columnNames = columns.rows.map(row => row.column_name);
+      console.log('現有欄位:', columnNames.join(', '));
+      
+      // 檢查是否有 name 欄位，但沒有 title 欄位
+      if (columnNames.includes('name') && !columnNames.includes('title')) {
+        console.log('將 name 欄位重命名為 title...');
+        await pool.query('ALTER TABLE movies RENAME COLUMN name TO title;');
+      }
+      
+      // 檢查是否缺少必要的欄位
+      const requiredColumns = [
+        'original_title', 'poster_url', 'backdrop_url', 'overview', 'runtime', 'vote_average', 'genres'
+      ];
+      
+      for (const column of requiredColumns) {
+        if (!columnNames.includes(column)) {
+          console.log(`添加缺少的欄位: ${column}...`);
+          
+          let dataType = 'TEXT';
+          if (column === 'runtime') dataType = 'INTEGER';
+          if (column === 'vote_average') dataType = 'NUMERIC(3,1)';
+          if (column === 'genres') dataType = 'JSONB';
+          
+          await pool.query(`ALTER TABLE movies ADD COLUMN ${column} ${dataType};`);
+        }
+      }
+      
+      // 檢查 tmdb_id 欄位的數據類型
+      if (columnNames.includes('tmdb_id')) {
+        const tmdbIdTypeQuery = `
+          SELECT data_type FROM information_schema.columns
+          WHERE table_name = 'movies' AND column_name = 'tmdb_id'
+        `;
+        
+        const tmdbIdType = await pool.query(tmdbIdTypeQuery);
+        
+        if (tmdbIdType.rows.length > 0 && tmdbIdType.rows[0].data_type === 'text') {
+          console.log('將 tmdb_id 欄位從 TEXT 轉換為 INTEGER...');
+          
+          // 添加臨時欄位
+          await pool.query('ALTER TABLE movies ADD COLUMN tmdb_id_new INTEGER;');
+          
+          // 嘗試轉換現有的 tmdb_id 值
+          await pool.query(`
+            UPDATE movies SET tmdb_id_new = NULLIF(tmdb_id, '')::INTEGER
+            WHERE tmdb_id ~ '^[0-9]+$';
+          `);
+          
+          // 刪除舊欄位，重命名新欄位
+          await pool.query('ALTER TABLE movies DROP COLUMN tmdb_id;');
+          await pool.query('ALTER TABLE movies RENAME COLUMN tmdb_id_new TO tmdb_id;');
+          
+          // 添加唯一約束
+          await pool.query('ALTER TABLE movies ADD CONSTRAINT movies_tmdb_id_key UNIQUE (tmdb_id);');
+        }
+      }
+      
+      console.log('movies 表結構更新成功');
+    } else {
+      console.log('創建新的 movies 表...');
+      
+      // 創建新表
+      const createTableQuery = `
+        CREATE TABLE movies (
+          id SERIAL PRIMARY KEY,
+          tmdb_id INTEGER UNIQUE,
+          title TEXT NOT NULL,
+          original_title TEXT,
+          poster_url TEXT,
+          backdrop_url TEXT,
+          overview TEXT,
+          release_date DATE,
+          runtime INTEGER,
+          vote_average NUMERIC(3,1),
+          genres JSONB,
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+      `;
+      
+      await pool.query(createTableQuery);
+      console.log('movies 表創建成功');
     }
     
-    console.log('創建新的 movies 表...');
-    const query = `
-      CREATE TABLE movies (
-        id SERIAL PRIMARY KEY,
-        tmdb_id INTEGER UNIQUE,
-        title TEXT NOT NULL,
-        original_title TEXT,
-        poster_url TEXT,
-        backdrop_url TEXT,
-        overview TEXT,
-        release_date DATE,
-        runtime INTEGER,
-        vote_average REAL,
-        genres TEXT,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      );
-      
-      CREATE INDEX idx_movies_tmdb_id ON movies(tmdb_id);
-      CREATE INDEX idx_movies_title ON movies(title);
-    `;
-    
-    await pool.query(query);
-    console.log('新的 movies 表創建成功');
     return true;
   } catch (error) {
-    console.error('確保 movies 表存在時出錯:', error);
+    console.error('確保 movies 表存在時發生錯誤:', error);
     return false;
   }
 }

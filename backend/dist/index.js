@@ -8,6 +8,8 @@ const boxofficeRoutes_1 = require("./api/boxofficeRoutes");
 const tmdbRoutes_1 = require("./api/tmdbRoutes");
 const cinemaRoutes_1 = require("./api/cinemaRoutes");
 const showtimesRoutes_1 = require("./api/showtimesRoutes");
+const nowShowingMoviesRoutes_1 = require("./api/nowShowingMoviesRoutes");
+const moviesRoutes_1 = require("./api/moviesRoutes");
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 4000;
 // 添加基本中間件
@@ -50,10 +52,16 @@ app.use('/api/tmdb', tmdbRoutes_1.tmdbRouter);
 app.use('/api/cinemas', cinemaRoutes_1.cinemaRouter);
 // 使用場次路由
 app.use('/api/showtimes', showtimesRoutes_1.showtimesRouter);
+// 使用上映中電影路由 (必須在 /api/movies 前面註冊，因為它更具體)
+app.use('/api/movies/now-showing', nowShowingMoviesRoutes_1.nowShowingMoviesRouter);
+// 使用電影路由
+app.use('/api/movies', moviesRoutes_1.moviesRouter);
 app.listen(PORT, () => {
     console.log(`Backend server running at http://localhost:${PORT}`);
     console.log(`票房 API 網址: http://localhost:${PORT}/api/boxoffice`);
     console.log(`TMDB API 網址: http://localhost:${PORT}/api/tmdb`);
     console.log(`電影院 API 網址: http://localhost:${PORT}/api/cinemas`);
     console.log(`場次 API 網址: http://localhost:${PORT}/api/showtimes`);
+    console.log(`電影 API 網址: http://localhost:${PORT}/api/movies`);
+    console.log(`上映中電影 API 網址: http://localhost:${PORT}/api/movies/now-showing`);
 });

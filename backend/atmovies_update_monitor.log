@@ -1,0 +1,27 @@
+2025-05-15 19:53:16,375 - INFO - 開始執行更新監測，時間: 2025-05-15 19:53:16
+2025-05-15 19:53:16,375 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/
+2025-05-15 19:53:16,713 - ERROR - 無法獲取區域列表
+2025-05-15 19:53:16,714 - INFO - 已將檢查結果保存至 /Users/jonaswhite/CascadeProjects/Time2Cinema/backend/output/monitor/atmovies_update_check_20250515.json
+2025-05-15 19:53:16,714 - INFO - 監測總耗時: 0.34 秒
+2025-05-15 19:53:16,714 - INFO - 監測日誌: /Users/jonaswhite/CascadeProjects/Time2Cinema/backend/output/monitor/atmovies_update_check_20250515.json
+2025-05-15 19:56:12,732 - INFO - 開始執行更新監測，時間: 2025-05-15 19:56:12
+2025-05-15 19:56:12,732 - INFO - 使用預設台北區域URL: https://www.atmovies.com.tw/showtime/a01/
+2025-05-15 19:56:12,732 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/a01/
+2025-05-15 19:56:13,055 - INFO - 找到電影院: 網路訂票, URL: https://www.atmovies.com.tw/showtime/ticket/
+2025-05-15 19:56:13,055 - INFO - 找到電影院: 網路訂票, URL: https://www.atmovies.com.tw/showtime/ticket/
+2025-05-15 19:56:13,055 - INFO - 找到電影院: 基隆秀泰影城, URL: https://www.atmovies.com.tw/showtime/t02g04/a01/
+2025-05-15 19:56:13,055 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/ticket/
+2025-05-15 19:56:13,570 - WARNING - 無法通過選擇器找到日期，嘗試從頁面內容提取
+2025-05-15 19:56:13,570 - INFO - 從頁面內容提取到 1 個日期
+2025-05-15 19:56:13,570 - INFO - 電影院 網路訂票 可用日期: 13/14
+2025-05-15 19:56:13,570 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/ticket/
+2025-05-15 19:56:13,869 - WARNING - 無法通過選擇器找到日期，嘗試從頁面內容提取
+2025-05-15 19:56:13,870 - INFO - 從頁面內容提取到 1 個日期
+2025-05-15 19:56:13,870 - INFO - 電影院 網路訂票 可用日期: 13/14
+2025-05-15 19:56:13,870 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02g04/a01/
+2025-05-15 19:56:14,476 - WARNING - 無法通過選擇器找到日期，嘗試從頁面內容提取
+2025-05-15 19:56:14,476 - INFO - 從頁面內容提取到 1 個日期
+2025-05-15 19:56:14,476 - INFO - 電影院 基隆秀泰影城 可用日期: 25/05
+2025-05-15 19:56:14,477 - INFO - 已將檢查結果保存至 /Users/jonaswhite/CascadeProjects/Time2Cinema/backend/output/monitor/atmovies_update_check_20250515.json
+2025-05-15 19:56:14,477 - INFO - 監測總耗時: 1.75 秒
+2025-05-15 19:56:14,477 - INFO - 監測日誌: /Users/jonaswhite/CascadeProjects/Time2Cinema/backend/output/monitor/atmovies_update_check_20250515.json

@@ -1,0 +1,44 @@
+name: Hourly ATMovies Data Update Check
+
+on:
+  workflow_dispatch: # Allows manual triggering
+  schedule:
+    # Runs at 15 minutes past the hour, every hour from 3 AM to 9 AM Taipei Time (UTC+8)
+    # UTC times: 19:15, 20:15, 21:15, 22:15, 23:15, 00:15, 01:15
+    - cron: '15 19 * * *' # 03:15 TST (previous day UTC)
+    - cron: '15 20 * * *' # 04:15 TST (previous day UTC)
+    - cron: '15 21 * * *' # 05:15 TST (previous day UTC)
+    - cron: '15 22 * * *' # 06:15 TST (previous day UTC)
+    - cron: '15 23 * * *' # 07:15 TST (previous day UTC)
+    - cron: '15 0 * * *'  # 08:15 TST (current day UTC)
+    - cron: '15 1 * * *'  # 09:15 TST (current day UTC)
+
+jobs:
+  check_atmovies_data_update:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' # Or your preferred Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 aiohttp
+      
+      - name: Run ATMovies Data Update Checker
+        env:
+          MAX_THEATERS_TO_CHECK: "10" # Environment variable for the script
+          TZ: Asia/Taipei # Set timezone for logging purposes within the script if it uses system time
+        run: |
+          echo "Running ATMovies Data Update Checker..."
+          python scripts/scrapers/atmovies_data_update_checker.py
+          echo "ATMovies Data Update Checker finished."

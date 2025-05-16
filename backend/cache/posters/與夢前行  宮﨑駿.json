@@ -1,0 +1,64 @@
+{
+  "adult": false,
+  "backdrop_path": "/6i0P1F5cDzHkcyO4GUNGlwhU5tQ.jpg",
+  "genre_ids": [
+    99
+  ],
+  "id": 1292585,
+  "original_language": "ja",
+  "original_title": "宮﨑駿と青サギと… ～「君たちはどう生きるか」への道～",
+  "overview": "這部紀錄片記載日本傳奇動畫大師宮﨑駿投入動畫界61年的人生點滴，不僅貼身拍攝宮﨑駿創作奧斯卡最佳動畫片《蒼鷺與少年》長達7年的幕後製作秘辛，更讓觀影者深入了解宮﨑駿堅持一輩子的創作理念與獨到的人生哲學，透過穿插吉卜力經典動畫場景及對白做虛實交錯，引領人進入宮﨑駿作品中蘊含的人生智慧格言，所有吉卜力迷千萬不能錯過！",
+  "popularity": 1.3423,
+  "poster_path": "/ihxkyyvLdAjpRfBNXSpEFx6joSN.jpg",
+  "release_date": "2024-10-10",
+  "title": "與夢前行 宮﨑駿：蒼鷺與少年創作全紀錄",
+  "video": false,
+  "vote_average": 8.063,
+  "vote_count": 24,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 99,
+      "name": "纪录"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt32408421",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 15505,
+      "logo_path": "/3MuBcEqLa5QRkZTpXBLzyk9zOmO.png",
+      "name": "NHK",
+      "origin_country": "JP"
+    },
+    {
+      "id": 11376,
+      "logo_path": "/lrglrxyGOMRl9KCsmcjmzjjpT2H.png",
+      "name": "NHK Enterprises",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 121,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/ihxkyyvLdAjpRfBNXSpEFx6joSN.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/6i0P1F5cDzHkcyO4GUNGlwhU5tQ.jpg"
+}
