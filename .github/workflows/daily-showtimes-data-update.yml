@@ -1,0 +1,90 @@
+name: Daily Showtimes Data Update
+
+on:
+  schedule:
+    # 每天台灣時間凌晨 3 點運行 (UTC+8)，對應 UTC 時間 19:00
+    - cron: '0 19 * * *'
+  # 允許手動觸發工作流程
+  workflow_dispatch:
+
+jobs:
+  update-showtimes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Puppeteer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgbm-dev libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libnss3 lsb-release xdg-utils wget
+
+      - name: Install Node.js dependencies
+        run: |
+          cd backend
+          npm install
+          npx puppeteer browsers install chrome
+
+      - name: Install Python dependencies
+        run: |
+          cd backend/scripts/scrapers
+          pip install -r requirements.txt || echo "No requirements.txt found, installing common packages"
+          pip install requests beautifulsoup4 pandas lxml aiohttp asyncio
+
+      - name: Create necessary directories
+        run: |
+          mkdir -p backend/output/scrapers
+          mkdir -p backend/output/importers
+          mkdir -p backend/output/utils
+          mkdir -p backend/output/cache
+
+      # 設置時區為台灣時間 (UTC+8)
+      - name: Set timezone
+        run: |
+          sudo timedatectl set-timezone Asia/Taipei
+          echo "當前時間: $(date)"
+
+      # 執行 ATMovies 場次爬蟲
+      - name: Run ATMovies showtimes scraper
+        run: |
+          cd backend
+          # 設置環境變數，讓爬蟲腳本知道它在 GitHub Actions 環境中運行
+          export GITHUB_ACTIONS=true
+          # 增加調試輸出
+          echo "開始執行 ATMovies 場次爬蟲..."
+          echo "當前時間: $(date)"
+          python -u scripts/scrapers/atmovies_showtimes_scraper_v3.py
+          echo "ATMovies 場次爬蟲執行完成，時間: $(date)"
+          # 檢查輸出文件
+          ls -la output/scrapers/
+          if [ -f output/scrapers/atmovies_showtimes.json ]; then
+            echo "場次數據文件已生成"
+            # 顯示文件大小
+            du -h output/scrapers/atmovies_showtimes.json
+            # 檢查文件內容是否為空
+            if [ "$(cat output/scrapers/atmovies_showtimes.json | wc -c)" -gt 100 ]; then
+              echo "場次數據文件內容有效"
+              # 顯示抓取的日期範圍
+              echo "場次日期範圍預覽:"
+              cat output/scrapers/atmovies_showtimes.json | grep -o '"display_date":"[^"]*"' | sort | uniq
+              # 顯示總場次數
+              echo "總場次數:"
+              cat output/scrapers/atmovies_showtimes.json | grep -o '"time":' | wc -l
+            else
+              echo "警告：場次數據文件內容可能無效"
+            fi
+          else
+            echo "錯誤：場次數據文件未生成"
+            exit 1
+          fi
+        continue-on-error: false
