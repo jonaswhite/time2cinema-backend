@@ -3,80 +3,109 @@ const fs = require('fs');
 const csv = require('csv-parser');
 
 // 連接到線上資料庫
+if (!process.env.DATABASE_URL) {
+  console.error('錯誤：未設置 DATABASE_URL 環境變數');
+  process.exit(1);
+}
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false }
+  ssl: {
+    rejectUnauthorized: false // 在生產環境中應該使用正確的SSL證書
+  }
 });
 
 async function importMovies(csvFilePath) {
-  console.log(`開始從 ${csvFilePath} 匯入電影資料...`);
+  const client = await pool.connect();
   
-  const movies = [];
-  
-  // 讀取 CSV 文件
-  await new Promise((resolve, reject) => {
-    fs.createReadStream(csvFilePath)
-      .pipe(csv())
-      .on('data', (data) => {
-        if (data.title && data.release_date) {
-          movies.push(data);
-        }
-      })
-      .on('end', resolve)
-      .on('error', reject);
-  });
-
-  console.log(`找到 ${movies.length} 部電影`);
-
   try {
-    await pool.query('BEGIN');
-    await pool.query('TRUNCATE TABLE movies RESTART IDENTITY CASCADE');
+    await client.query('BEGIN');
     
+    // 清空現有資料
+    await client.query('TRUNCATE TABLE movies RESTART IDENTITY CASCADE');
+    
+    const movies = [];
+    
+    // 讀取CSV檔案，使用 csv-parser 來解析
+    await new Promise((resolve, reject) => {
+      const rows = [];
+      
+      fs.createReadStream(csvFilePath)
+        .pipe(csv())
+        .on('data', (row) => {
+          rows.push(row);
+        })
+        .on('end', () => {
+          // 處理 BOM 問題
+          const headers = Object.keys(rows[0] || {});
+          
+          // 檢查並修正 BOM 問題
+          if (headers.length > 0 && headers[0].startsWith('\ufeff')) {
+            const fixedHeaders = headers.map(header => 
+              header.startsWith('\ufeff') ? header.substring(1) : header
+            );
+            
+            // 重新映射數據
+            movies.push(...rows.map(row => {
+              const newRow = {};
+              headers.forEach((header, index) => {
+                const cleanHeader = fixedHeaders[index];
+                newRow[cleanHeader] = row[header];
+              });
+              return newRow;
+            }));
+          } else {
+            movies.push(...rows);
+          }
+          
+          resolve();
+        })
+        .on('error', (error) => {
+          console.error('讀取CSV檔案時出錯:', error);
+          reject(error);
+        });
+    });
+    
+    console.log(`找到 ${movies.length} 部電影`);
+    
+    // 插入資料
     for (const movie of movies) {
-      await pool.query(
-        `INSERT INTO movies (
-          title, original_title, release_date, runtime, 
-          poster_path, backdrop_path, overview, tagline, 
-          status, original_language, imdb_id, tmdb_id, 
-          atmovies_id, created_at, updated_at, release_year,
-          director, cast, genres, 
-          rating, vote_count, popularity, trailer_url
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, NOW(), NOW(), $14, $15, $16, $17, $18, $19, $20, $21)`,
-        [
-          movie.title,
-          movie.original_title || '',
-          movie.release_date || null,
-          movie.runtime ? parseInt(movie.runtime) : null,
-          movie.poster_path || '',
-          movie.backdrop_path || '',
-          movie.overview || '',
-          movie.tagline || '',
-          movie.status || 'Released',
-          movie.original_language || 'zh-TW',
-          movie.imdb_id || null,
-          movie.tmdb_id ? parseInt(movie.tmdb_id) : null,
-          movie.atmovies_id || null,
-          movie.release_year ? parseInt(movie.release_year) : null,
-          movie.director || '',
-          movie.cast || '[]',
-          movie.genres || '[]',
-          movie.rating ? parseFloat(movie.rating) : 0,
-          movie.vote_count ? parseInt(movie.vote_count) : 0,
-          movie.popularity ? parseFloat(movie.popularity) : 0,
-          movie.trailer_url || ''
-        ]
-      );
+      try {
+        console.log('正在處理電影:', movie.full_title || movie.chinese_title || movie.english_title);
+        
+        await client.query(
+          `INSERT INTO movies (
+            atmovies_id, release_date, source, runtime, 
+            full_title, chinese_title, english_title, poster_url,
+            created_at, updated_at
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW(), NOW())`,
+          [
+            movie.atmovies_id || null,
+            movie.release_date || null,
+            'atmovies',
+            movie.runtime ? parseInt(movie.runtime) : null,
+            movie.full_title || '',
+            movie.chinese_title || '',
+            movie.english_title || '',
+            '' // poster_url is empty for now
+          ]
+        );
+        console.log('已成功匯入:', movie.full_title || movie.chinese_title || movie.english_title);
+      } catch (error) {
+        console.error('處理電影時出錯:', error);
+        throw error;
+      }
     }
     
-    await pool.query('COMMIT');
+    await client.query('COMMIT');
     console.log('電影資料匯入成功');
     
   } catch (error) {
-    await pool.query('ROLLBACK');
+    await client.query('ROLLBACK');
     console.error('匯入電影資料時出錯:', error);
-    process.exit(1);
+    throw error;
   } finally {
-    await pool.end();
+    client.release();
   }
 }
 

@@ -681,8 +681,12 @@ class ATMoviesMovieScraper:
     async def export_to_csv(self, movies: List[Dict[str, Any]]) -> str:
         """將電影資料匯出為CSV檔案"""
         try:
+            # 確保 output 目錄存在
+            output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output')
+            os.makedirs(output_dir, exist_ok=True)
+            
             timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-            filename = f"atmovies_movies_{timestamp}.csv"
+            filename = os.path.join(output_dir, f"atmovies_movies_{timestamp}.csv")
             
             with open(filename, 'w', newline='', encoding='utf-8-sig') as csvfile:
                 fieldnames = ['atmovies_id', 'full_title', 'chinese_title', 'english_title', 'runtime', 'release_date', 'detail_url']
