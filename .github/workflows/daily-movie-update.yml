@@ -14,11 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -27,7 +22,7 @@ jobs:
       - name: Install Python dependencies
         run: |
           cd backend/scripts/scrapers
-          pip install requests beautifulsoup4 pandas lxml aiohttp asyncio
+          pip install requests beautifulsoup4 pandas lxml aiohttp asyncio psycopg2-binary
 
       - name: Create necessary directories
         run: |
@@ -43,192 +38,44 @@ jobs:
       # 執行 ATMovies 電影爬蟲
       - name: Run ATMovies movie scraper
         run: |
-          cd backend
-          # 設置環境變數，讓爬蟲腳本知道它在 GitHub Actions 環境中運行
-          export GITHUB_ACTIONS=true
-          # 增加調試輸出
-          echo "開始執行 ATMovies 電影爬蟲..."
-          echo "當前時間: $(date)"
-          python -u scripts/scrapers/atmovies_movie_scraper_v2.py
-          echo "ATMovies 電影爬蟲執行完成，時間: $(date)"
-          # 檢查輸出文件
-          ls -la output/scrapers/
-          # 尋找最新的電影 CSV 文件
-          LATEST_CSV=$(find scripts/scrapers -name "atmovies_movies_*.csv" -type f -printf "%T@ %p\n" | sort -n | tail -1 | cut -f2- -d" ")
-          if [ -n "$LATEST_CSV" ]; then
-            echo "找到最新電影數據文件: $LATEST_CSV"
-            # 顯示文件大小
-            du -h "$LATEST_CSV"
-            # 檢查文件內容是否為空
-            if [ "$(cat "$LATEST_CSV" | wc -c)" -gt 100 ]; then
-              echo "電影數據文件內容有效"
-              # 顯示電影數量
-              echo "總電影數:"
-              cat "$LATEST_CSV" | wc -l
-            else
-              echo "警告：電影數據文件內容可能無效"
-            fi
-          else
-            echo "警告：未找到電影數據文件"
-          fi
-        continue-on-error: true
+          cd backend/scripts/scrapers
+          python atmovies_movie_scraper_v2.py
 
-      # 匯入電影資料到線上資料庫
-      - name: Import movie data to online database
+      - name: Import movie data to remote database
         run: |
-          cd backend
-          echo "開始將電影資料匯入線上資料庫..."
-          # 尋找最新電影 CSV 文件
-          LATEST_CSV=$(find scripts/scrapers -name "atmovies_movies_*.csv" -type f -printf "%T@ %p\n" | sort -n | tail -1 | cut -f2- -d" ")
+          # 查找最新的電影CSV文件
+          LATEST_CSV=$(find backend/scripts/scrapers -name "atmovies_movies_*.csv" -type f -printf "%T@ %p\n" | sort -n | tail -1 | cut -f2- -d" ")
           if [ -n "$LATEST_CSV" ]; then
             echo "使用最新電影文件進行匯入: $LATEST_CSV"
-            # 創建匯入腳本
-            cat > scripts/importers/import_movies_remote.js << 'EOL'
-            const { Pool } = require('pg');
-            const fs = require('fs');
-            const csv = require('csv-parser');
-            const path = require('path');
-
-            // 連接到線上資料庫
-            const pool = new Pool({
-              connectionString: process.env.DATABASE_URL,
-            });
-
-            async function importMovies(csvFilePath) {
-              console.log(`開始從 ${csvFilePath} 匯入電影資料...`);
-              
-              const movies = [];
-              
-              // 讀取 CSV 文件
-              await new Promise((resolve, reject) => {
-                fs.createReadStream(csvFilePath)
-                  .pipe(csv())
-                  .on('data', (row) => {
-                    movies.push(row);
-                  })
-                  .on('end', () => {
-                    console.log(`CSV 文件讀取完成，共 ${movies.length} 部電影`);
-                    resolve();
-                  })
-                  .on('error', (error) => {
-                    reject(error);
-                  });
-              });
-
-              // 開始資料庫事務
-              const client = await pool.connect();
-              try {
-                await client.query('BEGIN');
-                
-                console.log('開始匯入電影資料...');
-                
-                // 對每部電影進行處理
-                for (const movie of movies) {
-                  // 檢查電影是否已存在
-                  const checkResult = await client.query(
-                    'SELECT id FROM movies WHERE atmovies_id = $1',
-                    [movie.atmovies_id]
-                  );
-                  
-                  if (checkResult.rows.length > 0) {
-                    // 更新現有電影
-                    console.log(`更新電影: ${movie.full_title}`);
-                    await client.query(
-                      `UPDATE movies SET 
-                        full_title = $1, 
-                        chinese_title = $2, 
-                        english_title = $3, 
-                        runtime = $4, 
-                        release_date = $5, 
-                        detail_url = $6
-                      WHERE atmovies_id = $7`,
-                      [
-                        movie.full_title,
-                        movie.chinese_title,
-                        movie.english_title,
-                        movie.runtime,
-                        movie.release_date ? new Date(movie.release_date) : null,
-                        movie.detail_url,
-                        movie.atmovies_id
-                      ]
-                    );
-                  } else {
-                    // 插入新電影
-                    console.log(`新增電影: ${movie.full_title}`);
-                    await client.query(
-                      `INSERT INTO movies (
-                        atmovies_id, full_title, chinese_title, english_title, 
-                        runtime, release_date, detail_url
-                      ) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-                      [
-                        movie.atmovies_id,
-                        movie.full_title,
-                        movie.chinese_title,
-                        movie.english_title,
-                        movie.runtime,
-                        movie.release_date ? new Date(movie.release_date) : null,
-                        movie.detail_url
-                      ]
-                    );
-                  }
-                }
-                
-                await client.query('COMMIT');
-                console.log('電影資料匯入完成！');
-              } catch (error) {
-                await client.query('ROLLBACK');
-                console.error('匯入電影資料時出錯:', error);
-                throw error;
-              } finally {
-                client.release();
-              }
-            }
-
-            // 主程序
-            async function main() {
-              try {
-                const csvFilePath = process.argv[2];
-                if (!csvFilePath) {
-                  throw new Error('請提供 CSV 文件路徑');
-                }
-                
-                await importMovies(csvFilePath);
-                console.log('電影資料匯入成功！');
-              } catch (error) {
-                console.error('程序執行失敗:', error);
-                process.exit(1);
-              } finally {
-                await pool.end();
-              }
-            }
-
-            main();
-            EOL
             # 安裝所需套件
             npm install pg csv-parser
+            
             # 執行匯入腳本
             node scripts/importers/import_movies_remote.js "$LATEST_CSV"
+            echo "電影資料匯入完成"
           else
-            echo "未找到電影文件，無法進行匯入"
-          fi
-          echo "電影資料匯入完成"
+            echo "未找到電影文件，跳過匯入步驟"
         env:
           DATABASE_URL: postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db
-        continue-on-error: true
-
+          
       # 記錄執行結果
       - name: Create log file
         run: |
           echo "Movie data update completed at $(date)" > movie_update_log.txt
           echo "Movie files:" >> movie_update_log.txt
           find backend/scripts/scrapers -name "atmovies_movies_*.csv" -type f -printf "%T@ %p\n" | sort -n >> movie_update_log.txt || echo "No movie files found" >> movie_update_log.txt
-
+          
       # 提交更新的資料文件
       - name: Commit and push updated data files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git fetch
+          git checkout main
           git add backend/scripts/scrapers/atmovies_movies_*.csv movie_update_log.txt || true
-          git commit -m "Auto update movie data $(date)" || echo "No changes to commit"
-          git push
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto update movie data $(date +'%Y-%m-%d %H:%M:%S')"
+          git push origin main
         continue-on-error: true

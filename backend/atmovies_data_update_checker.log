@@ -1034,3 +1034,291 @@
 2025-05-15 21:31:20,187 - WARNING - 無法獲取場次資料: 樂聲影城 - 2025/05/17 從 https://www.atmovies.com.tw/showtime/t02b03/a02/20250517/
 2025-05-15 21:31:20,189 - INFO - 資料更新檢查爬蟲總耗時: 106.74 秒 (1.78 分鐘)
 2025-05-15 21:31:20,189 - INFO - 完成執行資料更新檢查爬蟲，時間: 2025-05-15 21:31:20
+2025-05-17 11:42:45,743 - INFO - 開始執行 ATMovies 資料更新檢查爬蟲，時間: 2025-05-17 11:42:45
+2025-05-17 11:42:45,744 - INFO - 將檢查最多 10 家電影院的資料。
+2025-05-17 11:42:45,744 - INFO - 設置為抓取 3 天的場次資料 (今天、明天、後天)，最大並發請求數: 5
+2025-05-17 11:42:45,744 - INFO - 目標區域設定為: 台北市 (Code: a02, URL: https://www.atmovies.com.tw/showtime/a02/)
+2025-05-17 11:42:45,744 - INFO - 目標區域: 台北市
+2025-05-17 11:42:45,744 - INFO - 正在獲取 台北市 的電影院列表從: https://www.atmovies.com.tw/showtime/a02/
+2025-05-17 11:42:45,744 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/a02/
+2025-05-17 11:42:46,055 - INFO - 在 台北市 找到 42 家電影院
+2025-05-17 11:42:46,055 - INFO - 在 台北市 區域共找到 42 家電影院 (完整列表).
+2025-05-17 11:42:46,055 - INFO - 限制為檢查前 10 家電影院。
+2025-05-17 11:42:46,055 - INFO - 將為本次檢查處理 10 家電影院。
+2025-05-17 11:42:46,055 - INFO - 將抓取以下日期的場次: ['2025/05/17', '2025/05/18', '2025/05/19']
+2025-05-17 11:42:46,056 - INFO - 使用非同步方法，最大並發請求數: 5
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 台北信義威秀 (ID: t02a01) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: MUVIE CINEMAS台北松仁威秀 (ID: t02a11) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 新民生戲院 (ID: t02a07) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 台北南港LaLaport威秀影城 (ID: t02a12) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 喜樂時代影城 (ID: t02a09) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 微風影城 (ID: t02a03) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 誠品電影院 (ID: t02a08) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 總督影城 (ID: t02a05) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 哈拉影城 (ID: t02a06) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 開始處理電影院: 國賓戲院 (ID: t02b01) 的資料更新檢查
+2025-05-17 11:42:46,056 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a01/a02/
+2025-05-17 11:42:46,056 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/
+2025-05-17 11:42:46,056 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:42:46,056 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:42:46,056 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:42:46,056 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:42:46,056 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a11/a02/
+2025-05-17 11:42:46,056 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/
+2025-05-17 11:42:46,056 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:42:46,056 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:42:46,056 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a07/a02/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a07/a02/20250518/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a07/a02/20250519/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a12/a02/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:42:46,057 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a05/a02/20250519/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02a06/a02/20250519/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02b01/a02/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02b01/a02/20250518/
+2025-05-17 11:42:46,058 - INFO - 獲取場次資料 URL: https://www.atmovies.com.tw/showtime/t02b01/a02/20250519/
+2025-05-17 11:42:46,468 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 28 個元素
+2025-05-17 11:42:46,469 - INFO - 在 台北信義威秀 於 2025/05/17 找到 28 部電影的場次資訊
+2025-05-17 11:42:46,469 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:42:46,486 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 15 個元素
+2025-05-17 11:42:46,487 - INFO - 在 MUVIE CINEMAS台北松仁威秀 於 2025/05/17 找到 15 部電影的場次資訊
+2025-05-17 11:42:46,487 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a07/a02/
+2025-05-17 11:42:46,622 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 3 個元素
+2025-05-17 11:42:46,622 - INFO - 在 新民生戲院 於 2025/05/17 找到 3 部電影的場次資訊
+2025-05-17 11:42:46,622 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a07/a02/20250518/
+2025-05-17 11:42:49,971 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 3 個元素
+2025-05-17 11:42:49,971 - INFO - 在 新民生戲院 於 2025/05/18 找到 3 部電影的場次資訊
+2025-05-17 11:42:49,971 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a07/a02/20250519/
+2025-05-17 11:42:53,571 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 3 個元素
+2025-05-17 11:42:53,572 - INFO - 在 新民生戲院 於 2025/05/19 找到 3 部電影的場次資訊
+2025-05-17 11:42:53,572 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/
+2025-05-17 11:42:54,277 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 22 個元素
+2025-05-17 11:42:54,278 - INFO - 在 台北南港LaLaport威秀影城 於 2025/05/17 找到 22 部電影的場次資訊
+2025-05-17 11:42:54,278 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:42:56,420 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:42:56,421 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:42:56,422 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:42:56,422 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:42:56,422 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:42:56,422 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:42:57,420 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:42:57,422 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:42:58,423 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:42:58,424 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:42:58,424 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:42:59,423 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:43:04,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:04,417 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:06,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:09,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:43:09,417 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:43:09,417 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:43:09,417 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:43:09,418 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:43:09,418 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:43:10,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:43:10,416 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:43:13,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:43:13,419 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:43:13,419 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:43:14,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:43:17,418 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:17,419 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:21,437 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:24,418 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:43:24,419 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:43:24,419 - WARNING - 無法獲取場次資料: 台北信義威秀 - 2025/05/19 從 https://www.atmovies.com.tw/showtime/t02a01/a02/20250519/
+2025-05-17 11:43:24,419 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:43:24,419 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:43:24,419 - WARNING - 無法獲取場次資料: MUVIE CINEMAS台北松仁威秀 - 2025/05/18 從 https://www.atmovies.com.tw/showtime/t02a11/a02/20250518/
+2025-05-17 11:43:24,420 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:43:24,420 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:43:24,420 - WARNING - 無法獲取場次資料: 台北信義威秀 - 2025/05/18 從 https://www.atmovies.com.tw/showtime/t02a01/a02/20250518/
+2025-05-17 11:43:24,420 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:43:24,420 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:43:24,420 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:43:25,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:43:25,416 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:43:25,416 - WARNING - 無法獲取場次資料: MUVIE CINEMAS台北松仁威秀 - 2025/05/19 從 https://www.atmovies.com.tw/showtime/t02a11/a02/20250519/
+2025-05-17 11:43:25,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:43:32,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:32,417 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:32,417 - WARNING - 無法獲取場次資料: 台北南港LaLaport威秀影城 - 2025/05/18 從 https://www.atmovies.com.tw/showtime/t02a12/a02/20250518/
+2025-05-17 11:43:32,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:43:35,421 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:43:35,422 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:43:35,423 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:43:35,423 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:43:35,424 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:43:35,424 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:43:36,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:43:36,416 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:43:37,423 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:43:37,423 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:43:37,424 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:43:38,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:43:43,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:43:43,415 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:43:45,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:43:48,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:43:48,416 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:43:48,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:43:48,417 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:43:48,417 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:43:48,417 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:43:49,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:43:49,416 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:43:52,420 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:43:52,423 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:43:52,423 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:43:53,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:43:56,418 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:43:56,419 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:44:00,420 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:44:03,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:44:03,416 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:44:03,416 - WARNING - 無法獲取場次資料: 喜樂時代影城 - 2025/05/18 從 https://www.atmovies.com.tw/showtime/t02a09/a02/20250518/
+2025-05-17 11:44:03,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:44:03,417 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:44:03,417 - WARNING - 無法獲取場次資料: 喜樂時代影城 - 2025/05/17 從 https://www.atmovies.com.tw/showtime/t02a09/a02/
+2025-05-17 11:44:03,417 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:44:03,417 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:44:03,417 - WARNING - 無法獲取場次資料: 台北南港LaLaport威秀影城 - 2025/05/19 從 https://www.atmovies.com.tw/showtime/t02a12/a02/20250519/
+2025-05-17 11:44:03,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:03,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:03,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:04,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:44:04,416 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:44:04,416 - WARNING - 無法獲取場次資料: 喜樂時代影城 - 2025/05/19 從 https://www.atmovies.com.tw/showtime/t02a09/a02/20250519/
+2025-05-17 11:44:04,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:11,418 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:44:11,419 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:44:11,419 - WARNING - 無法獲取場次資料: 微風影城 - 2025/05/17 從 https://www.atmovies.com.tw/showtime/t02a03/a02/
+2025-05-17 11:44:11,420 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:14,424 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:14,424 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:14,425 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:14,425 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:14,426 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:14,426 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:15,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:15,415 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:16,428 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:16,429 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:16,429 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:16,632 - WARNING - HTTP錯誤: 401 - https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:16,633 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:17,416 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:17,581 - WARNING - HTTP錯誤: 401 - https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:17,581 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:20,634 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:21,582 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:22,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:22,416 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:24,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:27,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:27,416 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:27,417 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:27,417 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:31,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:31,415 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:31,416 - WARNING - 無法獲取場次資料: 微風影城 - 2025/05/19 從 https://www.atmovies.com.tw/showtime/t02a03/a02/20250519/
+2025-05-17 11:44:31,416 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:44:31,416 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:31,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:32,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:32,417 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:32,417 - WARNING - 無法獲取場次資料: 誠品電影院 - 2025/05/18 從 https://www.atmovies.com.tw/showtime/t02a08/a02/20250518/
+2025-05-17 11:44:32,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:44:35,422 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:35,423 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:39,424 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:42,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:44:42,416 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:44:42,417 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:42,417 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:42,417 - WARNING - 無法獲取場次資料: 微風影城 - 2025/05/18 從 https://www.atmovies.com.tw/showtime/t02a03/a02/20250518/
+2025-05-17 11:44:42,418 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:42,418 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:42,418 - WARNING - 無法獲取場次資料: 誠品電影院 - 2025/05/17 從 https://www.atmovies.com.tw/showtime/t02a08/a02/
+2025-05-17 11:44:42,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250519/
+2025-05-17 11:44:42,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-17 11:44:43,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:44:43,415 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:44:44,418 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:44:45,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:44:50,416 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:50,417 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:50,417 - WARNING - 無法獲取場次資料: 誠品電影院 - 2025/05/19 從 https://www.atmovies.com.tw/showtime/t02a08/a02/20250519/
+2025-05-17 11:44:50,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:44:53,423 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-17 11:44:53,428 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-17 11:44:53,429 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250519/
+2025-05-17 11:44:53,429 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a05/a02/20250519/
+2025-05-17 11:44:55,422 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:44:55,424 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:44:55,429 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-17 11:44:55,429 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250519/
+2025-05-17 11:44:56,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:44:56,416 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:44:59,425 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:45:00,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:45:01,417 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:01,417 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:03,419 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:06,417 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250519/
+2025-05-17 11:45:06,418 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a05/a02/20250519/
+2025-05-17 11:45:06,419 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-17 11:45:06,419 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-17 11:45:10,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:45:10,416 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:45:10,416 - WARNING - 無法獲取場次資料: 總督影城 - 2025/05/17 從 https://www.atmovies.com.tw/showtime/t02a05/a02/
+2025-05-17 11:45:10,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250519/
+2025-05-17 11:45:10,419 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250519/
+2025-05-17 11:45:10,420 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/
+2025-05-17 11:45:11,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:45:11,415 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:45:11,416 - WARNING - 無法獲取場次資料: 總督影城 - 2025/05/18 從 https://www.atmovies.com.tw/showtime/t02a05/a02/20250518/
+2025-05-17 11:45:11,416 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02b01/a02/
+2025-05-17 11:45:14,419 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:14,422 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:14,522 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 15 個元素
+2025-05-17 11:45:14,523 - INFO - 在 哈拉影城 於 2025/05/17 找到 15 部電影的場次資訊
+2025-05-17 11:45:14,524 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02b01/a02/20250518/
+2025-05-17 11:45:14,612 - INFO - 在 總督影城 於 2025/05/19 找到 0 部電影的場次資訊
+2025-05-17 11:45:14,612 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02b01/a02/20250519/
+2025-05-17 11:45:14,686 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 3 個元素
+2025-05-17 11:45:14,687 - INFO - 在 國賓戲院 於 2025/05/17 找到 3 部電影的場次資訊
+2025-05-17 11:45:17,795 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 3 個元素
+2025-05-17 11:45:17,796 - INFO - 在 國賓戲院 於 2025/05/18 找到 3 部電影的場次資訊
+2025-05-17 11:45:18,423 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:19,623 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 3 個元素
+2025-05-17 11:45:19,624 - INFO - 在 國賓戲院 於 2025/05/19 找到 3 部電影的場次資訊
+2025-05-17 11:45:21,415 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250519/
+2025-05-17 11:45:21,416 - INFO - 等待 2 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a06/a02/20250519/
+2025-05-17 11:45:23,417 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250519/
+2025-05-17 11:45:29,417 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:29,418 - ERROR - 已達最大重試次數，跳過 URL (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:29,418 - WARNING - 無法獲取場次資料: 哈拉影城 - 2025/05/18 從 https://www.atmovies.com.tw/showtime/t02a06/a02/20250518/
+2025-05-17 11:45:34,422 - ERROR - 請求超時 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250519/
+2025-05-17 11:45:34,423 - INFO - 等待 4 秒後重試 (async)... https://www.atmovies.com.tw/showtime/t02a06/a02/20250519/
+2025-05-17 11:45:38,424 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/t02a06/a02/20250519/
+2025-05-17 11:45:49,399 - INFO - 使用選擇器 'ul#theaterShowtimeTable' 找到 15 個元素
+2025-05-17 11:45:49,400 - INFO - 在 哈拉影城 於 2025/05/19 找到 15 部電影的場次資訊
+2025-05-17 11:45:49,401 - INFO - 資料更新檢查爬蟲總耗時: 183.66 秒 (3.06 分鐘)
+2025-05-17 11:45:49,401 - INFO - 完成執行資料更新檢查爬蟲，時間: 2025-05-17 11:45:49

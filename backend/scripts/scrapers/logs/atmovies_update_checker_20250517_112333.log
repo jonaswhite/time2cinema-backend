@@ -1,0 +1,42 @@
+2025-05-17 11:23:33,788 - INFO - === ATMovies 電影資料更新檢查工具開始執行 ===
+2025-05-17 11:23:33,788 - INFO - 獲取區域列表: 台北市
+2025-05-17 11:23:33,788 - INFO - 開始爬取 1 個區域的電影院資料...
+2025-05-17 11:23:33,788 - INFO - 處理區域: 台北市
+2025-05-17 11:23:33,788 - INFO - 獲取 台北市 區域的電影院列表: https://www.atmovies.com.tw/showtime/a02/
+2025-05-17 11:23:33,788 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/a02/ (嘗試 1/4)
+2025-05-17 11:23:35,219 - INFO - 在 台北市 區域找到 42 家電影院
+2025-05-17 11:23:35,219 - INFO - 在區域 台北市 找到 42 家電影院
+2025-05-17 11:23:35,219 - INFO - 限制為處理前 2 家電影院
+2025-05-17 11:23:35,219 - INFO - 處理電影院: 台北信義威秀 (ID: 02a01)
+2025-05-17 11:23:35,219 - INFO - 處理 台北信義威秀 在 2025/05/17 的場次
+2025-05-17 11:23:35,219 - INFO - 獲取 台北信義威秀 在 2025/05/17 的場次: https://www.atmovies.com.tw/showtime/t02a01/20250517/
+2025-05-17 11:23:35,219 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a01/20250517/ (嘗試 1/4)
+2025-05-17 11:23:35,322 - WARNING - 頁面不存在 (404): https://www.atmovies.com.tw/showtime/t02a01/20250517/
+2025-05-17 11:23:35,323 - ERROR - 無法獲取 台北信義威秀 在 2025/05/17 的場次
+2025-05-17 11:23:35,323 - INFO - 處理 台北信義威秀 在 2025/05/18 的場次
+2025-05-17 11:23:35,323 - INFO - 獲取 台北信義威秀 在 2025/05/18 的場次: https://www.atmovies.com.tw/showtime/t02a01/20250518/
+2025-05-17 11:23:35,323 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a01/20250518/ (嘗試 1/4)
+2025-05-17 11:23:35,435 - WARNING - 頁面不存在 (404): https://www.atmovies.com.tw/showtime/t02a01/20250518/
+2025-05-17 11:23:35,436 - ERROR - 無法獲取 台北信義威秀 在 2025/05/18 的場次
+2025-05-17 11:23:35,436 - INFO - 處理 台北信義威秀 在 2025/05/19 的場次
+2025-05-17 11:23:35,436 - INFO - 獲取 台北信義威秀 在 2025/05/19 的場次: https://www.atmovies.com.tw/showtime/t02a01/20250519/
+2025-05-17 11:23:35,436 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a01/20250519/ (嘗試 1/4)
+2025-05-17 11:23:35,527 - WARNING - 頁面不存在 (404): https://www.atmovies.com.tw/showtime/t02a01/20250519/
+2025-05-17 11:23:35,528 - ERROR - 無法獲取 台北信義威秀 在 2025/05/19 的場次
+2025-05-17 11:23:35,528 - INFO - 處理電影院: MUVIE CINEMAS台北松仁威秀 (ID: 02a11)
+2025-05-17 11:23:35,528 - INFO - 處理 MUVIE CINEMAS台北松仁威秀 在 2025/05/17 的場次
+2025-05-17 11:23:35,528 - INFO - 獲取 MUVIE CINEMAS台北松仁威秀 在 2025/05/17 的場次: https://www.atmovies.com.tw/showtime/t02a11/20250517/
+2025-05-17 11:23:35,528 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a11/20250517/ (嘗試 1/4)
+2025-05-17 11:23:35,620 - WARNING - 頁面不存在 (404): https://www.atmovies.com.tw/showtime/t02a11/20250517/
+2025-05-17 11:23:35,621 - ERROR - 無法獲取 MUVIE CINEMAS台北松仁威秀 在 2025/05/17 的場次
+2025-05-17 11:23:35,621 - INFO - 處理 MUVIE CINEMAS台北松仁威秀 在 2025/05/18 的場次
+2025-05-17 11:23:35,622 - INFO - 獲取 MUVIE CINEMAS台北松仁威秀 在 2025/05/18 的場次: https://www.atmovies.com.tw/showtime/t02a11/20250518/
+2025-05-17 11:23:35,622 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a11/20250518/ (嘗試 1/4)
+2025-05-17 11:23:35,712 - WARNING - 頁面不存在 (404): https://www.atmovies.com.tw/showtime/t02a11/20250518/
+2025-05-17 11:23:35,713 - ERROR - 無法獲取 MUVIE CINEMAS台北松仁威秀 在 2025/05/18 的場次
+2025-05-17 11:23:35,713 - INFO - 處理 MUVIE CINEMAS台北松仁威秀 在 2025/05/19 的場次
+2025-05-17 11:23:35,713 - INFO - 獲取 MUVIE CINEMAS台北松仁威秀 在 2025/05/19 的場次: https://www.atmovies.com.tw/showtime/t02a11/20250519/
+2025-05-17 11:23:35,713 - INFO - 正在抓取: https://www.atmovies.com.tw/showtime/t02a11/20250519/ (嘗試 1/4)
+2025-05-17 11:23:35,797 - WARNING - 頁面不存在 (404): https://www.atmovies.com.tw/showtime/t02a11/20250519/
+2025-05-17 11:23:35,799 - ERROR - 無法獲取 MUVIE CINEMAS台北松仁威秀 在 2025/05/19 的場次
+2025-05-17 11:23:35,799 - INFO - === ATMovies 電影資料更新檢查工具執行完成 ===

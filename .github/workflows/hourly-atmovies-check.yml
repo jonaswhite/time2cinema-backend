@@ -1,17 +1,11 @@
-name: Hourly ATMovies Data Update Check
+name: Hourly ATMovies Data Update Check (5/18 Only)
 
 on:
   workflow_dispatch: # Allows manual triggering
   schedule:
-    # Runs at 15 minutes past the hour, every hour from 3 AM to 9 AM Taipei Time (UTC+8)
-    # UTC times: 19:15, 20:15, 21:15, 22:15, 23:15, 00:15, 01:15
-    - cron: '15 19 * * *' # 03:15 TST (previous day UTC)
-    - cron: '15 20 * * *' # 04:15 TST (previous day UTC)
-    - cron: '15 21 * * *' # 05:15 TST (previous day UTC)
-    - cron: '15 22 * * *' # 06:15 TST (previous day UTC)
-    - cron: '15 23 * * *' # 07:15 TST (previous day UTC)
-    - cron: '15 0 * * *'  # 08:15 TST (current day UTC)
-    - cron: '15 1 * * *'  # 09:15 TST (current day UTC)
+    # 5月18日 03:15-09:15（台灣時間）每小時執行一次
+    # 注意：GitHub Actions 使用 UTC 時間，所以是 5月17日 19:15 到 5月18日 01:15
+    - cron: '15 19,20,21,22,23,0,1 17,18 5 *'  # 5月17-18日，只在指定時間執行
 
 jobs:
   check_atmovies_data_update:

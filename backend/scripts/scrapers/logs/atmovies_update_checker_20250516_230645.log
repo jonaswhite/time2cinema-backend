@@ -1,0 +1,47 @@
+2025-05-16 23:06:45,400 - INFO - 開始執行 ATMovies 資料更新檢查爬蟲，時間: 2025-05-16 23:06:45
+2025-05-16 23:06:45,400 - INFO - 將檢查最多 10 家電影院的資料。
+2025-05-16 23:06:45,400 - INFO - 設置為抓取 3 天的場次資料 (今天、明天、後天)，最大並發請求數: 5
+2025-05-16 23:06:45,400 - INFO - 目標區域設定為: 台北市 (Code: a02, URL: https://www.atmovies.com.tw/showtime/a02/)
+2025-05-16 23:06:45,400 - INFO - 目標區域: 台北市
+2025-05-16 23:06:45,400 - INFO - 正在獲取 台北市 的電影院列表從: https://www.atmovies.com.tw/showtime/a02/
+2025-05-16 23:06:45,400 - INFO - 等待 2.03 秒後發送請求...
+2025-05-16 23:06:47,430 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/a02/ (嘗試 1/3)
+2025-05-16 23:06:47,430 - ERROR - 處理 https://www.atmovies.com.tw/showtime/a02/ 時發生未知錯誤: name 'USER_AGENTS' is not defined
+Traceback (most recent call last):
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 141, in fetch_page
+    'headers': get_headers(),  # 使用隨機 User-Agent
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 58, in get_headers
+    headers['User-Agent'] = get_random_user_agent()
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 53, in get_random_user_agent
+    return random.choice(USER_AGENTS)
+NameError: name 'USER_AGENTS' is not defined
+2025-05-16 23:06:47,432 - WARNING - 等待 9.6 秒後重試 (1/2)... https://www.atmovies.com.tw/showtime/a02/
+2025-05-16 23:06:57,023 - INFO - 等待 4.37 秒後發送請求...
+2025-05-16 23:07:01,397 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/a02/ (嘗試 2/3)
+2025-05-16 23:07:01,398 - ERROR - 處理 https://www.atmovies.com.tw/showtime/a02/ 時發生未知錯誤: name 'USER_AGENTS' is not defined
+Traceback (most recent call last):
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 141, in fetch_page
+    'headers': get_headers(),  # 使用隨機 User-Agent
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 58, in get_headers
+    headers['User-Agent'] = get_random_user_agent()
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 53, in get_random_user_agent
+    return random.choice(USER_AGENTS)
+NameError: name 'USER_AGENTS' is not defined
+2025-05-16 23:07:01,399 - WARNING - 等待 14.9 秒後重試 (2/2)... https://www.atmovies.com.tw/showtime/a02/
+2025-05-16 23:07:16,273 - INFO - 等待 2.91 秒後發送請求...
+2025-05-16 23:07:19,181 - INFO - 正在抓取 (async): https://www.atmovies.com.tw/showtime/a02/ (嘗試 3/3)
+2025-05-16 23:07:19,182 - ERROR - 處理 https://www.atmovies.com.tw/showtime/a02/ 時發生未知錯誤: name 'USER_AGENTS' is not defined
+Traceback (most recent call last):
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 141, in fetch_page
+    'headers': get_headers(),  # 使用隨機 User-Agent
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 58, in get_headers
+    headers['User-Agent'] = get_random_user_agent()
+  File "/Users/jonaswhite/CascadeProjects/Time2Cinema/backend/scripts/scrapers/atmovies_data_update_checker.py", line 53, in get_random_user_agent
+    return random.choice(USER_AGENTS)
+NameError: name 'USER_AGENTS' is not defined
+2025-05-16 23:07:19,183 - ERROR - 已達最大重試次數 (2)，跳過 URL: https://www.atmovies.com.tw/showtime/a02/
+2025-05-16 23:07:19,183 - ERROR - 最後一次錯誤: name 'USER_AGENTS' is not defined
+2025-05-16 23:07:19,183 - ERROR - 無法獲取區域 台北市 的電影院列表頁面: https://www.atmovies.com.tw/showtime/a02/
+2025-05-16 23:07:19,183 - ERROR - 在區域 台北市 中找不到任何電影院，爬蟲中止。
+2025-05-16 23:07:19,184 - INFO - 資料更新檢查爬蟲總耗時: 33.78 秒 (0.56 分鐘)
+2025-05-16 23:07:19,184 - INFO - 完成執行資料更新檢查爬蟲，時間: 2025-05-16 23:07:19
