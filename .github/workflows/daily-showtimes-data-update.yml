@@ -69,28 +69,27 @@ jobs:
           echo "ATMovies 場次爬蟲執行完成，時間: $(date)"
           # 檢查輸出文件
           echo "當前目錄: $(pwd)"
-          echo "backend 目錄內容:"
-          ls -la backend/
+          echo "當前目錄內容:"
+          ls -la
           echo "output 目錄內容:"
-          ls -la backend/output/scrapers/
+          ls -la output/scrapers/
           
-          if [ -f backend/output/scrapers/atmovies_showtimes.json ]; then
+          if [ -f output/scrapers/atmovies_showtimes.json ]; then
             echo "場次數據文件已生成"
             # 顯示文件大小
-            du -h backend/output/scrapers/atmovies_showtimes.json
+            du -h output/scrapers/atmovies_showtimes.json
             # 檢查文件內容是否為空
-            if [ "$(cat backend/output/scrapers/atmovies_showtimes.json | wc -c)" -gt 100 ]; then
+            if [ "$(cat output/scrapers/atmovies_showtimes.json | wc -c)" -gt 100 ]; then
               echo "場次數據文件內容有效"
               # 顯示抓取的日期範圍
               echo "場次日期範圍預覽:"
-              cat backend/output/scrapers/atmovies_showtimes.json | grep -o '"date":"[^"]*"' | sort | uniq | head -10
+              cat output/scrapers/atmovies_showtimes.json | grep -o '"date":"[^"]*"' | sort | uniq | head -10
               # 顯示總場次數
               echo "總場次數:"
-              cat backend/output/scrapers/atmovies_showtimes.json | grep -o '"time":' | wc -l
+              cat output/scrapers/atmovies_showtimes.json | grep -o '"time":' | wc -l
               
               # 執行資料庫匯入
               echo "開始匯入場次資料..."
-              cd backend
               
               # 匯入到遠端資料庫
               echo "匯入場次資料到遠端資料庫..."
