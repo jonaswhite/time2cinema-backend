@@ -73,7 +73,7 @@ jobs:
         run: |
           echo "正在安裝 Node.js 依賴..."
           cd backend
-          npm install pg csv-parser
+          npm install pg csv-parser commander dotenv
 
       # 執行資料庫匯入
       - name: Import movie data to database
@@ -92,8 +92,16 @@ jobs:
           cd backend
           
           if [ -f "scripts/importers/import_movies_remote.js" ]; then
-            node scripts/importers/import_movies_remote.js "../${{ env.LATEST_CSV }}"
-            echo "電影資料匯入完成"
+            echo "執行匯入腳本..."
+            node scripts/importers/import_movies_remote.js --file="../${{ env.LATEST_CSV }}" --debug
+            
+            # 檢查上一步的退出狀態
+            if [ $? -eq 0 ]; then
+              echo "電影資料匯入完成"
+            else
+              echo "警告：電影資料匯入過程中出現錯誤"
+              exit 1
+            fi
           else
             echo "錯誤：找不到匯入腳本 scripts/importers/import_movies_remote.js"
             ls -la scripts/importers/ 2>/dev/null || echo "找不到 importers 目錄"
