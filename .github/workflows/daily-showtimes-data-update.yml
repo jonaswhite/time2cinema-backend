@@ -2,8 +2,8 @@ name: Daily Showtimes Data Update
 
 on:
   schedule:
-    # 每天台灣時間凌晨 3 點運行 (UTC+8)，對應 UTC 時間 19:00
-    - cron: '0 19 * * *'
+    # 每天台灣時間早上 5 點運行 (UTC+8)，對應 UTC 時間 21:00
+    - cron: '0 21 * * *'
   # 允許手動觸發工作流程
   workflow_dispatch:
 
@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          submodules: false  # 禁用子模組處理
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -66,25 +68,57 @@ jobs:
           python -u scripts/scrapers/atmovies_showtimes_scraper_v3.py
           echo "ATMovies 場次爬蟲執行完成，時間: $(date)"
           # 檢查輸出文件
-          ls -la output/scrapers/
-          if [ -f output/scrapers/atmovies_showtimes.json ]; then
+          echo "當前目錄: $(pwd)"
+          echo "backend 目錄內容:"
+          ls -la backend/
+          echo "output 目錄內容:"
+          ls -la backend/output/scrapers/
+          
+          if [ -f backend/output/scrapers/atmovies_showtimes.json ]; then
             echo "場次數據文件已生成"
             # 顯示文件大小
-            du -h output/scrapers/atmovies_showtimes.json
+            du -h backend/output/scrapers/atmovies_showtimes.json
             # 檢查文件內容是否為空
-            if [ "$(cat output/scrapers/atmovies_showtimes.json | wc -c)" -gt 100 ]; then
+            if [ "$(cat backend/output/scrapers/atmovies_showtimes.json | wc -c)" -gt 100 ]; then
               echo "場次數據文件內容有效"
               # 顯示抓取的日期範圍
               echo "場次日期範圍預覽:"
-              cat output/scrapers/atmovies_showtimes.json | grep -o '"display_date":"[^"]*"' | sort | uniq
+              cat backend/output/scrapers/atmovies_showtimes.json | grep -o '"date":"[^"]*"' | sort | uniq | head -10
               # 顯示總場次數
               echo "總場次數:"
-              cat output/scrapers/atmovies_showtimes.json | grep -o '"time":' | wc -l
+              cat backend/output/scrapers/atmovies_showtimes.json | grep -o '"time":' | wc -l
+              
+              # 執行資料庫匯入
+              echo "開始匯入場次資料..."
+              cd backend
+              
+              # 匯入到遠端資料庫
+              echo "匯入場次資料到遠端資料庫..."
+              node scripts/importers/import_showtimes.js --remote
+              
+              # 如果是本地測試環境，也可以同時匯入到本地資料庫
+              if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+                echo "檢測到手動觸發，同時匯入到本地資料庫..."
+                node scripts/importers/import_showtimes.js --local
+              fi
+              
+              echo "場次資料匯入完成"
             else
               echo "警告：場次數據文件內容可能無效"
+              exit 1
             fi
           else
             echo "錯誤：場次數據文件未生成"
             exit 1
           fi
         continue-on-error: false
+        
+      # 資料庫匯入步驟（如果上面的內聯方式有問題，可以取消註解下面的步驟）
+      # - name: Import showtimes to database
+      #   env:
+      #     DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db' }}
+      #   run: |
+      #     cd backend
+      #     echo "開始匯入場次資料到資料庫..."
+      #     node scripts/importers/import_showtimes_remote.js
+      #     echo "場次資料匯入完成"
