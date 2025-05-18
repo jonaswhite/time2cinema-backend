@@ -50,7 +50,34 @@ jobs:
           ls -la  # 顯示當前目錄內容
           cd ../../..  # 返回工作區根目錄
 
-      - name: Import movie data to remote database
+      # 設置環境變數
+      - name: Set up environment
+        id: env
+        run: |
+          # 查找最新的電影CSV文件
+          echo "正在查找最新的電影CSV文件..."
+          LATEST_CSV=$(find backend/scripts/scrapers -name "atmovies_movies_*.csv" -type f -printf "%T@ %p\n" | sort -n | tail -1 | cut -f2- -d" " || true)
+          
+          if [ -n "$LATEST_CSV" ] && [ -f "$LATEST_CSV" ]; then
+            echo "找到電影文件: $LATEST_CSV"
+            echo "LATEST_CSV=$LATEST_CSV" >> $GITHUB_ENV
+          else
+            echo "未找到有效的電影文件"
+            find backend/scripts/scrapers -name "*.csv" -type f -ls || echo "找不到任何 CSV 文件"
+            exit 1
+          fi
+
+      # 安裝 Node.js 依賴
+      - name: Install Node.js dependencies
+        if: steps.env.outcome == 'success'
+        run: |
+          echo "正在安裝 Node.js 依賴..."
+          cd backend
+          npm install pg csv-parser
+
+      # 執行資料庫匯入
+      - name: Import movie data to database
+        if: steps.env.outcome == 'success'
         run: |
           set -e  # 如果任何命令失敗，則退出
           
@@ -58,32 +85,19 @@ jobs:
           echo "工作區內容:"
           ls -la
           
-          # 查找最新的電影CSV文件
-          echo "正在查找最新的電影CSV文件..."
-          LATEST_CSV=$(find backend/scripts/scrapers -name "atmovies_movies_*.csv" -type f -printf "%T@ %p\n" | sort -n | tail -1 | cut -f2- -d" " || true)
+          echo "使用電影文件進行匯入: ${{ env.LATEST_CSV }}"
           
-          if [ -n "$LATEST_CSV" ] && [ -f "$LATEST_CSV" ]; then
-            echo "使用最新電影文件進行匯入: $LATEST_CSV"
-            
-            # 安裝所需套件
-            echo "正在安裝 Node.js 依賴..."
-            cd backend
-            npm install pg csv-parser || echo "警告：無法安裝 Node.js 依賴"
-            
-            # 執行匯入腳本
-            echo "正在執行匯入腳本..."
-            if [ -f "scripts/importers/import_movies_remote.js" ]; then
-              node scripts/importers/import_movies_remote.js "../$LATEST_CSV"
-              echo "電影資料匯入完成"
-            else
-              echo "錯誤：找不到匯入腳本 scripts/importers/import_movies_remote.js"
-              ls -la scripts/importers/ 2>/dev/null || echo "找不到 importers 目錄"
-              exit 1
-            fi
+          # 執行匯入腳本
+          echo "正在執行匯入腳本..."
+          cd backend
+          
+          if [ -f "scripts/importers/import_movies_remote.js" ]; then
+            node scripts/importers/import_movies_remote.js "../${{ env.LATEST_CSV }}"
+            echo "電影資料匯入完成"
           else
-            echo "未找到有效的電影文件，跳過匯入步驟"
-            find backend/scripts/scrapers -name "*.csv" -type f -ls || echo "找不到任何 CSV 文件"
-            exit 1  # 如果沒有找到文件，則標記為失敗
+            echo "錯誤：找不到匯入腳本 scripts/importers/import_movies_remote.js"
+            ls -la scripts/importers/ 2>/dev/null || echo "找不到 importers 目錄"
+            exit 1
           fi
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db' }}
