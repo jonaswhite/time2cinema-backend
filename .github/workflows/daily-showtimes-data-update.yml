@@ -34,7 +34,11 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           cd backend
+          # 安裝 package.json 中的依賴
           npm install
+          # 安裝其他必要的開發依賴
+          npm install --save-dev commander pg csv-parser
+          # 安裝 Puppeteer 和 Chrome
           npx puppeteer browsers install chrome
 
       - name: Install Python dependencies
