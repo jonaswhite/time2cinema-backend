@@ -121,7 +121,7 @@ jobs:
       # 上傳日誌文件作為構建產物
       - name: Upload log file
         if: always()  # 即使之前的步驟失敗也執行
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: movie-update-logs
           path: logs/
