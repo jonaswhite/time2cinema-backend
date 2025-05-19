@@ -13,51 +13,120 @@ const pool = new Pool({
   }
 });
 
+// 確保必要的資料表存在
+async function ensureTablesExist(client) {
+  // 創建 cinemas 表（如果不存在）
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS cinemas (
+      id SERIAL PRIMARY KEY,
+      name TEXT NOT NULL,
+      address TEXT,
+      latitude DOUBLE PRECISION,
+      longitude DOUBLE PRECISION,
+      source TEXT,
+      external_id TEXT,
+      created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      city TEXT,
+      district TEXT,
+      type TEXT,
+      UNIQUE(source, external_id)
+    )
+  `);
+  
+  // 創建索引（如果不存在）
+  await client.query('CREATE INDEX IF NOT EXISTS idx_cinemas_external_id ON cinemas(external_id)');
+
+  // 創建 showtimes 表（如果不存在）
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS showtimes (
+      id SERIAL PRIMARY KEY,
+      movie_id INTEGER,
+      cinema_id INTEGER NOT NULL,
+      date DATE NOT NULL,
+      time TIME NOT NULL,
+      source TEXT,
+      created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (movie_id) REFERENCES movies(id) ON DELETE SET NULL,
+      FOREIGN KEY (cinema_id) REFERENCES cinemas(id) ON DELETE CASCADE
+    )
+  `);
+  
+  // 創建索引（如果不存在）
+  await client.query('CREATE INDEX IF NOT EXISTS idx_showtimes_movie_id ON showtimes(movie_id)');
+  await client.query('CREATE INDEX IF NOT EXISTS idx_showtimes_cinema_id ON showtimes(cinema_id)');
+  await client.query('CREATE INDEX IF NOT EXISTS idx_showtimes_date ON showtimes(date)');
+  await client.query('CREATE INDEX IF NOT EXISTS idx_showtimes_time ON showtimes(time)');
+}
+
 async function importShowtimes() {
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
     
-    // 1. 讀取 JSON 文件
+    // 1. 確保必要的資料表存在
+    console.log('檢查資料表...');
+    await ensureTablesExist(client);
+    
+    // 2. 讀取 JSON 文件
     const filePath = path.join(__dirname, '../../output/scrapers/atmovies_showtimes.json');
     const data = await fs.readFile(filePath, 'utf8');
     const theaters = JSON.parse(data);
     
     console.log(`準備匯入 ${theaters.length} 家電影院的場次資料`);
     
-    // 2. 清空現有場次資料
+    // 3. 清空現有場次資料
     console.log('清空現有場次資料...');
-    await client.query('TRUNCATE TABLE movie_showtimes CASCADE');
+    await client.query('TRUNCATE TABLE showtimes CASCADE');
     
-    // 3. 匯入新資料
+    // 4. 匯入新資料
     let totalShowtimes = 0;
     
     for (const theater of theaters) {
       const { atmovies_theater_id, atmovies_theater_name, atmovies_showtimes_by_date } = theater;
       
-      // 確保電影院存在
-      const theaterRes = await client.query(
-        'SELECT id FROM theaters WHERE atmovies_theater_id = $1',
-        [atmovies_theater_id]
+      // 確保電影院存在，如果不存在則創建
+      let cinemaId;
+      const cinemaRes = await client.query(
+        'SELECT id FROM cinemas WHERE source = $1 AND external_id = $2',
+        ['atmovies', atmovies_theater_id]
       );
       
-      if (theaterRes.rows.length === 0) {
-        console.warn(`找不到電影院: ${atmovies_theater_name} (${atmovies_theater_id})`);
-        continue;
+      if (cinemaRes.rows.length === 0) {
+        // 創建新電影院
+        const newCinema = await client.query(
+          `INSERT INTO cinemas 
+           (name, source, external_id, created_at, updated_at) 
+           VALUES ($1, $2, $3, NOW(), NOW()) 
+           RETURNING id`,
+          [atmovies_theater_name, 'atmovies', atmovies_theater_id]
+        );
+        cinemaId = newCinema.rows[0].id;
+        console.log(`✅ 已創建新電影院: ${atmovies_theater_name} (ID: ${cinemaId})`);
+      } else {
+        cinemaId = cinemaRes.rows[0].id;
+        console.log(`ℹ️  找到現有電影院: ${atmovies_theater_name} (ID: ${cinemaId})`);
       }
-      
-      const theaterId = theaterRes.rows[0].id;
       
       // 處理每個日期的場次
       for (const dateData of atmovies_showtimes_by_date) {
         const { date, showtimes } = dateData;
         
         for (const showtime of showtimes) {
-          // 確保電影存在
-          const movieRes = await client.query(
-            'SELECT id FROM movies WHERE title LIKE $1',
-            [`%${showtime.movie_name}%`]
+          // 確保電影存在，先嘗試精確匹配 full_title
+          let movieRes = await client.query(
+            'SELECT id FROM movies WHERE full_title = $1',
+            [showtime.movie_name]
           );
+          
+          // 如果找不到，嘗試模糊匹配
+          if (movieRes.rows.length === 0) {
+            movieRes = await client.query(
+              'SELECT id FROM movies WHERE chinese_title LIKE $1 OR english_title LIKE $1 OR full_title LIKE $1 LIMIT 1',
+              [`%${showtime.movie_name}%`]
+            );
+          }
           
           if (movieRes.rows.length === 0) {
             console.warn(`找不到電影: ${showtime.movie_name}`);
@@ -65,14 +134,17 @@ async function importShowtimes() {
           }
           
           const movieId = movieRes.rows[0].id;
+          console.log(`  處理電影: ${showtime.movie_name} (ID: ${movieId})`);
           
           // 插入場次資料
           await client.query(
-            `INSERT INTO movie_showtimes 
-             (movie_id, theater_id, showtime, date, created_at, updated_at)
-             VALUES ($1, $2, $3, $4, NOW(), NOW())`,
-            [movieId, theaterId, showtime.time, date]
+            `INSERT INTO showtimes 
+             (movie_id, cinema_id, date, time, source, created_at, updated_at)
+             VALUES ($1, $2, $3, $4, $5, NOW(), NOW())`,
+            [movieId, cinemaId, date, showtime.time, 'atmovies']
           );
+          
+          console.log(`  已新增場次: ${date} ${showtime.time} - ${showtime.movie_name}`);
           
           totalShowtimes++;
         }
