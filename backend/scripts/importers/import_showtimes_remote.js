@@ -1,6 +1,24 @@
 const { Pool } = require('pg');
 const fs = require('fs').promises;
+const fsSync = require('fs');
 const path = require('path');
+
+// 確保 logs 目錄存在
+const logDir = path.join(__dirname, '../../logs');
+if (!fsSync.existsSync(logDir)) {
+  fsSync.mkdirSync(logDir, { recursive: true });
+}
+
+// 建立寫入流
+const errorLogStream = fsSync.createWriteStream(path.join(logDir, 'missing_movies.log'), { flags: 'a' });
+
+// 記錄錯誤的輔助函數
+function logMissingMovie(movieName, cinemaName, showtime, date) {
+  const timestamp = new Date().toISOString();
+  const logMessage = `[${timestamp}] 找不到電影: "${movieName}", 電影院: "${cinemaName}", 場次時間: ${date} ${showtime}\n`;
+  console.error(logMessage);
+  errorLogStream.write(logMessage);
+}
 
 // 從環境變數中獲取資料庫連接字串
 const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db';
@@ -130,6 +148,9 @@ async function importShowtimes() {
           
           if (movieRes.rows.length === 0) {
             console.warn(`找不到電影: ${showtime.movie_name}`);
+            // 記錄找不到的電影到日誌，包含電影院和場次資訊
+            const cinemaName = cinemaRes.rows[0]?.name || atmovies_theater_name || '未知電影院';
+            logMissingMovie(showtime.movie_name, cinemaName, showtime.time, date);
             continue;
           }
           
