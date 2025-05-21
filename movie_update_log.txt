@@ -1,6 +1,6 @@
-Movie data update completed at Tue May 20 12:01:14 CST 2025
+Movie data update completed at Wed May 21 12:01:01 CST 2025
 Movie files:
-1747713513.6839297490 backend/scripts/scrapers/atmovies_movies_20250516_204336.csv
-1747713513.6849297500 backend/scripts/scrapers/output/atmovies_movies_20250517_120733.csv
-1747713513.6849297500 backend/scripts/scrapers/output/atmovies_movies_20250519_164639.csv
-1747713616.9411030740 backend/scripts/scrapers/output/atmovies_movies_20250520_120016.csv
+1747799925.5391967090 backend/scripts/scrapers/atmovies_movies_20250516_204336.csv
+1747799925.5401967170 backend/scripts/scrapers/output/atmovies_movies_20250517_120733.csv
+1747799925.5401967170 backend/scripts/scrapers/output/atmovies_movies_20250519_164639.csv
+1747800012.8527694250 backend/scripts/scrapers/output/atmovies_movies_20250521_120012.csv
