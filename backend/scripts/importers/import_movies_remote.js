@@ -115,30 +115,6 @@ async function importMovies() {
     
     log(`從 ${options.file} 讀取到 ${results.length} 條電影記錄`);
     
-    // 準備 SQL 語句
-    const insertMovie = `
-      INSERT INTO movies (
-        full_title, chinese_title, english_title, release_date, 
-        runtime, atmovies_id, poster_url, source,
-        created_at, updated_at
-      ) VALUES (
-        $1, $2, $3, $4::date, $5, $6, $7, 'atmovies',
-        NOW(), NOW()
-      )
-      ON CONFLICT (atmovies_id) 
-      DO UPDATE SET
-        full_title = EXCLUDED.full_title,
-        chinese_title = EXCLUDED.chinese_title,
-        english_title = EXCLUDED.english_title,
-        release_date = EXCLUDED.release_date,
-        runtime = EXCLUDED.runtime,
-        poster_url = EXCLUDED.poster_url,
-        updated_at = NOW()
-      RETURNING id, full_title, atmovies_id`;
-      
-    // 啟用詳細錯誤日誌
-    await client.query('SET client_min_messages TO NOTICE');
-    
     // 處理每條電影記錄
     let importedCount = 0;
     let updatedCount = 0;
@@ -152,7 +128,7 @@ async function importMovies() {
         log(`\n處理第 ${rowNumber} 條記錄...`);
         
         // 準備電影數據
-        const movieData = {
+        const movie = {
           full_title: (row.full_title || '').trim(),
           chinese_title: (row.chinese_title || row.full_title || '').trim(),
           english_title: (row.english_title || '').trim(),
@@ -163,21 +139,44 @@ async function importMovies() {
           detail_url: row.detail_url ? row.detail_url.trim() : null
         };
         
-        log('處理電影數據:', movieData);
+        log('處理電影數據:', movie);
         
         // 檢查必要字段
-        if (!movieData.full_title || !movieData.atmovies_id) {
-          log(`❌ 跳過無效記錄 - 缺少標題或 atmovies_id`);
+        if (!movie.full_title) {
+          log(`❌ 跳過無效記錄 - 缺少標題`);
           skippedCount++;
           continue;
         }
         
         // 檢查日期格式
-        if (movieData.release_date) {
+        if (movie.release_date) {
           const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-          if (!dateRegex.test(movieData.release_date)) {
-            log(`❌ 無效的日期格式: ${movieData.release_date}`);
-            throw new Error(`無效的日期格式: ${movieData.release_date}`);
+          if (!dateRegex.test(movie.release_date)) {
+            log(`❌ 無效的日期格式: ${movie.release_date}`);
+            throw new Error(`無效的日期格式: ${movie.release_date}`);
+          }
+        }
+        
+        // 檢查是否已存在相同 atmovies_id 的電影，或者如果 atmovies_id 為空，則檢查相同標題和上映日期的電影
+        let existingMovie = null;
+        
+        if (movie.atmovies_id) {
+          // 檢查是否有相同 atmovies_id 的電影
+          const result = await client.query(
+            'SELECT id, full_title FROM movies WHERE atmovies_id = $1',
+            [movie.atmovies_id]
+          );
+          if (result.rows.length > 0) {
+            existingMovie = result.rows[0];
+          }
+        } else {
+          // 如果 atmovies_id 為空，則檢查相同標題和上映日期的電影
+          const result = await client.query(
+            'SELECT id, full_title FROM movies WHERE atmovies_id IS NULL AND full_title = $1 AND release_date = $2',
+            [movie.full_title, movie.release_date]
+          );
+          if (result.rows.length > 0) {
+            existingMovie = result.rows[0];
           }
         }
         
@@ -185,31 +184,64 @@ async function importMovies() {
         await client.query('BEGIN');
         
         try {
-          log(`執行 SQL 插入/更新...`);
-          const result = await client.query(insertMovie, [
-            movieData.full_title,
-            movieData.chinese_title,
-            movieData.english_title,
-            movieData.release_date,
-            movieData.runtime,
-            movieData.atmovies_id,
-            movieData.poster_url
-          ]);
+          let result;
+          
+          if (existingMovie) {
+            // 更新現有電影
+            log(`更新現有電影: ${existingMovie.full_title} (ID: ${existingMovie.id})`);
+            result = await client.query(`
+              UPDATE movies SET 
+                full_title = $1,
+                chinese_title = $2,
+                english_title = $3,
+                release_date = $4,
+                runtime = $5,
+                atmovies_id = COALESCE($6, atmovies_id),
+                poster_url = $7,
+                updated_at = NOW()
+              WHERE id = $8
+              RETURNING id, full_title`,
+              [
+                movie.full_title,
+                movie.chinese_title,
+                movie.english_title,
+                movie.release_date,
+                movie.runtime,
+                movie.atmovies_id || null,
+                movie.poster_url,
+                existingMovie.id
+              ]
+            );
+            updatedCount++;
+            log(`🔄 已更新電影: ${movie.full_title}`);
+          } else {
+            // 插入新電影
+            log(`插入新電影: ${movie.full_title}`);
+            result = await client.query(`
+              INSERT INTO movies (
+                full_title, chinese_title, english_title, release_date, 
+                runtime, atmovies_id, poster_url, source,
+                created_at, updated_at
+              ) VALUES (
+                $1, $2, $3, $4, $5, $6, $7, 'atmovies',
+                NOW(), NOW()
+              )
+              RETURNING id, full_title`,
+              [
+                movie.full_title,
+                movie.chinese_title,
+                movie.english_title,
+                movie.release_date,
+                movie.runtime,
+                movie.atmovies_id || null,
+                movie.poster_url
+              ]
+            );
+            importedCount++;
+            log(`✅ 已新增電影: ${movie.full_title} (ID: ${result.rows[0].id})`);
+          }
           
           await client.query('COMMIT');
-          
-          if (result.rows.length > 0) {
-            if (result.rows[0].id) {
-              importedCount++;
-              log(`✅ 已新增/更新電影: ${result.rows[0].full_title} (ID: ${result.rows[0].id})`);
-            } else {
-              updatedCount++;
-              log(`🔄 已更新電影: ${movieData.full_title}`);
-            }
-          } else {
-            log(`⏭️  跳過重複記錄: ${movieData.full_title}`);
-            skippedCount++;
-          }
         } catch (dbError) {
           await client.query('ROLLBACK');
           throw dbError; // 重新拋出錯誤以捕獲並記錄

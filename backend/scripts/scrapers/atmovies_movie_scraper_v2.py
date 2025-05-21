@@ -16,6 +16,7 @@ from typing import Dict, List, Any, Optional, Set, Tuple
 from urllib.parse import urljoin
 import psycopg2
 from psycopg2.extras import RealDictCursor
+from test_title_split import split_chinese_english
 
 # 導入自定義的 User-Agent 列表
 from user_agents import USER_AGENTS
@@ -454,8 +455,18 @@ class ATMoviesMovieScraper:
                     # 4. 如果以上都不匹配，但有中文字符，則整個作為中文
                     return text.strip(), ''
                 
-                # 分割中英文片名
+                # 使用新的標題分割邏輯
                 chinese_title, english_title = split_chinese_english(title)
+                
+                # 如果分割結果不正確（例如："絕命終結站 血脈" 和 "Final Destination: Bloodlines"），則重新處理
+                if ' ' in title and not any(c in '：:' for c in title):
+                    # 如果標題中有空格但沒有分隔符號，則在空格處分割
+                    parts = title.split()
+                    chinese_part = ' '.join(parts[:-1])
+                    english_part = parts[-1]
+                    if any('\u4e00' <= char <= '\u9fff' for char in chinese_part):
+                        chinese_title = chinese_part
+                        english_title = english_part
                 
                 # 如果原始英文標題存在且與分割結果不同，優先使用原始英文標題
                 if original_title and original_title.strip() and original_title.strip() != title.strip():
@@ -521,18 +532,15 @@ class ATMoviesMovieScraper:
                 if not title:  # 如果沒有標題，跳過
                     continue
                     
-                # 嘗試從標題中提取原始標題（英文標題）
-                original_title = None
-                title_parts = title.split(" ", 1)
-                if len(title_parts) > 1 and re.search(r'[A-Za-z]', title_parts[1]):
-                    original_title = title_parts[1].strip()
+                # 使用完整的標題分割邏輯
+                chinese_title, english_title = self.split_chinese_english(title)
                 
                 # 建立電影資訊字典
                 movie_data = {
                     "atmovies_id": atmovies_id,
                     "full_title": title,
-                    "chinese_title": title_parts[0].strip() if title_parts else title.strip(),
-                    "english_title": original_title,
+                    "chinese_title": chinese_title,
+                    "english_title": english_title,
                     "runtime": None,  # 無法從連結中直接獲取
                     "release_date": None,  # 無法從連結中直接獲取
                     "detail_url": f"https://www.atmovies.com.tw/movie/{atmovies_id}/"
@@ -544,6 +552,59 @@ class ATMoviesMovieScraper:
         
         return movies
         
+    def split_chinese_english(self, text, original_title=None):
+        """分割中英文標題
+        
+        Args:
+            text (str): 要分割的文本
+            original_title (str, optional): 原始英文標題（如果有的話）
+            
+        Returns:
+            tuple: (chinese_title, english_title)
+        """
+        # 如果已經有原始英文標題，直接使用
+        if original_title and original_title.strip() and original_title.strip() != text.strip():
+            chinese = text.replace(original_title, '').strip()
+            return chinese, original_title
+        
+        # 使用正則表達式找到中英文分隔點
+        # 0. 處理特殊情況：完全沒有中文字符
+        if not any('\u4e00' <= char <= '\u9fff' for char in text):
+            return '', text.strip()
+        
+        # 1. 處理「中文 英文」或「中文 英文 中文」的情況
+        # 找到最後一個中文字後面的英文部分
+        chinese_chars = re.findall(r'[\u4e00-\u9fff]', text)
+        if chinese_chars:
+            last_chinese_pos = text.rindex(chinese_chars[-1]) + 1
+            remaining_text = text[last_chinese_pos:].strip()
+            
+            # 清理開頭的標點符號和空格
+            remaining_text = re.sub(r'^[\s\-:：\[\]【】]+', '', remaining_text)
+            
+            # 如果剩餘部分包含有意義的英文（至少2個字母單詞）
+            if re.search(r'\b[a-zA-Z]{2,}\b', remaining_text):
+                return text[:last_chinese_pos].strip(), remaining_text
+        
+        # 2. 嘗試匹配「中文 數字+字母」模式（如「銀魂劇場版2D」）
+        match = re.search(r'^(.+?)(\d+[a-zA-Z]\S*)$', text)
+        if match:
+            chinese_part = match.group(1).strip()
+            english_part = match.group(2).strip()
+            if any('\u4e00' <= char <= '\u9fff' for char in chinese_part):
+                return chinese_part, english_part
+        
+        # 3. 嘗試匹配「中文 英文」模式，中間有標點
+        match = re.search(r'^(.+?)[\s\-:：]+([a-zA-Z].*)$', text)
+        if match:
+            chinese_part = match.group(1).strip()
+            english_part = match.group(2).strip()
+            if any('\u4e00' <= char <= '\u9fff' for char in chinese_part):
+                return chinese_part, english_part
+        
+        # 4. 如果以上都不匹配，但有中文字符，則整個作為中文
+        return text.strip(), ''
+
     def _is_valid_movie_id(self, atmovies_id: str) -> bool:
         """檢查是否為有效的電影ID"""
         # 已知的非電影ID列表

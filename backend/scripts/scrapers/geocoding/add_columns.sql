@@ -1,0 +1,4 @@
+-- 添加經緯度欄位到 cinemas 表
+ALTER TABLE cinemas 
+ADD COLUMN IF NOT EXISTS longitude DOUBLE PRECISION,
+ADD COLUMN IF NOT EXISTS latitude DOUBLE PRECISION;
