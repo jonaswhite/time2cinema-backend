@@ -63,25 +63,58 @@ async function importMovies() {
       log('部分唯一索引已刪除');
     }
     
-    // 檢查是否已存在唯一約束
-    const checkConstraintQuery = `
+    // 檢查是否已存在 atmovies_id 的唯一約束
+    const checkAtmoviesIdConstraintQuery = `
       SELECT 1
       FROM pg_constraint
       WHERE conname = 'movies_atmovies_id_key';
     `;
-    const constraintExists = (await client.query(checkConstraintQuery)).rowCount > 0;
+    const atmoviesIdConstraintExists = (await client.query(checkAtmoviesIdConstraintQuery)).rowCount > 0;
     
-    if (!constraintExists) {
-      log('創建唯一約束...');
-      // 創建唯一約束（這會自動創建一個唯一索引）
-      await client.query(`
-        ALTER TABLE movies 
-        ADD CONSTRAINT movies_atmovies_id_key 
-        UNIQUE (atmovies_id);
-      `);
-      log('唯一約束創建成功');
-    } else {
-      log('唯一約束已存在');
+    // 檢查是否已存在 full_title 和 release_date 的唯一約束
+    const checkTitleDateConstraintQuery = `
+      SELECT 1
+      FROM pg_constraint
+      WHERE conname = 'movies_full_title_release_date_key';
+    `;
+    const titleDateConstraintExists = (await client.query(checkTitleDateConstraintQuery)).rowCount > 0;
+    
+    // 創建或更新約束
+    await client.query('BEGIN');
+    
+    try {
+      // 處理 atmovies_id 的唯一約束
+      if (!atmoviesIdConstraintExists) {
+        log('創建 atmovies_id 唯一約束...');
+        await client.query(`
+          ALTER TABLE movies 
+          ADD CONSTRAINT movies_atmovies_id_key 
+          UNIQUE (atmovies_id);
+        `);
+        log('atmovies_id 唯一約束創建成功');
+      } else {
+        log('atmovies_id 唯一約束已存在');
+      }
+      
+      // 處理 full_title 和 release_date 的唯一約束（僅當 atmovies_id 為 NULL 時）
+      if (!titleDateConstraintExists) {
+        log('創建 full_title 和 release_date 的唯一約束...');
+        // 創建部分唯一索引，僅當 atmovies_id 為 NULL 時生效
+        await client.query(`
+          CREATE UNIQUE INDEX IF NOT EXISTS movies_full_title_release_date_key 
+          ON movies (full_title, release_date) 
+          WHERE atmovies_id IS NULL;
+        `);
+        log('full_title 和 release_date 唯一約束創建成功');
+      } else {
+        log('full_title 和 release_date 唯一約束已存在');
+      }
+      
+      await client.query('COMMIT');
+    } catch (error) {
+      await client.query('ROLLBACK');
+      log('創建約束時出錯:', error);
+      throw error;
     }
     
     await client.query('BEGIN');

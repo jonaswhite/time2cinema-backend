@@ -89,11 +89,36 @@ jobs:
           
           # 執行匯入腳本
           echo "正在執行匯入腳本..."
+          
+          # 確保 backend 目錄存在
+          if [ ! -d "backend" ]; then
+            echo "錯誤：找不到 backend 目錄"
+            ls -la
+            exit 1
+          fi
+          
           cd backend
           
-          if [ -f "scripts/importers/import_movies_remote.js" ]; then
-            echo "執行匯入腳本..."
-            node scripts/importers/import_movies_remote.js --file="../${{ env.LATEST_CSV }}" --debug
+          # 檢查 CSV 文件是否存在
+          if [ ! -f "../${{ env.LATEST_CSV }}" ]; then
+            echo "錯誤：找不到 CSV 文件: ../${{ env.LATEST_CSV }}"
+            echo "當前目錄: $(pwd)"
+            echo "CSV 文件路徑: ../${{ env.LATEST_CSV }}"
+            ls -la ..
+            exit 1
+          fi
+          
+          # 檢查 importer 腳本是否存在
+          if [ ! -f "scripts/importers/import_movies_remote.js" ]; then
+            echo "錯誤：找不到 importer 腳本"
+            echo "當前目錄: $(pwd)"
+            find . -name "import_movies_remote.js" || echo "找不到 importer 腳本"
+            exit 1
+          fi
+          
+          # 執行 importer 腳本
+          echo "執行匯入腳本..."
+          node scripts/importers/import_movies_remote.js --file="../${{ env.LATEST_CSV }}" --debug
             
             # 檢查上一步的退出狀態
             if [ $? -eq 0 ]; then
