@@ -3,6 +3,7 @@
 
 import aiohttp
 import asyncio
+import json
 import logging
 import os
 import re
@@ -14,9 +15,23 @@ import csv
 from bs4 import BeautifulSoup
 from typing import Dict, List, Any, Optional, Set, Tuple
 from urllib.parse import urljoin
-import psycopg2
-from psycopg2.extras import RealDictCursor
-from test_title_split import split_chinese_english
+from title_utils import split_chinese_english
+
+# 設定專案根目錄與輸出目錄
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'output', 'scrapers')
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+# 設定日誌格式和級別
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(os.path.join(OUTPUT_DIR, 'atmovies_movie_scraper.log'))
+    ]
+)
+logger = logging.getLogger(__name__)
 
 # 導入自定義的 User-Agent 列表
 from user_agents import USER_AGENTS
@@ -25,9 +40,9 @@ from user_agents import USER_AGENTS
 sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
 
-# 設定日誌
+# 設置日誌
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler("atmovies_movie_scraper_v2.log"),
@@ -70,41 +85,75 @@ SECOND_RUN_URL = "https://www.atmovies.com.tw/movie/now2/1/"
 class ATMoviesMovieScraper:
     """ATMovies 電影爬蟲"""
     def __init__(self):
-        self.conn = None
-        self.cursor = None
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)  # 限制並發請求數
         self.session = None  # 用於非同步HTTP請求的session
         self.movie_details_cache = {}  # 快取已爬取的電影詳情
+        self.movies = []  # 儲存爬取的電影資料
+        self.processed_movies = set()  # 用於追蹤已處理的電影ID，避免重複處理
+        self.conn = None  # 資料庫連接
+        self.cursor = None  # 資料庫游標
         
-    async def connect_to_db(self) -> bool:
-        """連接到資料庫"""
-        try:
-            # 建立資料庫連接，並設定編碼為 UTF-8
-            self.conn = psycopg2.connect(
-                DB_URL,
-                sslmode='require',
-                client_encoding='UTF8'  # 設定客戶端編碼為 UTF-8
-            )
-            self.conn.autocommit = False
-            self.cursor = self.conn.cursor(cursor_factory=RealDictCursor)
-            
-            # 確保資料庫連接的編碼為 UTF-8
-            self.cursor.execute("SET client_encoding TO 'UTF8'")
-            self.conn.commit()
-            
-            logger.info("成功連接到資料庫")
-            return True
-        except Exception as e:
-            logger.error(f"連接資料庫時出錯: {e}")
-            return False
-    
-    def close_db_connection(self):
-        """關閉資料庫連接"""
+    async def __aenter__(self):
+        """非同步上下文管理器進入點，用於初始化資源"""
+        import psycopg2
+        from psycopg2.extras import DictCursor
+        
+        # 建立資料庫連接
+        self.conn = psycopg2.connect(DB_URL, cursor_factory=DictCursor)
+        self.cursor = self.conn.cursor()
+        return self
+        
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        """非同步上下文管理器退出點，用於清理資源"""
         if self.cursor:
             self.cursor.close()
         if self.conn:
+            if exc_type is not None:  # 如果有異常發生，回滾事務
+                self.conn.rollback()
+            else:
+                self.conn.commit()
             self.conn.close()
-            logger.info("資料庫連接已關閉")
+        self.cursor = None
+        self.conn = None
+        
+    async def save_to_file(self, format_type: str = 'json') -> str:
+        """
+        將爬取的電影資料保存到檔案
+        
+        Args:
+            format_type: 輸出格式，可選 'json' 或 'csv'
+            
+        Returns:
+            str: 保存的檔案路徑
+        """
+        if not self.movies:
+            logger.warning("沒有電影資料可以保存")
+            return ""
+            
+        timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        if format_type.lower() == 'json':
+            filename = os.path.join(OUTPUT_DIR, f'atmovies_movies_{timestamp}.json')
+            with open(filename, 'w', encoding='utf-8') as f:
+                json.dump(self.movies, f, ensure_ascii=False, indent=2)
+        elif format_type.lower() == 'csv':
+            filename = os.path.join(OUTPUT_DIR, f'atmovies_movies_{timestamp}.csv')
+            # 確保所有字典都有相同的鍵
+            all_keys = set()
+            for movie in self.movies:
+                all_keys.update(movie.keys())
+            fieldnames = sorted(all_keys)
+            
+            with open(filename, 'w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
+                writer.writerows(self.movies)
+        else:
+            logger.error(f"不支援的格式: {format_type}")
+            return ""
+            
+        logger.info(f"已將 {len(self.movies)} 部電影資料保存到 {filename}")
+        return filename
             
     async def create_session(self):
         """創建HTTP會話"""
@@ -229,7 +278,14 @@ class ATMoviesMovieScraper:
         return movies
     
     async def _get_movies_from_page(self, page_url: str) -> List[Dict[str, Any]]:
-        """從指定頁面獲取電影列表"""
+        """從指定頁面獲取電影列表
+        
+        Args:
+            page_url: 要爬取的頁面URL
+            
+        Returns:
+            List[Dict[str, Any]]: 包含電影資訊的字典列表
+        """
         soup = await self.fetch_page(page_url)
         if not soup:
             logger.error(f"無法解析頁面: {page_url}")
@@ -262,15 +318,13 @@ class ATMoviesMovieScraper:
             movie_links = soup.find_all('a', href=re.compile(r'/movie/[a-zA-Z0-9]+/'))
             if movie_links:
                 logger.info(f"直接找到 {len(movie_links)} 個電影連結")
-                return self._process_movie_links(movie_links, page_url)
+                await self._process_movie_links(movie_links, page_url)
+                return self.movies[-len(movie_links):]  # 返回新增的電影
             else:
                 logger.warning(f"在頁面 {page_url} 中找不到電影項目")
                 return []
         
-        logger.info(f"在頁面 {page_url} 中找到 {len(movie_items)} 個電影項目")
-        
-        movies = []
-        processed_ids = set()  # 用於跟蹤已處理的電影ID，避免重複
+        logger.info(f"在頁面 {page_url} 中處理 {len(movie_items)} 個電影項目")
         
         for item in movie_items:
             try:
@@ -287,30 +341,60 @@ class ATMoviesMovieScraper:
                 href = title_element.get("href", "")
                 if not href or '/movie/' not in href:
                     continue
-                
-                # 提取電影ID
+                    
+                # 提取並標準化電影ID
                 atmovies_id = href.split('/')[-2] if href.endswith('/') else href.split('/')[-1]
+                atmovies_id = self._normalize_movie_id(atmovies_id)
                 
                 # 檢查是否為有效的電影ID（過濾非電影資料）
                 if not self._is_valid_movie_id(atmovies_id):
-                    logger.debug(f"跳過非電影ID: {atmovies_id}")
+                    logger.debug(f"跳過無效的電影ID: {atmovies_id}")
                     continue
                 
                 # 避免重複處理同一部電影
-                if atmovies_id in processed_ids:
+                if atmovies_id in self.processed_movies:
+                    logger.debug(f"電影已處理，跳過: {atmovies_id}")
                     continue
-                processed_ids.add(atmovies_id)
+                    
+                # 標記為已處理
+                self.processed_movies.add(atmovies_id)
                 
                 # 獲取電影標題
                 title = title_element.text.strip()
                 if not title:  # 如果沒有標題，跳過
+                    logger.debug(f"跳過無標題的電影: {atmovies_id}")
                     continue
+                    
+                # 使用 split_chinese_english 函數來分割中英文標題
+                chinese_title, english_title = split_chinese_english(title)
                 
-                # 嘗試從標題中提取原始標題（英文標題）
-                original_title = None
-                title_parts = title.split(" ", 1)
-                if len(title_parts) > 1 and re.search(r'[A-Za-z]', title_parts[1]):
-                    original_title = title_parts[1].strip()
+                # 如果 split_chinese_english 無法正確分割，則使用簡單的邏輯作為備用
+                if not chinese_title and not english_title:
+                    logger.debug("split_chinese_english 返回空結果，使用備用邏輯")
+                    title_parts = title.split(" ", 1)
+                    if len(title_parts) > 1 and re.search(r'[A-Za-z]', title_parts[1]):
+                        chinese_title = title_parts[0].strip()
+                        english_title = title_parts[1].strip()
+                    else:
+                        chinese_title = title
+                        english_title = ""
+                
+                logger.debug(f"解析標題: {title}")
+                logger.debug(f"解析結果 - 中文: '{chinese_title}', 英文: '{english_title}'")
+                
+                # 初始化電影資料
+                movie_data = {
+                    'atmovies_id': atmovies_id,
+                    'full_title': title,
+                    'chinese_title': chinese_title,
+                    'english_title': english_title,
+                    'detail_url': f"https://www.atmovies.com.tw/movie/{atmovies_id}/",
+                    'source_url': page_url,
+                    'crawled_at': datetime.datetime.now().isoformat(),
+                    'runtime': None,
+                    'release_date': None,
+                    'poster_url': None
+                }
                 
                 # 尋找片長和上映日期資訊
                 runtime = None
@@ -321,11 +405,23 @@ class ATMoviesMovieScraper:
                 # 如果 item 本身是 article.filmList，直接在其中尋找
                 if item.name == 'article' and 'filmList' in item.get('class', []):
                     runtime_elem = item.select_one("div.runtime")
+                    
+                    # 嘗試獲取海報圖片URL
+                    poster_elem = item.select_one("img.filmListPoster")
+                    if poster_elem and 'src' in poster_elem.attrs:
+                        movie_data['poster_url'] = poster_elem['src']
+                        logger.debug(f"找到海報圖片: {movie_data['poster_url']}")
                 else:
                     # 嘗試找到包含此電影的 article.filmList
                     parent_article = item.find_parent("article", class_="filmList")
                     if parent_article:
                         runtime_elem = parent_article.select_one("div.runtime")
+                        
+                        # 嘗試從父元素獲取海報圖片URL
+                        poster_elem = parent_article.select_one("img.filmListPoster")
+                        if poster_elem and 'src' in poster_elem.attrs:
+                            movie_data['poster_url'] = poster_elem['src']
+                            logger.debug(f"找到海報圖片: {movie_data['poster_url']}")
                     else:
                         # 如果找不到特定結構，嘗試更寬泛的選擇器
                         runtime_elem = item.select_one("div.runtime")
@@ -337,8 +433,8 @@ class ATMoviesMovieScraper:
                     # 提取片長
                     runtime_match = re.search(r"片長[\s\xa0]*[\:|：]?[\s\xa0]*(\d+)[\s\xa0]*分", runtime_date_text)
                     if runtime_match:
-                        runtime = int(runtime_match.group(1))
-                        logger.info(f"提取到片長: {runtime} 分鐘")
+                        movie_data['runtime'] = int(runtime_match.group(1))
+                        logger.info(f"提取到片長: {movie_data['runtime']} 分鐘")
                     
                     # 提取上映日期 - 先嘗試 MM/DD/YYYY 格式
                     date_match = re.search(r"上映日期[\s\xa0]*[\:|：]?[\s\xa0]*([\d/]+)", runtime_date_text)
@@ -362,248 +458,71 @@ class ATMoviesMovieScraper:
                                     month = parts[0].zfill(2)
                                     day = parts[1].zfill(2)
                                     year = "2025"  # 假設為2025年
-                                release_date = f"{year}-{month}-{day}"
-                                logger.info(f"格式化上映日期: {release_date}")
+                                movie_data['release_date'] = f"{year}-{month}-{day}"
+                                logger.info(f"格式化上映日期: {movie_data['release_date']}")
                         except Exception as e:
                             logger.error(f"解析日期出錯: {date_str}, 錯誤: {e}")
-                else:
-                    # 如果在列表頁面找不到資訊，可以考慮從詳情頁面獲取
-                    # 但根據你的要求，我們不會爬取詳情頁面
-                    logger.debug(f"在電影 {atmovies_id} 中找不到片長和上映日期資訊")
-                    
-                    # 嘗試從項目的其他部分尋找資訊
-                    item_text = item.text.strip()
-                    
-                    # 嘗試從整個項目文本中提取片長
-                    if not runtime:
-                        runtime_match = re.search(r"片長[\s\xa0]*[\:|：]?[\s\xa0]*(\d+)[\s\xa0]*分", item_text)
-                        if runtime_match:
-                            runtime = int(runtime_match.group(1))
-                            logger.info(f"從項目文本提取到片長: {runtime} 分鐘")
-                    
-                    # 嘗試從整個項目文本中提取上映日期
-                    if not release_date:
-                        date_match = re.search(r"上映日期[\s\xa0]*[\:|：]?[\s\xa0]*([\d/]+)", item_text)
-                        if date_match:
-                            date_str = date_match.group(1)
-                            try:
-                                # 處理日期格式
-                                if '/' in date_str:
-                                    parts = date_str.split('/')
-                                    if len(parts) == 3:  # 可能是 MM/DD/YYYY 或 YYYY/MM/DD
-                                        if len(parts[0]) == 4:  # YYYY/MM/DD
-                                            year = parts[0]
-                                            month = parts[1].zfill(2)
-                                            day = parts[2].zfill(2)
-                                        else:  # MM/DD/YYYY
-                                            month = parts[0].zfill(2)
-                                            day = parts[1].zfill(2)
-                                            year = parts[2] if len(parts[2]) == 4 else "2025"
-                                    elif len(parts) == 2:  # MM/DD
+                
+                # 將電影資料加入列表
+                # 嘗試從項目的其他部分尋找資訊
+                item_text = item.text.strip()
+                
+                # 嘗試從整個項目文本中提取片長
+                if not movie_data['runtime']:
+                    runtime_match = re.search(r"片長[\s\xa0]*[\:|：]?[\s\xa0]*(\d+)[\s\xa0]*分", item_text)
+                    if runtime_match:
+                        movie_data['runtime'] = int(runtime_match.group(1))
+                        logger.info(f"從項目文本提取到片長: {movie_data['runtime']} 分鐘")
+                
+                # 嘗試從整個項目文本中提取上映日期
+                if not movie_data['release_date']:
+                    date_match = re.search(r"上映日期[\s\xa0]*[\:|：]?[\s\xa0]*([\d/]+)", item_text)
+                    if date_match:
+                        date_str = date_match.group(1)
+                        try:
+                            # 處理日期格式
+                            if '/' in date_str:
+                                parts = date_str.split('/')
+                                if len(parts) == 3:  # 可能是 MM/DD/YYYY 或 YYYY/MM/DD
+                                    if len(parts[0]) == 4:  # YYYY/MM/DD
+                                        year = parts[0]
+                                        month = parts[1].zfill(2)
+                                        day = parts[2].zfill(2)
+                                    else:  # MM/DD/YYYY
                                         month = parts[0].zfill(2)
                                         day = parts[1].zfill(2)
-                                        year = "2025"  # 假設為2025年
-                                    release_date = f"{year}-{month}-{day}"
-                                    logger.info(f"從項目文本提取到上映日期: {release_date}")
-                            except Exception as e:
-                                logger.error(f"解析日期出錯: {date_str}, 錯誤: {e}")
+                                        year = parts[2] if len(parts[2]) == 4 else "2025"
+                                    movie_data['release_date'] = f"{year}-{month}-{day}"
+                                    logger.info(f"從項目文本提取到上映日期: {movie_data['release_date']}")
+                                elif len(parts) == 2:  # MM/DD
+                                    month = parts[0].zfill(2)
+                                    day = parts[1].zfill(2)
+                                    year = "2025"  # 假設為今年
+                                    movie_data['release_date'] = f"{year}-{month}-{day}"
+                                    logger.info(f"從項目文本提取到上映日期(無年份): {movie_data['release_date']}")
+                        except Exception as e:
+                            logger.error(f"解析日期出錯: {date_str}, 錯誤: {e}")
                 
-                # 處理中英文片名分割
-                def split_chinese_english(text):
-                    # 如果已經有原始英文標題，直接使用
-                    if original_title and original_title.strip() and original_title.strip() != title.strip():
-                        chinese = title.replace(original_title, '').strip()
-                        return chinese, original_title
-                    
-                    # 使用正則表達式找到中英文分隔點
-                    import re
-                    
-                    # 0. 處理特殊情況：完全沒有中文字符
-                    if not any('\u4e00' <= char <= '\u9fff' for char in text):
-                        return '', text.strip()
-                    
-                    # 1. 處理「中文 英文」或「中文 英文 中文」的情況
-                    # 找到最後一個中文字後面的英文部分
-                    chinese_chars = re.findall(r'[\u4e00-\u9fff]', text)
-                    if chinese_chars:
-                        last_chinese_pos = text.rindex(chinese_chars[-1]) + 1
-                        remaining_text = text[last_chinese_pos:].strip()
-                        
-                        # 清理開頭的標點符號和空格
-                        remaining_text = re.sub(r'^[\s\-:：\[\]【】]+', '', remaining_text)
-                        
-                        # 如果剩餘部分包含有意義的英文（至少2個字母單詞）
-                        if re.search(r'\b[a-zA-Z]{2,}\b', remaining_text):
-                            return text[:last_chinese_pos].strip(), remaining_text
-                    
-                    # 2. 嘗試匹配「中文 數字+字母」模式（如「銀魂劇場版2D」）
-                    match = re.search(r'^(.+?)(\d+[a-zA-Z]\S*)$', text)
-                    if match:
-                        chinese_part = match.group(1).strip()
-                        english_part = match.group(2).strip()
-                        if any('\u4e00' <= char <= '\u9fff' for char in chinese_part):
-                            return chinese_part, english_part
-                    
-                    # 3. 嘗試匹配「中文 英文」模式，中間有標點
-                    match = re.search(r'^(.+?)[\s\-:：]+([a-zA-Z].*)$', text)
-                    if match:
-                        chinese_part = match.group(1).strip()
-                        english_part = match.group(2).strip()
-                        if any('\u4e00' <= char <= '\u9fff' for char in chinese_part):
-                            return chinese_part, english_part
-                    
-                    # 4. 如果以上都不匹配，但有中文字符，則整個作為中文
-                    return text.strip(), ''
+                self.movies.append(movie_data)
+                logger.info(f"已處理電影: {title} (ID: {atmovies_id})")
                 
-                # 使用新的標題分割邏輯
-                chinese_title, english_title = split_chinese_english(title)
-                
-                # 如果分割結果不正確（例如："絕命終結站 血脈" 和 "Final Destination: Bloodlines"），則重新處理
-                if ' ' in title and not any(c in '：:' for c in title):
-                    # 如果標題中有空格但沒有分隔符號，則在空格處分割
-                    parts = title.split()
-                    chinese_part = ' '.join(parts[:-1])
-                    english_part = parts[-1]
-                    if any('\u4e00' <= char <= '\u9fff' for char in chinese_part):
-                        chinese_title = chinese_part
-                        english_title = english_part
-                
-                # 如果原始英文標題存在且與分割結果不同，優先使用原始英文標題
-                if original_title and original_title.strip() and original_title.strip() != title.strip():
-                    english_title = original_title
-                
-                # 如果分割後英文標題為空，但原始標題中有英文字母，則使用原始標題
-                if not english_title and re.search(r'[a-zA-Z]', title):
-                    chinese_title = ''
-                    english_title = title
-                
-                # 建立電影資訊字典
-                movie_data = {
-                    "atmovies_id": atmovies_id,
-                    "full_title": title,
-                    "chinese_title": chinese_title,
-                    "english_title": english_title,
-                    "runtime": runtime,
-                    "release_date": release_date,
-                    "detail_url": detail_url
-                }
-                
-                # 記錄獲取到的資訊
-                logger.debug(f"\n獲取電影資訊: {atmovies_id}")
-                logger.debug(f"  標題: {title}")
-                logger.debug(f"  原始標題: {original_title}")
-                logger.debug(f"  片長: {runtime}")
-                logger.debug(f"  上映日期: {release_date}")
-                
-                movies.append(movie_data)
             except Exception as e:
-                logger.error(f"解析電影項目時出錯: {e}")
-                import traceback
-                logger.error(traceback.format_exc())
-        
-        logger.info(f"在頁面 {page_url} 中找到 {len(movies)} 部有效電影")
-        return movies
-        
-    def _process_movie_links(self, movie_links: List, page_url: str) -> List[Dict[str, Any]]:
-        """處理電影連結列表"""
-        movies = []
-        processed_ids = set()
-        
-        for link in movie_links:
-            try:
-                href = link.get('href', '')
-                if not href or '/movie/' not in href:
-                    continue
-                    
-                # 提取電影ID
-                atmovies_id = href.split('/')[-2] if href.endswith('/') else href.split('/')[-1]
+                logger.error(f"處理電影項目時發生錯誤: {e}", exc_info=True)
+                continue
                 
-                # 檢查是否為有效的電影ID（過濾非電影資料）
-                if not self._is_valid_movie_id(atmovies_id):
-                    continue
-                
-                # 避免重複處理同一部電影
-                if atmovies_id in processed_ids:
-                    continue
-                processed_ids.add(atmovies_id)
-                
-                # 獲取電影標題
-                title = link.text.strip()
-                if not title:  # 如果沒有標題，跳過
-                    continue
-                    
-                # 使用完整的標題分割邏輯
-                chinese_title, english_title = self.split_chinese_english(title)
-                
-                # 建立電影資訊字典
-                movie_data = {
-                    "atmovies_id": atmovies_id,
-                    "full_title": title,
-                    "chinese_title": chinese_title,
-                    "english_title": english_title,
-                    "runtime": None,  # 無法從連結中直接獲取
-                    "release_date": None,  # 無法從連結中直接獲取
-                    "detail_url": f"https://www.atmovies.com.tw/movie/{atmovies_id}/"
-                }
-                
-                movies.append(movie_data)
-            except Exception as e:
-                logger.error(f"處理電影連結時出錯: {e}")
-        
-        return movies
-        
-    def split_chinese_english(self, text, original_title=None):
-        """分割中英文標題
-        
-        Args:
-            text (str): 要分割的文本
-            original_title (str, optional): 原始英文標題（如果有的話）
-            
-        Returns:
-            tuple: (chinese_title, english_title)
-        """
-        # 如果已經有原始英文標題，直接使用
-        if original_title and original_title.strip() and original_title.strip() != text.strip():
-            chinese = text.replace(original_title, '').strip()
-            return chinese, original_title
-        
-        # 使用正則表達式找到中英文分隔點
-        # 0. 處理特殊情況：完全沒有中文字符
-        if not any('\u4e00' <= char <= '\u9fff' for char in text):
-            return '', text.strip()
-        
-        # 1. 處理「中文 英文」或「中文 英文 中文」的情況
-        # 找到最後一個中文字後面的英文部分
-        chinese_chars = re.findall(r'[\u4e00-\u9fff]', text)
-        if chinese_chars:
-            last_chinese_pos = text.rindex(chinese_chars[-1]) + 1
-            remaining_text = text[last_chinese_pos:].strip()
-            
-            # 清理開頭的標點符號和空格
-            remaining_text = re.sub(r'^[\s\-:：\[\]【】]+', '', remaining_text)
-            
-            # 如果剩餘部分包含有意義的英文（至少2個字母單詞）
-            if re.search(r'\b[a-zA-Z]{2,}\b', remaining_text):
-                return text[:last_chinese_pos].strip(), remaining_text
-        
-        # 2. 嘗試匹配「中文 數字+字母」模式（如「銀魂劇場版2D」）
-        match = re.search(r'^(.+?)(\d+[a-zA-Z]\S*)$', text)
-        if match:
-            chinese_part = match.group(1).strip()
-            english_part = match.group(2).strip()
-            if any('\u4e00' <= char <= '\u9fff' for char in chinese_part):
-                return chinese_part, english_part
-        
-        # 3. 嘗試匹配「中文 英文」模式，中間有標點
-        match = re.search(r'^(.+?)[\s\-:：]+([a-zA-Z].*)$', text)
-        if match:
-            chinese_part = match.group(1).strip()
-            english_part = match.group(2).strip()
-            if any('\u4e00' <= char <= '\u9fff' for char in chinese_part):
-                return chinese_part, english_part
-        
-        # 4. 如果以上都不匹配，但有中文字符，則整個作為中文
-        return text.strip(), ''
+        return self.movies[-len(movie_items):]  # 返回新增的電影
+    
+    def _normalize_movie_id(self, movie_id: str) -> str:
+        """標準化電影ID，移除常見的社交媒體前綴"""
+        # 移除常見的社交媒體前綴
+        prefixes = ['fb', 'tw', 'ig', 'yt']
+        for prefix in prefixes:
+            if movie_id.startswith(prefix) and len(movie_id) > len(prefix):
+                # 檢查前綴後面的部分是否為有效的電影ID格式
+                remaining = movie_id[len(prefix):]
+                if self._is_valid_movie_id(remaining):
+                    return remaining
+        return movie_id
 
     def _is_valid_movie_id(self, atmovies_id: str) -> bool:
         """檢查是否為有效的電影ID"""
@@ -624,14 +543,28 @@ class ATMoviesMovieScraper:
     async def save_movie_to_db(self, movie_data: Dict[str, Any]) -> bool:
         """將電影資訊存入資料庫"""
         try:
+            # 記錄要保存的電影資料
+            logger.debug(f"準備保存電影到資料庫: {movie_data['atmovies_id']}")
+            logger.debug(f"  完整標題: {movie_data['full_title']}")
+            logger.debug(f"  中文標題: {movie_data['chinese_title']}")
+            logger.debug(f"  英文標題: {movie_data['english_title']}")
+            logger.debug(f"  片長: {movie_data['runtime']}")
+            logger.debug(f"  上映日期: {movie_data['release_date']}")
+            
             # 檢查電影是否已存在
             self.cursor.execute(
-                "SELECT id FROM movies WHERE atmovies_id = %s",
+                "SELECT id, full_title, chinese_title, english_title FROM movies WHERE atmovies_id = %s",
                 (movie_data["atmovies_id"],)
             )
             existing_movie = self.cursor.fetchone()
             
             if existing_movie:
+                # 記錄現有電影的資料
+                logger.debug(f"找到現有電影 (ID: {existing_movie[0]})")
+                logger.debug(f"  現有完整標題: {existing_movie[1]}")
+                logger.debug(f"  現有中文標題: {existing_movie[2]}")
+                logger.debug(f"  現有英文標題: {existing_movie[3]}")
+                
                 # 更新現有電影
                 self.cursor.execute(
                     """
@@ -651,6 +584,8 @@ class ATMoviesMovieScraper:
                 )
                 self.conn.commit()
                 logger.info(f"更新電影資訊: {movie_data['full_title']}")
+                logger.debug(f"  已更新中文標題為: {movie_data['chinese_title']}")
+                logger.debug(f"  已更新英文標題為: {movie_data['english_title']}")
                 return True
             else:
                 # 新增電影
@@ -658,6 +593,7 @@ class ATMoviesMovieScraper:
                     """
                     INSERT INTO movies (atmovies_id, full_title, chinese_title, english_title, runtime, release_date, created_at, updated_at, source)
                     VALUES (%s, %s, %s, %s, %s, %s, NOW(), NOW(), 'atmovies')
+                    RETURNING id
                     """,
                     (
                         movie_data["atmovies_id"],
@@ -670,12 +606,13 @@ class ATMoviesMovieScraper:
                 )
                 self.conn.commit()
                 logger.info(f"新增電影: {movie_data['full_title']}")
+                logger.debug(f"  已新增中文標題: {movie_data['chinese_title']}")
+                logger.debug(f"  已新增英文標題: {movie_data['english_title']}")
                 return True
         except Exception as e:
             self.conn.rollback()
             logger.error(f"存入電影資訊時出錯: {e}")
             return False
-            return ""
     
     async def process_movie_list(self, page_url: str) -> int:
         """處理電影列表頁面"""
@@ -773,81 +710,98 @@ class ATMoviesMovieScraper:
             logger.error(f"匯出CSV檔案時出錯: {e}")
             return ""
     
-    async def run(self):
-        """執行電影爬蟲"""
+    async def run(self, output_format: str = 'json') -> bool:
+        """執行電影爬蟲
+        
+        Args:
+            output_format: 輸出格式，可選 'json' 或 'csv'
+            
+        Returns:
+            bool: 爬蟲執行是否成功
+        """
         try:
-            # 連接資料庫
-            if not await self.connect_to_db():
-                return
+            # 初始化電影列表
+            self.movies = []
             
-            # 設置日誌層級為 DEBUG，以查看更多詳細資訊
+            # 設置日誌層級為 INFO，以查看詳細資訊
             logger.setLevel(logging.INFO)
-            
-            # 用於收集所有電影資料以匯出CSV
-            all_movies = []
             
             # 處理首輪電影
             logger.info("開始爬取首輪電影清單...")
             first_run_movies = await self._get_first_run_movies(FIRST_RUN_URL)
-            first_run_count = 0
-            
-            for movie in first_run_movies:
-                # 檢查資料完整性
-                if self._validate_movie_data(movie):
-                    # 存入資料庫
-                    if await self.save_movie_to_db(movie):
-                        first_run_count += 1
-                        all_movies.append(movie)
-            
-            logger.info(f"共處理了 {first_run_count} 部首輪電影")
+            first_run_count = len(first_run_movies) if first_run_movies else 0
+            logger.info(f"成功爬取 {first_run_count} 部首輪電影")
             
             # 處理二輪電影
             logger.info("開始爬取二輪電影清單...")
             second_run_movies = await self._get_first_run_movies(SECOND_RUN_URL)
-            second_run_count = 0
+            second_run_count = len(second_run_movies) if second_run_movies else 0
+            logger.info(f"成功爬取 {second_run_count} 部二輪電影")
             
-            for movie in second_run_movies:
-                # 檢查資料完整性
-                if self._validate_movie_data(movie):
-                    # 存入資料庫
-                    if await self.save_movie_to_db(movie):
-                        second_run_count += 1
-                        all_movies.append(movie)
+            # 合併電影列表
+            all_movies = self.movies
+            total_movies = len(all_movies)
             
-            logger.info(f"共處理了 {second_run_count} 部二輪電影")
+            if total_movies == 0:
+                logger.warning("沒有找到任何電影資料")
+                return False
+                
+            logger.info(f"總共找到 {total_movies} 部電影")
             
-            # 統計結果
-            total_count = first_run_count + second_run_count
-            logger.info(f"爬蟲完成，共處理了 {total_count} 部電影")
+            # 保存到文件
+            if output_format.lower() == 'csv':
+                output_file = self.export_to_csv(all_movies)
+            else:
+                output_file = await self.save_to_file('json')
+                
+            if output_file:
+                logger.info(f"電影資料已成功保存到: {output_file}")
+                return True
             
-            # 查詢資料庫中的電影數量
-            self.cursor.execute("SELECT COUNT(*) FROM movies WHERE source = 'atmovies'")
-            db_count = self.cursor.fetchone()['count']
-            logger.info(f"資料庫中共有 {db_count} 部來自 ATMovies 的電影")
-            
-            # 匯出CSV檔案
-            csv_file = await self.export_to_csv(all_movies)
-            if csv_file:
-                logger.info(f"已將爬蟲結果匯出至 {csv_file}")
-            
+            logger.error("保存電影資料到文件時出錯")
+            return False
+                
         except Exception as e:
-            logger.error(f"爬蟲運行時發生錯誤: {e}")
-            import traceback
-            logger.error(traceback.format_exc())
+            logger.error(f"執行爬蟲時發生錯誤: {e}", exc_info=True)
+            return False
         finally:
-            # 關閉資源
-            await self.close_session()
-            self.close_db_connection()
+            # 確保關閉所有資源
+            if hasattr(self, 'session') and self.session and not self.session.closed:
+                await self.session.close()
+            # 不需要顯式調用 close_db_connection，因為 __aexit__ 會處理
 
-async def main():
-    """主函數"""
-    scraper = ATMoviesMovieScraper()
-    await scraper.run()
+async def main(output_format: str = 'json') -> bool:
+    """主函數
+    
+    Args:
+        output_format: 輸出格式，可選 'json' 或 'csv'
+        
+    Returns:
+        bool: 爬蟲執行是否成功
+    """
+    async with ATMoviesMovieScraper() as scraper:
+        try:
+            success = await scraper.run(output_format)
+            return success
+        except Exception as e:
+            logger.error(f"執行主程式時發生錯誤: {e}", exc_info=True)
+            return False
 
 if __name__ == "__main__":
+    import argparse
+    
+    # 解析命令行參數
+    parser = argparse.ArgumentParser(description='ATMovies 電影爬蟲')
+    parser.add_argument('--format', type=str, default='json', choices=['json', 'csv'],
+                       help='輸出格式 (json 或 csv)，預設為 json')
+    args = parser.parse_args()
+    
     # 在 Windows 上需要使用事件循環策略
     if sys.platform == 'win32':
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     
     # 執行主函數
-    asyncio.run(main())
+    success = asyncio.run(main(args.format))
+    
+    # 根據執行結果返回適當的退出碼
+    sys.exit(0 if success else 1)

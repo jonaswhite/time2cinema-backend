@@ -1,0 +1,600 @@
+{
+  "source": "atmovies",
+  "scraped_at": "2025-05-22T15:52:40.549430",
+  "movies": [
+    {
+      "atmovies_id": "flen11655566",
+      "full_title": "星際寶貝：史迪奇",
+      "chinese_title": "星際寶貝：史迪奇",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/flen11655566/"
+    },
+    {
+      "atmovies_id": "fwcn56244174",
+      "full_title": "搜查瑠公圳",
+      "chinese_title": "搜查瑠公圳",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fwcn56244174/"
+    },
+    {
+      "atmovies_id": "ffen79619824",
+      "full_title": "絕命終結站 血脈",
+      "chinese_title": "絕命終結站 血脈",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/ffen79619824/"
+    },
+    {
+      "atmovies_id": "fajp28513331",
+      "full_title": "老派",
+      "chinese_title": "老派",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fajp28513331/"
+    },
+    {
+      "atmovies_id": "fwko31414806",
+      "full_title": "怒女",
+      "chinese_title": "怒女",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fwko31414806/"
+    },
+    {
+      "atmovies_id": "fwen27131358",
+      "full_title": "此刻的我們",
+      "chinese_title": "此刻的我們",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fwen27131358/"
+    },
+    {
+      "atmovies_id": "fmen23770030",
+      "full_title": "蝸牛少女回憶錄",
+      "chinese_title": "蝸牛少女回憶錄",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fmen23770030/"
+    },
+    {
+      "atmovies_id": "fbfr19858184",
+      "full_title": "第一夫人的逆襲",
+      "chinese_title": "第一夫人的逆襲",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fbfr19858184/"
+    },
+    {
+      "atmovies_id": "fmen62168299",
+      "full_title": "不可能的任務：最終清算",
+      "chinese_title": "不可能的任務：最終清算",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fmen62168299/"
+    },
+    {
+      "atmovies_id": "fhen21380552",
+      "full_title": "殭屍合唱團：夢想未完",
+      "chinese_title": "殭屍合唱團：夢想未完",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fhen21380552/"
+    },
+    {
+      "atmovies_id": "fsis26218798",
+      "full_title": "對街的小星星",
+      "chinese_title": "對街的小星星",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fsis26218798/"
+    },
+    {
+      "atmovies_id": "ften20969586",
+      "full_title": "雷霆特攻隊*",
+      "chinese_title": "雷霆特攻隊*",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/ften20969586/"
+    },
+    {
+      "atmovies_id": "fahk23461006",
+      "full_title": "獵金·遊戲",
+      "chinese_title": "獵金·遊戲",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fahk23461006/"
+    },
+    {
+      "atmovies_id": "fhko15766876",
+      "full_title": "聖夜：惡魔都市",
+      "chinese_title": "聖夜：惡魔都市",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fhko15766876/"
+    },
+    {
+      "atmovies_id": "faen47068946",
+      "full_title": "會計師2",
+      "chinese_title": "會計師2",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/faen47068946/"
+    },
+    {
+      "atmovies_id": "faen83566834",
+      "full_title": "MINECRAFT麥塊電影",
+      "chinese_title": "MINECRAFT麥塊電影",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/faen83566834/"
+    },
+    {
+      "atmovies_id": "fscn72884478",
+      "full_title": "夏日最後的祕密",
+      "chinese_title": "夏日最後的祕密",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fscn72884478/"
+    },
+    {
+      "atmovies_id": "fwjp11219254",
+      "full_title": "花束般的戀愛",
+      "chinese_title": "花束般的戀愛",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fwjp11219254/"
+    },
+    {
+      "atmovies_id": "fltw75338640",
+      "full_title": "有病才會喜歡你",
+      "chinese_title": "有病才會喜歡你",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fltw75338640/"
+    },
+    {
+      "atmovies_id": "fren27674700",
+      "full_title": "禁夜屍",
+      "chinese_title": "禁夜屍",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fren27674700/"
+    },
+    {
+      "atmovies_id": "frth33636006",
+      "full_title": "冥婚鬧泰大",
+      "chinese_title": "冥婚鬧泰大",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/frth33636006/"
+    },
+    {
+      "atmovies_id": "fsen31193180",
+      "full_title": "罪人",
+      "chinese_title": "罪人",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fsen31193180/"
+    },
+    {
+      "atmovies_id": "fwen32214413",
+      "full_title": "囍宴",
+      "chinese_title": "囍宴",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fwen32214413/"
+    },
+    {
+      "atmovies_id": "fken47967302",
+      "full_title": "萬王之王",
+      "chinese_title": "萬王之王",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fken47967302/"
+    },
+    {
+      "atmovies_id": "fmen33030449",
+      "full_title": "宮﨑駿的奇幻世界",
+      "chinese_title": "宮﨑駿的奇幻世界",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fmen33030449/"
+    },
+    {
+      "atmovies_id": "fsno14828040",
+      "full_title": "取精急轉彎",
+      "chinese_title": "取精急轉彎",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fsno14828040/"
+    },
+    {
+      "atmovies_id": "fako92197800",
+      "full_title": "ATEEZ演唱會電影",
+      "chinese_title": "ATEEZ演唱會電影",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fako92197800/"
+    },
+    {
+      "atmovies_id": "fajp32277931",
+      "full_title": "超時空武士",
+      "chinese_title": "超時空武士",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fajp32277931/"
+    },
+    {
+      "atmovies_id": "fkjp35636950",
+      "full_title": "怪獸8號：Mission Recon",
+      "chinese_title": "怪獸8號：Mission",
+      "english_title": "Recon",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fkjp35636950/"
+    },
+    {
+      "atmovies_id": "fmen33092501",
+      "full_title": "所以親親會消失對不對",
+      "chinese_title": "所以親親會消失對不對",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fmen33092501/"
+    },
+    {
+      "atmovies_id": "fgjp35631332",
+      "full_title": "GIVEN被贈與的未來劇場版：去海邊",
+      "chinese_title": "GIVEN被贈與的未來劇場版：去海邊",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fgjp35631332/"
+    },
+    {
+      "atmovies_id": "fccn27922374",
+      "full_title": "長安三萬里",
+      "chinese_title": "長安三萬里",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fccn27922374/"
+    },
+    {
+      "atmovies_id": "fwtw68858879",
+      "full_title": "誰在看著我們",
+      "chinese_title": "誰在看著我們",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fwtw68858879/"
+    },
+    {
+      "atmovies_id": "fstw75285956",
+      "full_title": "沈睡的水下巨人",
+      "chinese_title": "沈睡的水下巨人",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fstw75285956/"
+    },
+    {
+      "atmovies_id": "fuen30955489",
+      "full_title": "直到黎明",
+      "chinese_title": "直到黎明",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fuen30955489/"
+    },
+    {
+      "atmovies_id": "fgjp33050528",
+      "full_title": "劇場版 世界計畫",
+      "chinese_title": "劇場版 世界計畫",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fgjp33050528/"
+    },
+    {
+      "atmovies_id": "foit27797557",
+      "full_title": "歌劇生死戀",
+      "chinese_title": "歌劇生死戀",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/foit27797557/"
+    },
+    {
+      "atmovies_id": "foen26442053",
+      "full_title": "奧德蓋任務",
+      "chinese_title": "奧德蓋任務",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/foen26442053/"
+    },
+    {
+      "atmovies_id": "feen20215234",
+      "full_title": "秘密會議",
+      "chinese_title": "秘密會議",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/feen20215234/"
+    },
+    {
+      "atmovies_id": "fdtw75654438",
+      "full_title": "跳進部落的孩子 ",
+      "chinese_title": "跳進部落的孩子",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fdtw75654438/"
+    },
+    {
+      "atmovies_id": "fatw29493077",
+      "full_title": "器子",
+      "chinese_title": "器子",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fatw29493077/"
+    },
+    {
+      "atmovies_id": "fbja29324132",
+      "full_title": "少年與狗",
+      "chinese_title": "少年與狗",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fbja29324132/"
+    },
+    {
+      "atmovies_id": "ftth38873903",
+      "full_title": "鬼房客",
+      "chinese_title": "鬼房客",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/ftth38873903/"
+    },
+    {
+      "atmovies_id": "fkfr28185868",
+      "full_title": "北極小迷狐：吉娜&尤克",
+      "chinese_title": "北極小迷狐：吉娜&尤克",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fkfr28185868/"
+    },
+    {
+      "atmovies_id": "fren32155919",
+      "full_title": "叛逃公主歷險記",
+      "chinese_title": "叛逃公主歷險記",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fren32155919/"
+    },
+    {
+      "atmovies_id": "fujp34737926",
+      "full_title": "超人力霸王雅克",
+      "chinese_title": "超人力霸王雅克",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fujp34737926/"
+    },
+    {
+      "atmovies_id": "fdjp34442690",
+      "full_title": "366日",
+      "chinese_title": "366日",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fdjp34442690/"
+    },
+    {
+      "atmovies_id": "fmjp35380400",
+      "full_title": "我在平行時空戀上妳",
+      "chinese_title": "我在平行時空戀上妳",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fmjp35380400/"
+    },
+    {
+      "atmovies_id": "fipt14961016",
+      "full_title": "我依然在此",
+      "chinese_title": "我依然在此",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fipt14961016/"
+    },
+    {
+      "atmovies_id": "ffjp30110630",
+      "full_title": "夏之庭",
+      "chinese_title": "夏之庭",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/ffjp30110630/"
+    },
+    {
+      "atmovies_id": "fgja32868318",
+      "full_title": "型男主廚三星夢：巴黎篇",
+      "chinese_title": "型男主廚三星夢：巴黎篇",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fgja32868318/"
+    },
+    {
+      "atmovies_id": "fhjp29279903",
+      "full_title": "青春末世物語",
+      "chinese_title": "青春末世物語",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fhjp29279903/"
+    },
+    {
+      "atmovies_id": "ffel64772188",
+      "full_title": "喵的奇幻漂流",
+      "chinese_title": "喵的奇幻漂流",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/ffel64772188/"
+    },
+    {
+      "atmovies_id": "fcjp30400536",
+      "full_title": "我們的恐龍日記",
+      "chinese_title": "我們的恐龍日記",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fcjp30400536/"
+    },
+    {
+      "atmovies_id": "fskr27791872",
+      "full_title": "屍咒",
+      "chinese_title": "屍咒",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fskr27791872/"
+    },
+    {
+      "atmovies_id": "fbtw48993666",
+      "full_title": "赤心巔峰",
+      "chinese_title": "赤心巔峰",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fbtw48993666/"
+    },
+    {
+      "atmovies_id": "flcn10415576",
+      "full_title": "第一爐香",
+      "chinese_title": "第一爐香",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/flcn10415576/"
+    },
+    {
+      "atmovies_id": "fhkr14941222",
+      "full_title": "綁架影帝黃晸珉",
+      "chinese_title": "綁架影帝黃晸珉",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fhkr14941222/"
+    },
+    {
+      "atmovies_id": "facn71933073",
+      "full_title": "留給未來的殘影",
+      "chinese_title": "留給未來的殘影",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/facn71933073/"
+    },
+    {
+      "atmovies_id": "flfr31754656",
+      "full_title": "小王子",
+      "chinese_title": "小王子",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/flfr31754656/"
+    },
+    {
+      "atmovies_id": "fwtw27118867",
+      "full_title": "何處",
+      "chinese_title": "何處",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fwtw27118867/"
+    },
+    {
+      "atmovies_id": "fsjp28498459",
+      "full_title": "茶道小精靈：千",
+      "chinese_title": "茶道小精靈：千",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fsjp28498459/"
+    },
+    {
+      "atmovies_id": "fgen28499593",
+      "full_title": "石像鬼歹逗陣",
+      "chinese_title": "石像鬼歹逗陣",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fgen28499593/"
+    },
+    {
+      "atmovies_id": "fhen29531790",
+      "full_title": "心的告白",
+      "chinese_title": "心的告白",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fhen29531790/"
+    },
+    {
+      "atmovies_id": "feil73669502",
+      "full_title": "我的乳房逃跑中",
+      "chinese_title": "我的乳房逃跑中",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/feil73669502/"
+    },
+    {
+      "atmovies_id": "fbca32986272",
+      "full_title": "舞池漫波",
+      "chinese_title": "舞池漫波",
+      "english_title": "",
+      "runtime": null,
+      "release_date": null,
+      "detail_url": "https://www.atmovies.com.tw/movie/fbca32986272/"
+    }
+  ]
+}

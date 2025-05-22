@@ -19,7 +19,8 @@
     "fs-extra": "^11.2.0",
     "node-fetch": "^2.7.0",
     "pg": "^8.16.0",
-    "puppeteer": "^24.7.2"
+    "puppeteer": "^24.7.2",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/estree": "^1.0.7",

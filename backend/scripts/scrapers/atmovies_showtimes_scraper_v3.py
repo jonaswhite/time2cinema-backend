@@ -3,15 +3,20 @@ from bs4 import BeautifulSoup
 import json
 import csv
 import time
-import datetime
-import logging
-import os
+import random
 import re
+import logging
 import asyncio
 import aiohttp
-import random
-from typing import Dict, List, Any, Optional
-from urllib.parse import urljoin
+import ssl
+import os
+import sys
+import datetime
+from typing import Dict, List, Optional, Any, Tuple
+from urllib.parse import urljoin, urlparse, unquote, parse_qsl, urlencode
+
+# 導入 User-Agent 列表
+from user_agents import USER_AGENTS
 
 # 設定日誌
 logging.basicConfig(
@@ -26,25 +31,78 @@ logger = logging.getLogger(__name__)
 
 # 常數設定
 BASE_URL = "https://www.atmovies.com.tw/showtime/"
-HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
-    'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-    'Connection': 'keep-alive',
-    'Cache-Control': 'no-cache',
-    'Pragma': 'no-cache',
-    'Referer': 'https://www.atmovies.com.tw/',
-    'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"Windows"',
-    'Sec-Fetch-Dest': 'document',
-    'Sec-Fetch-Mode': 'navigate',
-    'Sec-Fetch-Site': 'same-origin',
-    'Sec-Fetch-User': '?1',
-    'Upgrade-Insecure-Requests': '1'
-}
 MAX_RETRIES = 2  # 最大重試次數
 TIMEOUT = 10  # 請求超時時間
+DAYS_TO_SCRAPE = 3  # 要爬取的天數
+MAX_CONCURRENT_REQUESTS = 5  # 最大並發請求數
+CONNECTION_LIMIT = 10  # 連接池大小
+REQUEST_DELAY = (0.5, 1.5)  # 隨機延遲時間範圍（秒）
+# 統一輸出目錄到 backend/output/scrapers
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'output', 'scrapers')
+
+# 確保輸出目錄存在
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+print(f"輸出目錄設置為: {OUTPUT_DIR}")
+
+def get_random_headers() -> Dict[str, str]:
+    """生成隨機請求頭"""
+    user_agent = random.choice(USER_AGENTS)
+    
+    # 根據 User-Agent 設置相應的 sec-ch-ua 和 platform
+    if 'Chrome' in user_agent:
+        chrome_version = re.search(r'Chrome/(\d+)', user_agent)
+        chrome_version = chrome_version.group(1) if chrome_version else '123'
+        sec_ch_ua = f'"Google Chrome";v="{chrome_version}", "Not:A-Brand";v="8", "Chromium";v="{chrome_version}"'
+        platform = 'Windows' if 'Windows' in user_agent else 'macOS'
+    elif 'Firefox' in user_agent:
+        firefox_version = re.search(r'Firefox/(\d+)', user_agent)
+        firefox_version = firefox_version.group(1) if firefox_version else '123'
+        sec_ch_ua = f'"Firefox";v="{firefox_version}"'
+        platform = 'Windows' if 'Windows' in user_agent else 'macOS'
+    elif 'Safari' in user_agent and 'Chrome' not in user_agent:
+        safari_version = re.search(r'Version/(\d+)', user_agent)
+        safari_version = safari_version.group(1) if safari_version else '17'
+        sec_ch_ua = f'"Safari";v="{safari_version}"'
+        platform = 'macOS'
+    else:
+        sec_ch_ua = '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"'
+        platform = 'Windows'
+    
+    headers = {
+        'User-Agent': user_agent,
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+        'Sec-Fetch-Dest': 'document',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'none',
+        'Sec-Fetch-User': '?1',
+        'Cache-Control': 'max-age=0',
+        'DNT': '1',
+        'sec-ch-ua': sec_ch_ua,
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': f'"{platform}"',
+        'Referer': 'https://www.atmovies.com.tw/'
+    }
+    
+    return headers
+
+# 創建自定義 SSL 上下文
+ssl_context = ssl.create_default_context()
+ssl_context.check_hostname = False
+ssl_context.verify_mode = ssl.CERT_NONE  # 跳過證書驗證
+# 設置更寬鬆的 SSL 選項
+ssl_context.options |= ssl.OP_NO_SSLv2
+ssl_context.options |= ssl.OP_NO_SSLv3
+ssl_context.options |= ssl.OP_NO_TLSv1
+ssl_context.options |= ssl.OP_NO_TLSv1_1
+# 設置協議版本
+ssl_context.minimum_version = ssl.TLSVersion.TLSv1_2
+ssl_context.maximum_version = ssl.TLSVersion.TLSv1_3
+
 # 統一輸出目錄到 backend/output/scrapers
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'output', 'scrapers')
@@ -58,78 +116,189 @@ class ATMoviesScraper:
     def __init__(self):
         self.data = []
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
-    
-    def fetch_page_sync(self, url: str) -> Optional[BeautifulSoup]:
+        self.session = None  # 用於保持會話
+
+    async def fetch_page_sync(self, url: str) -> Optional[BeautifulSoup]:
         """同步獲取並解析網頁內容，處理重試邏輯"""
         retries = 0
+        last_error = None
+        
         while retries <= MAX_RETRIES:
             try:
-                logger.info(f"正在抓取: {url}")
-                # 使用隨機延遲避免被封
-                time.sleep(1 + random.random() * 2)
-                response = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+                # 使用隨機的 User-Agent 和請求頭
+                headers = get_random_headers()
+                
+                # 隨機延遲，避免請求過於頻繁
+                time.sleep(1 + random.random() * 3)  # 1-4秒隨機延遲
+                
+                logger.info(f"正在同步抓取: {url} (嘗試 {retries + 1}/{MAX_RETRIES + 1})")
+                
+                # 使用 requests.Session 保持會話
+                if not hasattr(self, 'session') or self.session is None:
+                    self.session = requests.Session()
+                    self.session.verify = False  # 跳過 SSL 驗證
+                    self.session.headers.update(headers)
+                
+                # 添加隨機的查詢參數以避免緩存
+                parsed_url = urlparse(url)
+                query = dict(parse_qsl(parsed_url.query))
+                query['_'] = str(int(time.time() * 1000))
+                if random.random() > 0.7:
+                    query['__cf_chl_rt_tk'] = ''.join(random.choices('abcdef0123456789', k=32))
+                
+                url_with_params = url
+                if query:
+                    url_with_params = f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path}?{urlencode(query)}&{parsed_url.query}" if parsed_url.query else f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path}?{urlencode(query)}"
+                
+                logger.debug(f"同步請求 URL: {url_with_params}")
+                
+                # 發送請求
+                response = self.session.get(
+                    url_with_params,
+                    timeout=TIMEOUT,
+                    headers=headers,
+                    allow_redirects=True
+                )
+                
                 if response.status_code == 200:
+                    # 檢查是否被重定向到驗證頁面
+                    if '請輸入驗證碼' in response.text or 'Access Denied' in response.text or 'Cloudflare' in response.text:
+                        logger.warning(f"觸發了防爬蟲驗證: {url}")
+                        raise Exception("觸發了防爬蟲驗證")
                     return BeautifulSoup(response.text, 'html.parser')
                 else:
                     logger.warning(f"HTTP錯誤: {response.status_code} - {url}")
-            except Exception as e:
+                    last_error = f"HTTP {response.status_code}"
+            except requests.exceptions.Timeout:
+                last_error = "請求超時"
+                logger.warning(f"請求超時: {url}")
+            except requests.exceptions.RequestException as e:
+                last_error = str(e)
                 logger.error(f"請求錯誤: {e} - {url}")
+            except Exception as e:
+                last_error = str(e)
+                logger.error(f"發生異常: {e} - {url}")
             
             retries += 1
             if retries <= MAX_RETRIES:
-                wait_time = retries * 3  # 指數退避
-                logger.info(f"等待 {wait_time} 秒後重試...")
+                wait_time = retries * 2 + random.random() * 3  # 指數退避 + 隨機延遲
+                logger.info(f"等待 {wait_time:.1f} 秒後重試... (原因: {last_error})")
                 time.sleep(wait_time)
+                
+                # 隨機切換 User-Agent
+                if random.random() > 0.7:
+                    self.session = None
             else:
                 logger.error(f"已達最大重試次數，跳過 URL: {url}")
         
         return None
-        
+
     async def fetch_page(self, url: str, session: aiohttp.ClientSession) -> Optional[BeautifulSoup]:
         """非同步獲取並解析網頁內容，處理重試邏輯"""
         retries = 0
+        last_error = None
+        
         async with self.semaphore:  # 限制並發請求數
             while retries <= MAX_RETRIES:
                 try:
-                    logger.info(f"正在抓取: {url}")
-                    # 減少隨機延遲，加速爬蟲
-                    await asyncio.sleep(0.2 * random.random())
-                    async with session.get(url, headers=HEADERS, timeout=TIMEOUT) as response:
-                        if response.status == 200:
-                            html = await response.text()
-                            return BeautifulSoup(html, 'html.parser')
-                        else:
-                            logger.warning(f"HTTP錯誤: {response.status} - {url}")
+                    # 每次重試時使用隨機的 User-Agent
+                    headers = get_random_headers()
+                    
+                    # 隨機延遲，避免請求過於頻繁
+                    delay = 1 + random.random() * 2  # 1-3秒隨機延遲
+                    if retries > 0:
+                        delay = retries * 2 + random.random() * 3  # 重試時增加延遲
+                    
+                    logger.info(f"正在抓取: {url} (嘗試 {retries + 1}/{MAX_RETRIES + 1})")
+                    await asyncio.sleep(delay)
+                    
+                    # 設置請求超時和重試選項
+                    timeout = aiohttp.ClientTimeout(total=TIMEOUT, connect=10, sock_connect=10, sock_read=10)
+                    
+                    # 使用自定義 SSL 上下文
+                    conn = aiohttp.TCPConnector(ssl=ssl_context, limit_per_host=5)
+                    
+                    # 設置會話 Cookie
+                    jar = aiohttp.CookieJar(unsafe=True)
+                    
+                    # 添加一些常見的 Cookie 以模擬瀏覽器
+                    cookie = aiohttp.CookieJar()
+                    cookie.update_cookies({
+                        'over18': '1',
+                        'adult': '1',
+                        'preferred_language': 'zh-TW',
+                        'country': 'TW',
+                    })
+                    
+                    # 設置隨機的 Referer
+                    if random.random() > 0.5:
+                        headers['Referer'] = 'https://www.atmovies.com.tw/'
+                    else:
+                        headers['Referer'] = 'https://www.google.com/'
+                    
+                    # 隨機添加一些額外的頭部信息
+                    if random.random() > 0.7:
+                        headers['X-Requested-With'] = 'XMLHttpRequest'
+                    
+                    # 設置會話
+                    async with aiohttp.ClientSession(
+                        headers=headers,
+                        timeout=timeout,
+                        connector=conn,
+                        cookie_jar=jar,
+                        trust_env=True
+                    ) as temp_session:
+                        # 添加隨機的查詢參數以避免緩存
+                        parsed_url = urlparse(url)
+                        query = dict(parse_qsl(parsed_url.query))
+                        query['_'] = str(int(time.time() * 1000))
+                        if random.random() > 0.7:
+                            query['__cf_chl_rt_tk'] = ''.join(random.choices('abcdef0123456789', k=32))
+                        
+                        url_with_params = url
+                        if query:
+                            url_with_params = f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path}?{urlencode(query)}&{parsed_url.query}" if parsed_url.query else f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path}?{urlencode(query)}"
+                        
+                        logger.debug(f"請求 URL: {url_with_params}")
+                        
+                        # 發送請求
+                        async with temp_session.get(url_with_params, allow_redirects=True) as response:
+                            if response.status == 200:
+                                html = await response.text()
+                                # 檢查是否被重定向到驗證頁面
+                                if '請輸入驗證碼' in html or 'Access Denied' in html or 'Cloudflare' in html:
+                                    logger.warning(f"觸發了防爬蟲驗證: {url}")
+                                    raise Exception("觸發了防爬蟲驗證")
+                                return BeautifulSoup(html, 'html.parser')
+                            else:
+                                logger.warning(f"HTTP錯誤: {response.status} - {url}")
+                                last_error = f"HTTP {response.status}"
+                except asyncio.TimeoutError:
+                    last_error = "請求超時"
+                    logger.warning(f"請求超時: {url}")
+                except aiohttp.ClientError as e:
+                    last_error = str(e)
+                    logger.error(f"客戶端錯誤: {e} - {url}")
                 except Exception as e:
+                    last_error = str(e)
                     logger.error(f"請求錯誤: {e} - {url}")
                 
                 retries += 1
                 if retries <= MAX_RETRIES:
-                    wait_time = retries  # 減少等待時間，加速重試
-                    logger.info(f"等待 {wait_time} 秒後重試...")
+                    wait_time = retries * 2 + random.random() * 3  # 指數退避 + 隨機延遲
+                    logger.info(f"等待 {wait_time:.1f} 秒後重試... (原因: {last_error})")
                     await asyncio.sleep(wait_time)
                 else:
                     logger.error(f"已達最大重試次數，跳過 URL: {url}")
-            
-            return None
+        
+        return None
     
     def get_region_list(self) -> List[Dict[str, str]]:
         """獲取所有區域列表，但只返回台北區域"""
-        # 只抽取台北區域
-        region_data = [
-            {'code': 'a02', 'name': '台北'},
+        # 只返回台北區域
+        regions = [
+            {'region_code': 'a02', 'region_name': '台北', 'url': f"{BASE_URL}a02/"}
         ]
-        
-        # 為台北區域構建URL和資訊
-        regions = []
-        for region in region_data:
-            region_url = f"{BASE_URL}{region['code']}/"
-            regions.append({
-                'region_code': region['code'],
-                'region_name': region['name'],
-                'url': region_url
-            })
-            
         logger.info(f"成功載入 {len(regions)} 個區域（只抽取台北區域）")
         return regions
     
@@ -316,13 +485,37 @@ class ATMoviesScraper:
     
     async def scrape_all(self):
         """主要非同步爬蟲流程，抓取所有資料"""
-        # 1. 獲取所有區域
+        start_time = time.time()
+        logger.info(f"開始執行爬蟲，時間: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        logger.info(f"設置為抓取 {DAYS_TO_SCRAPE} 天的場次資料，最大並發請求數: {MAX_CONCURRENT_REQUESTS}")
+        
+        # 初始化數據存儲
+        self.data = []
+        
+        # 獲取所有區域
         regions = self.get_region_list()
+        logger.info(f"成功載入 {len(regions)} 個區域")
         
-        # 2. 獲取日期列表
+        # 獲取日期列表
         dates = self.get_dates()
+        logger.info(f"抽取 {len(dates)} 天的場次資訊")
         
-        async with aiohttp.ClientSession(headers=HEADERS) as session:
+        # 使用優化的 aiohttp 客戶端配置
+        headers = get_random_headers()
+        connector = aiohttp.TCPConnector(
+            limit=CONNECTION_LIMIT,
+            ssl=ssl_context,
+            force_close=True,  # 強制關閉連接以避免連接洩漏
+            enable_cleanup_closed=True  # 清理已關閉的連接
+        )
+        timeout = aiohttp.ClientTimeout(total=TIMEOUT, connect=TIMEOUT/2)
+        
+        async with aiohttp.ClientSession(
+            headers=headers,
+            connector=connector,
+            timeout=timeout,
+            trust_env=True
+        ) as session:
             # 3. 並行獲取所有區域的電影院
             region_tasks = []
             for region in regions:
@@ -419,7 +612,7 @@ class ATMoviesScraper:
 async def main():
     start_time = time.time()
     logger.info(f"開始執行爬蟲，時間: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    logger.info(f"設置為抓取 3 天的場次資料，最大並發請求數: {MAX_CONCURRENT_REQUESTS}")
+    logger.info(f"設置為抓取 {DAYS_TO_SCRAPE} 天的場次資料，最大並發請求數: {MAX_CONCURRENT_REQUESTS}")
     
     scraper = ATMoviesScraper()
     await scraper.scrape_all()
