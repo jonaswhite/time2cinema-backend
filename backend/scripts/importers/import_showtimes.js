@@ -4,10 +4,13 @@ const path = require('path');
 const { Command } = require('commander');
 
 // 設定專案根目錄與輸出目錄
+// 使用絕對路徑確保檔案位置正確
 const PROJECT_ROOT = path.resolve(__dirname, '../..');
-const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
-const SCRAPERS_OUTPUT_DIR = path.join(OUTPUT_DIR, 'scrapers');
-const SHOWTIMES_FILE = path.join(SCRAPERS_OUTPUT_DIR, 'atmovies_showtimes.json');
+const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output', 'scrapers');
+const SHOWTIMES_FILE = path.join(OUTPUT_DIR, 'atmovies_showtimes.json');
+
+// 輸出檔案路徑用於除錯
+console.log('使用場次檔案路徑:', SHOWTIMES_FILE);
 
 // 資料庫連線設定
 const DB_CONFIGS = {
