@@ -78,6 +78,9 @@ jobs:
       # 執行資料庫匯入
       - name: Import movie data to database
         if: steps.env.outcome == 'success'
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db' }}
+          GITHUB_WORKSPACE: ${{ github.workspace }}
         run: |
           set -e  # 如果任何命令失敗，則退出
           
@@ -98,7 +101,6 @@ jobs:
           
           # 執行 JSON 匯入腳本
           echo "正在執行 JSON 匯入腳本..."
-          export DATABASE_URL="${{ secrets.DATABASE_URL }}"
           node scripts/importers/import_movies_from_json.js -f "../${{ env.LATEST_JSON }}"
           
           if [ $? -eq 0 ]; then
@@ -107,9 +109,6 @@ jobs:
             echo "錯誤：電影資料匯入失敗"
             exit 1
           fi
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db' }}
-          GITHUB_WORKSPACE: ${{ github.workspace }}
           
       # 記錄執行結果
       - name: Create log file
