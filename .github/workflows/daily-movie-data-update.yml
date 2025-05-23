@@ -75,12 +75,31 @@ jobs:
           cd backend
           npm install pg commander dotenv
 
+      # 設置資料庫環境變數
+      - name: Set up database environment
+        id: db_env
+        if: steps.env.outcome == 'success'
+        run: |
+          # 設置預設的 DATABASE_URL 如果 secrets.DATABASE_URL 不存在
+          if [ -z "${{ secrets.DATABASE_URL }}" ]; then
+            echo "DATABASE_URL=postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db" >> $GITHUB_ENV
+            echo "使用預設的 DATABASE_URL"
+          else
+            echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+            echo "使用 secrets 中的 DATABASE_URL"
+          fi
+          
+          # 設置 LATEST_JSON 環境變數
+          echo "LATEST_JSON=${{ env.LATEST_JSON }}" >> $GITHUB_ENV
+          
+          # 顯示除錯資訊
+          echo "DATABASE_URL 長度: ${#DATABASE_URL}"
+          
       # 執行資料庫匯入
       - name: Import movie data to database
-        if: steps.env.outcome == 'success'
+        if: steps.db_env.outcome == 'success'
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db' }}
-          GITHUB_WORKSPACE: ${{ github.workspace }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}
         run: |
           set -e  # 如果任何命令失敗，則退出
           
@@ -101,13 +120,26 @@ jobs:
           
           # 執行 JSON 匯入腳本
           echo "正在執行 JSON 匯入腳本..."
-          node scripts/importers/import_movies_from_json.js -f "../${{ env.LATEST_JSON }}"
+          echo "DATABASE_URL 在執行前: ${#DATABASE_URL} 字元"
           
-          if [ $? -eq 0 ]; then
-            echo "電影資料已成功匯入資料庫"
-          else
+          # 將 DATABASE_URL 寫入 .env 文件
+          echo "DATABASE_URL=$DATABASE_URL" > .env
+          
+          # 執行腳本並捕獲輸出
+          node scripts/importers/import_movies_from_json.js -f "../${{ env.LATEST_JSON }}" || {
             echo "錯誤：電影資料匯入失敗"
+            # 顯示 .env 文件內容（隱藏敏感信息）
+            if [ -f ".env" ]; then
+              echo "檢查 .env 文件內容（前10個字元）: $(head -c 10 .env)..."
+              rm -f .env
+            fi
             exit 1
+          }
+          
+          echo "電影資料已成功匯入資料庫"
+          # 刪除臨時 .env 文件
+          if [ -f ".env" ]; then
+            rm -f .env
           fi
           
       # 記錄執行結果
