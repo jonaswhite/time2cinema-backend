@@ -14,11 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Set up Node.js 20
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
           cache: 'npm'
+          check-latest: true
 
       - name: Install Puppeteer dependencies
         run: |
@@ -28,8 +29,11 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           cd backend
-          npm install pg commander@^11.0.0 puppeteer
+          npm ci
+          npm install puppeteer@latest
           npx puppeteer install chrome
+          # 確保使用正確的 Node.js 版本
+          node -v
 
       - name: Create necessary directories
         run: |
