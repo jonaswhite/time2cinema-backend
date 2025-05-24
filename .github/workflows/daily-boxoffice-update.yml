@@ -87,6 +87,6 @@ jobs:
         run: |
           cd backend
           echo "開始導入票房數據到遠端資料庫..."
-          # 使用環境變數指定資料庫 URL
-          node scripts/importers/import_boxoffice_v2.js
+          # 使用 --remote 參數指定使用遠端資料庫
+          node scripts/importers/import_boxoffice_v2.js --remote
           echo "票房數據導入完成"
