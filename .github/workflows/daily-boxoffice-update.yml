@@ -46,24 +46,21 @@ jobs:
         run: |
           cd backend
           echo "開始執行票房爬蟲..."
-          # 確保 cache 目錄存在
-          mkdir -p cache
+          # 確保輸出目錄存在
+          mkdir -p scripts/scrapers/output
           # 使用 --no-sandbox 參數來解決 GitHub Actions 中的 Chrome 問題
-          PUPPETEER_ARGS="--no-sandbox --disable-setuid-sandbox" node scripts/scrapers/boxoffice_scraper.js "./cache" 20 5000
+          PUPPETEER_ARGS="--no-sandbox --disable-setuid-sandbox" node scripts/scrapers/boxoffice_scraper.js
           echo "票房爬蟲執行完成"
           
           # 檢查輸出文件
-          if [ -f output/scrapers/boxoffice_data.json ]; then
+          if ls scripts/scrapers/output/boxoffice-*.json 1> /dev/null 2>&1; then
             echo "票房數據文件已生成"
             # 顯示文件大小
-            du -h output/scrapers/boxoffice_data.json
+            ls -lh scripts/scrapers/output/boxoffice-*.json
             # 顯示數據預覽
             echo "票房數據預覽:"
-            head -n 20 output/scrapers/boxoffice_data.json
-            
-            # 將輸出文件移動到 cache 目錄，供後續步驟使用
-            cp output/scrapers/boxoffice_data.json cache/boxoffice-$(date +%Y-%m-%d).json
-            echo "已複製票房數據到 cache 目錄"
+            head -n 20 scripts/scrapers/output/boxoffice-*.json
+            echo "已生成票房數據文件"
           else
             echo "錯誤：票房數據文件未生成"
             exit 1
@@ -83,6 +80,6 @@ jobs:
         run: |
           cd backend
           echo "開始導入票房數據到遠端資料庫..."
-          # 使用 --remote 參數指定使用遠端資料庫
-          node scripts/importers/import_boxoffice.js --remote --file "cache/boxoffice-$(date +%Y-%m-%d).json"
+          # 使用環境變數指定資料庫 URL
+          node scripts/importers/import_boxoffice_v2.js
           echo "票房數據導入完成"

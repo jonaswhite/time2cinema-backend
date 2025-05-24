@@ -4,8 +4,7 @@ const path = require('path');
 
 // 設定統一的輸出目錄結構
 const SCRIPT_DIR = __dirname;
-const PROJECT_ROOT = path.resolve(SCRIPT_DIR, '../..');
-const OUTPUT_DIR = path.join(PROJECT_ROOT, 'output');
+const OUTPUT_DIR = path.join(SCRIPT_DIR, 'output');
 const CACHE_DIR = path.join(OUTPUT_DIR, 'cache');
 
 // 確保目錄存在
@@ -26,9 +25,10 @@ async function downloadBoxOfficeNoDuplicates(outputDir = './', maxPages = 20, wa
     console.log(`開始使用 Puppeteer 下載台灣票房數據（按票數由高到低排序）...`);
     console.log(`頁面加載等待時間: ${waitTimeMs}ms, 最大頁數: ${maxPages}`);
     
-    // 確保輸出目錄存在
-    if (!fs.existsSync(outputDir)) {
-      fs.mkdirSync(outputDir, { recursive: true });
+    // 確保輸出目錄存在（使用絕對路徑）
+    const absoluteOutputDir = path.isAbsolute(outputDir) ? outputDir : path.join(process.cwd(), outputDir);
+    if (!fs.existsSync(absoluteOutputDir)) {
+      fs.mkdirSync(absoluteOutputDir, { recursive: true });
     }
     
     // 啟動瀏覽器
@@ -80,10 +80,6 @@ async function downloadBoxOfficeNoDuplicates(outputDir = './', maxPages = 20, wa
     console.log(`等待排序完成 (${waitTimeMs}ms)...`);
     await new Promise(resolve => setTimeout(resolve, waitTimeMs)); // 增加等待時間
     
-    // 截圖保存（排序後）
-    await page.screenshot({ path: path.join(outputDir, 'boxoffice-sorted.png'), fullPage: true });
-    console.log('已完成降冪排序');
-    
     // 獲取當前 URL，用於構建分頁 URL
     const currentUrl = await page.url();
     console.log(`當前頁面 URL: ${currentUrl}`);
@@ -134,9 +130,6 @@ async function downloadBoxOfficeNoDuplicates(outputDir = './', maxPages = 20, wa
     allData = allData.concat(firstPageData);
     console.log(`第 ${currentPage} 頁獲取到 ${firstPageData.length} 筆數據，其中 ${newMoviesCount} 筆為新數據`);
     
-    // 截圖保存（第一頁）
-    await page.screenshot({ path: path.join(outputDir, `boxoffice-page-${currentPage}.png`), fullPage: true });
-    
     // 循環獲取後續頁面數據
     while (hasNextPage && currentPage < maxPages && duplicateCount < maxDuplicates) {
       // 準備獲取下一頁
@@ -163,8 +156,6 @@ async function downloadBoxOfficeNoDuplicates(outputDir = './', maxPages = 20, wa
         });
         
         if (hasTable) {
-          // 截圖保存
-          await page.screenshot({ path: path.join(outputDir, `boxoffice-page-${currentPage}.png`), fullPage: true });
           
           // 獲取當前頁面數據
           const pageData = await getPageData(page);
@@ -341,23 +332,19 @@ async function downloadBoxOfficeNoDuplicates(outputDir = './', maxPages = 20, wa
       }
     }
     
-    // 保存為 JSON 檔案
-    const fileName = `boxoffice-${new Date().toISOString().split('T')[0]}.json`;
-    // 使用統一的輸出目錄，但仍然尊重命令行參數
-    const outputFile = outputDir === './' ? path.join(CACHE_DIR, fileName) : path.join(outputDir, fileName);
-    console.log(`輸出目錄: ${outputDir}, 實際輸出檔案: ${outputFile}`);
-    
-    // 構建完整的 JSON 結構
-    const result = {
+    // 儲存為 JSON 檔案（使用絕對路徑）
+    const today = new Date().toISOString().split('T')[0];
+    const outputFile = path.join(absoluteOutputDir, `boxoffice-${today}.json`);
+    fs.writeFileSync(outputFile, JSON.stringify({
       headers: ['排名', '國別', '片名', '上映日期', '發行公司', '週票房', '週票房變動', '週票數', '週票數變動', '週數', '總票房', '總票數'],
       data: uniqueData,
       totalPages: currentPage,
       totalRecords: uniqueData.length,
       uniqueMovies: uniqueKeys.size,
       downloadDate: new Date().toISOString()
-    };
+    }, null, 2), 'utf8');
     
-    fs.writeFileSync(outputFile, JSON.stringify(result, null, 2), 'utf8');
+    console.log(`輸出目錄: ${absoluteOutputDir}`);
     console.log(`成功將所有頁面數據保存到: ${outputFile}`);
     console.log(`共獲取 ${currentPage} 頁，總計 ${uniqueData.length} 筆唯一數據`);
     
@@ -402,21 +389,54 @@ async function getPageData(page) {
   });
 }
 
+// 解析命令行參數
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const options = {
+    outputDir: './output',
+    maxPages: 20,
+    waitTimeMs: 5000
+  };
+
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    if (arg === '--output-dir' && args[i + 1]) {
+      options.outputDir = args[++i];
+    } else if (arg === '--max-pages' && args[i + 1]) {
+      options.maxPages = parseInt(args[++i], 10) || 20;
+    } else if (arg === '--wait-time' && args[i + 1]) {
+      options.waitTimeMs = parseInt(args[++i], 10) || 5000;
+    }
+  }
+
+  return options;
+}
+
 // 如果直接執行此腳本
 if (require.main === module) {
-  // 解析命令行參數
-  const args = process.argv.slice(2);
-  const outputDir = args[0] || './';
-  const maxPages = parseInt(args[1] || '20', 10);
-  const waitTimeMs = parseInt(args[2] || '5000', 10);
+  const { outputDir, maxPages, waitTimeMs } = parseArgs();
   
-  // 執行下載
-  downloadBoxOfficeNoDuplicates(outputDir, maxPages, waitTimeMs)
+  // 強制使用 backend/scripts/scrapers/output 目錄
+  const finalOutputDir = path.join(__dirname, 'output');
+  
+  // 確保輸出目錄存在
+  if (!fs.existsSync(finalOutputDir)) {
+    fs.mkdirSync(finalOutputDir, { recursive: true });
+  }
+  
+  console.log(`將票房資料儲存至: ${finalOutputDir}`);
+  
+  downloadBoxOfficeNoDuplicates(
+    finalOutputDir,  // 強制使用指定目錄
+    maxPages || 20,
+    waitTimeMs || 5000
+  )
     .then(filePath => {
       console.log(`下載完成! 檔案保存在: ${filePath}`);
+      process.exit(0);
     })
-    .catch(err => {
-      console.error('下載過程中發生錯誤:', err.message);
+    .catch(error => {
+      console.error('下載過程中發生錯誤:', error);
       process.exit(1);
     });
 } else {

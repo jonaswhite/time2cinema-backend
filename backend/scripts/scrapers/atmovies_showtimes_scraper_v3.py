@@ -32,7 +32,7 @@ logger = logging.getLogger(__name__)
 # 常數設定
 BASE_URL = "https://www.atmovies.com.tw/showtime/"
 MAX_RETRIES = 2  # 最大重試次數
-TIMEOUT = 10  # 請求超時時間
+TIMEOUT = 10   # 請求超時時間
 DAYS_TO_SCRAPE = 3  # 要爬取的天數
 MAX_CONCURRENT_REQUESTS = 5  # 最大並發請求數
 CONNECTION_LIMIT = 10  # 連接池大小
