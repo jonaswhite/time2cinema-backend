@@ -17,7 +17,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20.x'
+          cache: 'npm'
 
       - name: Install Puppeteer dependencies
         run: |
@@ -27,8 +28,8 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           cd backend
-          npm install
-          npx puppeteer browsers install chrome
+          npm install pg commander@^11.0.0 puppeteer
+          npx puppeteer install chrome
 
       - name: Create necessary directories
         run: |
@@ -71,7 +72,9 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           cd backend
-          npm install pg commander
+          npm install pg commander@^11.0.0
+          # 確保 Puppeteer 相關套件正確安裝
+          npm install puppeteer @puppeteer/browsers
           
       # 執行票房數據導入
       - name: Import boxoffice data to remote database
