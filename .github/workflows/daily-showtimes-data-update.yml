@@ -34,12 +34,16 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           cd backend
-          # 安裝 package.json 中的依賴
+          # 清理現有的 node_modules 和 package-lock.json
+          rm -rf node_modules package-lock.json
+          # 安裝 puppeteer 作為主要依賴
+          npm install puppeteer@latest
+          # 安裝其他依賴
           npm install
           # 安裝其他必要的開發依賴
           npm install --save-dev commander pg csv-parser
-          # 安裝 Puppeteer 和 Chrome
-          npx puppeteer browsers install chrome
+          # 確保 puppeteer 的瀏覽器已下載
+          npx puppeteer install
 
       - name: Install Python dependencies
         run: |
