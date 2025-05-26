@@ -136,18 +136,37 @@ export const getNowShowingMovies = async (
     }
     
     // 處理電影資料
-    const movies = result.rows.map(movie => ({
-      ...movie,
-      // 確保所有必要的欄位都有預設值
-      title: movie.title || '未知電影',
-      original_title: movie.original_title || movie.title || '未知電影',
-      poster_url: movie.poster_url || 'https://via.placeholder.com/500x750?text=No+Poster+Available',
-      // 確保陣列類型的欄位至少是空陣列
-      genres: movie.genres || [],
-      production_companies: movie.production_companies || [],
-      production_countries: movie.production_countries || [],
-      spoken_languages: movie.spoken_languages || []
-    }));
+    const movies = result.rows.map(movie => {
+      // 確保有有效的海報 URL
+      let posterUrl = movie.poster_url;
+      if (!posterUrl || posterUrl === '') {
+        // 如果沒有海報，使用預設圖片，並在 URL 中包含電影名稱作為提示
+        const movieName = encodeURIComponent(movie.chinese_title || movie.english_title || 'No+Poster');
+        posterUrl = `https://via.placeholder.com/500x750?text=${movieName}`;
+        
+        // 記錄缺少海報的電影（僅在開發環境）
+        if (process.env.NODE_ENV !== 'production') {
+          console.log(`電影 ${movie.chinese_title || movie.english_title} 缺少海報，使用預設圖片`);
+        }
+      } else if (posterUrl.startsWith('/')) {
+        // 如果是相對路徑，添加 atmovies 基礎 URL
+        posterUrl = `https://www.atmovies.com.tw${posterUrl}`;
+      }
+      // 如果 poster_url 已經是完整 URL 或 atmovies 的 URL，則保持不變
+
+      return {
+        ...movie,
+        // 確保所有必要的欄位都有預設值
+        title: movie.chinese_title || movie.english_title || '未知電影',
+        original_title: movie.english_title || movie.chinese_title || '未知電影',
+        poster_url: posterUrl,
+        // 確保陣列類型的欄位至少是空陣列
+        genres: movie.genres || [],
+        production_companies: movie.production_companies || [],
+        production_countries: movie.production_countries || [],
+        spoken_languages: movie.spoken_languages || []
+      };
+    });
     
     // 將結果寫入快取
     try {
