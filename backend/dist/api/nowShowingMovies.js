@@ -95,17 +95,7 @@ const getNowShowingMovies = async (req, res, next) => {
         INNER JOIN showtimes s ON m.id = s.movie_id
         WHERE s.date >= $1
         GROUP BY m.id, m.chinese_title, m.english_title, m.full_title, m.release_date, m.runtime, m.tmdb_id, m.poster_url
-        ORDER BY 
-          CASE 
-            WHEN m.release_date IS NULL OR m.release_date = '' THEN 1  -- 將 NULL 或空字串視為未知
-            WHEN m.release_date = '未知' THEN 1  -- 明確檢查「未知」字串
-            ELSE 0 
-          END,  -- 將未知日期的電影放在最後面
-          CASE 
-            WHEN m.release_date IS NULL OR m.release_date = '' OR m.release_date = '未知' THEN NULL
-            ELSE m.release_date::date 
-          END ASC,  -- 按照上映日期升序排列（越接近的放前面）
-          COALESCE(m.chinese_title, m.english_title, '')  -- 如果日期相同，再按中文和英文標題排序`, [today]);
+        ORDER BY m.release_date DESC NULLS LAST  -- 按照上映日期降序排列，NULL 值放在最後`, [today]);
             console.log(`成功查詢到 ${result.rows.length} 部電影`);
             // 處理查詢結果
             const movies = result.rows.map((row) => {
