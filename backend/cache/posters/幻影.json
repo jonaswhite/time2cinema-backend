@@ -1,0 +1,70 @@
+{
+  "adult": false,
+  "backdrop_path": "/cnBhrJb2gCBJdrV2DlCbwCLDLEe.jpg",
+  "genre_ids": [
+    53
+  ],
+  "id": 152259,
+  "original_language": "en",
+  "original_title": "Phantom",
+  "overview": "根據真實故事改編，敘述冷戰時期一名鑑長在退休前夕接到秘密任務，必須駕駛一艘即將退役的導彈潛艇執行最後一次航行。同行的技術人員帶著實驗設備，告知準備測試潛艇是否能躲過敵軍聲納探測，但其實他們是反動組織，正覬覦鑑長的核導彈控制權。",
+  "popularity": 1.438,
+  "poster_path": "/o67fuhbwvAZ26PwnOj5v8uyqy5x.jpg",
+  "release_date": "2013-01-03",
+  "title": "幻影計畫",
+  "video": false,
+  "vote_average": 5.863,
+  "vote_count": 329,
+  "belongs_to_collection": null,
+  "budget": 10000000,
+  "genres": [
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt1922685",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 2231,
+      "logo_path": "/zJBTkTxy0UiQETGRynEqxiFbmL8.png",
+      "name": "Trilogy Entertainment Group",
+      "origin_country": "US"
+    },
+    {
+      "id": 17837,
+      "logo_path": null,
+      "name": "RCR Media Group",
+      "origin_country": ""
+    },
+    {
+      "id": 22564,
+      "logo_path": null,
+      "name": "Solar Filmworks",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 1197759,
+  "runtime": 99,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/o67fuhbwvAZ26PwnOj5v8uyqy5x.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/cnBhrJb2gCBJdrV2DlCbwCLDLEe.jpg"
+}

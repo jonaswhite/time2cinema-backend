@@ -1,0 +1,75 @@
+{
+  "adult": false,
+  "backdrop_path": "/hUpHXyLRNvtt0AAwdPmUsSQQKB8.jpg",
+  "genre_ids": [
+    35,
+    27
+  ],
+  "id": 273477,
+  "original_language": "en",
+  "original_title": "Scouts Guide to the Zombie Apocalypse",
+  "overview": "描述三位童子軍在他們露營的最後一晚，闖入被殭屍大舉入侵的小鎮，還結識了超殺的女服務生，這群烏合之眾意外集結成一支怎麼看都很違和的殺殭屍英雄團隊，為了殺出一條血路並拯救被殭屍摧殘的小鎮，他們必須利用所學的童子軍技能，想辦法讓人類存活下去。",
+  "popularity": 9.8374,
+  "poster_path": "/cCIAiXCAYz3DQ3uuqqvDBAnLiA2.jpg",
+  "release_date": "2015-10-23",
+  "title": "殭屍教戰守則",
+  "video": false,
+  "vote_average": 6.541,
+  "vote_count": 1964,
+  "belongs_to_collection": null,
+  "budget": 15000000,
+  "genres": [
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 27,
+      "name": "恐怖"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt1727776",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 8000,
+      "logo_path": "/f8NwLg72BByt3eav7lX1lcJfe60.png",
+      "name": "Broken Road Productions",
+      "origin_country": "US"
+    },
+    {
+      "id": 69656,
+      "logo_path": null,
+      "name": "Brucks Entertainment",
+      "origin_country": ""
+    },
+    {
+      "id": 5698,
+      "logo_path": "/meGyUgXybl2X0uJlnvaAWSwVZvt.png",
+      "name": "Oops Doughnuts Productions",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 14900000,
+  "runtime": 93,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/cCIAiXCAYz3DQ3uuqqvDBAnLiA2.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/hUpHXyLRNvtt0AAwdPmUsSQQKB8.jpg"
+}

@@ -1,0 +1,51 @@
+{
+  "adult": false,
+  "backdrop_path": "/6NcKrqiQuyuzUL1CN9HT4eVcFdv.jpg",
+  "genre_ids": [
+    99
+  ],
+  "id": 1168337,
+  "original_language": "zh",
+  "original_title": "赤心巔峰",
+  "overview": "中央山脈以臺灣島的屋脊著稱，這條險阻的山徑有138座超過3000公尺海拔的高峰，南北全長超過300公里；古明政與周青二位越野跑者，年齡相差三十歲、橫跨不同世代，卻同樣擁有挑戰極限的赤子之心。他們歷經三年來的訓練、探勘，身影橫越一座座山嶺。然而，日復一日的疲累與負傷，積累著壓力，一度令人懷疑自我。山脈的挑戰和人生起伏一樣，如何克服曲折艱困，超越自我？",
+  "popularity": 0.0368,
+  "poster_path": "/4qkvv9xiZ4d2vfwWMTJjtbM1Th.jpg",
+  "release_date": "2023-10-14",
+  "title": "赤心巔峰",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 99,
+      "name": "纪录"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 105,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/4qkvv9xiZ4d2vfwWMTJjtbM1Th.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/6NcKrqiQuyuzUL1CN9HT4eVcFdv.jpg"
+}

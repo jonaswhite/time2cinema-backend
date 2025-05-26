@@ -1,0 +1,69 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    36,
+    80
+  ],
+  "id": 1268630,
+  "original_language": "zh",
+  "original_title": "搜查瑠公圳",
+  "overview": "1961年的台北，刑警趙子午（朱軒洋飾演）與記者張秀秀（吳卓源飾演）在新生南路附近的水圳發現一具遭肢解的女屍，兩人組成臨時搭擋，在全⺠熱議與媒體編造亂報下，試圖尋找線索！沒想到趙子午的父親趙志昇將軍（張世飾演）竟被捲入其中，被指控為分屍案嫌犯。誓言為趙志昇洗刷清白的兩人究竟該如何破解迷局，找出真相呢？",
+  "popularity": 0.9193,
+  "poster_path": "/dI2GTY54Beqq9JfKc5J8EqyJ1bB.jpg",
+  "release_date": "2025-05-22",
+  "title": "搜查瑠公圳",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 36,
+      "name": "历史"
+    },
+    {
+      "id": 80,
+      "name": "犯罪"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt35932291",
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [
+    {
+      "id": 180273,
+      "logo_path": "/yZ4kDEVCxLCodwYYjzqdgDN1bRY.png",
+      "name": "Bole Film",
+      "origin_country": "TW"
+    },
+    {
+      "id": 123318,
+      "logo_path": "/kCxi4hWnkpWOi8iCoZDMDjwVDIc.png",
+      "name": "Outland Film Production",
+      "origin_country": "TW"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 0,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "戒嚴時期，我們需要兇手，還是真相？",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/dI2GTY54Beqq9JfKc5J8EqyJ1bB.jpg",
+  "fullBackdropPath": null
+}

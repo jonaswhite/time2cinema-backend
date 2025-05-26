@@ -1,0 +1,74 @@
+{
+  "adult": false,
+  "backdrop_path": "/fKnBtwG0YPeyuAcx5chD2ca9vRb.jpg",
+  "genre_ids": [
+    18,
+    14
+  ],
+  "id": 878977,
+  "original_language": "bo",
+  "original_title": "གཅིག་དང་བཞི།",
+  "overview": "暴風雪夜，護林員桑傑（金巴 飾）的小屋突然闖進了一位自稱是森林公安的持槍男子（王錚 飾），埋伏並抓捕了疑似盜獵接頭人的村民根寶（更旦 飾），驚魂未定間，又一位男子（達傑丁增 飾）持槍闖入，聲稱他才是真的森林公安……是誰開了槍？誰又在說謊？這場荒野逃殺還暗藏哪些秘密？真相撲朔迷離，一時殺機四起，而屋外始終有一雙眼睛在冰冷地注視著這一切……",
+  "popularity": 0.2949,
+  "poster_path": "/2JSS2O70l2JpNiQcKD90LDPgzmQ.jpg",
+  "release_date": "2023-10-27",
+  "title": "一個和四個",
+  "video": false,
+  "vote_average": 6.2,
+  "vote_count": 18,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt15560714",
+  "origin_country": [
+    "CN"
+  ],
+  "production_companies": [
+    {
+      "id": 130075,
+      "logo_path": null,
+      "name": "Mani Stone Pictures",
+      "origin_country": "CN"
+    },
+    {
+      "id": 122699,
+      "logo_path": null,
+      "name": "iQIYI Pictures",
+      "origin_country": "CN"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "CN",
+      "name": "China"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 88,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    },
+    {
+      "english_name": "Tibetan",
+      "iso_639_1": "bo",
+      "name": ""
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/2JSS2O70l2JpNiQcKD90LDPgzmQ.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/fKnBtwG0YPeyuAcx5chD2ca9vRb.jpg"
+}

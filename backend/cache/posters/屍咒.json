@@ -1,0 +1,92 @@
+{
+  "adult": false,
+  "backdrop_path": "/gkd9A6PKd3W4BryClsF4dcU7Qmq.jpg",
+  "genre_ids": [
+    53,
+    9648,
+    27
+  ],
+  "id": 724885,
+  "original_language": "ko",
+  "original_title": "방법: 재차의",
+  "overview": "在殺人案現場發現了被害者與嫌犯的遺體，然而嫌犯早已在三個月前死亡，這令警方陷入混亂。另一方面，追查懸疑事件的記者林珍熙（嚴志媛 飾）在廣播節目中，接到自稱是殺人案真凶的電話，對方表示想在直播中接受專訪。警方與網友們都十分關注林珍熙記者的直播節目，專訪當天現身的嫌犯預告甦醒的屍體「在此矣」，將犯下第三起殺人案……預告殺人的那天，出現了龐大的「在此矣」活死人軍團，開始無差別攻擊民眾，警方出動所有警力也束手無策，究竟操控這些活屍的幕後主使者是誰？阻止他們唯一的「謗法」即將到來！",
+  "popularity": 2.6579,
+  "poster_path": "/qcL6bBs4maqjdoGxX7R8hoNPb1I.jpg",
+  "release_date": "2021-07-28",
+  "title": "咒術屍戰",
+  "video": false,
+  "vote_average": 7.482,
+  "vote_count": 137,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 53,
+      "name": "惊悚"
+    },
+    {
+      "id": 9648,
+      "name": "悬疑"
+    },
+    {
+      "id": 27,
+      "name": "恐怖"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt17640714",
+  "origin_country": [
+    "KR"
+  ],
+  "production_companies": [
+    {
+      "id": 127541,
+      "logo_path": "/Aq35mXuZv7lhPm8a60YKRaB9Vek.png",
+      "name": "Climax Studios",
+      "origin_country": "KR"
+    },
+    {
+      "id": 86418,
+      "logo_path": "/vzzqRwqTin3iAAMw2JlrmVPNnPa.png",
+      "name": "Studio Dragon",
+      "origin_country": "KR"
+    },
+    {
+      "id": 7036,
+      "logo_path": "/javbyY0ZCvlFJtly3tpZqf2NwLX.png",
+      "name": "CJ Entertainment",
+      "origin_country": "KR"
+    },
+    {
+      "id": 15975,
+      "logo_path": "/ewSxMJt8IeFHSOqfyKn1scZoOur.png",
+      "name": "KEYEAST",
+      "origin_country": "KR"
+    },
+    {
+      "id": 128404,
+      "logo_path": "/dP3usmr6di1jMPH738rvbxdkmSQ.png",
+      "name": "CJ ENM",
+      "origin_country": "KR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "revenue": 1875549,
+  "runtime": 110,
+  "spoken_languages": [
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    }
+  ],
+  "status": "Released",
+  "tagline": "甦醒的屍體‘在此矣’大開殺戒，阻止他們唯一的‘謗法’即將到來！",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/qcL6bBs4maqjdoGxX7R8hoNPb1I.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/gkd9A6PKd3W4BryClsF4dcU7Qmq.jpg"
+}

@@ -1,0 +1,56 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    10770,
+    18
+  ],
+  "id": 1175095,
+  "original_language": "zh",
+  "original_title": "煙起的地方",
+  "overview": "改編真人真事。故事描述屏東部落中，排灣族「靈媒」文化即將凋落。一位在城市具有醫生執照的裘布朗，在醫院巧遇兒時同伴少尼瑤。陰錯陽差的兩人紛紛回到部落中，用科學的方式、母語教學等力量開設「靈媒訓練班」，儘管受到具有「靈媒」身份的家族長輩所排斥，但眾人漸漸成為後盾力量，讓碩果僅存的「靈媒」得以繼續傳承。",
+  "popularity": 0.0637,
+  "poster_path": null,
+  "release_date": "2017-04-14",
+  "title": "煙起的地方",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 10770,
+      "name": "电视电影"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "https://www.ipcf.org.tw/zh-TW/Program/Program_Detail?programID=22100514571336151&categoryID=21080616355616168",
+  "imdb_id": null,
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 78,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": null,
+  "fullBackdropPath": null
+}

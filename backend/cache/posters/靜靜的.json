@@ -1,0 +1,71 @@
+{
+  "adult": false,
+  "backdrop_path": "/tZp7sMDJLDcvi68lmRuCbiAJ5y2.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 335663,
+  "original_language": "fr",
+  "original_title": "Ladygrey",
+  "overview": "廢除種族隔離後十年，南非小鎮\"萊帝葛雷\"曾發生一件種族歧視的衝突事件，白人警察焚火燒死十一位黑人，憤怒的暴徒為了報復，淹死了兩位白人護士。十年後，每個人心中有著不同的悲傷與秘密，伯格曼太太還在等待丈夫失蹤的屍體；失去護士妻子的山謬，因為膚色問題在當地的工作不順遂，與他傷心的兒子相依為命；奧莉維與警察先生安格斯之間的秘密。一切看似和平的小鎮，在奧莉維的好奇心下將解開埋藏已久的感情和恩怨。",
+  "popularity": 0.3118,
+  "poster_path": "/zTC5szHPe2mu4Uzje0L2m2Gfg2j.jpg",
+  "release_date": "2015-05-06",
+  "title": "靜靜的綠河",
+  "video": false,
+  "vote_average": 4.5,
+  "vote_count": 12,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt1847529",
+  "origin_country": [
+    "FR"
+  ],
+  "production_companies": [
+    {
+      "id": 2137,
+      "logo_path": "/zTHaMcMvmXhIx4e2e7Df7azc0fC.png",
+      "name": "Le Bureau",
+      "origin_country": "FR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "ZA",
+      "name": "South Africa"
+    },
+    {
+      "iso_3166_1": "FR",
+      "name": "France"
+    },
+    {
+      "iso_3166_1": "BE",
+      "name": "Belgium"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 109,
+  "spoken_languages": [
+    {
+      "english_name": "French",
+      "iso_639_1": "fr",
+      "name": "Français"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/zTC5szHPe2mu4Uzje0L2m2Gfg2j.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/tZp7sMDJLDcvi68lmRuCbiAJ5y2.jpg"
+}

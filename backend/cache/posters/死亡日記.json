@@ -1,0 +1,75 @@
+{
+  "adult": false,
+  "backdrop_path": "/6b6UpsOXmjO8mJKYsGTG9HW49CN.jpg",
+  "genre_ids": [
+    18,
+    10749
+  ],
+  "id": 1443,
+  "original_language": "en",
+  "original_title": "The Virgin Suicides",
+  "overview": "七十年代密切根州，李斯本夫婦是天主教徒，李斯本是一高中數學老師，妻子則是家庭主婦，對五名女兒管教甚嚴，本來平凡的小鎮生活，卻因小女兒茜茜莉亞自殺而改變。左鄰右里皆對她自殺原因諸多揣測，住在他們附近的四名男孩，開始注意她的四位姐姐的一舉一動。其中一名男孩更取得茜茜莉亞的日記，從中得知更多……",
+  "popularity": 5.8995,
+  "poster_path": "/iBLu2Zw8RAPwqMy5YnM5R9XNn2w.jpg",
+  "release_date": "2000-04-21",
+  "title": "死亡日記",
+  "video": false,
+  "vote_average": 7.122,
+  "vote_count": 3378,
+  "belongs_to_collection": null,
+  "budget": 6000000,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 10749,
+      "name": "爱情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt0159097",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 70,
+      "logo_path": "/ueaENQkPcy8rlr5fGZVBXKOhlBh.png",
+      "name": "American Zoetrope",
+      "origin_country": "US"
+    },
+    {
+      "id": 15231,
+      "logo_path": "/iFbzMtXFBv2ekA9Ldrw6LqjLrvX.png",
+      "name": "Muse Productions",
+      "origin_country": "US"
+    },
+    {
+      "id": 717,
+      "logo_path": null,
+      "name": "Eternity Pictures",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 10409377,
+  "runtime": 97,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/iBLu2Zw8RAPwqMy5YnM5R9XNn2w.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/6b6UpsOXmjO8mJKYsGTG9HW49CN.jpg"
+}

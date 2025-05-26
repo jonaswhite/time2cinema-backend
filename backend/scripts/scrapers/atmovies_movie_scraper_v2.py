@@ -76,7 +76,7 @@ MAX_RETRIES = 3  # 最大重試次數
 RETRY_DELAY = 3  # 重試間隔時間(秒)
 
 # 資料庫連接資訊
-DB_URL = "postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db"
+DB_URL = "postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com:5432/time2cinema_db?sslmode=require"
 
 # 電影清單頁面
 FIRST_RUN_URL = "https://www.atmovies.com.tw/movie/now/1/"
@@ -98,10 +98,38 @@ class ATMoviesMovieScraper:
         import psycopg2
         from psycopg2.extras import DictCursor
         
-        # 建立資料庫連接
-        self.conn = psycopg2.connect(DB_URL, cursor_factory=DictCursor)
-        self.cursor = self.conn.cursor()
-        return self
+        try:
+            # 建立資料庫連接
+            logger.info(f"正在連接到資料庫: {DB_URL.split('@')[-1]}")
+            
+            # 添加 SSL 連接選項
+            ssl_params = {
+                'sslmode': 'require',
+                'sslrootcert': '/etc/ssl/certs/ca-certificates.crt'  # 標準的 CA 證書路徑
+            }
+            
+            # 建立連接
+            self.conn = psycopg2.connect(
+                DB_URL,
+                cursor_factory=DictCursor,
+                sslmode='require'
+            )
+            self.cursor = self.conn.cursor()
+            
+            # 測試連線
+            self.cursor.execute("SELECT 1")
+            logger.info("資料庫連線測試成功")
+            
+            # 設定搜尋路徑
+            self.cursor.execute("SET search_path TO public")
+            self.conn.commit()
+            return self
+            
+        except Exception as e:
+            logger.error(f"資料庫連線失敗: {e}")
+            if hasattr(self, 'conn') and self.conn:
+                self.conn.close()
+            raise
         
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         """非同步上下文管理器退出點，用於清理資源"""
@@ -543,6 +571,10 @@ class ATMoviesMovieScraper:
     async def save_movie_to_db(self, movie_data: Dict[str, Any]) -> bool:
         """將電影資訊存入資料庫"""
         try:
+            if not hasattr(self, 'conn') or self.conn.closed:
+                logger.error("資料庫連接未建立或已關閉")
+                return False
+                
             # 記錄要保存的電影資料
             logger.debug(f"準備保存電影到資料庫: {movie_data['atmovies_id']}")
             logger.debug(f"  完整標題: {movie_data['full_title']}")
@@ -550,6 +582,7 @@ class ATMoviesMovieScraper:
             logger.debug(f"  英文標題: {movie_data['english_title']}")
             logger.debug(f"  片長: {movie_data['runtime']}")
             logger.debug(f"  上映日期: {movie_data['release_date']}")
+            logger.debug(f"  海報URL: {movie_data.get('poster_url', '無')}")
             
             # 檢查電影是否已存在
             self.cursor.execute(
@@ -569,7 +602,8 @@ class ATMoviesMovieScraper:
                 self.cursor.execute(
                     """
                     UPDATE movies 
-                    SET full_title = %s, chinese_title = %s, english_title = %s, runtime = %s, release_date = %s, updated_at = NOW()
+                    SET full_title = %s, chinese_title = %s, english_title = %s, 
+                        runtime = %s, release_date = %s, poster_url = %s, updated_at = NOW()
                     WHERE atmovies_id = %s
                     RETURNING id
                     """,
@@ -579,6 +613,7 @@ class ATMoviesMovieScraper:
                         movie_data["english_title"],
                         movie_data["runtime"],
                         movie_data["release_date"],
+                        movie_data.get("poster_url"),  # 使用 get 避免 KeyError
                         movie_data["atmovies_id"]
                     )
                 )
@@ -591,8 +626,11 @@ class ATMoviesMovieScraper:
                 # 新增電影
                 self.cursor.execute(
                     """
-                    INSERT INTO movies (atmovies_id, full_title, chinese_title, english_title, runtime, release_date, created_at, updated_at, source)
-                    VALUES (%s, %s, %s, %s, %s, %s, NOW(), NOW(), 'atmovies')
+                    INSERT INTO movies (
+                        atmovies_id, full_title, chinese_title, english_title, 
+                        runtime, release_date, poster_url, created_at, updated_at, source
+                    )
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, NOW(), NOW(), 'atmovies')
                     RETURNING id
                     """,
                     (
@@ -601,7 +639,8 @@ class ATMoviesMovieScraper:
                         movie_data["chinese_title"],
                         movie_data["english_title"],
                         movie_data["runtime"],
-                        movie_data["release_date"]
+                        movie_data["release_date"],
+                        movie_data.get("poster_url")  # 使用 get 避免 KeyError
                     )
                 )
                 self.conn.commit()

@@ -1,0 +1,63 @@
+{
+  "adult": false,
+  "backdrop_path": "/18KKoObAPj1lykfEaqCASPnlUg8.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 1200063,
+  "original_language": "zh",
+  "original_title": "猎金·游戏",
+  "overview": "高寒(歐豪飾)因好友楚峰的家族企業「卓通」進行上市籌備,得到國際投資銀行「藍石」的實習機會,一到公司就不得副總裁海倫的重視,但首席分析師Todd(劉德華飾)很賞識他。當海倫開啟「HC工業」的公開招股籌備,Todd 看出風險,不同意此案,但海倫利誘高寒倒戈,高寒在壓力下背叛Todd,讓 Todd 離開此行業,高寒則平步青雲。海倫將「卓通」上市工作委任給高寒,但她聯合「卓通」的競爭對手展開惡意收購,楚峰父親因受刺激去世。高寒極度後悔,求Todd出山相助,他們是否能逆勢翻盤,奪回控股權...",
+  "popularity": 2.1731,
+  "poster_path": "/pkBo9c6wzfdZTQjTrkHzauSVbcG.jpg",
+  "release_date": "2025-05-01",
+  "title": "獵金·遊戲",
+  "video": false,
+  "vote_average": 7,
+  "vote_count": 1,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt23461006",
+  "origin_country": [
+    "CN",
+    "HK"
+  ],
+  "production_companies": [
+    {
+      "id": 20543,
+      "logo_path": null,
+      "name": "Universe Entertainment",
+      "origin_country": "HK"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "CN",
+      "name": "China"
+    },
+    {
+      "iso_3166_1": "HK",
+      "name": "Hong Kong"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 110,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/pkBo9c6wzfdZTQjTrkHzauSVbcG.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/18KKoObAPj1lykfEaqCASPnlUg8.jpg"
+}

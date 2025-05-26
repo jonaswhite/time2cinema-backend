@@ -1,0 +1,46 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    18
+  ],
+  "id": 848145,
+  "original_language": "zh",
+  "original_title": "水鬼",
+  "overview": "",
+  "popularity": 0.0143,
+  "poster_path": "/1Rd2k59suvKQrq9sb54uwnPcQub.jpg",
+  "release_date": "2021-07-30",
+  "title": "水鬼",
+  "video": false,
+  "vote_average": 1,
+  "vote_count": 1,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "CN"
+  ],
+  "production_companies": [],
+  "production_countries": [],
+  "revenue": 0,
+  "runtime": 5,
+  "spoken_languages": [
+    {
+      "english_name": "No Language",
+      "iso_639_1": "xx",
+      "name": "No Language"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/1Rd2k59suvKQrq9sb54uwnPcQub.jpg",
+  "fullBackdropPath": null
+}

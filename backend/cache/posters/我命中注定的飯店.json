@@ -1,0 +1,69 @@
+{
+  "adult": false,
+  "backdrop_path": "/9Z8CgudX8j6Madv9C5cFjjn4XoV.jpg",
+  "genre_ids": [
+    18,
+    35
+  ],
+  "id": 1329671,
+  "original_language": "ja",
+  "original_title": "私にふさわしいホテル",
+  "overview": "一心想成為小說家的新人獎得主加代子（NON 飾），出道作品慘遭文壇巨擘東十條宗典（瀧藤賢一 飾）無情痛批，落到連出版的機會都沒有。她會將這場恩怨拋諸腦後嗎？當加代子好不容易住進所有文人夢想中的「山之上飯店」，她卻發現住在樓上房間的客人居然是…東十條！大學時代的學長、如今是大出版社王牌編輯的遠藤（田中圭 飾）是她唯一的盟友，兩人決心打破出版界的潛規則，聯手對抗文壇的權威與體制。加代子憑著異想天開的策略，成功破壞東十條的寫作計畫，讓他錯過了文學雜誌的截稿日，然而，這將是更多不幸與試煉的開始。加代子與東十條的宿命對決有如天雷勾動地火，沒完沒了地展開。下剋上，這是一場痛快又啼笑皆非的文壇復仇記。",
+  "popularity": 0.8146,
+  "poster_path": "/ey2fzSJehm1vFgnfmkUXzozxV8S.jpg",
+  "release_date": "2024-12-27",
+  "title": "我命中注定的飯店",
+  "video": false,
+  "vote_average": 8.5,
+  "vote_count": 2,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt34386271",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 955,
+      "logo_path": "/5xnXD3PJI1HqOJceSAKZ3fDqO1V.png",
+      "name": "Nikkatsu Corporation",
+      "origin_country": "JP"
+    },
+    {
+      "id": 11848,
+      "logo_path": "/A3abKfh7dXwPdXJc3A551q8XnOC.png",
+      "name": "KDDI",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 100,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/ey2fzSJehm1vFgnfmkUXzozxV8S.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/9Z8CgudX8j6Madv9C5cFjjn4XoV.jpg"
+}

@@ -1,0 +1,46 @@
+{
+  "adult": false,
+  "backdrop_path": null,
+  "genre_ids": [
+    99
+  ],
+  "id": 1461391,
+  "original_language": "zh",
+  "original_title": "守護我們的星球",
+  "overview": "本片是台灣第一部跨越南北極的生態電影，更是首度以台灣觀點、為地球生態發聲的紀錄片，以克服嚴酷環境、生存繁衍的82個驚奇物種為敘事主角，真實呈現南北極宏偉壯麗、震懾人心的自然奇景。",
+  "popularity": 0.124,
+  "poster_path": "/d3rFMkhJqy0YPo1Egwliurnslwx.jpg",
+  "release_date": "2025-05-23",
+  "title": "守護我們的星球",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 99,
+      "name": "纪录"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [],
+  "production_countries": [],
+  "revenue": 0,
+  "runtime": 0,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/d3rFMkhJqy0YPo1Egwliurnslwx.jpg",
+  "fullBackdropPath": null
+}

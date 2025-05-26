@@ -1,0 +1,58 @@
+{
+  "adult": false,
+  "backdrop_path": "/kFWCLun4Tv25Ms9WT7xb3ti32TP.jpg",
+  "genre_ids": [
+    10749
+  ],
+  "id": 1300774,
+  "original_language": "ja",
+  "original_title": "あたしの!",
+  "overview": "改編自日本少女漫畫家幸田百子同名漫畫，日本超人氣男子團體INI成員 木村柾哉、渡邊美穗、男子團體M!LK成員山中柔太朗主演，這是一場絕對不能輸的戰鬥！",
+  "popularity": 0.6857,
+  "poster_path": "/sVKfEmVAUC1UsDdB7XEE8343WPq.jpg",
+  "release_date": "2024-11-08",
+  "title": "他是我的！",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 10749,
+      "name": "爱情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt34091137",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 84048,
+      "logo_path": "/mkxZQuPpZ0cBDfjr4PAxltGSsoH.png",
+      "name": "GAGA Corporation",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 102,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/sVKfEmVAUC1UsDdB7XEE8343WPq.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/kFWCLun4Tv25Ms9WT7xb3ti32TP.jpg"
+}

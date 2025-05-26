@@ -1,0 +1,79 @@
+{
+  "adult": false,
+  "backdrop_path": "/jl2YIADk391yc6Qjy9JhgCRkHJk.jpg",
+  "genre_ids": [
+    16,
+    18,
+    35
+  ],
+  "id": 1064486,
+  "original_language": "en",
+  "original_title": "Memoir of a Snail",
+  "overview": "熱愛蝸牛、喜歡閱讀但人生慘到不能再慘的emo少女葛瑞絲，因父母早逝，她與相依為命的雙胞胎弟弟被強行拆散，送往不同的寄養家庭，孤獨的她只有蝸牛作伴，像躲在殼裡逐漸封閉自己。就在生命看似無望之際，她意外遇見一位古怪卻溫暖的老太太，兩人展開一段充滿幽默且療癒的跨世代友情，也讓葛瑞絲再次勇敢活出最燦爛的自我。",
+  "popularity": 39.7271,
+  "poster_path": "/kM0gfnanT6Sc2H5r8Bm113M3T50.jpg",
+  "release_date": "2024-10-17",
+  "title": "蝸牛少女回憶錄",
+  "video": false,
+  "vote_average": 8.1,
+  "vote_count": 511,
+  "belongs_to_collection": null,
+  "budget": 4350000,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt23770030",
+  "origin_country": [
+    "AU"
+  ],
+  "production_companies": [
+    {
+      "id": 15780,
+      "logo_path": "/bdQFj7E5yNsir5pMgacux2SoLGQ.png",
+      "name": "Arenamedia",
+      "origin_country": "AU"
+    },
+    {
+      "id": 7584,
+      "logo_path": "/eGkfvvyf4fJTvBUR1xt1669IPA3.png",
+      "name": "Screen Australia",
+      "origin_country": "AU"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "AU",
+      "name": "Australia"
+    }
+  ],
+  "revenue": 6780428,
+  "runtime": 86,
+  "spoken_languages": [
+    {
+      "english_name": "French",
+      "iso_639_1": "fr",
+      "name": "Français"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/kM0gfnanT6Sc2H5r8Bm113M3T50.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/jl2YIADk391yc6Qjy9JhgCRkHJk.jpg"
+}

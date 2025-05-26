@@ -1,0 +1,51 @@
+{
+  "adult": false,
+  "backdrop_path": "/xdS04IpmIUI4BAUaAfHasXFhPr7.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 343758,
+  "original_language": "bo",
+  "original_title": "གཡང་མདའ།",
+  "overview": "",
+  "popularity": 0.1463,
+  "poster_path": "/qavqnhE0InR72ZVO1dnMfHGQLkR.jpg",
+  "release_date": "2014-06-17",
+  "title": "གཡང་མདའ།",
+  "video": false,
+  "vote_average": 0,
+  "vote_count": 0,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "CN"
+  ],
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "CN",
+      "name": "China"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 88,
+  "spoken_languages": [
+    {
+      "english_name": "Tibetan",
+      "iso_639_1": "bo",
+      "name": ""
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/qavqnhE0InR72ZVO1dnMfHGQLkR.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/xdS04IpmIUI4BAUaAfHasXFhPr7.jpg"
+}

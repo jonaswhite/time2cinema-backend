@@ -1,0 +1,85 @@
+{
+  "adult": false,
+  "backdrop_path": "/reb1sPedHAYcgLvNZ9VzvtpUfs8.jpg",
+  "genre_ids": [
+    28,
+    14,
+    878
+  ],
+  "id": 18122,
+  "original_language": "ru",
+  "original_title": "Обитаемый остров: Схватка",
+  "overview": "男主角馬克西姆繼續在薩拉什星球上探險，但隨即面對新的敵人和困難，本集敵人比上一集更難對付，隨著時間的推移，馬克西姆也更加了解“薩拉什”星球上的居民，但這顆星球即將面臨生死關頭的考驗，一場浩劫悄然而至，這顆星球上的居民生命危在旦夕…",
+  "popularity": 0.7465,
+  "poster_path": "/mZuRkOM3t714W1MTJ4K6uqSIqvA.jpg",
+  "release_date": "2009-04-23",
+  "title": "人煙之島2 大決戰",
+  "video": false,
+  "vote_average": 5.149,
+  "vote_count": 67,
+  "belongs_to_collection": {
+    "id": 350836,
+    "name": "Обитаемый остров (Коллекция)",
+    "poster_path": "/blOv3DS1NKuuNhUtFWoKJVdKgQt.jpg",
+    "backdrop_path": null
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    },
+    {
+      "id": 878,
+      "name": "科幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt1399952",
+  "origin_country": [
+    "RU"
+  ],
+  "production_companies": [
+    {
+      "id": 3451,
+      "logo_path": "/53lT8VOQ9JDiPGYLvjgO42Av58I.png",
+      "name": "Art Pictures Studio",
+      "origin_country": "RU"
+    },
+    {
+      "id": 5630,
+      "logo_path": "/s0mHCw53fp6EAapR7g0dwYbz0l5.png",
+      "name": "Non-Stop Productions",
+      "origin_country": "RU"
+    },
+    {
+      "id": 22691,
+      "logo_path": null,
+      "name": "Telekanal STS",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "RU",
+      "name": "Russia"
+    }
+  ],
+  "revenue": 5873871,
+  "runtime": 99,
+  "spoken_languages": [
+    {
+      "english_name": "Russian",
+      "iso_639_1": "ru",
+      "name": "Pусский"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/ll26hhgcDz4EEuletUkAQ5RtliR.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/reb1sPedHAYcgLvNZ9VzvtpUfs8.jpg"
+}

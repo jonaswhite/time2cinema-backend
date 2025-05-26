@@ -1,0 +1,64 @@
+{
+  "adult": false,
+  "backdrop_path": "/38eDFNP3L58iCHkBkiFwr2aJp8W.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 660002,
+  "original_language": "zh",
+  "original_title": "第一炉香",
+  "overview": "上海女學生葛薇龍(馬思純飾)來香港求學，投靠姑媽梁太太(俞飛鴻飾)，卻反被梁太太利用，把她當作餌誘吸引男人，葛薇龍漸漸沉迷在紙醉金迷中。後來她被花花公子喬琪喬(彭于晏飾)吸引，為了繼續過聲色犬馬的上流社會生活，不惜出賣自己的靈魂，費盡心機嫁給了喬琪喬，最終淪為姑媽梁太太和喬琪喬斂財的工具。",
+  "popularity": 0.5926,
+  "poster_path": "/9YL7wTOGchKeQybUEAd7k7KnV3m.jpg",
+  "release_date": "2021-10-22",
+  "title": "第一爐香",
+  "video": false,
+  "vote_average": 5.5,
+  "vote_count": 28,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt10415576",
+  "origin_country": [
+    "CN"
+  ],
+  "production_companies": [
+    {
+      "id": 69484,
+      "logo_path": "/2xtmvbEse87LM7OJXVksv7DToZx.png",
+      "name": "Alibaba Pictures Group",
+      "origin_country": "CN"
+    },
+    {
+      "id": 136862,
+      "logo_path": "/jE1WsBZUPcfO0Cdt8YULwjsat8M.png",
+      "name": "Hehe Pictures",
+      "origin_country": "CN"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "CN",
+      "name": "China"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 144,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "你願意付出多少 去愛一個人？",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/9YL7wTOGchKeQybUEAd7k7KnV3m.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/38eDFNP3L58iCHkBkiFwr2aJp8W.jpg"
+}

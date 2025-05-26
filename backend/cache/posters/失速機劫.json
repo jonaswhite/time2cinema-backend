@@ -1,0 +1,81 @@
+{
+  "adult": false,
+  "backdrop_path": "/hwlyY7LJdEFbCPaGNXiskKKmJ5X.jpg",
+  "genre_ids": [
+    28,
+    53
+  ],
+  "id": 1126166,
+  "original_language": "en",
+  "original_title": "Flight Risk",
+  "overview": "一名飛行員（馬克華伯格 飾）在一萬呎的高空中，奉命運送法警押解一名汙點證人前往作證，當他們穿越阿拉斯加荒野時，局勢逐漸緊張、信任受到了考驗，機上有人並不是他表面上的樣子…。",
+  "popularity": 66.3948,
+  "poster_path": "/lnrUlIJD0fJbyCLbxxDXwkCDuyc.jpg",
+  "release_date": "2025-01-22",
+  "title": "失速機劫",
+  "video": false,
+  "vote_average": 6.118,
+  "vote_count": 745,
+  "belongs_to_collection": null,
+  "budget": 25000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt10078772",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 1302,
+      "logo_path": "/zC3b70ixHh89qJIikLQPEvLqbPM.png",
+      "name": "Davis Entertainment",
+      "origin_country": "US"
+    },
+    {
+      "id": 152,
+      "logo_path": "/rC2pFo4IBQVSVZvucDLwMRvZHfi.png",
+      "name": "Icon Productions",
+      "origin_country": "US"
+    },
+    {
+      "id": 106754,
+      "logo_path": "/1H4YyGx74OTzPtPIcuF3iAEjzz6.png",
+      "name": "Hammerstone Studios",
+      "origin_country": "US"
+    },
+    {
+      "id": 221429,
+      "logo_path": "/7xNNmHcuDy0tOqZmsUMnZ6HcZ6E.png",
+      "name": "Media Capital Technologies",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 40420193,
+  "runtime": 91,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/lnrUlIJD0fJbyCLbxxDXwkCDuyc.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/hwlyY7LJdEFbCPaGNXiskKKmJ5X.jpg"
+}

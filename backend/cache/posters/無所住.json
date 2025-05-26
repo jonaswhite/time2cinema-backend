@@ -1,0 +1,67 @@
+{
+  "adult": false,
+  "backdrop_path": "/r75TN0IBAEJE3qycVcEPPUHO0S8.jpg",
+  "genre_ids": [
+    99
+  ],
+  "id": 1220521,
+  "original_language": "zh",
+  "original_title": "無所住",
+  "overview": "蔡明亮「行者」系列緩步12年，邁入第十篇章。行者踏上美國疆土，慢行於溪流樹林、城區街巷，行過華盛頓紀念碑、華府聯合車站；緩步藝術殿堂，與平行時空裡亞儂的生活日常，看似無干，又像對倒。行者步履不停，行者無疆，《無所住》以緩慢與美國的彼時、與大銀幕前的觀者進行一場對話和冥想，述說一首無邊無際，關於時間和萬物的祝禱詩。",
+  "popularity": 0.9291,
+  "poster_path": "/ducifATChylDKGJ3shA70GyPHBD.jpg",
+  "release_date": "2024-02-20",
+  "title": "無所住",
+  "video": false,
+  "vote_average": 7,
+  "vote_count": 2,
+  "belongs_to_collection": {
+    "id": 485512,
+    "name": "Walker Series",
+    "poster_path": "/ed9bfW0LMY4UNFqMj3wKmRqsyHZ.jpg",
+    "backdrop_path": "/3zUonln2NqHK4JEEiCrIWSzVzV0.jpg"
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 99,
+      "name": "纪录"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt30517126",
+  "origin_country": [
+    "TW"
+  ],
+  "production_companies": [
+    {
+      "id": 8041,
+      "logo_path": "/ewR2yugip7hKSDKjYrQSWIb9j9w.png",
+      "name": "Homegreen Films",
+      "origin_country": "TW"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    },
+    {
+      "iso_3166_1": "TW",
+      "name": "Taiwan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 79,
+  "spoken_languages": [
+    {
+      "english_name": "No Language",
+      "iso_639_1": "xx",
+      "name": "No Language"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/ducifATChylDKGJ3shA70GyPHBD.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/r75TN0IBAEJE3qycVcEPPUHO0S8.jpg"
+}

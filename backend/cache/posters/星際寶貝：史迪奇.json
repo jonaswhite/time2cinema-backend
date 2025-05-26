@@ -1,0 +1,74 @@
+{
+  "adult": false,
+  "backdrop_path": "/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg",
+  "genre_ids": [
+    10751,
+    35,
+    878
+  ],
+  "id": 552524,
+  "original_language": "en",
+  "original_title": "Lilo & Stitch",
+  "overview": "因家庭破碎而深感孤單的夏威夷「人類小女孩」莉蘿，與逃離邪惡主人並降臨地球的藍色外星人、卻有酷似無尾熊超可愛外表的史迪奇一拍即合，除了鬧出一連串與地球格格不入的笑話，也在彼此身上找到前所未有的友情與依靠，爆笑又感人的故事十分引人入勝！",
+  "popularity": 686.2246,
+  "poster_path": "/9NO8yDIHozB09vrbTyMJp8dUc7X.jpg",
+  "release_date": "2025-05-17",
+  "title": "星際寶貝：史迪奇",
+  "video": false,
+  "vote_average": 7.044,
+  "vote_count": 171,
+  "belongs_to_collection": null,
+  "budget": 100000000,
+  "genres": [
+    {
+      "id": 10751,
+      "name": "家庭"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 878,
+      "name": "科幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt11655566",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 2,
+      "logo_path": "/wdrCwmRnLFJhEoH8GSfymY85KHT.png",
+      "name": "Walt Disney Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 118854,
+      "logo_path": "/g9LPNlQFoDcHjfnvrEqFmeIaDrZ.png",
+      "name": "Rideback",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 341700000,
+  "runtime": 108,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/9NO8yDIHozB09vrbTyMJp8dUc7X.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/7Zx3wDG5bBtcfk8lcnCWDOLM4Y4.jpg"
+}

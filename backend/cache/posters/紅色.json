@@ -1,0 +1,100 @@
+{
+  "adult": false,
+  "backdrop_path": "/dK12GIdhGP6NPGFssK2Fh265jyr.jpg",
+  "genre_ids": [
+    28,
+    35,
+    80
+  ],
+  "id": 512195,
+  "original_language": "en",
+  "original_title": "Red Notice",
+  "overview": "一名負責緝捕全球頭號要犯的聯邦調查局犯罪側寫員，竟被迫成了這位藝術品大盜的搭檔。兩人必須聯手逮到一位難以捉摸、老是捷足先登的壞蛋。",
+  "popularity": 9.8956,
+  "poster_path": "/d6ejEfAme0Zlarqa8qe6sLsixE8.jpg",
+  "release_date": "2021-11-04",
+  "title": "紅色通緝令",
+  "video": false,
+  "vote_average": 6.765,
+  "vote_count": 5997,
+  "belongs_to_collection": null,
+  "budget": 160000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 80,
+      "name": "犯罪"
+    }
+  ],
+  "homepage": "https://www.netflix.com/title/81161626",
+  "imdb_id": "tt7991608",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 34081,
+      "logo_path": null,
+      "name": "Flynn Picture Company",
+      "origin_country": "US"
+    },
+    {
+      "id": 73669,
+      "logo_path": "/pZ1sOLrUxvCvW1jODdCFgU6RxUA.png",
+      "name": "Seven Bucks Productions",
+      "origin_country": "US"
+    },
+    {
+      "id": 102182,
+      "logo_path": null,
+      "name": "Bad Version",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 178143,
+  "runtime": 117,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Indonesian",
+      "iso_639_1": "id",
+      "name": "Bahasa indonesia"
+    },
+    {
+      "english_name": "Italian",
+      "iso_639_1": "it",
+      "name": "Italiano"
+    },
+    {
+      "english_name": "Russian",
+      "iso_639_1": "ru",
+      "name": "Pусский"
+    },
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/d6ejEfAme0Zlarqa8qe6sLsixE8.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/dK12GIdhGP6NPGFssK2Fh265jyr.jpg"
+}

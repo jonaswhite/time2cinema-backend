@@ -1,0 +1,63 @@
+{
+  "adult": false,
+  "backdrop_path": "/8MK6U6SbduZYqXw6nywip1UXAmN.jpg",
+  "genre_ids": [
+    27
+  ],
+  "id": 124870,
+  "original_language": "cn",
+  "original_title": "邪",
+  "overview": "身體虛弱的陳秀英不斷受到殘酷丈夫的虐待，患上肺結核，等待死亡。新來的女僕怡華同情女主人的困境，有一天晚上兩人開始把他淹死。他們把他的屍體扔到附近的一個池塘里，但秀英相信該男子腫脹的屍體是從沼澤升起來尋求復仇的。",
+  "popularity": 1.0864,
+  "poster_path": "/5aMpGEpUuJ65jliglOUg1Bs7iP2.jpg",
+  "release_date": "1980-07-09",
+  "title": "邪",
+  "video": false,
+  "vote_average": 6.2,
+  "vote_count": 25,
+  "belongs_to_collection": {
+    "id": 669722,
+    "name": "Hex Collection",
+    "poster_path": "/mMd2np5Z51bDvw7khcL3fmibUam.jpg",
+    "backdrop_path": null
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 27,
+      "name": "恐怖"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt0081782",
+  "origin_country": [
+    "HK"
+  ],
+  "production_companies": [
+    {
+      "id": 5798,
+      "logo_path": "/tmuI9BGXgpWLmokhlxpnG3IGNQB.png",
+      "name": "Shaw Brothers",
+      "origin_country": "HK"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "HK",
+      "name": "Hong Kong"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 90,
+  "spoken_languages": [
+    {
+      "english_name": "Cantonese",
+      "iso_639_1": "cn",
+      "name": "广州话 / 廣州話"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/5aMpGEpUuJ65jliglOUg1Bs7iP2.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/8MK6U6SbduZYqXw6nywip1UXAmN.jpg"
+}

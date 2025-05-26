@@ -1,0 +1,89 @@
+{
+  "adult": false,
+  "backdrop_path": "/eItpQ7dJfSp8aFrX1MdjaUv0HrE.jpg",
+  "genre_ids": [
+    28,
+    12,
+    53
+  ],
+  "id": 1167271,
+  "original_language": "en",
+  "original_title": "Weekend in Taipei",
+  "overview": "美國緝毒局探員約翰，不僅是超強工作狂，更會不擇手段，只為順利完成案件。不巧，在命運的捉弄下，他與思維敏捷又難以追捕的頂級「車手」喬伊墜入愛河，最後卻捲入犯罪陰謀當中，迫使兩人分開。沒想到15年過去，約翰為了緝捕販毒集團首腦關來到台北，彷彿命運再度出手攪和，讓他與喬伊奇蹟般地重逢…",
+  "popularity": 10.3758,
+  "poster_path": "/rGUF1REqWmhhm6t3aDJfffBJhqW.jpg",
+  "release_date": "2024-09-19",
+  "title": "台北追緝令",
+  "video": false,
+  "vote_average": 6.212,
+  "vote_count": 184,
+  "belongs_to_collection": null,
+  "budget": 30000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 12,
+      "name": "冒险"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt28142896",
+  "origin_country": [
+    "FR"
+  ],
+  "production_companies": [
+    {
+      "id": 6896,
+      "logo_path": "/2Q89KvzxTKB5BAv9RqFIPI1qb7E.png",
+      "name": "EuropaCorp",
+      "origin_country": "FR"
+    },
+    {
+      "id": 18626,
+      "logo_path": "/gb0xmYIKvNy2LnUOfLVglww7U0g.png",
+      "name": "Kinology",
+      "origin_country": "FR"
+    },
+    {
+      "id": 229487,
+      "logo_path": null,
+      "name": "Rabbits Black",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "FR",
+      "name": "France"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 2826064,
+  "runtime": 101,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/rGUF1REqWmhhm6t3aDJfffBJhqW.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/eItpQ7dJfSp8aFrX1MdjaUv0HrE.jpg"
+}

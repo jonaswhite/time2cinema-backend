@@ -1,0 +1,57 @@
+{
+  "adult": false,
+  "backdrop_path": "/vWsBwAya4Datgs2rL6QpgQZEN8H.jpg",
+  "genre_ids": [],
+  "id": 1061128,
+  "original_language": "ja",
+  "original_title": "その少女、怒り。",
+  "overview": "",
+  "popularity": 0.1253,
+  "poster_path": "/ldOTQBCz1ufPN9OCwiegCInXr2T.jpg",
+  "release_date": "2022-11-16",
+  "title": "その少女、怒り。",
+  "video": false,
+  "vote_average": 3,
+  "vote_count": 1,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [],
+  "homepage": "",
+  "imdb_id": null,
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 188311,
+      "logo_path": null,
+      "name": "Yorkys Entertainment",
+      "origin_country": ""
+    },
+    {
+      "id": 188312,
+      "logo_path": null,
+      "name": "Walk On",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 22,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/ldOTQBCz1ufPN9OCwiegCInXr2T.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/vWsBwAya4Datgs2rL6QpgQZEN8H.jpg"
+}

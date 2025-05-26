@@ -1,0 +1,89 @@
+{
+  "adult": false,
+  "backdrop_path": "/8eifdha9GQeZAkexgtD45546XKx.jpg",
+  "genre_ids": [
+    28,
+    53,
+    878
+  ],
+  "id": 822119,
+  "original_language": "en",
+  "original_title": "Captain America: Brave New World",
+  "overview": "在「元老美國隊長」史蒂夫·羅傑斯功成身退後，原本美隊得力助手「獵鷹」山姆·威爾森受羅傑斯的推崇繼位，成為最新一任美國隊長！  然而山姆一接手，便迎頭對上如今蔚為總統的羅斯將軍，檯面上友好的兩人其實背後似乎暗藏著未知的陰謀，更加險惡的敵人卻還在前頭等著他們，在新世界新秩序衝突升級下，他能否奮力扛起盾牌！",
+  "popularity": 143.3614,
+  "poster_path": "/jRDnN3mKn0ion7jE5fpX0nUq989.jpg",
+  "release_date": "2025-02-12",
+  "title": "美國隊長：無畏新世界",
+  "video": false,
+  "vote_average": 6.107,
+  "vote_count": 1904,
+  "belongs_to_collection": {
+    "id": 131295,
+    "name": "美國隊長（系列）",
+    "poster_path": "/6vzAhwJsctx4hQPhlqsgwUXpF8Y.jpg",
+    "backdrop_path": "/7kVucUYqz8fZkOmFtA8opDwJFXM.jpg"
+  },
+  "budget": 180000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    },
+    {
+      "id": 878,
+      "name": "科幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt14513804",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 420,
+      "logo_path": "/hUzeosd33nzE5MCNsZxCGEKTXaQ.png",
+      "name": "Marvel Studios",
+      "origin_country": "US"
+    },
+    {
+      "id": 176762,
+      "logo_path": null,
+      "name": "Kevin Feige Productions",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 415092958,
+  "runtime": 119,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    },
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    }
+  ],
+  "status": "Released",
+  "tagline": "邁向無畏新世界!",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/jRDnN3mKn0ion7jE5fpX0nUq989.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/8eifdha9GQeZAkexgtD45546XKx.jpg"
+}

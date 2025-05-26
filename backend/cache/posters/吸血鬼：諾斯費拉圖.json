@@ -1,0 +1,101 @@
+{
+  "adult": false,
+  "backdrop_path": "/fYnEbgoNCxW9kL0IgOgtJb9JTBU.jpg",
+  "genre_ids": [
+    27,
+    14
+  ],
+  "id": 426063,
+  "original_language": "en",
+  "original_title": "Nosferatu",
+  "overview": "這是一個哥德式故事，講述了一個被鬼附身的年輕女子和迷戀她的可怕吸血鬼之間的癡戀，造成了難以言喻的恐怖。",
+  "popularity": 19.0838,
+  "poster_path": "/c7asXTLraHO6gZJd7uo7QvNpKqa.jpg",
+  "release_date": "2024-12-25",
+  "title": "吸血鬼：諾斯費拉圖",
+  "video": false,
+  "vote_average": 6.72,
+  "vote_count": 2660,
+  "belongs_to_collection": null,
+  "budget": 50000000,
+  "genres": [
+    {
+      "id": 27,
+      "name": "恐怖"
+    },
+    {
+      "id": 14,
+      "name": "奇幻"
+    }
+  ],
+  "homepage": "https://www.universalpictures.tw/micro/nosferatu",
+  "imdb_id": "tt5040012",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 10146,
+      "logo_path": "/xnFIOeq5cKw09kCWqV7foWDe4AA.png",
+      "name": "Focus Features",
+      "origin_country": "US"
+    },
+    {
+      "id": 77863,
+      "logo_path": "/7z6YOzvdk70YY8OaRbn5mfxrvbO.png",
+      "name": "Studio 8",
+      "origin_country": "US"
+    },
+    {
+      "id": 41641,
+      "logo_path": "/rBlfMlCcxulmS25zTQwmXDHZmnB.png",
+      "name": "Maiden Voyage Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 239430,
+      "logo_path": null,
+      "name": "Birch Hill Road Entertainment",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 180928503,
+  "runtime": 133,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "German",
+      "iso_639_1": "de",
+      "name": "Deutsch"
+    },
+    {
+      "english_name": "Romanian",
+      "iso_639_1": "ro",
+      "name": "Română"
+    },
+    {
+      "english_name": "Russian",
+      "iso_639_1": "ru",
+      "name": "Pусский"
+    },
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    }
+  ],
+  "status": "Released",
+  "tagline": "向暗黑力量臣服",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/c7asXTLraHO6gZJd7uo7QvNpKqa.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/fYnEbgoNCxW9kL0IgOgtJb9JTBU.jpg"
+}

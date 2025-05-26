@@ -1,0 +1,82 @@
+{
+  "adult": false,
+  "backdrop_path": "/z6HS2Gf46zi9aGMQsTRoHEH7JNI.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 7859,
+  "original_language": "en",
+  "original_title": "Half Nelson",
+  "overview": "丹唐(萊恩葛斯林飾)是個貧民區的白人中學教師，班上的學生大部份是來自問題家庭的十三、四歲學生，他的教學作風大膽而犀利，總是學生討論黑人民權運動與辨証理論，引導這些懵懂的學生思考與改變。  另一方面，丹唐的私生活也不好過，他的前女友即將與他人步上紅毯，曾有的理想與熱忱，被日復一日的現實與壓力漸漸磨光，讓他陷於藥癮而難以自拔。  某天，十三歲女學生德蕾撞見丹唐在更衣室吸毒，意外發現了他的秘密。同樣處於人生十字路口的兩人成為莫逆之交，建立起跨種族、跨年齡、跨身分的真摯友誼。",
+  "popularity": 1.2804,
+  "poster_path": "/b4LIJS0yprkSmuOCoz3a0zpOxpY.jpg",
+  "release_date": "2006-08-11",
+  "title": "我的左派老師",
+  "video": false,
+  "vote_average": 6.644,
+  "vote_count": 884,
+  "belongs_to_collection": null,
+  "budget": 700000,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt0468489",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 2290,
+      "logo_path": "/gPO7leIjImfola6eq1QGkNqwTEM.png",
+      "name": "Hunting Lane Films",
+      "origin_country": "US"
+    },
+    {
+      "id": 2291,
+      "logo_path": null,
+      "name": "Journeyman Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 2292,
+      "logo_path": null,
+      "name": "Original Media",
+      "origin_country": "US"
+    },
+    {
+      "id": 2293,
+      "logo_path": null,
+      "name": "Silverwood Films",
+      "origin_country": "US"
+    },
+    {
+      "id": 2294,
+      "logo_path": null,
+      "name": "Traction Media",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 4911725,
+  "runtime": 107,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/b4LIJS0yprkSmuOCoz3a0zpOxpY.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/z6HS2Gf46zi9aGMQsTRoHEH7JNI.jpg"
+}

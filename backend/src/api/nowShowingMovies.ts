@@ -86,32 +86,14 @@ export const getNowShowingMovies = async (
       result = await client.query(
         `SELECT DISTINCT 
           m.id,
-          COALESCE(m.chinese_title, m.original_title, '未知電影') as title,
-          m.original_title,
+          COALESCE(m.chinese_title, m.english_title, m.full_title, '未知電影') as title,
+          m.english_title as original_title,
           m.release_date,
           m.runtime,
-          m.overview,
-          m.poster_url,
-          m.backdrop_url,
-          m.vote_average,
-          m.vote_count,
-          m.popularity,
-          m.original_language,
-          m.genres,
-          m.production_companies,
-          m.production_countries,
-          m.spoken_languages,
-          m.budget,
-          m.revenue,
-          m.status,
-          m.tagline,
-          m.imdb_id,
           m.tmdb_id,
-          m.homepage,
-          m.adult,
-          m.video,
-          m.created_at,
-          m.updated_at,
+          m.full_title,
+          m.chinese_title,
+          m.english_title,
           CASE 
             WHEN m.poster_url IS NULL OR m.poster_url = '' 
             THEN 'https://via.placeholder.com/500x750?text=No+Poster+Available'
@@ -120,14 +102,54 @@ export const getNowShowingMovies = async (
             ELSE CONCAT('https://image.tmdb.org/t/p/w500', m.poster_url)
           END as poster_url
         FROM movies m
-        JOIN showtimes s ON m.id = s.movie_id
+        INNER JOIN showtimes s ON m.id = s.movie_id
         WHERE s.showtime >= $1
-        GROUP BY m.id
-        ORDER BY MAX(s.showtime) DESC, m.chinese_title`,
+        GROUP BY m.id, m.chinese_title, m.english_title, m.full_title, m.release_date, m.runtime, m.tmdb_id, m.poster_url
+        ORDER BY m.release_date DESC, m.chinese_title, m.english_title`,
         [today]
       );
       
-      console.log(`成功查詢到 ${result.rowCount} 部電影`);
+      console.log(`成功查詢到 ${result.rows.length} 部電影`);
+      
+      // 定義電影介面
+      interface Movie {
+        id: number;
+        title: string;
+        original_title: string | null;
+        release_date: string | null;
+        poster_url: string;
+        runtime: number | null;
+        tmdb_id: number | null;
+        full_title: string;
+        chinese_title: string;
+        english_title: string | null;
+      }
+      
+      // 處理查詢結果
+      const movies: Movie[] = result.rows.map((row: any) => {
+        // 如果沒有海報 URL，使用預設圖片
+        let posterUrl = row.poster_url;
+        if (!posterUrl || posterUrl === '') {
+          posterUrl = 'https://via.placeholder.com/500x750?text=No+Poster+Available';
+        } else if (!posterUrl.startsWith('http')) {
+          // 如果是相對路徑，添加基礎 URL
+          posterUrl = `https://image.tmdb.org/t/p/w500${posterUrl}`;
+        }
+        
+        return {
+          id: row.id,
+          title: row.title || '未知電影',
+          original_title: row.original_title,
+          release_date: row.release_date,
+          poster_url: posterUrl,
+          runtime: row.runtime,
+          tmdb_id: row.tmdb_id,
+          full_title: row.full_title,
+          chinese_title: row.chinese_title || '',
+          english_title: row.english_title
+        };
+      });
+      console.log(`成功查詢到 ${result.rows.length} 部電影`);
     } catch (dbError) {
       console.error('資料庫查詢錯誤:', dbError);
       throw new Error('查詢電影資料時發生錯誤');

@@ -1,0 +1,108 @@
+{
+  "adult": false,
+  "backdrop_path": "/hfTyu2VPBqLRPo2DauW8q7bh9bm.jpg",
+  "genre_ids": [
+    10751,
+    35,
+    12
+  ],
+  "id": 516729,
+  "original_language": "en",
+  "original_title": "Paddington in Peru",
+  "overview": "柏靈頓熊熊來到祕魯的退休熊之家，拜訪他親愛的露西姑姑，他們與布朗一家又再次被捲入一起神秘事件，前往亞馬遜雨林和秘魯的深山之中，展開一場刺激的冒險之旅。",
+  "popularity": 17.8633,
+  "poster_path": "/sVBJ7rQhxQv2aLbAjalMIONhXBN.jpg",
+  "release_date": "2024-11-08",
+  "title": "柏靈頓：熊熊去秘魯",
+  "video": false,
+  "vote_average": 6.9,
+  "vote_count": 385,
+  "belongs_to_collection": {
+    "id": 488924,
+    "name": "柏靈頓熊 系列",
+    "poster_path": "/dysBFeRafGUzFJWUiE54kJh4PFS.jpg",
+    "backdrop_path": "/cpmSe7SerOiI1dRgQG328OaHNBl.jpg"
+  },
+  "budget": 90000000,
+  "genres": [
+    {
+      "id": 10751,
+      "name": "家庭"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 12,
+      "name": "冒险"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt5822536",
+  "origin_country": [
+    "GB"
+  ],
+  "production_companies": [
+    {
+      "id": 238886,
+      "logo_path": null,
+      "name": "Marmalade Pictures",
+      "origin_country": "GB"
+    },
+    {
+      "id": 73025,
+      "logo_path": "/zYb2OfWjKvNlngpq4LemY9JVC51.png",
+      "name": "Kinoshita Group",
+      "origin_country": "JP"
+    },
+    {
+      "id": 694,
+      "logo_path": "/5LEHONGkZBIoWvp1ygHOF8iyi1M.png",
+      "name": "StudioCanal",
+      "origin_country": "FR"
+    },
+    {
+      "id": 11341,
+      "logo_path": "/xytTBODEy3p20ksHL4Ftxr483Iv.png",
+      "name": "Stage 6 Films",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    },
+    {
+      "iso_3166_1": "FR",
+      "name": "France"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    },
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 168610271,
+  "runtime": 106,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Spanish",
+      "iso_639_1": "es",
+      "name": "Español"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/sVBJ7rQhxQv2aLbAjalMIONhXBN.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/hfTyu2VPBqLRPo2DauW8q7bh9bm.jpg"
+}

@@ -1,0 +1,81 @@
+{
+  "adult": false,
+  "backdrop_path": "/h7l5Kt46llTSNd77g7sEUB2ZtLz.jpg",
+  "genre_ids": [
+    35,
+    18
+  ],
+  "id": 961084,
+  "original_language": "fr",
+  "original_title": "Bernadette",
+  "overview": "1995年的法國，貝娜黛特（凱薩琳丹妮芙 飾）傾盡心力為丈夫席哈克（米謝維耶莫茲 飾）輔選總統。在風光當選後，席哈克一家入主「愛麗舍宮」，貝娜黛特卻遭到總統丈夫的冷落，她暢所欲言的作風，甚至被政客、甚至官邸員工暗中嘲笑，連當選後的首次露面都被「刻意消失」。她的女兒決定聘請技術顧問，全力挽救貝娜黛特「第一夫人」的形象，開啟逆襲之路。",
+  "popularity": 0.9748,
+  "poster_path": "/bPLTB2JYDJqWvxWnUajDO0F3ZW3.jpg",
+  "release_date": "2023-10-04",
+  "title": "第一夫人的逆襲",
+  "video": false,
+  "vote_average": 6.4,
+  "vote_count": 142,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 35,
+      "name": "喜剧"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt19858184",
+  "origin_country": [
+    "FR"
+  ],
+  "production_companies": [
+    {
+      "id": 23577,
+      "logo_path": "/2e69chGou2s3oizXcL36hnT2W1j.png",
+      "name": "Karé Productions",
+      "origin_country": "FR"
+    },
+    {
+      "id": 591,
+      "logo_path": "/q5I5RDwMEiqoNmfaJgd2LraEOJY.png",
+      "name": "France 3 Cinéma",
+      "origin_country": "FR"
+    },
+    {
+      "id": 149633,
+      "logo_path": "/1LT1nCWM3A8D2KSLoQkbbFnWGRh.png",
+      "name": "Marvelous Productions",
+      "origin_country": "FR"
+    },
+    {
+      "id": 19037,
+      "logo_path": "/tceh2aAORA5JxIZSLQ1GkzTBZDL.png",
+      "name": "uMedia",
+      "origin_country": "BE"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "FR",
+      "name": "France"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 94,
+  "spoken_languages": [
+    {
+      "english_name": "French",
+      "iso_639_1": "fr",
+      "name": "Français"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/bPLTB2JYDJqWvxWnUajDO0F3ZW3.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/h7l5Kt46llTSNd77g7sEUB2ZtLz.jpg"
+}

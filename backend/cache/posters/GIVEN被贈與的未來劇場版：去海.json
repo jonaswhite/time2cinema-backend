@@ -1,0 +1,80 @@
+{
+  "adult": false,
+  "backdrop_path": "/21lM9hfYNDX9RnWzp4aq0iQTEbq.jpg",
+  "genre_ids": [
+    16,
+    10749
+  ],
+  "id": 1317276,
+  "original_language": "ja",
+  "original_title": "映画 ギヴン 海へ",
+  "overview": "佐藤真冬、上山立夏、中山春樹、梶秋彥所組成的樂隊「Given」，雖然在爭取音樂節演出機會的比賽中落選，卻意外收到了主流出道的邀約。面對這個機會，各成員都抱持積極的態度，唯獨真冬仍無法給出明確的答案。另一方面，鹿島柊與八木玄純的樂隊「syh〈シー〉」決定正式出道。立夏作為臨時支援吉他手加入「syh」後，正努力完成柊託付給他的一首歌曲。  就在這時，立夏收到來自真冬的一則訊息：「我想見你。」感受到異樣氛圍的立夏急忙趕往真冬身邊，卻發現真冬流露出抗拒音樂的態度。對立夏的感情、對音樂的執著，各種情感交錯，讓真冬陷入迷惘，無法前進。而此時，向他伸出援手的，竟是享譽世界的小提琴家——村田雨月。",
+  "popularity": 3.9699,
+  "poster_path": "/qUentZw7lvaRVbf2MRHVW8y1la8.jpg",
+  "release_date": "2024-09-20",
+  "title": "劇場版 GIVEN 被贈與的未來 -To the Sea-",
+  "video": false,
+  "vote_average": 9,
+  "vote_count": 2,
+  "belongs_to_collection": {
+    "id": 1389956,
+    "name": "Given Collection",
+    "poster_path": "/hm7TfSB6QjT4dtaskCB0RNZFUWi.jpg",
+    "backdrop_path": "/ailTW5OrjQ7rPGOYtHuaDfgzDaB.jpg"
+  },
+  "budget": 0,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 10749,
+      "name": "爱情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt35631332",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 2883,
+      "logo_path": "/rDYExnBV61jGQnkhVVrPN4Yl7O1.png",
+      "name": "Aniplex",
+      "origin_country": "JP"
+    },
+    {
+      "id": 42811,
+      "logo_path": "/2ZPUk3aYOtKbZk1W4Kp6mfeays8.png",
+      "name": "Lerche",
+      "origin_country": "JP"
+    },
+    {
+      "id": 233952,
+      "logo_path": null,
+      "name": "Shinshokan",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 0,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/2VLnT5JtJ77ErG6GD3c1J628VLp.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/21lM9hfYNDX9RnWzp4aq0iQTEbq.jpg"
+}

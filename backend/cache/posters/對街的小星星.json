@@ -1,0 +1,86 @@
+{
+  "adult": false,
+  "backdrop_path": "/bPve3uVmhZusFvWDJwPWvDil6xP.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 1053947,
+  "original_language": "is",
+  "original_title": "Tilverur",
+  "overview": "在冰島一座偏遠農場，年邁的古納過著與世隔絕的生活，與他摯愛的馬匹為伴。然而，水位上升迫在眉睫，即將淹沒此地。政府決定徵收這片世代相傳的家園，古納被迫離開熟悉的一切，遷往城市展開新生活。獨居日久，沉默已是古納的日常。某日，一位十歲送報男孩的溫暖，逐漸融化他冰封的心。他們建立了珍貴的友誼，從此改變彼此的存在與意義。透過純粹的陪伴，寂靜的生命開始迎向輕輕灑落的暖陽。",
+  "popularity": 0.3514,
+  "poster_path": "/aD4tp0xy94HOotSYq5QuZVAKwlG.jpg",
+  "release_date": "2024-04-03",
+  "title": "對街的小星星",
+  "video": false,
+  "vote_average": 7.1,
+  "vote_count": 5,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt26218798",
+  "origin_country": [
+    "SK",
+    "FR",
+    "IS"
+  ],
+  "production_companies": [
+    {
+      "id": 12496,
+      "logo_path": "/tk6stgFevcJ2iWyd0IaEfVStNqL.png",
+      "name": "Pegasus Pictures",
+      "origin_country": "IS"
+    },
+    {
+      "id": 116930,
+      "logo_path": "/ztepEIiRhE5yJSGxCCUHXsUunJJ.png",
+      "name": "nutprodukcia",
+      "origin_country": "SK"
+    },
+    {
+      "id": 73552,
+      "logo_path": "/l6yuBMYHwyLU72HHlW9rknLtzeH.png",
+      "name": "jour2fête",
+      "origin_country": "FR"
+    },
+    {
+      "id": 120946,
+      "logo_path": null,
+      "name": "Halibut",
+      "origin_country": "IS"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "FR",
+      "name": "France"
+    },
+    {
+      "iso_3166_1": "IS",
+      "name": "Iceland"
+    },
+    {
+      "iso_3166_1": "SK",
+      "name": "Slovakia"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 75,
+  "spoken_languages": [
+    {
+      "english_name": "Icelandic",
+      "iso_639_1": "is",
+      "name": "Íslenska"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/aD4tp0xy94HOotSYq5QuZVAKwlG.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/bPve3uVmhZusFvWDJwPWvDil6xP.jpg"
+}

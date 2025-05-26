@@ -1,0 +1,74 @@
+{
+  "adult": false,
+  "backdrop_path": "/kpWusrV8GePdx42GLJjZ7RJhkfz.jpg",
+  "genre_ids": [
+    27,
+    18,
+    53
+  ],
+  "id": 1140535,
+  "original_language": "en",
+  "original_title": "Presence",
+  "overview": "露絲（劉玉玲飾演）和先生克里斯（克里斯蘇利文飾演）帶著兒子泰勒（艾迪瑪黛飾演）和女兒克蘿伊（卡莉娜梁飾演），一家四口一起搬進郊區一處新家。克蘿伊因為失去摯友而陷入悲傷，同時又常因為和哥哥不合引發爭執，加上媽媽對哥哥的偏愛，讓她感到無依無靠。來到新家之後，她默默感受到這個家中，似乎有股詭異的靈異力量存在，而這股力量從一開始就圍繞在她身邊，並逐漸轉移至影響整個家庭，讓這家人必須搞清楚，這股神秘力量究竟想要告訴他們什麼…。",
+  "popularity": 17.8506,
+  "poster_path": "/qeL5F83lwAeRpUdpPWeCNhJbFYZ.jpg",
+  "release_date": "2025-01-16",
+  "title": "感應",
+  "video": false,
+  "vote_average": 5.938,
+  "vote_count": 329,
+  "belongs_to_collection": null,
+  "budget": 2000000,
+  "genres": [
+    {
+      "id": 27,
+      "name": "恐怖"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt28249919",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 8850,
+      "logo_path": "/o3nVHmmi077juQZcpSeO5Ha6UiE.png",
+      "name": "Extension 765",
+      "origin_country": "US"
+    },
+    {
+      "id": 250844,
+      "logo_path": null,
+      "name": "The Spectral Spirit Company",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 10498407,
+  "runtime": 84,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/qeL5F83lwAeRpUdpPWeCNhJbFYZ.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/kpWusrV8GePdx42GLJjZ7RJhkfz.jpg"
+}

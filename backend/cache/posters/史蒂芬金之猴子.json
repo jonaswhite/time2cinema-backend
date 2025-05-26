@@ -1,0 +1,97 @@
+{
+  "adult": false,
+  "backdrop_path": "/6dC7ULfiutxwEAs7LjWHL2Tc7Zv.jpg",
+  "genre_ids": [
+    27,
+    35
+  ],
+  "id": 1124620,
+  "original_language": "en",
+  "original_title": "The Monkey",
+  "overview": "雙胞胎兄弟哈爾和比爾（席歐詹姆斯分飾），找到一隻父親的舊玩具猴子，但兩人隨後發現，這隻猴子似乎伴隨著邪惡詛咒，每當發條轉動，身邊就會發生一連串駭人死亡事故，讓心愛的人一個個死去…。為了擺脫這場噩夢，兄弟兩人決定將它丟棄，並各自過上新的生活。沒想到多年過去，不明連環死亡事故再度發生，讓哈爾不得不與比爾再度聯手，試圖找到徹底摧毀這隻猴子的方法…。",
+  "popularity": 79.7637,
+  "poster_path": "/xN91UrqXCAwfYDjf9a2zYgFLFeP.jpg",
+  "release_date": "2025-02-14",
+  "title": "史蒂芬金之猴子",
+  "video": false,
+  "vote_average": 5.897,
+  "vote_count": 644,
+  "belongs_to_collection": null,
+  "budget": 10000000,
+  "genres": [
+    {
+      "id": 27,
+      "name": "恐怖"
+    },
+    {
+      "id": 35,
+      "name": "喜剧"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt27714946",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 76907,
+      "logo_path": "/ygMQtjsKX7BZkCQhQZY82lgnCUO.png",
+      "name": "Atomic Monster",
+      "origin_country": "US"
+    },
+    {
+      "id": 184518,
+      "logo_path": "/lOouI8ibBzhLI4qvku74FPUVT8t.png",
+      "name": "C2 Motion Picture Group",
+      "origin_country": "US"
+    },
+    {
+      "id": 167684,
+      "logo_path": "/kzQwU2H6woBFti9cqjr9BrVXrst.png",
+      "name": "Range Media Partners",
+      "origin_country": "US"
+    },
+    {
+      "id": 85465,
+      "logo_path": "/oxx1bmXDQxeBsvYZmCxMtfJ5wa3.png",
+      "name": "Oddfellows Entertainment",
+      "origin_country": "CA"
+    },
+    {
+      "id": 11565,
+      "logo_path": "/S74cHHbIrdmb5M51Pft72Uo9Gz.png",
+      "name": "The Safran Company",
+      "origin_country": "US"
+    },
+    {
+      "id": 169756,
+      "logo_path": "/fGjWUCSz9MaMgx8VvxKQuNmIbYu.png",
+      "name": "Stars Collective",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "CA",
+      "name": "Canada"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 68811247,
+  "runtime": 97,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/xN91UrqXCAwfYDjf9a2zYgFLFeP.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/6dC7ULfiutxwEAs7LjWHL2Tc7Zv.jpg"
+}

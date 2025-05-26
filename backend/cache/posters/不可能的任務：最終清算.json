@@ -1,0 +1,95 @@
+{
+  "adult": false,
+  "backdrop_path": "/1p5aI299YBnqrEEvVGJERk2MXXb.jpg",
+  "genre_ids": [
+    28,
+    12,
+    53
+  ],
+  "id": 575265,
+  "original_language": "en",
+  "original_title": "Mission: Impossible - The Final Reckoning",
+  "overview": "我們的人生取決於我們所有的選擇。湯姆克魯斯在《不可能的任務：最終清算》中再度飾演伊森韓特。湯姆克魯斯在片中所穿的裝扮，與他在 2024年8月11日巴黎奧運閉幕式上完成驚險特技表演時的穿著相同，完美呈現“伊森韓特”的經典形象。",
+  "popularity": 349.707,
+  "poster_path": "/yST2muE4NfZTE0y3uMne1iQJYi1.jpg",
+  "release_date": "2025-05-17",
+  "title": "不可能的任務：最終清算",
+  "video": false,
+  "vote_average": 6.987,
+  "vote_count": 304,
+  "belongs_to_collection": {
+    "id": 87359,
+    "name": "不可能的任務 (系列)",
+    "poster_path": "/odgJESjVbkgCu5aK47pNcXgKroZ.jpg",
+    "backdrop_path": "/mroWh717g0Ah2c0rrPGW6f3EWMM.jpg"
+  },
+  "budget": 400000000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 12,
+      "name": "冒险"
+    },
+    {
+      "id": 53,
+      "name": "惊悚"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt9603208",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 4,
+      "logo_path": "/gz66EfNoYPqHTYI4q9UEN4CbHRc.png",
+      "name": "Paramount Pictures",
+      "origin_country": "US"
+    },
+    {
+      "id": 82819,
+      "logo_path": "/gXfFl9pRPaoaq14jybEn1pHeldr.png",
+      "name": "Skydance Media",
+      "origin_country": "US"
+    },
+    {
+      "id": 21777,
+      "logo_path": null,
+      "name": "TC Productions",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 204000000,
+  "runtime": 170,
+  "spoken_languages": [
+    {
+      "english_name": "French",
+      "iso_639_1": "fr",
+      "name": "Français"
+    },
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Inuktitut",
+      "iso_639_1": "iu",
+      "name": ""
+    }
+  ],
+  "status": "Released",
+  "tagline": "我們的人生取決於我們所有的選擇",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/yST2muE4NfZTE0y3uMne1iQJYi1.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/1p5aI299YBnqrEEvVGJERk2MXXb.jpg"
+}

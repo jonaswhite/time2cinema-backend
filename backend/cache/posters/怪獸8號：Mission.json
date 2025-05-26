@@ -1,0 +1,80 @@
+{
+  "adult": false,
+  "backdrop_path": "/iZ0ZSnhmHB3k1KDkDzEz65f5iia.jpg",
+  "genre_ids": [
+    16,
+    28,
+    878
+  ],
+  "id": 1326106,
+  "original_language": "ja",
+  "original_title": "アニメ『怪獣８号』第１期総集編／同時上映「保科の休日」",
+  "overview": "「怪獸大國」日本的人民經常遭到怪獸肆無忌憚的侵略，嚴重影響到全民的日常生活。日比野卡夫卡曾經立志成為防衛隊員，如今卻是在怪獸專門清潔業工作。某天，卡夫卡被某種神秘的生物侵蝕，身體居然變身成怪獸⋯⋯負責討伐怪獸的日本防衛隊以代號稱之為「怪獸 8 號」。",
+  "popularity": 6.6331,
+  "poster_path": "/gGjJIqPkPYLnbEvsACDQn8ZIEBh.jpg",
+  "release_date": "2025-03-28",
+  "title": "怪獸8號：Mission Recon",
+  "video": false,
+  "vote_average": 6.6,
+  "vote_count": 7,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 16,
+      "name": "动画"
+    },
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 878,
+      "name": "科幻"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt35636950",
+  "origin_country": [
+    "JP"
+  ],
+  "production_companies": [
+    {
+      "id": 529,
+      "logo_path": "/rwB6w2aPENQbx756pBWSw44Ouk.png",
+      "name": "Production I.G",
+      "origin_country": "JP"
+    },
+    {
+      "id": 2918,
+      "logo_path": "/gyEWUBWwqrm3H5T2hkERD9LxpOq.png",
+      "name": "Shueisha",
+      "origin_country": "JP"
+    },
+    {
+      "id": 882,
+      "logo_path": "/fRSWWjquvzcHjACbtF53utZFIll.png",
+      "name": "TOHO",
+      "origin_country": "JP"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "JP",
+      "name": "Japan"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 110,
+  "spoken_languages": [
+    {
+      "english_name": "Japanese",
+      "iso_639_1": "ja",
+      "name": "日本語"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/gGjJIqPkPYLnbEvsACDQn8ZIEBh.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/iZ0ZSnhmHB3k1KDkDzEz65f5iia.jpg"
+}

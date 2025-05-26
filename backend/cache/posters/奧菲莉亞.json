@@ -1,0 +1,90 @@
+{
+  "adult": false,
+  "backdrop_path": "/z58p4iLs8NEUn0CFMyDF2LUwJKv.jpg",
+  "genre_ids": [
+    18,
+    10749,
+    36
+  ],
+  "id": 428836,
+  "original_language": "en",
+  "original_title": "Ophelia",
+  "overview": "奧菲莉婭（黛茜·雷德利 Daisy Ridley 飾）從小就生得一副男孩樣，個性大大剌剌愛跑愛跳的她也常常被人誤認為是男孩。一次偶然中，奧菲莉婭遇見了格特魯德王后（娜奧米·沃茨 Naomi Watts 飾），王后非常喜歡奧菲莉婭的個性，於是將她帶回了宮中栽培，沒過多久，聰慧過人的奧菲莉婭就成為了她身邊最值得信賴的女官。哈姆雷特王子（喬治·麥凱 George MacKay 飾）是格特魯德王后的兒子，他和奧菲莉婭在朝夕相處之下最終墜入了愛河之中。哪知道，平日裡最疼愛奧菲莉婭的格特魯德王后竟然強烈的反對這段戀情，與此同時，哈姆雷特發現，原來殺死自己父親的兇手正是迎娶了格特魯德王后的，自己的叔叔克勞迪斯（克里夫·歐文 Clive Owen 飾）。",
+  "popularity": 1.8971,
+  "poster_path": "/7ItW1N2L2YIWVlZh1cg2Ylh3i8f.jpg",
+  "release_date": "2019-06-28",
+  "title": "奧菲莉亞",
+  "video": false,
+  "vote_average": 7.1,
+  "vote_count": 575,
+  "belongs_to_collection": null,
+  "budget": 12000000,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    },
+    {
+      "id": 10749,
+      "name": "爱情"
+    },
+    {
+      "id": 36,
+      "name": "历史"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt5690810",
+  "origin_country": [
+    "GB"
+  ],
+  "production_companies": [
+    {
+      "id": 102958,
+      "logo_path": null,
+      "name": "Bobker / Kruger Films",
+      "origin_country": ""
+    },
+    {
+      "id": 73666,
+      "logo_path": null,
+      "name": "Covert Media",
+      "origin_country": "US"
+    },
+    {
+      "id": 102959,
+      "logo_path": null,
+      "name": "Forthcoming Films",
+      "origin_country": ""
+    },
+    {
+      "id": 121391,
+      "logo_path": "/5KgJecIQtV3C0enwkOKIxXrCWup.png",
+      "name": "Bert Marcus Film",
+      "origin_country": ""
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "GB",
+      "name": "United Kingdom"
+    },
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 242115,
+  "runtime": 114,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/7ItW1N2L2YIWVlZh1cg2Ylh3i8f.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/z58p4iLs8NEUn0CFMyDF2LUwJKv.jpg"
+}

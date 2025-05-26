@@ -1,0 +1,75 @@
+{
+  "adult": false,
+  "backdrop_path": "/v4KKJ57xOIUJBA3a8ZN7Eeo2HrG.jpg",
+  "genre_ids": [
+    28
+  ],
+  "id": 602463,
+  "original_language": "ko",
+  "original_title": "인질",
+  "overview": "在某個平凡的凌晨，演員黃晸珉突然遭陌生人綁架，起初黃晸珉以為被整，但綁匪後來讓他了解這並非是場玩笑。黃晸珉努力嘗試逃脫，綁匪要求必須在24小時內支付大筆贖金，這讓他體驗到現實生活比電影還要殘酷的事實……",
+  "popularity": 1.3291,
+  "poster_path": "/rbz8Z9kWj4xwjtBU5rtkQWoOSPb.jpg",
+  "release_date": "2021-08-18",
+  "title": "綁架影帝黃晸珉",
+  "video": false,
+  "vote_average": 6.921,
+  "vote_count": 38,
+  "belongs_to_collection": null,
+  "budget": 6144000,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt14941222",
+  "origin_country": [
+    "KR"
+  ],
+  "production_companies": [
+    {
+      "id": 12987,
+      "logo_path": "/32ea3CCKrNNO8jZBOcN2tbjPpuf.png",
+      "name": "Filmmaker R&K",
+      "origin_country": "KR"
+    },
+    {
+      "id": 20064,
+      "logo_path": "/2In7Heq6DuXDjOwPmJqHWkpohaL.png",
+      "name": "Next Entertainment World",
+      "origin_country": "KR"
+    },
+    {
+      "id": 157168,
+      "logo_path": null,
+      "name": "The Sam Company",
+      "origin_country": "KR"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "KR",
+      "name": "South Korea"
+    }
+  ],
+  "revenue": 13000000,
+  "runtime": 94,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    },
+    {
+      "english_name": "Korean",
+      "iso_639_1": "ko",
+      "name": "한국어/조선말"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/rbz8Z9kWj4xwjtBU5rtkQWoOSPb.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/v4KKJ57xOIUJBA3a8ZN7Eeo2HrG.jpg"
+}
