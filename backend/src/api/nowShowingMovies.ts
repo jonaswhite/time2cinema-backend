@@ -103,7 +103,7 @@ export const getNowShowingMovies = async (
           END as poster_url
         FROM movies m
         INNER JOIN showtimes s ON m.id = s.movie_id
-        WHERE s.showtime >= $1
+        WHERE s.date >= $1
         GROUP BY m.id, m.chinese_title, m.english_title, m.full_title, m.release_date, m.runtime, m.tmdb_id, m.poster_url
         ORDER BY m.release_date DESC, m.chinese_title, m.english_title`,
         [today]
