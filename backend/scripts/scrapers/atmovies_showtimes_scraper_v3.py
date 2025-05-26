@@ -294,12 +294,28 @@ class ATMoviesScraper:
         return None
     
     def get_region_list(self) -> List[Dict[str, str]]:
-        """獲取所有區域列表，但只返回台北區域"""
-        # 只返回台北區域
+        """獲取區域列表 - 全台灣地區"""
         regions = [
-            {'region_code': 'a02', 'region_name': '台北', 'url': f"{BASE_URL}a02/"}
+            {'region_code': 'a01', 'region_name': '基隆', 'url': f"{BASE_URL}a01/"},
+            {'region_code': 'a02', 'region_name': '台北', 'url': f"{BASE_URL}a02/"},
+            {'region_code': 'a03', 'region_name': '桃園', 'url': f"{BASE_URL}a03/"},
+            {'region_code': 'a35', 'region_name': '新竹', 'url': f"{BASE_URL}a35/"},
+            {'region_code': 'a37', 'region_name': '苗栗', 'url': f"{BASE_URL}a37/"},
+            {'region_code': 'a04', 'region_name': '台中', 'url': f"{BASE_URL}a04/"},
+            {'region_code': 'a47', 'region_name': '彰化', 'url': f"{BASE_URL}a47/"},
+            {'region_code': 'a45', 'region_name': '雲林', 'url': f"{BASE_URL}a45/"},
+            {'region_code': 'a49', 'region_name': '南投', 'url': f"{BASE_URL}a49/"},
+            {'region_code': 'a05', 'region_name': '嘉義', 'url': f"{BASE_URL}a05/"},
+            {'region_code': 'a06', 'region_name': '台南', 'url': f"{BASE_URL}a06/"},
+            {'region_code': 'a07', 'region_name': '高雄', 'url': f"{BASE_URL}a07/"},
+            {'region_code': 'a39', 'region_name': '宜蘭', 'url': f"{BASE_URL}a39/"},
+            {'region_code': 'a38', 'region_name': '花蓮', 'url': f"{BASE_URL}a38/"},
+            {'region_code': 'a89', 'region_name': '台中', 'url': f"{BASE_URL}a89/"},
+            {'region_code': 'a87', 'region_name': '屏東', 'url': f"{BASE_URL}a87/"},
+            {'region_code': 'a69', 'region_name': '澎湖', 'url': f"{BASE_URL}a69/"},
+            {'region_code': 'a68', 'region_name': '金門', 'url': f"{BASE_URL}a68/"}
         ]
-        logger.info(f"成功載入 {len(regions)} 個區域（只抽取台北區域）")
+        logger.info(f"成功載入 {len(regions)} 個區域（全台灣地區）")
         return regions
     
     async def get_theaters_in_region(self, region: Dict[str, str], session: aiohttp.ClientSession) -> List[Dict[str, str]]:
