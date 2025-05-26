@@ -18,11 +18,13 @@ if (!dbUrl.searchParams.has('sslmode')) {
 // 建立連接池
 const pool = new Pool({
   connectionString: dbUrl.toString(),
-  ssl: {
-    rejectUnauthorized: false,
-    // 如果你有 CA 憑證檔案，可以在這裡指定
-    // ca: fs.readFileSync(path.resolve(__dirname, 'path/to/ca-certificate.crt')).toString(),
-  }
+  ssl: process.env.NODE_ENV === 'production' ? {
+    rejectUnauthorized: false
+  } : false,
+  // 增加連線超時設定
+  connectionTimeoutMillis: 10000, // 10 秒
+  idleTimeoutMillis: 30000, // 30 秒
+  max: 20 // 最大連線數
 });
 
 // 測試資料庫連線
