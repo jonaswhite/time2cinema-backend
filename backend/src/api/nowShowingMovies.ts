@@ -1,14 +1,23 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import fs from 'fs-extra';
 import path from 'path';
 import pool from '../db';
 
 // 快取目錄
-const CACHE_DIR = path.resolve(__dirname, '../../cache');
-fs.ensureDirSync(CACHE_DIR);
+const CACHE_DIR = process.env.NODE_ENV === 'production' 
+  ? '/tmp/cache' 
+  : path.resolve(__dirname, '../../cache');
+
+// 確保快取目錄存在
+try {
+  fs.ensureDirSync(CACHE_DIR);
+  console.log(`快取目錄設置為: ${CACHE_DIR}`);
+} catch (error) {
+  console.error(`無法創建快取目錄 ${CACHE_DIR}:`, error);
+}
 
 // 獲取所有正在上映的電影（有場次的電影）
-export const getNowShowingMovies = async (req: Request, res: Response) => {
+export const getNowShowingMovies = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   try {
     const forceRefresh = req.query.refresh === 'true';
     const cacheFile = path.join(CACHE_DIR, 'now-showing-movies.json');
@@ -40,7 +49,8 @@ export const getNowShowingMovies = async (req: Request, res: Response) => {
     if (await shouldUseCache()) {
       console.log('從快取返回上映中電影資料');
       const cache = await fs.readJSON(cacheFile);
-      return res.json(cache);
+      res.json(cache);
+      return;
     }
     
     console.log('重新生成上映中電影資料');
@@ -50,56 +60,30 @@ export const getNowShowingMovies = async (req: Request, res: Response) => {
     const today = new Date(now);
     today.setHours(0, 0, 0, 0);
     
-    // 格式化日期為 YYYY-MM-DD
-    const formatDate = (d: Date): string => {
-      const year = d.getFullYear();
-      const month = String(d.getMonth() + 1).padStart(2, '0');
-      const day = String(d.getDate()).padStart(2, '0');
-      return `${year}-${month}-${day}`;
-    };
+    // 查詢有場次的電影
+    const result = await pool.query(`
+      SELECT DISTINCT m.*
+      FROM movies m
+      JOIN showtimes s ON m.id = s.movie_id
+      WHERE s.showtime >= $1
+      ORDER BY m.release_date DESC, m.chinese_title
+    `, [today]);
     
-    const formattedDate = formatDate(today);
-    console.log(`查詢今天及以後的場次，今天日期: ${formattedDate}`);
+    const movies = result.rows;
     
-    // 使用新的資料庫結構，從 showtimes 表查詢上映中的電影，但從 movies 表獲取電影詳細資訊
-    const query = `
-      SELECT DISTINCT 
-        m.id,
-        m.title,
-        m.original_title,
-        m.poster_url,
-        m.backdrop_url,
-        m.release_date,
-        m.runtime,
-        m.tmdb_id
-      FROM showtimes s
-      JOIN movies m ON s.movie_id = m.id
-      WHERE DATE(s.date) >= DATE($1)
-      ORDER BY 
-        m.release_date DESC NULLS LAST  -- 按上映日期降序排列（新上映的在前）
-    `;
+    // 將結果寫入快取
+    try {
+      await fs.writeJSON(cacheFile, movies);
+      console.log('已更新上映中電影快取');
+    } catch (error) {
+      console.error('寫入快取檔案時出錯:', error);
+    }
     
-    const result = await pool.query(query, [formattedDate]);
-    console.log(`找到 ${result.rowCount} 部正在上映的電影`);
-    
-    // 格式化電影資料以符合前端需求
-    const moviesData = result.rows.map(movie => ({
-      id: movie.id,
-      title: movie.title,
-      original_title: movie.original_title,
-      release_date: movie.release_date ? movie.release_date.toISOString().split('T')[0] : null,
-      posterUrl: movie.poster_url,
-      runtime: movie.runtime,
-      tmdb_id: movie.tmdb_id
-    }));
-    
-    // 寫入快取
-    await fs.writeJSON(cacheFile, moviesData, { spaces: 2 });
-    console.log(`已將 ${moviesData.length} 筆上映中電影資料寫入快取`);
-    
-    res.json(moviesData);
+    res.json(movies);
   } catch (error) {
-    console.error('獲取上映中電影失敗:', error);
-    res.status(500).json({ error: '獲取上映中電影失敗' });
+    console.error('獲取上映中電影時出錯:', error);
+    next(error);
   }
 };
+
+export default getNowShowingMovies;
