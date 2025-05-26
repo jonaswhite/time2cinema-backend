@@ -3,21 +3,34 @@ import fs from 'fs-extra';
 import path from 'path';
 import pool from '../db';
 
-// 快取目錄
+// 快取目錄設定
 const CACHE_DIR = process.env.NODE_ENV === 'production' 
-  ? '/tmp/cache' 
+  ? '/tmp/time2cinema-cache'  // 使用專屬目錄避免權限問題
   : path.join(__dirname, '../../cache');
+
+// 快取檔案路徑
 const CACHE_FILE = path.join(CACHE_DIR, 'now-showing-movies.json');
 const CACHE_DURATION = 1000 * 60 * 30; // 30 分鐘快取
 
 // 確保快取目錄存在
-try {
-  if (!fs.existsSync(CACHE_DIR)) {
-    fs.mkdirSync(CACHE_DIR, { recursive: true });
+const ensureCacheDir = () => {
+  try {
+    if (!fs.existsSync(CACHE_DIR)) {
+      fs.mkdirSync(CACHE_DIR, { 
+        recursive: true, 
+        mode: 0o755 // 明確設定權限
+      });
+      console.log(`已建立快取目錄: ${CACHE_DIR}`);
+    }
+    return true;
+  } catch (error) {
+    console.error('無法創建快取目錄:', error);
+    return false;
   }
-} catch (error) {
-  console.error('無法創建快取目錄:', error);
-}
+};
+
+// 初始化快取目錄
+ensureCacheDir();
 
 // 檢查快取是否有效
 const isCacheValid = async (): Promise<boolean> => {
