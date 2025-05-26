@@ -31,12 +31,14 @@ logger = logging.getLogger(__name__)
 
 # 常數設定
 BASE_URL = "https://www.atmovies.com.tw/showtime/"
-MAX_RETRIES = 2  # 最大重試次數
-TIMEOUT = 10   # 請求超時時間
+MAX_RETRIES = 3  # 增加重試次數，提高成功率
+TIMEOUT = 15   # 增加超時時間，避免因網路減速導致的失敗
 DAYS_TO_SCRAPE = 3  # 要爬取的天數
-MAX_CONCURRENT_REQUESTS = 5  # 最大並發請求數
-CONNECTION_LIMIT = 10  # 連接池大小
-REQUEST_DELAY = (0.5, 1.5)  # 隨機延遲時間範圍（秒）
+MAX_CONCURRENT_REQUESTS = 8  # 增加並發請求數，提高效率
+CONNECTION_LIMIT = 20  # 增加連接池大小，提高並發能力
+REQUEST_DELAY = (0.8, 2.0)  # 稍微增加延遲時間，降低網站負擔
+# 每個電影院之間的延遲時間
+THEATER_DELAY = (1.0, 3.0)  # 電影院之間的延遲時間，降低網站負擔
 # 統一輸出目錄到 backend/output/scrapers
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'output', 'scrapers')
@@ -194,103 +196,61 @@ class ATMoviesScraper:
         return None
 
     async def fetch_page(self, url: str, session: aiohttp.ClientSession) -> Optional[BeautifulSoup]:
-        """非同步獲取並解析網頁內容，處理重試邏輯"""
-        retries = 0
-        last_error = None
-        
-        async with self.semaphore:  # 限制並發請求數
-            while retries <= MAX_RETRIES:
-                try:
-                    # 每次重試時使用隨機的 User-Agent
-                    headers = get_random_headers()
-                    
-                    # 隨機延遲，避免請求過於頻繁
-                    delay = 1 + random.random() * 2  # 1-3秒隨機延遲
-                    if retries > 0:
-                        delay = retries * 2 + random.random() * 3  # 重試時增加延遲
-                    
-                    logger.info(f"正在抓取: {url} (嘗試 {retries + 1}/{MAX_RETRIES + 1})")
-                    await asyncio.sleep(delay)
-                    
-                    # 設置請求超時和重試選項
-                    timeout = aiohttp.ClientTimeout(total=TIMEOUT, connect=10, sock_connect=10, sock_read=10)
-                    
-                    # 使用自定義 SSL 上下文
-                    conn = aiohttp.TCPConnector(ssl=ssl_context, limit_per_host=5)
-                    
-                    # 設置會話 Cookie
-                    jar = aiohttp.CookieJar(unsafe=True)
-                    
-                    # 添加一些常見的 Cookie 以模擬瀏覽器
-                    cookie = aiohttp.CookieJar()
-                    cookie.update_cookies({
-                        'over18': '1',
-                        'adult': '1',
-                        'preferred_language': 'zh-TW',
-                        'country': 'TW',
-                    })
-                    
-                    # 設置隨機的 Referer
-                    if random.random() > 0.5:
-                        headers['Referer'] = 'https://www.atmovies.com.tw/'
-                    else:
-                        headers['Referer'] = 'https://www.google.com/'
-                    
-                    # 隨機添加一些額外的頭部信息
-                    if random.random() > 0.7:
-                        headers['X-Requested-With'] = 'XMLHttpRequest'
-                    
-                    # 設置會話
-                    async with aiohttp.ClientSession(
-                        headers=headers,
-                        timeout=timeout,
-                        connector=conn,
-                        cookie_jar=jar,
-                        trust_env=True
-                    ) as temp_session:
-                        # 添加隨機的查詢參數以避免緩存
-                        parsed_url = urlparse(url)
-                        query = dict(parse_qsl(parsed_url.query))
-                        query['_'] = str(int(time.time() * 1000))
-                        if random.random() > 0.7:
-                            query['__cf_chl_rt_tk'] = ''.join(random.choices('abcdef0123456789', k=32))
-                        
-                        url_with_params = url
-                        if query:
-                            url_with_params = f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path}?{urlencode(query)}&{parsed_url.query}" if parsed_url.query else f"{parsed_url.scheme}://{parsed_url.netloc}{parsed_url.path}?{urlencode(query)}"
-                        
-                        logger.debug(f"請求 URL: {url_with_params}")
-                        
-                        # 發送請求
-                        async with temp_session.get(url_with_params, allow_redirects=True) as response:
-                            if response.status == 200:
-                                html = await response.text()
-                                # 檢查是否被重定向到驗證頁面
-                                if '請輸入驗證碼' in html or 'Access Denied' in html or 'Cloudflare' in html:
-                                    logger.warning(f"觸發了防爬蟲驗證: {url}")
-                                    raise Exception("觸發了防爬蟲驗證")
-                                return BeautifulSoup(html, 'html.parser')
-                            else:
-                                logger.warning(f"HTTP錯誤: {response.status} - {url}")
-                                last_error = f"HTTP {response.status}"
-                except asyncio.TimeoutError:
-                    last_error = "請求超時"
-                    logger.warning(f"請求超時: {url}")
-                except aiohttp.ClientError as e:
-                    last_error = str(e)
-                    logger.error(f"客戶端錯誤: {e} - {url}")
-                except Exception as e:
-                    last_error = str(e)
-                    logger.error(f"請求錯誤: {e} - {url}")
+        """非同步獲取並解析網頁內容，使用指數退避策略進行重試"""
+        for attempt in range(1, MAX_RETRIES + 1):
+            try:
+                # 隨機延遲，避免請求過於頻繁
+                delay = random.uniform(*REQUEST_DELAY)
+                if attempt > 1:
+                    # 使用指數退避策略，每次重試增加等待時間
+                    delay = delay + (2 ** (attempt - 1))
                 
-                retries += 1
-                if retries <= MAX_RETRIES:
-                    wait_time = retries * 2 + random.random() * 3  # 指數退避 + 隨機延遲
-                    logger.info(f"等待 {wait_time:.1f} 秒後重試... (原因: {last_error})")
-                    await asyncio.sleep(wait_time)
-                else:
-                    logger.error(f"已達最大重試次數，跳過 URL: {url}")
+                logger.info(f"正在抓取: {url} (嘗試 {attempt}/{MAX_RETRIES})")
+                await asyncio.sleep(delay)
+                
+                # 每次請求使用新的隨機 headers
+                custom_headers = get_random_headers()
+                
+                # 發送請求
+                async with session.get(url, headers=custom_headers, ssl=ssl_context, timeout=TIMEOUT) as response:
+                    if response.status != 200:
+                        logger.error(f"請求失敗: {url}, 狀態碼: {response.status}")
+                        
+                        # 如果是 429 Too Many Requests，等待更長時間
+                        if response.status == 429:
+                            wait_time = 5 * attempt
+                            logger.warning(f"請求過多，等待 {wait_time} 秒後重試")
+                            await asyncio.sleep(wait_time)
+                        continue
+                    
+                    html = await response.text()
+                    
+                    # 檢查頁面是否有效
+                    if len(html) < 1000 or "404 Not Found" in html or "無法連線到伺服器" in html:
+                        logger.error(f"無效的頁面內容: {url}, 長度: {len(html)}")
+                        continue
+                    
+                    # 檢查是否被重定向到驗證頁面
+                    if '請輸入驗證碼' in html or 'Access Denied' in html or 'Cloudflare' in html:
+                        logger.warning(f"觸發了防爬蟲驗證: {url}")
+                        continue
+                    
+                    # 解析 HTML
+                    soup = BeautifulSoup(html, 'html.parser')
+                    return soup
+                    
+            except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+                logger.error(f"請求出錯: {url}, 錯誤: {e}, 嘗試: {attempt}/{MAX_RETRIES}")
+                # 指數退避等待
+                wait_time = 2 ** attempt + random.uniform(0, 1)
+                logger.info(f"等待 {wait_time:.2f} 秒後重試")
+                await asyncio.sleep(wait_time)
+            except Exception as e:
+                logger.error(f"未知錯誤: {url}, 錯誤: {e}, 嘗試: {attempt}/{MAX_RETRIES}")
+                wait_time = 2 ** attempt + random.uniform(0, 1)
+                await asyncio.sleep(wait_time)
         
+        logger.error(f"已達最大重試次數，跳過 URL: {url}")
         return None
     
     def get_region_list(self) -> List[Dict[str, str]]:
@@ -550,21 +510,40 @@ class ATMoviesScraper:
             
             # 4. 並行處理所有電影院，使用更大的並發數
             # 分批處理以避免同時開啟太多任務
-            batch_size = 10  # 每批處理的電影院數量
+            batch_size = 15  # 增加每批處理的電影院數量
             all_results = []
             
-            for i in range(0, len(all_theaters), batch_size):
-                batch = all_theaters[i:i+batch_size]
-                logger.info(f"處理電影院批次 {i//batch_size + 1}/{(len(all_theaters)-1)//batch_size + 1} (共 {len(batch)} 家電影院)")
+            # 將電影院按地區分組，每個地區的電影院放在一起處理
+            theaters_by_region = {}
+            for theater in all_theaters:
+                region_code = theater['region_code']
+                if region_code not in theaters_by_region:
+                    theaters_by_region[region_code] = []
+                theaters_by_region[region_code].append(theater)
+            
+            # 先處理電影院數量較少的地區
+            sorted_regions = sorted(theaters_by_region.items(), key=lambda x: len(x[1]))
+            
+            for region_code, region_theaters in sorted_regions:
+                logger.info(f"開始處理地區 {region_code} 的 {len(region_theaters)} 家電影院")
                 
-                tasks = []
-                for theater in batch:
-                    task = asyncio.create_task(self.process_theater(theater, dates, session))
-                    tasks.append(task)
-                
-                # 等待當前批次完成
-                batch_results = await asyncio.gather(*tasks)
-                all_results.extend(batch_results)
+                for i in range(0, len(region_theaters), batch_size):
+                    batch = region_theaters[i:i+batch_size]
+                    logger.info(f"處理地區 {region_code} 電影院批次 {i//batch_size + 1}/{(len(region_theaters)-1)//batch_size + 1} (共 {len(batch)} 家電影院)")
+                    
+                    tasks = []
+                    for theater in batch:
+                        # 每個電影院之間添加隨機延遲，降低網站負擔
+                        await asyncio.sleep(random.uniform(*THEATER_DELAY))
+                        task = asyncio.create_task(self.process_theater(theater, dates, session))
+                        tasks.append(task)
+                    
+                    # 等待當前批次完成
+                    batch_results = await asyncio.gather(*tasks)
+                    all_results.extend(batch_results)
+                    
+                    # 批次之間的延遲，給網站一些「喘息」的時間
+                    await asyncio.sleep(random.uniform(2.0, 4.0))
             
             self.data = all_results
         
