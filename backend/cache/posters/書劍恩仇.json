@@ -1,0 +1,63 @@
+{
+  "adult": false,
+  "backdrop_path": "/ukl7x7VHvJwX0ZQ3GJ5v7DuEJj9.jpg",
+  "genre_ids": [
+    28,
+    18
+  ],
+  "id": 186882,
+  "original_language": "zh",
+  "original_title": "書劍恩仇錄",
+  "overview": "乾隆年間，國泰民安，然此時反清勢力也甚為活躍。反清幫會紅花會第四把交椅文泰來（鄧偉豪 飾）和妻子駱冰（陳琪琪 飾）被朝廷鷹爪困在三道溝，經武當派名宿陸菲青（王戎 飾）的引薦前往名震西北的老英雄周仲英（谷峰 飾）的鐵膽莊避難。與此同時，陸菲青的師弟、效力朝廷的張召重（羅烈 飾）尾隨而至，以重兵要挾鐵膽莊交出文泰來。雖然文藏身暗道，卻被張誘騙周仲英年幼的兒子指出文等人的藏身所在。駱冰和余雨同（顧冠忠 飾）僥倖逃出，路遇紅花會總舵主陳家洛（狄龍 飾），眾人一同返回鐵膽莊。與此同時，外出歸來的周仲英得知莊內的變故，憤而打死自己的兒子。經過一番拚鬥，鐵膽莊與紅花會消除誤會，冰釋前嫌，周亦帶著女兒隨紅花會同行營救文泰來…… The Emperor and His Brother",
+  "popularity": 0.7237,
+  "poster_path": "/5S9by1x8rqI0OGAeZ24QvbNvAAT.jpg",
+  "release_date": "1981-07-19",
+  "title": "書劍恩仇錄",
+  "video": false,
+  "vote_average": 5.7,
+  "vote_count": 14,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 28,
+      "name": "动作"
+    },
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt0083072",
+  "origin_country": [
+    "HK"
+  ],
+  "production_companies": [
+    {
+      "id": 5798,
+      "logo_path": "/tmuI9BGXgpWLmokhlxpnG3IGNQB.png",
+      "name": "Shaw Brothers",
+      "origin_country": "HK"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "HK",
+      "name": "Hong Kong"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 101,
+  "spoken_languages": [
+    {
+      "english_name": "Mandarin",
+      "iso_639_1": "zh",
+      "name": "普通话"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/5S9by1x8rqI0OGAeZ24QvbNvAAT.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/ukl7x7VHvJwX0ZQ3GJ5v7DuEJj9.jpg"
+}

@@ -7,95 +7,174 @@ exports.getNowShowingMovies = void 0;
 const fs_extra_1 = __importDefault(require("fs-extra"));
 const path_1 = __importDefault(require("path"));
 const db_1 = __importDefault(require("../db"));
-// 快取目錄
-const CACHE_DIR = path_1.default.resolve(__dirname, '../../cache');
-fs_extra_1.default.ensureDirSync(CACHE_DIR);
-// 獲取所有正在上映的電影（有場次的電影）
-const getNowShowingMovies = async (req, res) => {
+// 快取目錄設定
+const CACHE_DIR = process.env.NODE_ENV === 'production'
+    ? '/tmp/time2cinema-cache' // 使用專屬目錄避免權限問題
+    : path_1.default.join(__dirname, '../../cache');
+// 快取檔案路徑
+const CACHE_FILE = path_1.default.join(CACHE_DIR, 'now-showing-movies.json');
+const CACHE_DURATION = 1000 * 60 * 30; // 30 分鐘快取
+// 確保快取目錄存在
+const ensureCacheDir = () => {
     try {
-        const forceRefresh = req.query.refresh === 'true';
-        const cacheFile = path_1.default.join(CACHE_DIR, 'now-showing-movies.json');
-        // 檢查快取是否存在且未過期（12小時內）
-        const shouldUseCache = async () => {
-            if (forceRefresh)
-                return false;
-            if (!await fs_extra_1.default.pathExists(cacheFile))
-                return false;
+        if (!fs_extra_1.default.existsSync(CACHE_DIR)) {
+            fs_extra_1.default.mkdirSync(CACHE_DIR, {
+                recursive: true,
+                mode: 0o755 // 明確設定權限
+            });
+            console.log(`已建立快取目錄: ${CACHE_DIR}`);
+        }
+        return true;
+    }
+    catch (error) {
+        console.error('無法創建快取目錄:', error);
+        return false;
+    }
+};
+// 初始化快取目錄
+ensureCacheDir();
+// 檢查快取是否有效
+const isCacheValid = async () => {
+    try {
+        const exists = await fs_extra_1.default.pathExists(CACHE_FILE);
+        if (!exists)
+            return false;
+        const stats = await fs_extra_1.default.stat(CACHE_FILE);
+        const cacheAge = Date.now() - stats.mtimeMs;
+        return cacheAge < CACHE_DURATION;
+    }
+    catch (error) {
+        console.error('檢查快取時出錯:', error);
+        return false;
+    }
+};
+// 獲取所有正在上映的電影（有場次的電影）
+const getNowShowingMovies = async (req, res, next) => {
+    const forceRefresh = req.query.forceRefresh === 'true';
+    try {
+        console.log('開始獲取上映中電影資料，forceRefresh:', forceRefresh);
+        // 檢查快取是否存在且未過期
+        if (!forceRefresh && await isCacheValid()) {
             try {
-                const stats = await fs_extra_1.default.stat(cacheFile);
-                const fileDate = new Date(stats.mtime);
-                const now = new Date();
-                // 如果快取文件在12小時內創建，則使用快取
-                if ((now.getTime() - fileDate.getTime()) < 12 * 60 * 60 * 1000) {
-                    const cache = await fs_extra_1.default.readJSON(cacheFile);
-                    if (cache && Array.isArray(cache) && cache.length > 0) {
-                        return true;
-                    }
-                }
-                return false;
+                const cache = await fs_extra_1.default.readJSON(CACHE_FILE);
+                console.log('使用快取資料');
+                res.json(cache);
+                return;
             }
             catch (error) {
-                console.error('檢查快取檔案時出錯:', error);
-                return false;
+                console.error('讀取快取檔案時出錯:', error);
+                // 繼續執行資料庫查詢
             }
-        };
-        // 如果可以使用快取，直接返回快取資料
-        if (await shouldUseCache()) {
-            console.log('從快取返回上映中電影資料');
-            const cache = await fs_extra_1.default.readJSON(cacheFile);
-            return res.json(cache);
         }
         console.log('重新生成上映中電影資料');
         // 獲取當前日期（台灣時間）
-        const now = new Date();
-        const today = new Date(now);
+        const today = new Date();
         today.setHours(0, 0, 0, 0);
-        // 格式化日期為 YYYY-MM-DD
-        const formatDate = (d) => {
-            const year = d.getFullYear();
-            const month = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        };
-        const formattedDate = formatDate(today);
-        console.log(`查詢今天及以後的場次，今天日期: ${formattedDate}`);
-        // 使用新的資料庫結構，從 showtimes 表查詢上映中的電影，但從 movies 表獲取電影詳細資訊
-        const query = `
-      SELECT DISTINCT 
-        m.id,
-        m.title,
-        m.original_title,
-        m.poster_url,
-        m.backdrop_url,
-        m.release_date,
-        m.runtime,
-        m.tmdb_id
-      FROM showtimes s
-      JOIN movies m ON s.movie_id = m.id
-      WHERE DATE(s.date) >= DATE($1)
-      ORDER BY 
-        m.release_date DESC NULLS LAST  -- 按上映日期降序排列（新上映的在前）
-    `;
-        const result = await db_1.default.query(query, [formattedDate]);
-        console.log(`找到 ${result.rowCount} 部正在上映的電影`);
-        // 格式化電影資料以符合前端需求
-        const moviesData = result.rows.map(movie => ({
-            id: movie.id,
-            title: movie.title,
-            original_title: movie.original_title,
-            release_date: movie.release_date ? movie.release_date.toISOString().split('T')[0] : null,
-            posterUrl: movie.poster_url,
-            runtime: movie.runtime,
-            tmdb_id: movie.tmdb_id
-        }));
-        // 寫入快取
-        await fs_extra_1.default.writeJSON(cacheFile, moviesData, { spaces: 2 });
-        console.log(`已將 ${moviesData.length} 筆上映中電影資料寫入快取`);
-        res.json(moviesData);
+        console.log('準備查詢資料庫...');
+        let result;
+        const client = await db_1.default.connect();
+        try {
+            result = await client.query(`SELECT DISTINCT 
+          m.id,
+          COALESCE(m.chinese_title, m.english_title, m.full_title, '未知電影') as title,
+          m.english_title as original_title,
+          m.release_date,
+          m.runtime,
+          m.tmdb_id,
+          m.full_title,
+          m.chinese_title,
+          m.english_title,
+          CASE 
+            WHEN m.poster_url IS NULL OR m.poster_url = '' 
+            THEN 'https://via.placeholder.com/500x750?text=No+Poster+Available'
+            WHEN m.poster_url LIKE 'http%' 
+            THEN m.poster_url
+            ELSE CONCAT('https://image.tmdb.org/t/p/w500', m.poster_url)
+          END as poster_url
+        FROM movies m
+        INNER JOIN showtimes s ON m.id = s.movie_id
+        WHERE s.showtime >= $1
+        GROUP BY m.id, m.chinese_title, m.english_title, m.full_title, m.release_date, m.runtime, m.tmdb_id, m.poster_url
+        ORDER BY m.release_date DESC, m.chinese_title, m.english_title`, [today]);
+            console.log(`成功查詢到 ${result.rows.length} 部電影`);
+            // 處理查詢結果
+            const movies = result.rows.map((row) => {
+                // 如果沒有海報 URL，使用預設圖片
+                let posterUrl = row.poster_url;
+                if (!posterUrl || posterUrl === '') {
+                    posterUrl = 'https://via.placeholder.com/500x750?text=No+Poster+Available';
+                }
+                else if (!posterUrl.startsWith('http')) {
+                    // 如果是相對路徑，添加基礎 URL
+                    posterUrl = `https://image.tmdb.org/t/p/w500${posterUrl}`;
+                }
+                return {
+                    id: row.id,
+                    title: row.title || '未知電影',
+                    original_title: row.original_title,
+                    release_date: row.release_date,
+                    poster_url: posterUrl,
+                    runtime: row.runtime,
+                    tmdb_id: row.tmdb_id,
+                    full_title: row.full_title,
+                    chinese_title: row.chinese_title || '',
+                    english_title: row.english_title
+                };
+            });
+            console.log(`成功查詢到 ${result.rows.length} 部電影`);
+        }
+        catch (dbError) {
+            console.error('資料庫查詢錯誤:', dbError);
+            throw new Error('查詢電影資料時發生錯誤');
+        }
+        finally {
+            client.release();
+        }
+        // 處理電影資料
+        const movies = result.rows.map(movie => {
+            // 確保有有效的海報 URL
+            let posterUrl = movie.poster_url;
+            if (!posterUrl || posterUrl === '') {
+                // 如果沒有海報，使用預設圖片，並在 URL 中包含電影名稱作為提示
+                const movieName = encodeURIComponent(movie.chinese_title || movie.english_title || 'No+Poster');
+                posterUrl = `https://via.placeholder.com/500x750?text=${movieName}`;
+                // 記錄缺少海報的電影（僅在開發環境）
+                if (process.env.NODE_ENV !== 'production') {
+                    console.log(`電影 ${movie.chinese_title || movie.english_title} 缺少海報，使用預設圖片`);
+                }
+            }
+            else if (posterUrl.startsWith('/')) {
+                // 如果是相對路徑，添加 atmovies 基礎 URL
+                posterUrl = `https://www.atmovies.com.tw${posterUrl}`;
+            }
+            // 如果 poster_url 已經是完整 URL 或 atmovies 的 URL，則保持不變
+            return {
+                ...movie,
+                // 確保所有必要的欄位都有預設值
+                title: movie.chinese_title || movie.english_title || '未知電影',
+                original_title: movie.english_title || movie.chinese_title || '未知電影',
+                poster_url: posterUrl,
+                // 確保陣列類型的欄位至少是空陣列
+                genres: movie.genres || [],
+                production_companies: movie.production_companies || [],
+                production_countries: movie.production_countries || [],
+                spoken_languages: movie.spoken_languages || []
+            };
+        });
+        // 將結果寫入快取
+        try {
+            await fs_extra_1.default.writeJSON(CACHE_FILE, movies);
+            console.log('已更新上映中電影快取');
+        }
+        catch (error) {
+            console.error('寫入快取檔案時出錯:', error);
+        }
+        res.json(movies);
     }
     catch (error) {
-        console.error('獲取上映中電影失敗:', error);
-        res.status(500).json({ error: '獲取上映中電影失敗' });
+        console.error('獲取上映中電影時出錯:', error);
+        next(error);
     }
 };
 exports.getNowShowingMovies = getNowShowingMovies;
+exports.default = exports.getNowShowingMovies;

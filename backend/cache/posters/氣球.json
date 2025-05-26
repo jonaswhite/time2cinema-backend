@@ -1,0 +1,64 @@
+{
+  "adult": false,
+  "backdrop_path": "/vnPl93ld9Sfp9gkSFGOh7v0cjRy.jpg",
+  "genre_ids": [
+    18
+  ],
+  "id": 500634,
+  "original_language": "en",
+  "original_title": "6 Balloons",
+  "overview": "善良忠誠的她，不僅必須奮力維持生計，還得載染上海洛因毒癮的親兄弟到戒毒中心，同時照顧他 2 歲大的女兒。",
+  "popularity": 0.9167,
+  "poster_path": "/aqSQCTtehs7bF8VhpnAtrP5yUo.jpg",
+  "release_date": "2018-03-12",
+  "title": "六顆氣球",
+  "video": false,
+  "vote_average": 5.998,
+  "vote_count": 244,
+  "belongs_to_collection": null,
+  "budget": 0,
+  "genres": [
+    {
+      "id": 18,
+      "name": "剧情"
+    }
+  ],
+  "homepage": "",
+  "imdb_id": "tt6142496",
+  "origin_country": [
+    "US"
+  ],
+  "production_companies": [
+    {
+      "id": 55570,
+      "logo_path": "/mKD4k9RHPkauvQIQsyGb6tzNAWg.png",
+      "name": "Campfire Studios",
+      "origin_country": "US"
+    },
+    {
+      "id": 57743,
+      "logo_path": "/fon2TaTj6WU8kVfAmlHsvpPdt2p.png",
+      "name": "Free Association",
+      "origin_country": "US"
+    }
+  ],
+  "production_countries": [
+    {
+      "iso_3166_1": "US",
+      "name": "United States of America"
+    }
+  ],
+  "revenue": 0,
+  "runtime": 75,
+  "spoken_languages": [
+    {
+      "english_name": "English",
+      "iso_639_1": "en",
+      "name": "English"
+    }
+  ],
+  "status": "Released",
+  "tagline": "",
+  "fullPosterPath": "https://image.tmdb.org/t/p/w500/aqSQCTtehs7bF8VhpnAtrP5yUo.jpg",
+  "fullBackdropPath": "https://image.tmdb.org/t/p/w500/vnPl93ld9Sfp9gkSFGOh7v0cjRy.jpg"
+}

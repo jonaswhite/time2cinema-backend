@@ -52,27 +52,23 @@ export const getNowShowingMovies = async (
   req: Request, 
   res: Response, 
   next: NextFunction
-): Promise<Response | void> => {
+): Promise<void> => {
   const forceRefresh = req.query.forceRefresh === 'true';
   
   try {
     console.log('開始獲取上映中電影資料，forceRefresh:', forceRefresh);
     
-        // 檢查快取是否存在且未過期
-    try {
-      if (!forceRefresh && await isCacheValid()) {
-        try {
-          const cache = await fs.readJSON(CACHE_FILE);
-          console.log('使用快取資料');
-          return res.json(cache);
-        } catch (cacheError) {
-          console.error('讀取快取檔案時出錯，將重新查詢資料庫:', cacheError);
-          // 繼續執行資料庫查詢
-        }
+    // 檢查快取是否存在且未過期
+    if (!forceRefresh && await isCacheValid()) {
+      try {
+        const cache = await fs.readJSON(CACHE_FILE);
+        console.log('使用快取資料');
+        res.json(cache);
+        return;
+      } catch (error) {
+        console.error('讀取快取檔案時出錯:', error);
+        // 繼續執行資料庫查詢
       }
-    } catch (error) {
-      console.error('檢查快取時發生錯誤:', error);
-      // 繼續執行資料庫查詢
     }
     
     console.log('重新生成上映中電影資料');
@@ -140,24 +136,11 @@ export const getNowShowingMovies = async (
           posterUrl = `https://image.tmdb.org/t/p/w500${posterUrl}`;
         }
         
-        // 格式化日期為 YYYY-MM-DD
-        let formattedDate = null;
-        if (row.release_date) {
-          try {
-            const date = new Date(row.release_date);
-            if (!isNaN(date.getTime())) {
-              formattedDate = date.toISOString().split('T')[0];
-            }
-          } catch (e) {
-            console.error('日期格式化錯誤:', e);
-          }
-        }
-
         return {
           id: row.id,
           title: row.title || '未知電影',
           original_title: row.original_title,
-          release_date: formattedDate,
+          release_date: row.release_date,
           poster_url: posterUrl,
           runtime: row.runtime,
           tmdb_id: row.tmdb_id,
@@ -175,19 +158,7 @@ export const getNowShowingMovies = async (
     }
     
     // 處理電影資料
-    const movies = result.rows.map((movie: any) => {
-      // 確保 release_date 是正確的格式
-      let releaseDate = movie.release_date;
-      if (releaseDate) {
-        try {
-          const date = new Date(releaseDate);
-          if (!isNaN(date.getTime())) {
-            releaseDate = date.toISOString().split('T')[0];
-          }
-        } catch (e) {
-          console.error('日期格式化錯誤:', e);
-        }
-      }
+    const movies = result.rows.map(movie => {
       // 確保有有效的海報 URL
       let posterUrl = movie.poster_url;
       if (!posterUrl || posterUrl === '') {
@@ -211,7 +182,6 @@ export const getNowShowingMovies = async (
         title: movie.chinese_title || movie.english_title || '未知電影',
         original_title: movie.english_title || movie.chinese_title || '未知電影',
         poster_url: posterUrl,
-        release_date: releaseDate, // 使用格式化後的日期
         // 確保陣列類型的欄位至少是空陣列
         genres: movie.genres || [],
         production_companies: movie.production_companies || [],
@@ -222,37 +192,13 @@ export const getNowShowingMovies = async (
     
     // 將結果寫入快取
     try {
-      if (movies && movies.length > 0) {
-        await fs.writeJSON(CACHE_FILE, movies);
-        console.log(`已更新上映中電影快取，共 ${movies.length} 部電影`);
-      } else {
-        console.warn('沒有獲取到電影資料，不更新快取');
-      }
+      await fs.writeJSON(CACHE_FILE, movies);
+      console.log('已更新上映中電影快取');
     } catch (error) {
       console.error('寫入快取檔案時出錯:', error);
-      // 不中斷請求，繼續返回資料
     }
     
-    try {
-      if (!movies || movies.length === 0) {
-        // 如果沒有資料，嘗試返回快取（如果存在）
-        if (await fs.pathExists(CACHE_FILE)) {
-          const cache = await fs.readJSON(CACHE_FILE);
-          if (cache && cache.length > 0) {
-            console.log('返回舊的快取資料');
-            return res.json(cache);
-          }
-        }
-        // 如果快取也沒有資料，返回空陣列
-        return res.json([]);
-      } else {
-        // 正常返回資料
-        return res.json(movies);
-      }
-    } catch (error) {
-      console.error('處理回應時出錯:', error);
-      return res.status(500).json({ error: '無法處理請求' });
-    }
+    res.json(movies);
   } catch (error) {
     console.error('獲取上映中電影時出錯:', error);
     next(error);

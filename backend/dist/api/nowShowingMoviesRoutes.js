@@ -8,7 +8,7 @@ const express_1 = __importDefault(require("express"));
 const nowShowingMovies_1 = require("./nowShowingMovies");
 const router = express_1.default.Router();
 // 獲取所有正在上映的電影
-router.get('/', (req, res) => {
-    (0, nowShowingMovies_1.getNowShowingMovies)(req, res);
+router.get('/', (req, res, next) => {
+    (0, nowShowingMovies_1.getNowShowingMovies)(req, res, next);
 });
 exports.nowShowingMoviesRouter = router;

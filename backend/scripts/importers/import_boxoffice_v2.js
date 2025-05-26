@@ -147,16 +147,22 @@ function getWeekStartDate(dateStr) {
 function mapChineseToEnglishFields(item) {
   const fieldMap = {
     '排名': 'rank',
+    '序號': 'rank',           // 添加「序號」映射到 rank
     '片名': 'movie_name',
     '週票房': 'weekly_gross',
+    '金額': 'weekly_gross',   // 添加「金額」映射到 weekly_gross
     '週票數': 'tickets',
+    '票數': 'tickets',        // 添加「票數」映射到 tickets
     '週數': 'weeks',
+    '總日數': 'weeks',        // 添加「總日數」映射到 weeks
     '總票房': 'totalsales',
+    '總金額': 'totalsales',   // 添加「總金額」映射到 totalsales
     '總票數': 'total_tickets',
     '上映日期': 'release_date',
     '上映日': 'release_date',
     '國別': 'country',
-    '發行公司': 'distributor'
+    '發行公司': 'distributor',
+    '出品': 'distributor'     // 添加「出品」映射到 distributor
   };
 
   const result = {};
@@ -165,6 +171,11 @@ function mapChineseToEnglishFields(item) {
     const englishField = fieldMap[chineseField] || chineseField;
     result[englishField] = value;
   }
+  
+  // 輸出映射結果，方便調試
+  if (result.rank) console.log(`映射後 rank: ${result.rank}`);
+  if (result.tickets) console.log(`映射後 tickets: ${result.tickets}`);
+  if (result.totalsales) console.log(`映射後 totalsales: ${result.totalsales}`);
   
   return result;
 }

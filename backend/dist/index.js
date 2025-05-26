@@ -11,7 +11,7 @@ const showtimesRoutes_1 = require("./api/showtimesRoutes");
 const nowShowingMoviesRoutes_1 = require("./api/nowShowingMoviesRoutes");
 const moviesRoutes_1 = require("./api/moviesRoutes");
 const app = (0, express_1.default)();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 // 添加基本中間件
 app.use(express_1.default.json());
 // 添加 CORS 支援
