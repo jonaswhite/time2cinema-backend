@@ -80,20 +80,43 @@ jobs:
         id: db_env
         if: steps.env.outcome == 'success'
         run: |
-          # 設置預設的 DATABASE_URL 如果 secrets.DATABASE_URL 不存在
+          # 檢查 DATABASE_URL 是否存在
           if [ -z "${{ secrets.DATABASE_URL }}" ]; then
+            echo "::warning::secrets.DATABASE_URL 未設置，使用預設值"
             echo "DATABASE_URL=postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db" >> $GITHUB_ENV
-            echo "使用預設的 DATABASE_URL"
           else
-            echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
             echo "使用 secrets 中的 DATABASE_URL"
+            echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
           fi
           
           # 設置 LATEST_JSON 環境變數
           echo "LATEST_JSON=${{ env.LATEST_JSON }}" >> $GITHUB_ENV
           
-          # 顯示除錯資訊
-          echo "DATABASE_URL 長度: ${#DATABASE_URL}"
+          # 顯示除錯資訊（不顯示完整連接字串）
+          echo "DATABASE_URL 已設置，長度: ${#DATABASE_URL}"
+          
+      # 測試資料庫連接
+      - name: Test database connection
+        if: steps.db_env.outcome == 'success'
+        env:
+          DATABASE_URL: ${{ env.DATABASE_URL }}
+        run: |
+          echo "測試資料庫連接..."
+          if ! command -v psql &> /dev/null; then
+            echo "安裝 postgresql-client..."
+            sudo apt-get update && sudo apt-get install -y postgresql-client
+          fi
+          
+          # 從 DATABASE_URL 中提取主機名
+          DB_HOST=$(echo $DATABASE_URL | grep -oP 'postgresql://[^:]+:[^@]+@\K[^/]+')
+          echo "嘗試連接到資料庫主機: $DB_HOST"
+          
+          # 測試連接
+          if ! pg_isready -h $DB_HOST -p 5432; then
+            echo "::error::無法連接到資料庫主機"
+            exit 1
+          fi
+          echo "資料庫連接測試通過"
           
       # 執行資料庫匯入
       - name: Import movie data to database
@@ -108,33 +131,32 @@ jobs:
           ls -la
           
           echo "使用電影文件進行匯入: ${{ env.LATEST_JSON }}"
+          echo "DATABASE_URL 長度: ${#DATABASE_URL}"
           
           # 確保 backend 目錄存在
           if [ ! -d "backend" ]; then
-            echo "錯誤：找不到 backend 目錄"
+            echo "::error::找不到 backend 目錄"
             ls -la
             exit 1
           fi
           
           cd backend
           
-          # 執行 JSON 匯入腳本
-          echo "正在執行 JSON 匯入腳本..."
-          echo "DATABASE_URL 在執行前: ${#DATABASE_URL} 字元"
-          
           # 將 DATABASE_URL 寫入 .env 文件
           echo "DATABASE_URL=$DATABASE_URL" > .env
+          echo "已創建 .env 文件，內容長度: $(wc -c < .env)"
           
           # 執行腳本並捕獲輸出
-          node scripts/importers/import_movies_from_json.js -f "../${{ env.LATEST_JSON }}" || {
-            echo "錯誤：電影資料匯入失敗"
+          echo "開始執行匯入腳本..."
+          if ! node scripts/importers/import_movies_from_json.js -f "../${{ env.LATEST_JSON }}"; then
+            echo "::error::電影資料匯入失敗"
             # 顯示 .env 文件內容（隱藏敏感信息）
             if [ -f ".env" ]; then
               echo "檢查 .env 文件內容（前10個字元）: $(head -c 10 .env)..."
               rm -f .env
             fi
             exit 1
-          }
+          fi
           
           echo "電影資料已成功匯入資料庫"
           # 刪除臨時 .env 文件
