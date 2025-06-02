@@ -189,23 +189,11 @@ class ATMoviesMovieScraper:
             self.session = aiohttp.ClientSession(headers=HEADERS)
         return self.session
     
-    async def close_session(self) -> None:
-        """關閉非同步HTTP session，帶超時保護"""
+    async def close_session(self):
+        """關閉HTTP會話"""
         if self.session and not self.session.closed:
-            try:
-                # 設置超時關閉會話
-                await asyncio.wait_for(self.session.close(), timeout=5.0)
-                logger.info("非同步HTTP session已正常關閉")
-            except asyncio.TimeoutError:
-                logger.warning("關閉HTTP session超時，強制繼續")
-            except Exception as e:
-                logger.error(f"關閉HTTP session時發生錯誤: {e}")
-            finally:
-                # 確保標記為已關閉，即使發生錯誤
-                if hasattr(self.session, '_connector') and self.session._connector:
-                    # 強制關閉所有連接
-                    self.session._connector._close_immediately()
-                logger.info("已強制清理所有連接資源")
+            await self.session.close()
+            logger.info("非同步HTTP session已關閉")
             
     async def fetch_page(self, url: str) -> Optional[BeautifulSoup]:
         """獲取並解析頁面內容，帶重試機制和隨機 User-Agent"""
