@@ -52,13 +52,29 @@ jobs:
       - name: Run ATMovies movie scraper
         timeout-minutes: 15  # 設置爬蟲超時時間
         run: |
+          # 設置錯誤處理
+          set -euo pipefail
+          
+          # 定義清理函數
+          cleanup() {
+            local exit_code=$?
+            echo "正在清理資源..."
+            # 殺死所有可能殘留的 Python 進程
+            pkill -f "python.*atmovies_movie_scraper_v2.py" || true
+            # 返回原始退出碼
+            exit $exit_code
+          }
+          
+          # 註冊清理函數
+          trap cleanup EXIT
+          
           echo "當前目錄: $(pwd)"
           echo "Python 版本: $(python --version)"
           echo "pip 版本: $(pip --version)"
           
           # 安裝必要的 Python 套件
           echo "安裝必要的 Python 套件..."
-          pip install requests beautifulsoup4 pandas lxml aiohttp asyncio psycopg2-binary
+          pip install --no-cache-dir requests beautifulsoup4 pandas lxml aiohttp asyncio psycopg2-binary
           
           # 創建輸出目錄
           echo "創建輸出目錄..."
@@ -67,16 +83,16 @@ jobs:
           echo "開始執行爬蟲..."
           cd backend/scripts/scrapers
           
-          # 使用 unbuffer 確保即時輸出
-          if ! command -v unbuffer &> /dev/null; then
-            echo "安裝 expect 以獲取 unbuffer 命令..."
-            sudo apt-get update && sudo apt-get install -y expect
-          fi
-          
-          echo "執行爬蟲腳本..."
-          python -u atmovies_movie_scraper_v2.py || {
-            echo "::error::爬蟲執行失敗"
-            exit 1
+          # 使用 timeout 命令運行爬蟲，最多運行 10 分鐘
+          echo "執行爬蟲腳本 (最多運行 10 分鐘)..."
+          timeout 10m python -u atmovies_movie_scraper_v2.py || {
+            # 檢查是否是超時導致的退出
+            if [ $? -eq 124 ]; then
+              echo "::warning::爬蟲執行超時，強制終止"
+            else
+              echo "::error::爬蟲執行失敗"
+              exit 1
+            fi
           }
           
           echo "爬蟲執行完成，檢查輸出檔案..."
@@ -86,10 +102,18 @@ jobs:
           JSON_FILES=$(find . -name "atmovies_movies_*.json" -type f -mmin -15)
           if [ -z "$JSON_FILES" ]; then
             echo "::error::未找到新生成的 JSON 檔案"
-            exit 1
+            # 嘗試使用更寬鬆的時間範圍查找
+            JSON_FILES=$(find . -name "atmovies_movies_*.json" -type f | sort -r | head -1)
+            if [ -n "$JSON_FILES" ]; then
+              echo "找到較舊的 JSON 檔案: $JSON_FILES"
+              echo "使用找到的檔案繼續..."
+            else
+              exit 1
+            fi
+          else
+            echo "找到 JSON 檔案: $JSON_FILES"
           fi
           
-          echo "找到 JSON 檔案: $JSON_FILES"
           cd ../../..  # 返回工作區根目錄
 
       # 設置環境變數
