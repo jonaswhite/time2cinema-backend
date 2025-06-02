@@ -7,6 +7,13 @@ on:
   # 允許手動觸發工作流程
   workflow_dispatch:
 
+# 設置工作流程超時為 30 分鐘
+timeout-minutes: 30
+
+# 設置環境變數
+env:
+  PYTHONUNBUFFERED: 1  # 確保 Python 輸出即時顯示
+
 jobs:
   update-movie-data:
     runs-on: ubuntu-latest
@@ -43,11 +50,46 @@ jobs:
 
       # 執行 ATMovies 電影爬蟲
       - name: Run ATMovies movie scraper
+        timeout-minutes: 15  # 設置爬蟲超時時間
         run: |
           echo "當前目錄: $(pwd)"
+          echo "Python 版本: $(python --version)"
+          echo "pip 版本: $(pip --version)"
+          
+          # 安裝必要的 Python 套件
+          echo "安裝必要的 Python 套件..."
+          pip install requests beautifulsoup4 pandas lxml aiohttp asyncio psycopg2-binary
+          
+          # 創建輸出目錄
+          echo "創建輸出目錄..."
+          mkdir -p backend/output/scrapers
+          
+          echo "開始執行爬蟲..."
           cd backend/scripts/scrapers
-          python atmovies_movie_scraper_v2.py
+          
+          # 使用 unbuffer 確保即時輸出
+          if ! command -v unbuffer &> /dev/null; then
+            echo "安裝 expect 以獲取 unbuffer 命令..."
+            sudo apt-get update && sudo apt-get install -y expect
+          fi
+          
+          echo "執行爬蟲腳本..."
+          python -u atmovies_movie_scraper_v2.py || {
+            echo "::error::爬蟲執行失敗"
+            exit 1
+          }
+          
+          echo "爬蟲執行完成，檢查輸出檔案..."
           ls -la  # 顯示當前目錄內容
+          
+          # 檢查是否有生成 JSON 檔案
+          JSON_FILES=$(find . -name "atmovies_movies_*.json" -type f -mmin -15)
+          if [ -z "$JSON_FILES" ]; then
+            echo "::error::未找到新生成的 JSON 檔案"
+            exit 1
+          fi
+          
+          echo "找到 JSON 檔案: $JSON_FILES"
           cd ../../..  # 返回工作區根目錄
 
       # 設置環境變數
@@ -56,13 +98,25 @@ jobs:
         run: |
           # 查找最新的電影JSON文件
           echo "正在查找最新的電影JSON文件..."
-          LATEST_JSON=$(find backend/output/scrapers -name "atmovies_movies_*.json" -type f -printf "%T@ %p\n" | sort -n | tail -1 | cut -f2- -d" " || true)
+          echo "當前目錄: $(pwd)"
+          echo "目錄內容:"
+          ls -la backend/output/scrapers/ || echo "無法列出目錄內容"
+          
+          # 查找最近 15 分鐘內修改的 JSON 文件
+          LATEST_JSON=$(find backend/output/scrapers -name "atmovies_movies_*.json" -type f -mmin -15 -printf "%T@ %p\n" | sort -n | tail -1 | cut -f2- -d" " || true)
           
           if [ -n "$LATEST_JSON" ] && [ -f "$LATEST_JSON" ]; then
             echo "找到電影文件: $LATEST_JSON"
+            echo "文件大小: $(du -h "$LATEST_JSON" | cut -f1)"
+            echo "文件修改時間: $(date -r "$LATEST_JSON")"
             echo "LATEST_JSON=$LATEST_JSON" >> $GITHUB_ENV
+            
+            # 顯示文件前幾行以確認內容
+            echo "文件前 5 行內容:"
+            head -n 5 "$LATEST_JSON" || echo "無法讀取文件內容"
           else
-            echo "未找到有效的電影文件"
+            echo "::error::未找到有效的電影文件"
+            echo "當前目錄下的 JSON 文件:"
             find backend/output/scrapers -name "*.json" -type f -ls || echo "找不到任何 JSON 文件"
             exit 1
           fi
