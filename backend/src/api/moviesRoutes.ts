@@ -17,6 +17,42 @@ router.get('/', async (req: Request, res: Response): Promise<void> => {
   }
 });
 
+
+// 根據電影名稱獲取電影
+router.get('/name/:movieName', async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { movieName } = req.params;
+    const decodedMovieName = decodeURIComponent(movieName);
+
+    if (!decodedMovieName) {
+      res.status(400).json({ error: '請提供電影名稱' });
+      return;
+    }
+
+    console.log(`後端 API 收到按名稱查詢電影的請求: ${decodedMovieName}`); // 新增日誌
+
+    const query = `
+      SELECT * FROM movies
+      WHERE lower(full_title) = lower($1) OR lower(chinese_title) = lower($1) OR lower(english_title) = lower($1)
+      LIMIT 1;
+    `;
+    const result = await pool.query(query, [decodedMovieName]);
+
+    if (result.rows.length === 0) {
+      console.log(`後端 API 找不到電影: ${decodedMovieName}`); // 新增日誌
+      res.status(404).json({ error: '找不到指定的電影' });
+      return;
+    }
+
+    console.log(`後端 API 找到電影: ${decodedMovieName}`, result.rows[0]); // 新增日誌
+    res.json(result.rows[0]);
+  } catch (error) {
+    const originalMovieNameParam = req.params.movieName;
+    console.error(`按名稱獲取電影資料失敗 (${originalMovieNameParam ? decodeURIComponent(originalMovieNameParam) : 'unknown movieName'}):`, error);
+    res.status(500).json({ error: '按名稱獲取電影資料失敗' });
+  }
+});
+
 // 搜尋電影
 router.get('/search/:query', async (req: Request, res: Response): Promise<void> => {
   try {
