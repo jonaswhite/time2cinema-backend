@@ -52,7 +52,7 @@ app.use('/api/tmdb', tmdbRoutes_1.tmdbRouter);
 app.use('/api/cinemas', cinemaRoutes_1.cinemaRouter);
 // 使用場次路由
 app.use('/api/showtimes', showtimesRoutes_1.showtimesRouter);
-// 使用上映中電影路由 (必須在 /api/movies 前面註冊，因為它更具體)
+// 使用上映中路由 (必須在 /api/movies 前面註冊，因為它更具體)
 app.use('/api/movies/now-showing', nowShowingMoviesRoutes_1.nowShowingMoviesRouter);
 // 使用電影路由
 app.use('/api/movies', moviesRoutes_1.moviesRouter);
@@ -63,5 +63,5 @@ app.listen(PORT, () => {
     console.log(`電影院 API 網址: http://localhost:${PORT}/api/cinemas`);
     console.log(`場次 API 網址: http://localhost:${PORT}/api/showtimes`);
     console.log(`電影 API 網址: http://localhost:${PORT}/api/movies`);
-    console.log(`上映中電影 API 網址: http://localhost:${PORT}/api/movies/now-showing`);
+    console.log(`上映中 API 網址: http://localhost:${PORT}/api/movies/now-showing`);
 });

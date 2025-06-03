@@ -363,16 +363,31 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
       return res.status(400).json({ error: '請提供電影ID或名稱' });
     }
     
-    // 如果提供了日期參數，使用該日期；否則使用今天的日期
-    let queryDate: string;
+    // 如果提供了日期參數，使用該日期；否則返回未來3天的場次
+    let queryStartDate: string;
+    let queryEndDate: string | null = null;
+    
     if (date) {
-      queryDate = date as string;
+      // 如果提供了日期參數，只查詢該日期的場次
+      queryStartDate = date as string;
+      console.log(`使用指定日期查詢: ${queryStartDate}`);
     } else {
+      // 如果沒有提供日期參數，查詢今天到未來3天的場次
       const today = new Date();
-      queryDate = formatDate(today);
+      queryStartDate = formatDate(today);
+      
+      // 計算3天後的日期
+      const futureDate = new Date(today);
+      futureDate.setDate(today.getDate() + 3);
+      queryEndDate = formatDate(futureDate);
+      
+      console.log(`查詢日期範圍: ${queryStartDate} 至 ${queryEndDate}`);
     }
     
-    console.log(`查詢日期: ${queryDate}`);
+    console.log(`查詢開始日期: ${queryStartDate}`);
+    if (queryEndDate) {
+      console.log(`查詢結束日期: ${queryEndDate}`);
+    }
     
     // 檢查 movieName 是否為數字（電影ID）
     const isMovieId = !isNaN(Number(movieName));
@@ -402,10 +417,12 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
           LEFT JOIN 
             cinemas c ON s.cinema_id = c.id
           WHERE 
-            s.movie_id = $1 AND DATE(s.date) = DATE($2)
+            s.movie_id = $1 
+            AND DATE(s.date) >= DATE($2) 
+            ${queryEndDate ? 'AND DATE(s.date) <= DATE($3)' : ''}
           ORDER BY 
             s.cinema_id, s.date, s.time
-        `, [movieName, queryDate]);
+        `, queryEndDate ? [movieName, queryStartDate, queryEndDate] : [movieName, queryStartDate]);
       } else {
         // 如果是電影名稱，先查找對應的電影ID，然後再查詢場次
         const decodedMovieName = decodeURIComponent(movieName);
@@ -448,10 +465,12 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
           LEFT JOIN 
             cinemas c ON s.cinema_id = c.id
           WHERE 
-            s.movie_id = ANY($1) AND DATE(s.date) = DATE($2)
+            s.movie_id = ANY($1) 
+            AND DATE(s.date) >= DATE($2)
+            ${queryEndDate ? 'AND DATE(s.date) <= DATE($3)' : ''}
           ORDER BY 
             s.cinema_id, s.date, s.time
-        `, [movieIds, queryDate]);
+        `, queryEndDate ? [movieIds, queryStartDate, queryEndDate] : [movieIds, queryStartDate]);
         
         // 如果沒有找到場次，嘗試使用模糊查詢
         if (!showtimesResult || !showtimesResult.rows || showtimesResult.rows.length === 0) {
@@ -478,10 +497,13 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
             WHERE 
               (m.chinese_title ILIKE $1 
                OR m.english_title ILIKE $1) 
-              AND DATE(s.date) = DATE($2)
+              AND DATE(s.date) >= DATE($2)
+              ${queryEndDate ? 'AND DATE(s.date) <= DATE($3)' : ''}
             ORDER BY 
               s.cinema_id, s.date, s.time
-          `, [`%${decodedMovieName}%`, queryDate]);
+          `, queryEndDate 
+            ? [`%${decodedMovieName}%`, queryStartDate, queryEndDate] 
+            : [`%${decodedMovieName}%`, queryStartDate]);
         }
       }
     
@@ -495,9 +517,16 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
       // 確保 showtimesResult 不為 null
       if (!showtimesResult || !showtimesResult.rows || showtimesResult.rows.length === 0) {
         // 如果沒有找到任何場次，返回空數組
+        console.log('沒有找到任何場次資料，返回空數組');
         await client.query('COMMIT');
         client.release();
         return res.json([]);
+      }
+      
+      // 詳細記錄查詢結果的前幾筆資料
+      console.log('查詢結果的前 3 筆資料:');
+      for (let i = 0; i < Math.min(3, showtimesResult.rows.length); i++) {
+        console.log(`第 ${i+1} 筆:`, JSON.stringify(showtimesResult.rows[i]));
       }
       
       showtimesResult.rows.forEach((row: any) => {
@@ -514,9 +543,8 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
           return; // 跳過無效的日期
         }
         
-        // 使用查詢日期作為返回的日期，而不是使用資料庫中的日期
-        // 這樣可以確保前端收到的日期是正確的
-        const dateStr = queryDate;
+        // 使用資料庫中的實際日期
+        const dateStr = formatDate(dateObj);
         
         // 確保電影院名稱存在，如果不存在則使用「未知電影院」
         const cinemaName = row.cinema_name || `未知電影院 #${cinemaId}`;
@@ -559,6 +587,27 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
       
       await client.query('COMMIT');
       client.release();
+      
+      // 詳細記錄返回給前端的資料結構
+      console.log(`返回給前端的資料結構: ${movieShowtimes.length} 個電影院`);
+      if (movieShowtimes.length > 0) {
+        const firstTheater = movieShowtimes[0];
+        console.log('第一個電影院資料:', JSON.stringify(firstTheater));
+        
+        if (firstTheater.showtimes_by_date && Array.isArray(firstTheater.showtimes_by_date) && firstTheater.showtimes_by_date.length > 0) {
+          const firstDate = firstTheater.showtimes_by_date[0] as { date: string; showtimes: any[] };
+          console.log('第一個日期的場次資料:', JSON.stringify(firstDate));
+          
+          if (Array.isArray(firstDate.showtimes) && firstDate.showtimes.length > 0) {
+            console.log('第一個場次資料:', JSON.stringify(firstDate.showtimes[0]));
+          } else {
+            console.log('該日期沒有場次資料');
+          }
+        } else {
+          console.log('該電影院沒有日期場次資料');
+        }
+      }
+      
       return res.json(movieShowtimes);
       
     } catch (dbError) {

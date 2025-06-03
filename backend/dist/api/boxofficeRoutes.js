@@ -56,7 +56,13 @@ router.get('/', async (req, res, next) => {
           b.movie_alias,
           m.chinese_title as title, 
           m.english_title as original_title, 
-          m.poster_url, 
+          CASE 
+            WHEN m.poster_url IS NULL OR m.poster_url = '' 
+            THEN 'https://via.placeholder.com/500x750?text=No+Poster+Available'
+            WHEN m.poster_url LIKE 'http%' 
+            THEN m.poster_url
+            ELSE CONCAT('https://image.tmdb.org/t/p/w500', m.poster_url)
+          END as poster_url,
           m.runtime, 
           m.tmdb_id
         FROM 

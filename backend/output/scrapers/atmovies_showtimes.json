@@ -1,0 +1,409 @@
+[
+  {
+    "atmovies_theater_id": "t03902",
+    "atmovies_theater_name": "宜蘭日新戲院",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250530",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "13:30",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "17:20",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "19:20",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "13:30",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "21:10",
+            "movie_name": "不可能的任務：最終清算"
+          }
+        ]
+      },
+      {
+        "date": "20250531",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250601",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t03904",
+    "atmovies_theater_name": "日新戲院-統一廳",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250530",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "13:30",
+            "movie_name": "心之谷"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "心之谷"
+          },
+          {
+            "time": "19:30",
+            "movie_name": "絕命終結站 血脈"
+          },
+          {
+            "time": "15:30",
+            "movie_name": "搜查瑠公圳"
+          }
+        ]
+      },
+      {
+        "date": "20250531",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250601",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t03905",
+    "atmovies_theater_name": "新月豪華影城",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250530",
+        "label": "今天",
+        "showtimes": [
+          {
+            "time": "10:10",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "12:15",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "16:15",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "18:15",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "20:15",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "22:15",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "00:00",
+            "movie_name": "滿血復活"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "浴血劫案"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "浴血劫案"
+          },
+          {
+            "time": "20:10",
+            "movie_name": "浴血劫案"
+          },
+          {
+            "time": "00:00",
+            "movie_name": "浴血劫案"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "送院途中"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "送院途中"
+          },
+          {
+            "time": "19:05",
+            "movie_name": "送院途中"
+          },
+          {
+            "time": "00:15",
+            "movie_name": "送院途中"
+          },
+          {
+            "time": "14:20",
+            "movie_name": "心之谷"
+          },
+          {
+            "time": "23:05",
+            "movie_name": "心之谷"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "心之谷"
+          },
+          {
+            "time": "18:30",
+            "movie_name": "心之谷"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "11:55",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "13:25",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "15:05",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "16:40",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "18:20",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "19:55",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "21:35",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "23:05",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "12:35",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "15:50",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "17:30",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "19:05",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "20:45",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "22:20",
+            "movie_name": "不可能的任務：最終清算"
+          },
+          {
+            "time": "11:00",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "13:05",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "15:10",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "18:25",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "23:35",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "16:20",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "19:25",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "23:00",
+            "movie_name": "星際寶貝：史迪奇"
+          },
+          {
+            "time": "12:55",
+            "movie_name": "絕命終結站 血脈"
+          },
+          {
+            "time": "17:15",
+            "movie_name": "絕命終結站 血脈"
+          },
+          {
+            "time": "21:30",
+            "movie_name": "絕命終結站 血脈"
+          },
+          {
+            "time": "23:40",
+            "movie_name": "絕命終結站 血脈"
+          },
+          {
+            "time": "12:10",
+            "movie_name": "搜查?公圳"
+          },
+          {
+            "time": "14:15",
+            "movie_name": "搜查?公圳"
+          },
+          {
+            "time": "18:05",
+            "movie_name": "搜查?公圳"
+          },
+          {
+            "time": "21:55",
+            "movie_name": "搜查?公圳"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "17:05",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "21:00",
+            "movie_name": "MINECRAFT麥塊電影"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "16:30",
+            "movie_name": "萬王之王"
+          },
+          {
+            "time": "10:10",
+            "movie_name": "雷霆特攻隊"
+          },
+          {
+            "time": "20:40",
+            "movie_name": "雷霆特攻隊"
+          }
+        ]
+      },
+      {
+        "date": "20250531",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250601",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  },
+  {
+    "atmovies_theater_id": "t03906",
+    "atmovies_theater_name": "影像興樂園",
+    "atmovies_showtimes_by_date": [
+      {
+        "date": "20250530",
+        "label": "今天",
+        "showtimes": []
+      },
+      {
+        "date": "20250531",
+        "label": "明天",
+        "showtimes": []
+      },
+      {
+        "date": "20250601",
+        "label": "後天",
+        "showtimes": []
+      }
+    ]
+  }
+]

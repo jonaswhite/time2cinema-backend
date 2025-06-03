@@ -52,7 +52,7 @@ const isCacheValid = async () => {
 const getNowShowingMovies = async (req, res, next) => {
     const forceRefresh = req.query.forceRefresh === 'true';
     try {
-        console.log('開始獲取上映中電影資料，forceRefresh:', forceRefresh);
+        console.log('開始獲取上映中資料，forceRefresh:', forceRefresh);
         // 檢查快取是否存在且未過期
         if (!forceRefresh && await isCacheValid()) {
             try {
@@ -66,22 +66,31 @@ const getNowShowingMovies = async (req, res, next) => {
                 // 繼續執行資料庫查詢
             }
         }
-        console.log('重新生成上映中電影資料');
+        console.log('重新生成上映中資料');
         // 獲取當前日期（台灣時間）
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        console.log('準備查詢資料庫...');
+        // 將日期調整為台灣時區 (+8)
+        const taiwanOffset = 8 * 60 * 60 * 1000; // 8 小時的毫秒數
+        const nowInTaiwan = new Date(Date.now() + taiwanOffset);
+        const todayInTaiwan = new Date(nowInTaiwan.getFullYear(), nowInTaiwan.getMonth(), nowInTaiwan.getDate());
+        console.log('台灣時間現在是:', nowInTaiwan.toISOString());
+        console.log('台灣時間今天:', todayInTaiwan.toISOString());
         let result;
         const client = await db_1.default.connect();
         try {
+            // 主查詢：獲取所有有場次的電影
+            // 修改查詢條件，包含今天和昨天的場次，以確保不會因為時區問題而遺漏
+            const yesterday = new Date(todayInTaiwan);
+            yesterday.setDate(yesterday.getDate() - 1);
+            console.log('查詢場次日期範圍:', yesterday.toISOString(), '到未來');
             result = await client.query(`SELECT DISTINCT 
           m.id,
-          COALESCE(m.chinese_title, m.english_title, m.full_title, '未知電影') as title,
+          COALESCE(m.chinese_title, m.english_title, '未知電影') as title,
           m.english_title as original_title,
           m.release_date,
           m.runtime,
           m.tmdb_id,
-          m.full_title,
           m.chinese_title,
           m.english_title,
           CASE 
@@ -92,11 +101,23 @@ const getNowShowingMovies = async (req, res, next) => {
             ELSE CONCAT('https://image.tmdb.org/t/p/w500', m.poster_url)
           END as poster_url
         FROM movies m
-        INNER JOIN showtimes s ON m.id = s.movie_id
-        WHERE s.date >= $1
-        GROUP BY m.id, m.chinese_title, m.english_title, m.full_title, m.release_date, m.runtime, m.tmdb_id, m.poster_url
-        ORDER BY m.release_date DESC NULLS LAST  -- 按照上映日期降序排列，NULL 值放在最後`, [today]);
+        WHERE EXISTS (
+          SELECT 1 
+          FROM showtimes s 
+          WHERE s.movie_id = m.id 
+          AND s.date >= $1
+        )`, [yesterday] // 使用昨天作為查詢起點，確保不會因為時區問題而遺漏場次
+            );
             console.log(`成功查詢到 ${result.rows.length} 部電影`);
+            // 記錄前幾部電影的標題用於調試
+            if (result.rows.length > 0) {
+                console.log('電影範例:', result.rows.slice(0, 3).map(m => ({
+                    id: m.id,
+                    title: m.title,
+                    release_date: m.release_date,
+                    poster_url: m.poster_url ? `${m.poster_url.substring(0, 50)}...` : '無海報'
+                })));
+            }
             // 處理查詢結果
             const movies = result.rows.map((row) => {
                 // 如果沒有海報 URL，使用預設圖片
@@ -164,7 +185,7 @@ const getNowShowingMovies = async (req, res, next) => {
         // 將結果寫入快取
         try {
             await fs_extra_1.default.writeJSON(CACHE_FILE, movies);
-            console.log('已更新上映中電影快取');
+            console.log('已更新上映中快取');
         }
         catch (error) {
             console.error('寫入快取檔案時出錯:', error);
@@ -172,7 +193,7 @@ const getNowShowingMovies = async (req, res, next) => {
         res.json(movies);
     }
     catch (error) {
-        console.error('獲取上映中電影時出錯:', error);
+        console.error('獲取上映中時出錯:', error);
         next(error);
     }
 };

@@ -2,6 +2,7 @@ const { Pool } = require('pg');
 const fs = require('fs').promises;
 const path = require('path');
 const { Command } = require('commander');
+const { start } = require('repl');
 
 // 設定專案根目錄與輸出目錄
 // 使用絕對路徑確保檔案位置正確
@@ -184,6 +185,34 @@ async function getOrCreateTheaterId(client, atmoviesTheaterId, theaterName) {
   }
 }
 
+// 清理昨天的場次資料
+async function cleanupOldShowtimes(client) {
+  try {
+    // 獲取今天的日期
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    // 格式化為 YYYY-MM-DD
+    const todayStr = today.toISOString().split('T')[0];
+    
+    console.log(`🧹 開始清理 ${todayStr} 之前的場次資料...`);
+    
+    // 刪除昨天的場次資料
+    const result = await client.query(
+      `DELETE FROM showtimes 
+       WHERE date < $1 
+       RETURNING id`,
+      [todayStr]
+    );
+    
+    console.log(`✅ 已清理 ${result.rowCount} 筆舊場次資料`);
+    return result.rowCount;
+  } catch (error) {
+    console.error('❌ 清理舊場次資料時出錯:', error);
+    throw error;
+  }
+}
+
 // 主函數
 async function main() {
   console.log('🚀 開始匯入場次資料...');
@@ -193,6 +222,19 @@ async function main() {
     // 讀取場次資料
     const data = await fs.readFile(options.file || SHOWTIMES_FILE, 'utf8');
     const showtimesData = JSON.parse(data);
+    
+    // 初始化資料庫連接
+    client = await initDb();
+    
+    // 在匯入新資料前清理舊場次
+    await client.query('BEGIN');
+    try {
+      await cleanupOldShowtimes(client);
+      await client.query('COMMIT');
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    }
     
     console.log(`📂 讀取場次資料：${options.file || SHOWTIMES_FILE}`);
     console.log(`📅 場次資料日期：${showtimesData[0]?.atmovies_showtimes_by_date[0]?.date || '未知'}`);
