@@ -181,20 +181,46 @@ function formatDate(dateStr) {
 }
 
 // 根據電影名稱獲取或創建電影 ID
-async function getOrCreateMovieId(client, movieName) {
+async function getOrCreateMovieId(client, movieName, showDateString) {
   if (movieCache.has(movieName)) {
     return movieCache.get(movieName);
   }
   if (!movieName) return null;
-  
+
   try {
-    // 先嘗試在 chinese_title 或 full_title 中查找完全匹配
+    let showYear = null;
+    if (showDateString && showDateString.length === 8) {
+      try {
+        showYear = parseInt(showDateString.substring(0, 4), 10);
+      } catch (e) {
+        console.warn(`⚠️ 無效的 showDateString 格式: ${showDateString}, 無法提取年份`);
+        showYear = null;
+      }
+    }
+
+    // 嘗試 1: 中文標題 + 上映年份（如果 showDateString 有效）
+    if (showYear) {
+      const resYearMatch = await client.query(
+        `SELECT id FROM movies 
+         WHERE (chinese_title = $1 OR full_title = $1)
+           AND EXTRACT(YEAR FROM release_date) = $2
+         LIMIT 1`,
+        [movieName, showYear]
+      );
+      if (resYearMatch.rows.length > 0) {
+        movieCache.set(movieName, resYearMatch.rows[0].id); // Cache with movieName for simplicity, though ideally key could include year
+        return resYearMatch.rows[0].id;
+      }
+    }
+
+    // 嘗試 2: 先嘗試在 chinese_title 或 full_title 中查找完全匹配
     const res = await client.query(
       `SELECT id FROM movies 
        WHERE chinese_title = $1 OR full_title = $1
        LIMIT 1`,
       [movieName]
     );
+
     
     if (res.rows.length > 0) {
       movieCache.set(movieName, res.rows[0].id);
@@ -396,7 +422,8 @@ async function main() {
             
             try {
               // 獲取或創建電影 ID
-              const movieId = await getOrCreateMovieId(client, movieName);
+              const showDateForMovie = showDate; // YYYYMMDD, from dateGroup.date
+              const movieId = await getOrCreateMovieId(client, movieName, showDateForMovie);
               if (!movieId) {
                 throw new Error(`無法獲取或創建電影: ${movieName}`);
               }
