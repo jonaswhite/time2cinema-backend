@@ -7,7 +7,7 @@ import { nowShowingMoviesRouter } from './api/nowShowingMoviesRoutes';
 import { moviesRouter } from './api/moviesRoutes';
 
 const app = express();
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 4002;
 
 // 添加基本中間件
 app.use(express.json());

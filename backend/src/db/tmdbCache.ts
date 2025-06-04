@@ -94,7 +94,7 @@ export async function migrateCacheToDatabase() {
             UPDATE tmdb_movie_cache 
             SET 
               tmdb_id = $1,
-              original_title = $2,
+              original_title = $2, // This is the cache table, so it uses original_title
               overview = $3,
               poster_path = $4,
               backdrop_path = $5,
@@ -123,8 +123,8 @@ export async function migrateCacheToDatabase() {
         } else {
           // 插入新記錄
           const insertQuery = `
-            INSERT INTO tmdb_movie_cache (
-              tmdb_id, title, original_title, overview, poster_path, 
+            INSERT INTO movies (
+              tmdb_id, title, english_title, overview, poster_path, 
               backdrop_path, release_date, runtime, vote_average, genres
             ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
           `;

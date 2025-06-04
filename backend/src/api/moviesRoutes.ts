@@ -65,7 +65,7 @@ router.get('/search/:query', async (req: Request, res: Response): Promise<void> 
     
     const result = await pool.query(`
       SELECT * FROM movies 
-      WHERE title ILIKE $1 OR original_title ILIKE $1
+      WHERE chinese_title ILIKE $1 OR english_title ILIKE $1 OR full_title ILIKE $1
       ORDER BY title
     `, [`%${query}%`]);
     

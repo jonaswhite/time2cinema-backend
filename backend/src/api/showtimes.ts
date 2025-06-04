@@ -408,6 +408,7 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
             COALESCE(m.chinese_title, m.english_title, '未知電影') as movie_title, 
             m.poster_url,
             m.release_date,
+            m.tmdb_id,
             c.name as cinema_name,
             c.id as cinema_id
           FROM 
@@ -457,6 +458,7 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
             COALESCE(m.chinese_title, m.english_title, '未知電影') as movie_title, 
             m.poster_url,
             m.release_date,
+            m.tmdb_id,
             c.name as cinema_name
           FROM 
             showtimes s
@@ -486,6 +488,7 @@ export const getShowtimesByMovie = async (req: Request, res: Response) => {
               COALESCE(m.chinese_title, m.english_title, '未知電影') as movie_title, 
               m.poster_url,
               m.release_date,
+              m.tmdb_id,
               c.name as cinema_name,
               c.id as cinema_id
             FROM 

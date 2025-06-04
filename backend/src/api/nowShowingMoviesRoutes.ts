@@ -100,7 +100,7 @@ export const getNowShowingMovies = async (
         `SELECT DISTINCT 
           m.id,
           COALESCE(m.chinese_title, m.english_title, '未知電影') as title,
-          m.english_title as original_title,
+          m.english_title,
           m.release_date,
           m.runtime,
           m.tmdb_id,
@@ -139,14 +139,13 @@ export const getNowShowingMovies = async (
       interface Movie {
         id: number;
         title: string;
-        original_title: string | null;
+        english_title: string | null;
         release_date: string | null;
         poster_url: string;
         runtime: number | null;
         tmdb_id: number | null;
         full_title: string;
         chinese_title: string;
-        english_title: string | null;
       }
       
       // 處理查詢結果
@@ -163,7 +162,6 @@ export const getNowShowingMovies = async (
         return {
           id: row.id,
           title: row.title || '未知電影',
-          original_title: row.original_title,
           release_date: row.release_date,
           poster_url: posterUrl,
           runtime: row.runtime,
@@ -204,7 +202,6 @@ export const getNowShowingMovies = async (
         ...movie,
         // 確保所有必要的欄位都有預設值
         title: movie.chinese_title || movie.english_title || '未知電影',
-        original_title: movie.english_title || movie.chinese_title || '未知電影',
         poster_url: posterUrl,
         // 確保陣列類型的欄位至少是空陣列
         genres: movie.genres || [],
