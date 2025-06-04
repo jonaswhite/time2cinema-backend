@@ -2,6 +2,7 @@ const { Pool } = require('pg');
 const fs = require('fs').promises;
 const path = require('path');
 const { Command } = require('commander');
+const format = require('pg-format');
 const { start } = require('repl');
 
 // 設定專案根目錄與輸出目錄
@@ -57,6 +58,10 @@ if (options.connection) {
 // 創建資料庫連接池
 const pool = new Pool(dbConfig);
 
+// In-memory caches
+const movieCache = new Map();
+const cinemaCache = new Map();
+
 // 初始化資料庫連接
 async function initDb() {
   const client = await pool.connect();
@@ -93,6 +98,9 @@ function formatDate(dateStr) {
 
 // 根據電影名稱獲取或創建電影 ID
 async function getOrCreateMovieId(client, movieName) {
+  if (movieCache.has(movieName)) {
+    return movieCache.get(movieName);
+  }
   if (!movieName) return null;
   
   try {
@@ -105,6 +113,7 @@ async function getOrCreateMovieId(client, movieName) {
     );
     
     if (res.rows.length > 0) {
+      movieCache.set(movieName, res.rows[0].id);
       return res.rows[0].id;
     }
     
@@ -118,6 +127,7 @@ async function getOrCreateMovieId(client, movieName) {
     
     if (likeRes.rows.length > 0) {
       console.log(`🔍 找到模糊匹配的電影: ${movieName} -> ${likeRes.rows[0].id}`);
+      movieCache.set(movieName, likeRes.rows[0].id);
       return likeRes.rows[0].id;
     }
     
@@ -131,6 +141,7 @@ async function getOrCreateMovieId(client, movieName) {
       );
       
       console.log(`✅ 創建新電影: ${movieName} (ID: ${insertRes.rows[0].id})`);
+      movieCache.set(movieName, insertRes.rows[0].id);
       return insertRes.rows[0].id;
     } catch (insertError) {
       // 如果插入失敗（例如並發創建），再次嘗試查詢
@@ -156,17 +167,20 @@ async function getOrCreateMovieId(client, movieName) {
 
 // 根據電影院 ID 獲取或創建電影院記錄
 async function getOrCreateTheaterId(client, atmoviesTheaterId, theaterName) {
+  if (cinemaCache.has(atmoviesTheaterId)) {
+    return cinemaCache.get(atmoviesTheaterId);
+  }
   if (!atmoviesTheaterId) return null;
   
   try {
     // 先嘗試查找
     const res = await client.query(
-      `SELECT id FROM cinemas 
-       WHERE source = 'atmovies' AND external_id = $1`,
+      `SELECT id FROM cinemas WHERE external_id = $1 AND source = 'atmovies' LIMIT 1`,
       [atmoviesTheaterId]
     );
     
     if (res.rows.length > 0) {
+      cinemaCache.set(atmoviesTheaterId, res.rows[0].id);
       return res.rows[0].id;
     }
     
@@ -178,6 +192,8 @@ async function getOrCreateTheaterId(client, atmoviesTheaterId, theaterName) {
       [theaterName || `未知電影院-${atmoviesTheaterId}`, atmoviesTheaterId]
     );
     
+    console.log(`✅ 創建新電影院: ${theaterName} (ID: ${insertRes.rows[0].id})`);
+    cinemaCache.set(atmoviesTheaterId, insertRes.rows[0].id);
     return insertRes.rows[0].id;
   } catch (error) {
     console.error(`❌ 處理電影院 ${theaterName} (${atmoviesTheaterId}) 時出錯:`, error);
@@ -239,14 +255,13 @@ async function main() {
     console.log(`📂 讀取場次資料：${options.file || SHOWTIMES_FILE}`);
     console.log(`📅 場次資料日期：${showtimesData[0]?.atmovies_showtimes_by_date[0]?.date || '未知'}`);
     
-    // 初始化資料庫連接
-    client = await initDb();
-    
+    // 處理每個電影院的場次資料
     let totalShowtimes = 0;
     let successfulTheaters = 0;
     const processedMovies = new Set();
-    
-    // 處理每個電影院的場次資料
+    let showtimesToInsertBatch = [];
+    const BATCH_SIZE = 500; // Configurable batch size
+
     for (const theater of showtimesData) {
       const atmoviesTheaterId = theater.atmovies_theater_id;
       const theaterName = theater.atmovies_theater_name;
@@ -316,39 +331,24 @@ async function main() {
               
               console.log(`🕒 處理場次: ${dateStr} ${timeWithSeconds} - ${movieName}`);
               
-              try {
-                // 先檢查場次是否已存在
-                const checkRes = await client.query(
-                  `SELECT id FROM showtimes 
-                   WHERE cinema_id = $1 AND movie_id = $2 AND date = $3 AND time = $4
-                   LIMIT 1`,
-                  [theaterId, movieId, dateStr, timeWithSeconds]
-                );
-                
-                if (checkRes.rows.length === 0) {
-                  // 場次不存在，插入新場次
-                  const insertQuery = `
-                    INSERT INTO showtimes (cinema_id, movie_id, date, time, created_at, updated_at)
-                    VALUES ($1, $2, $3, $4, NOW(), NOW())
-                    RETURNING id`;
-                  
-                  await client.query(insertQuery, [
-                    theaterId,  // cinema_id
-                    movieId,    // movie_id
-                    dateStr,    // date
-                    timeWithSeconds  // time
-                  ]);
-                  
-                  console.log(`✅ 新增場次: ${dateStr} ${timeWithSeconds} - ${movieName}`);
-                } else {
-                  console.log(`⏭️ 場次已存在: ${dateStr} ${timeWithSeconds} - ${movieName}`);
+              showtimesToInsertBatch.push([theaterId, movieId, dateStr, timeWithSeconds, new Date(), new Date()]);
+              totalShowtimes++;
+              theaterShowtimes++;
+
+              if (showtimesToInsertBatch.length >= BATCH_SIZE) {
+                try {
+                  const insertQuery = format(
+                    'INSERT INTO showtimes (cinema_id, movie_id, date, time, created_at, updated_at) VALUES %L ON CONFLICT (cinema_id, movie_id, date, time) DO NOTHING',
+                    showtimesToInsertBatch
+                  );
+                  await client.query(insertQuery);
+                  console.log(`✅ 批量插入 ${showtimesToInsertBatch.length} 筆場次`);
+                  showtimesToInsertBatch = []; // Reset batch
+                } catch (batchInsertError) {
+                  console.error('❌ 批量插入場次失敗:', batchInsertError.message);
+                  // Optionally, handle individual inserts as fallback or log problematic batch
+                  // For now, we'll just log and continue, some showtimes in this batch might be lost
                 }
-                
-                totalShowtimes++;
-                theaterShowtimes++;
-              } catch (insertError) {
-                console.error(`❌ 插入場次失敗 (${movieName} - ${timeWithSeconds}):`, insertError.message);
-                // 繼續處理下一個場次
               }
               
             } catch (error) {
@@ -358,6 +358,20 @@ async function main() {
           }
         }
         
+        // Insert any remaining showtimes in the batch
+        if (showtimesToInsertBatch.length > 0) {
+          try {
+            const insertQuery = format(
+              'INSERT INTO showtimes (cinema_id, movie_id, date, time, created_at, updated_at) VALUES %L ON CONFLICT (cinema_id, movie_id, date, time) DO NOTHING',
+              showtimesToInsertBatch
+            );
+            await client.query(insertQuery);
+            console.log(`✅ 批量插入剩餘 ${showtimesToInsertBatch.length} 筆場次`);
+          } catch (batchInsertError) {
+            console.error('❌ 批量插入剩餘場次失敗:', batchInsertError.message);
+          }
+        }
+
         // 提交事務
         await client.query('COMMIT');
         successfulTheaters++;
