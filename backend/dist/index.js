@@ -11,7 +11,7 @@ const showtimesRoutes_1 = require("./api/showtimesRoutes");
 const nowShowingMoviesRoutes_1 = require("./api/nowShowingMoviesRoutes");
 const moviesRoutes_1 = require("./api/moviesRoutes");
 const app = (0, express_1.default)();
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 4002;
 // 添加基本中間件
 app.use(express_1.default.json());
 // 添加 CORS 支援
@@ -43,6 +43,10 @@ app.use((req, res, next) => {
 // 首頁
 app.get('/', (req, res) => {
     res.send('Time2Cinema Backend API');
+});
+// Ping endpoint
+app.get('/api/ping', (req, res) => {
+    res.status(200).json({ message: 'pong', timestamp: new Date().toISOString() });
 });
 // 使用 boxoffice 路由
 app.use('/api/boxoffice', boxofficeRoutes_1.boxofficeRouter);

@@ -81,7 +81,7 @@ export async function ensureMoviesTable(): Promise<boolean> {
       
       // 檢查是否缺少必要的欄位
       const requiredColumns = [
-        'original_title', 'poster_url', 'backdrop_url', 'overview', 'runtime', 'vote_average', 'genres'
+        'english_title', 'poster_url', 'backdrop_url', 'overview', 'runtime', 'vote_average', 'genres', 'last_tmdb_check_at'
       ];
       
       for (const column of requiredColumns) {
@@ -92,6 +92,7 @@ export async function ensureMoviesTable(): Promise<boolean> {
           if (column === 'runtime') dataType = 'INTEGER';
           if (column === 'vote_average') dataType = 'NUMERIC(3,1)';
           if (column === 'genres') dataType = 'JSONB';
+          if (column === 'last_tmdb_check_at') dataType = 'TIMESTAMP WITH TIME ZONE';
           
           await pool.query(`ALTER TABLE movies ADD COLUMN ${column} ${dataType};`);
         }
@@ -137,7 +138,7 @@ export async function ensureMoviesTable(): Promise<boolean> {
           id SERIAL PRIMARY KEY,
           tmdb_id INTEGER UNIQUE,
           title TEXT NOT NULL,
-          original_title TEXT,
+          english_title TEXT,
           poster_url TEXT,
           backdrop_url TEXT,
           overview TEXT,
@@ -189,7 +190,7 @@ export async function migrateTMDBCacheToMovies(): Promise<boolean> {
             UPDATE movies 
             SET 
               tmdb_id = $1,
-              original_title = $2,
+              english_title = $2,
               poster_url = $3,
               backdrop_url = $4,
               overview = $5,
@@ -204,7 +205,7 @@ export async function migrateTMDBCacheToMovies(): Promise<boolean> {
           
           const updateResult = await pool.query(updateQuery, [
             movie.tmdb_id,
-            movie.original_title,
+            movie.english_title,
             movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : null,
             movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : null,
             movie.overview,
@@ -215,12 +216,12 @@ export async function migrateTMDBCacheToMovies(): Promise<boolean> {
             checkResult.rows[0].id
           ]);
           
-          console.log(`更新電影: ${movie.title} (ID: ${updateResult.rows[0].id})`);
+          // console.log(`更新電影: ${movie.title} (ID: ${updateResult.rows[0].id})`);
         } else {
           // 插入新記錄
           const insertQuery = `
             INSERT INTO movies (
-              tmdb_id, title, original_title, poster_url, backdrop_url, 
+              tmdb_id, title, english_title, poster_url, backdrop_url, 
               overview, release_date, runtime, vote_average, genres
             ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
             RETURNING id
@@ -229,7 +230,7 @@ export async function migrateTMDBCacheToMovies(): Promise<boolean> {
           const insertResult = await pool.query(insertQuery, [
             movie.tmdb_id,
             movie.title,
-            movie.original_title,
+            movie.english_title,
             movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : null,
             movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : null,
             movie.overview,
@@ -239,7 +240,7 @@ export async function migrateTMDBCacheToMovies(): Promise<boolean> {
             movie.genres
           ]);
           
-          console.log(`新增電影: ${movie.title} (ID: ${insertResult.rows[0].id})`);
+          // console.log(`新增電影: ${movie.title} (ID: ${insertResult.rows[0].id})`);
         }
       } catch (movieError) {
         console.error(`處理電影 ${movie.title} 時出錯:`, movieError);
@@ -288,7 +289,7 @@ async function migrateBoxofficeMovies(): Promise<void> {
           // 插入到 movies 表
           const insertQuery = `
             INSERT INTO movies (
-              tmdb_id, title, original_title, poster_url, backdrop_url, 
+              tmdb_id, title, english_title, poster_url, backdrop_url, 
               overview, release_date, runtime, vote_average, genres
             ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
             RETURNING id
@@ -297,7 +298,7 @@ async function migrateBoxofficeMovies(): Promise<void> {
           const insertResult = await pool.query(insertQuery, [
             tmdbMovie.id,
             movieName,
-            tmdbMovie.original_title,
+            tmdbMovie.original_title, // This is the source from TMDBMovie, maps to english_title column
             tmdbMovie.poster_path ? `https://image.tmdb.org/t/p/w500${tmdbMovie.poster_path}` : null,
             tmdbMovie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${tmdbMovie.backdrop_path}` : null,
             tmdbMovie.overview,
@@ -307,7 +308,7 @@ async function migrateBoxofficeMovies(): Promise<void> {
             JSON.stringify(tmdbMovie.genres || [])
           ]);
           
-          console.log(`從 boxoffice 新增電影: ${movieName} (ID: ${insertResult.rows[0].id})`);
+          // console.log(`從 boxoffice 新增電影: ${movieName} (ID: ${insertResult.rows[0].id})`);
         } else {
           // 無法從 TMDB 獲取資訊，僅插入基本資訊
           const insertQuery = `
@@ -316,7 +317,7 @@ async function migrateBoxofficeMovies(): Promise<void> {
           `;
           
           const insertResult = await pool.query(insertQuery, [movieName]);
-          console.log(`從 boxoffice 新增基本電影: ${movieName} (ID: ${insertResult.rows[0].id})`);
+          // console.log(`從 boxoffice 新增基本電影: ${movieName} (ID: ${insertResult.rows[0].id})`);
         }
       }
     }
@@ -353,7 +354,7 @@ async function migrateShowtimesMovies(): Promise<void> {
           // 插入到 movies 表
           const insertQuery = `
             INSERT INTO movies (
-              tmdb_id, title, original_title, poster_url, backdrop_url, 
+              tmdb_id, title, english_title, poster_url, backdrop_url, 
               overview, release_date, runtime, vote_average, genres
             ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
             RETURNING id
@@ -362,7 +363,7 @@ async function migrateShowtimesMovies(): Promise<void> {
           const insertResult = await pool.query(insertQuery, [
             tmdbMovie.id,
             movieName,
-            tmdbMovie.original_title,
+            tmdbMovie.original_title, // This is the source from TMDBMovie, maps to english_title column
             tmdbMovie.poster_path ? `https://image.tmdb.org/t/p/w500${tmdbMovie.poster_path}` : null,
             tmdbMovie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${tmdbMovie.backdrop_path}` : null,
             tmdbMovie.overview,
@@ -372,7 +373,7 @@ async function migrateShowtimesMovies(): Promise<void> {
             JSON.stringify(tmdbMovie.genres || [])
           ]);
           
-          console.log(`從 showtimes 新增電影: ${movieName} (ID: ${insertResult.rows[0].id})`);
+          // console.log(`從 showtimes 新增電影: ${movieName} (ID: ${insertResult.rows[0].id})`);
         } else {
           // 無法從 TMDB 獲取資訊，僅插入基本資訊
           const insertQuery = `
@@ -381,7 +382,7 @@ async function migrateShowtimesMovies(): Promise<void> {
           `;
           
           const insertResult = await pool.query(insertQuery, [movieName]);
-          console.log(`從 showtimes 新增基本電影: ${movieName} (ID: ${insertResult.rows[0].id})`);
+          // console.log(`從 showtimes 新增基本電影: ${movieName} (ID: ${insertResult.rows[0].id})`);
         }
       }
     }

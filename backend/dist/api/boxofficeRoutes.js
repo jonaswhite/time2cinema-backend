@@ -46,25 +46,26 @@ router.get('/', async (req, res, next) => {
         try {
             const result = await db_1.default.query(`
         SELECT 
-          b.id as boxoffice_id,
-          b.movie_id, 
+          b.movie_id as id,       -- Movie's unique ID for the frontend
           b.rank, 
           b.tickets, 
           b.totalsales, 
-          b.release_date, 
+          m.release_date,         -- Use release_date from movies table
           b.week_start_date,
           b.movie_alias,
-          m.chinese_title as title, 
-          m.english_title as original_title, 
+          m.full_title,           -- Correct field name
+          m.chinese_title,        -- Correct field name
+          m.english_title,        -- Correct field name
           CASE 
             WHEN m.poster_url IS NULL OR m.poster_url = '' 
-            THEN 'https://via.placeholder.com/500x750?text=No+Poster+Available'
+            THEN NULL
             WHEN m.poster_url LIKE 'http%' 
             THEN m.poster_url
             ELSE CONCAT('https://image.tmdb.org/t/p/w500', m.poster_url)
           END as poster_url,
           m.runtime, 
-          m.tmdb_id
+          m.tmdb_id,
+          b.id as boxoffice_db_id -- ID of the boxoffice entry itself
         FROM 
           boxoffice b
         LEFT JOIN 
@@ -77,8 +78,11 @@ router.get('/', async (req, res, next) => {
             console.log(`成功獲取 ${result.rows.length} 筆票房資料`);
             // 輸出前 5 筆資料的 rank, tickets, totalsales 欄位，用於調試
             const preview = result.rows.slice(0, 5).map(row => ({
-                movie_id: row.movie_id,
-                title: row.title,
+                id: row.id, // Expected movie ID
+                full_title: row.full_title,
+                chinese_title: row.chinese_title,
+                english_title: row.english_title,
+                poster_url: row.poster_url,
                 rank: row.rank,
                 tickets: row.tickets,
                 totalsales: row.totalsales,
