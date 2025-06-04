@@ -17,9 +17,10 @@ console.log('使用場次檔案路徑:', SHOWTIMES_FILE);
 // 資料庫連線設定
 const DB_CONFIGS = {
   local: {
-    user: 'jonaswhite',
+    user: 'postgres', // User for the GHA service container
+    password: 'mysecretpassword', // Password for the GHA service container
     host: 'localhost',
-    database: 'jonaswhite',
+    database: 'time2cinema_db', // Database name for the GHA service container
     port: 5432,
     ssl: false
   },
