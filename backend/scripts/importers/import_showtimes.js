@@ -59,6 +59,55 @@ if (options.connection) {
 const pool = new Pool(dbConfig);
 
 // In-memory caches
+
+const TABLE_CREATION_QUERY = `
+  CREATE TABLE IF NOT EXISTS movies (
+    id SERIAL PRIMARY KEY,
+    tmdb_id INTEGER UNIQUE,
+    imdb_id VARCHAR(255) UNIQUE,
+    full_title VARCHAR(255),
+    chinese_title VARCHAR(255),
+    english_title VARCHAR(255),
+    original_title VARCHAR(255),
+    poster_url TEXT,
+    backdrop_url TEXT,
+    overview TEXT,
+    release_date DATE,
+    runtime INTEGER,
+    vote_average NUMERIC(3,1),
+    genres TEXT[],
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+  );
+
+  CREATE TABLE IF NOT EXISTS cinemas (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address TEXT,
+    latitude NUMERIC(10,7),
+    longitude NUMERIC(10,7),
+    phone VARCHAR(50),
+    region VARCHAR(50),
+    district VARCHAR(50),
+    source VARCHAR(50), -- e.g., 'atmovies', 'ezding'
+    external_id VARCHAR(255), -- ID from the source
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE (source, external_id)
+  );
+
+  CREATE TABLE IF NOT EXISTS showtimes (
+    id SERIAL PRIMARY KEY,
+    cinema_id INTEGER REFERENCES cinemas(id) ON DELETE CASCADE,
+    movie_id INTEGER REFERENCES movies(id) ON DELETE CASCADE,
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+    -- The unique constraint (cinema_id, movie_id, date, time) will be added by the script later
+  );
+`;
+
 const movieCache = new Map();
 const cinemaCache = new Map();
 
@@ -66,16 +115,50 @@ const cinemaCache = new Map();
 async function initDb() {
   const client = await pool.connect();
   try {
-    // 測試連接
-    await client.query('BEGIN');
-    await client.query('SELECT 1');
+    // 步驟 1: 測試連接並開始事務（如果需要，但這裡主要用於確保連接）
+    await client.query('SELECT 1'); // Simple query to ensure connection is live
     console.log('✅ 成功連接到資料庫');
+
+    // 步驟 2: 創建資料表 (如果不存在)
+    await client.query(TABLE_CREATION_QUERY);
+    console.log('✅ 資料表已創建或已存在');
+
+    // 步驟 3: 確保 showtimes 表的唯一約束存在
+    await client.query(`
+      DO $$
+      BEGIN
+        IF NOT EXISTS (
+          SELECT 1 
+          FROM pg_constraint 
+          WHERE conname = 'showtimes_cinema_movie_date_time_key' 
+          AND conrelid = 'showtimes'::regclass
+        ) THEN
+          ALTER TABLE showtimes ADD CONSTRAINT showtimes_cinema_movie_date_time_key UNIQUE (cinema_id, movie_id, date, "time");
+          RAISE NOTICE 'Constraint showtimes_cinema_movie_date_time_key created on showtimes table.';
+        ELSE
+          RAISE NOTICE 'Constraint showtimes_cinema_movie_date_time_key already exists on showtimes table.';
+        END IF;
+      END;
+      $$;
+    `);
+    // console.log('Ensured showtimes_cinema_movie_date_time_key unique constraint exists on showtimes table.'); // Log is now part of the DO block
+
     return client;
   } catch (error) {
-    console.error('❌ 無法連接到資料庫:', error);
-    await client.release();
-    throw error;
+    console.error('❌ 資料庫初始化失敗:', error);
+    // 如果 client 已經連接，則釋放它
+    if (client) {
+      try {
+        await client.release();
+      } catch (releaseError) {
+        console.error('Error releasing client after initialization failure:', releaseError);
+      }
+    }
+    throw error; // 重新拋出錯誤，讓主程序知道初始化失敗
   }
+  // 注意：client 的釋放現在應該由 main 函數中的 finally 區塊處理，
+  // 或者如果 initDb 本身要管理 client 的生命週期直到返回前，則錯誤處理中需要釋放。
+  // 目前的設計是 initDb 返回 client，所以 main 函數負責釋放。
 }
 
 // 將 YYYYMMDD 格式轉換為 YYYY-MM-DD

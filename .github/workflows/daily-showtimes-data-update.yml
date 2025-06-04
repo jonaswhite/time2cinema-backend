@@ -10,6 +10,20 @@ on:
 jobs:
   update-showtimes:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13 # 您可以根據需要調整版本
+        env:
+          POSTGRES_USER: postgres # 腳本中本地連接的預設使用者
+          POSTGRES_PASSWORD: mysecretpassword # 腳本中本地連接的預設密碼
+          POSTGRES_DB: time2cinema_db # 腳本中本地連接的預設資料庫
+        ports:
+          - 5432:5432 # 將服務容器的 5432 連接埠映射到執行的主機
+        options: >- # 健康檢查選項，確保服務啟動後再執行步驟
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
