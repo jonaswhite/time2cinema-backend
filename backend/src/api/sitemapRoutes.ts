@@ -16,7 +16,7 @@ async function getMovies() {
 // 獲取所有影院的 ID 和最後更新時間
 async function getTheaters() {
   const result = await pool.query(
-    'SELECT id, updated_at FROM theaters WHERE is_active = true ORDER BY updated_at DESC'
+    'SELECT id, updated_at FROM cinemas WHERE is_active = true ORDER BY updated_at DESC'
   );
   return result.rows;
 }
