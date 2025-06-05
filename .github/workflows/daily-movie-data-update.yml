@@ -150,8 +150,10 @@ jobs:
         run: |
           echo "正在安裝 Node.js 依賴..."
           cd backend
-          echo "Installing all production Node.js dependencies..."
+          echo "Installing production dependencies..."
           npm install --omit=dev
+          echo "Installing development dependencies for TypeScript..."
+          npm install --save-dev @types/express @types/fs-extra @types/pg @types/node
           echo "Building TypeScript projects..."
           npm run build
 
