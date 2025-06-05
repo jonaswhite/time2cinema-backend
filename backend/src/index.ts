@@ -5,6 +5,7 @@ import { cinemaRouter } from './api/cinemaRoutes';
 import { showtimesRouter } from './api/showtimesRoutes';
 import { nowShowingMoviesRouter } from './api/nowShowingMoviesRoutes';
 import { moviesRouter } from './api/moviesRoutes';
+import sitemapRouter from './api/sitemapRoutes';
 
 const app = express();
 const PORT = process.env.PORT || 4002;
@@ -52,21 +53,12 @@ app.get('/api/ping', (req: Request, res: Response) => {
 
 // 使用 boxoffice 路由
 app.use('/api/boxoffice', boxofficeRouter);
-
-// 使用 TMDB 路由
 app.use('/api/tmdb', tmdbRouter);
-
-// 使用電影院路由
 app.use('/api/cinemas', cinemaRouter);
-
-// 使用場次路由
 app.use('/api/showtimes', showtimesRouter);
-
-// 使用上映中路由 (必須在 /api/movies 前面註冊，因為它更具體)
 app.use('/api/movies/now-showing', nowShowingMoviesRouter);
-
-// 使用電影路由
 app.use('/api/movies', moviesRouter);
+app.use(sitemapRouter);
 
 app.listen(PORT, () => {
   console.log(`Backend server running at http://localhost:${PORT}`);
