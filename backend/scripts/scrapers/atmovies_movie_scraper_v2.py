@@ -133,16 +133,64 @@ class ATMoviesMovieScraper:
         
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         """非同步上下文管理器退出點，用於清理資源"""
-        if self.cursor:
-            self.cursor.close()
+        logger.info("開始執行 __aexit__ 清理資源...")
+        
+        # 處理資料庫事務
         if self.conn:
-            if exc_type is not None:  # 如果有異常發生，回滾事務
-                self.conn.rollback()
+            try:
+                if exc_type is not None:
+                    logger.info("偵測到異常，嘗試回滾資料庫事務...")
+                    self.conn.rollback()
+                    logger.info("資料庫事務已回滾")
+                else:
+                    logger.info("嘗試提交資料庫事務...")
+                    self.conn.commit()
+                    logger.info("資料庫事務已提交")
+            except Exception as e:
+                logger.error(f"處理資料庫事務時出錯 (commit/rollback): {e}", exc_info=True)
+
+        # 關閉資料庫游標
+        if self.cursor:
+            try:
+                logger.info("嘗試關閉資料庫游標...")
+                self.cursor.close()
+                logger.info("資料庫游標已成功關閉")
+            except Exception as e:
+                logger.error(f"關閉資料庫游標時出錯: {e}", exc_info=True)
+            finally:
+                self.cursor = None # Set to None after attempting to close
+        else:
+            logger.info("資料庫游標不存在或已為 None")
+        
+        # 關閉資料庫連接
+        if self.conn:
+            try:
+                logger.info("嘗試關閉資料庫連接...")
+                self.conn.close()
+                logger.info("資料庫連接已成功關閉")
+            except Exception as e:
+                logger.error(f"關閉資料庫連接時出錯: {e}", exc_info=True)
+            finally:
+                self.conn = None # Set to None after attempting to close
+        else:
+            logger.info("資料庫連接不存在或已為 None")
+
+        # 關閉 aiohttp session
+        if hasattr(self, 'session') and self.session:
+            if not self.session.closed:
+                try:
+                    logger.info("嘗試關閉 aiohttp.ClientSession...")
+                    await self.session.close()
+                    logger.info("aiohttp.ClientSession 已成功關閉")
+                except Exception as e:
+                    logger.error(f"關閉 aiohttp.ClientSession 時出錯: {e}", exc_info=True)
             else:
-                self.conn.commit()
-            self.conn.close()
-        self.cursor = None
-        self.conn = None
+                logger.info("aiohttp.ClientSession 已經關閉")
+            self.session = None 
+        else:
+            logger.info("aiohttp.ClientSession 不存在、已為 None 或未初始化")
+        
+        logger.info("__aexit__ 清理資源完成")
         
     async def save_to_file(self, format_type: str = 'json') -> str:
         """
