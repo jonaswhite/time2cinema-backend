@@ -166,28 +166,25 @@ jobs:
           if [ -z "${{ secrets.DATABASE_URL }}" ]; then
             echo "::warning::secrets.DATABASE_URL 未設置，使用預設值"
             echo "DATABASE_URL=postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db" >> $GITHUB_ENV
+            echo "DATABASE_URL 已設置，使用預設值"
           else
             echo "使用 secrets 中的 DATABASE_URL"
             echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
+            echo "DATABASE_URL 已設置，使用 secrets 中的值"
           fi
           
           # 設置 LATEST_JSON 環境變數
           echo "LATEST_JSON=${{ env.LATEST_JSON }}" >> $GITHUB_ENV
           
-          # 顯示除錯資訊（不顯示完整連接字串）
-          echo "DATABASE_URL 已設置，長度: ${#DATABASE_URL}"
-          
           # 設置 TMDB_API_KEY 環境變數
           if [ -z "${{ secrets.TMDB_API_KEY }}" ]; then
-            echo "::error::secrets.TMDB_API_KEY 未設置。請在倉庫的 Secrets 中添加 TMDB_API_KEY。"
-            # 您可以選擇在這裡 exit 1，如果 TMDB API Key 是絕對必要的
-            # exit 1 
-            # 或者使用一個預存的 key (不建議用於生產環境)
+            echo "::warning::secrets.TMDB_API_KEY 未設置，使用預設值"
+            # 使用預設的 TMDB API Key (僅供測試使用)
             echo "TMDB_API_KEY=d4c9092656c3aa3cfa5761fbf093f7d0" >> $GITHUB_ENV
-            echo "::warning::Using default TMDB_API_KEY from user memory."
+            echo "TMDB_API_KEY 已設置，使用預設值"
           else
-            echo "TMDB_API_KEY=\${{ secrets.TMDB_API_KEY }}" >> $GITHUB_ENV
-            echo "TMDB_API_KEY is set from secrets."
+            echo "TMDB_API_KEY=${{ secrets.TMDB_API_KEY }}" >> $GITHUB_ENV
+            echo "TMDB_API_KEY 已設置，使用 secrets 中的值"
           fi
           
       # 測試資料庫連接
