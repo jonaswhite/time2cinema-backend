@@ -8,7 +8,7 @@ const router = Router();
 // 獲取所有電影的 ID 和最後更新時間
 async function getMovies() {
   const result = await pool.query(
-    'SELECT id, updated_at FROM movies WHERE is_second_run = false ORDER BY updated_at DESC'
+    'SELECT id, updated_at FROM movies ORDER BY updated_at DESC'
   );
   return result.rows;
 }
