@@ -22,7 +22,7 @@ async function getTheaters() {
 }
 
 // 生成 sitemap
-router.get('/sitemap.xml', async (req, res) => {
+router.get('/api/sitemap.xml', async (req, res) => {
   res.header('Content-Type', 'application/xml');
   res.header('Content-Encoding', 'gzip');
 
