@@ -45,8 +45,7 @@ async function importMovies() {
     // 檢查並創建唯一約束
     log('檢查唯一約束...');
     
-    // 開始事務
-    await client.query('BEGIN');
+    // Transactions will be handled per-insert or implicitly by individual statements.
     
     try {
       // 讀取 JSON 文件
@@ -111,14 +110,12 @@ async function importMovies() {
         }
       }
       
-      // 提交事務
-      await client.query('COMMIT');
+      // Commit is not needed here as transactions are not managed globally for the batch.
       
       log(`\n匯入完成！成功: ${successCount}, 失敗: ${errorCount}`);
       
     } catch (error) {
-      // 回滾事務
-      await client.query('ROLLBACK');
+      // Rollback is not needed here as transactions are not managed globally for the batch.
       throw error;
     }
     
