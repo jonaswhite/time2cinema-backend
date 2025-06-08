@@ -50,6 +50,9 @@ jobs:
       # 執行 ATMovies 電影爬蟲
       - name: Run ATMovies movie scraper
         timeout-minutes: 15  # 設置爬蟲超時時間
+        env:
+          PGSSLMODE: require
+          NODE_TLS_REJECT_UNAUTHORIZED: '0'  # 僅用於測試，生產環境應使用正確的 CA 證書
         run: |
           # 設置錯誤處理
           set -euo pipefail
@@ -70,6 +73,7 @@ jobs:
           echo "當前目錄: $(pwd)"
           echo "Python 版本: $(python --version)"
           echo "pip 版本: $(pip --version)"
+          echo "PGSSLMODE: $PGSSLMODE"
           
           # 安裝必要的 Python 套件
           echo "安裝必要的 Python 套件..."

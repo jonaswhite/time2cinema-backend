@@ -18,7 +18,8 @@ const DB_CONFIGS = {
   remote: {
     connectionString: process.env.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
     ssl: {
-      rejectUnauthorized: false
+      rejectUnauthorized: process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0' ? false : true,
+      sslmode: process.env.PGSSLMODE || 'require'
     }
   }
 };

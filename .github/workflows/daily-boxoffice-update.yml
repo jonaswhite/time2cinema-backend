@@ -84,9 +84,15 @@ jobs:
       - name: Import boxoffice data to remote database
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PGSSLMODE: require
+          NODE_TLS_REJECT_UNAUTHORIZED: '0'  # 僅用於測試，生產環境應使用正確的 CA 證書
         run: |
           cd backend
           echo "開始導入票房數據到遠端資料庫..."
+          echo "當前時間: $(date)"
+          # 顯示環境變數（不顯示敏感信息）
+          echo "DATABASE_URL 長度: ${#DATABASE_URL}"
+          echo "PGSSLMODE: $PGSSLMODE"
           # 使用 --remote 參數指定使用遠端資料庫
           node scripts/importers/import_boxoffice_v2.js --remote
-          echo "票房數據導入完成"
+          echo "票房數據導入完成，時間: $(date)"
