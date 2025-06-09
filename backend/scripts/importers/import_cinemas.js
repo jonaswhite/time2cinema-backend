@@ -20,7 +20,7 @@ console.log(`電影院數量：${cinemas.length}`);
 const client = new Client({
   user: 'jonaswhite',
   host: 'localhost',
-  database: 'jonaswhite',
+  database: 'time2cinema',
   password: '',
   port: 5432, // 這裡設定為 5432
 });

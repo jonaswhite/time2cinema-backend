@@ -1,6 +1,13 @@
+// WARNING: This bypasses TLS certificate verification. Only for local development/debugging.
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 const { Pool } = require('pg');
-const fs = require('fs').promises;
+const dotenv = require('dotenv');
 const path = require('path');
+
+// Load .env file from project root
+dotenv.config({ path: path.resolve(__dirname, '..', '..', '..', '.env') });
+const fs = require('fs').promises;
 const { Command } = require('commander');
 const format = require('pg-format');
 const { start } = require('repl');
@@ -17,17 +24,16 @@ console.log('使用場次檔案路徑:', SHOWTIMES_FILE);
 // 資料庫連線設定
 const DB_CONFIGS = {
   local: {
-    user: 'postgres', // User for the GHA service container
-    password: 'mysecretpassword', // Password for the GHA service container
+    user: 'jonaswhite',
     host: 'localhost',
-    database: 'time2cinema_db', // Database name for the GHA service container
+    database: 'time2cinema',
     port: 5432,
     ssl: false
   },
   remote: {
-    connectionString: process.env.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
+    connectionString: process.env.DATABASE_URL,
     ssl: {
-      rejectUnauthorized: false
+      rejectUnauthorized: false // Allow self-signed certificates or chains with issues
     }
   }
 };
@@ -55,6 +61,9 @@ if (options.connection) {
 } else {
   dbConfig = DB_CONFIGS.local;
 }
+
+// Log the dbConfig before creating the pool
+console.log('Using dbConfig:', JSON.stringify(dbConfig, null, 2));
 
 // 創建資料庫連接池
 const pool = new Pool(dbConfig);
@@ -123,6 +132,60 @@ async function initDb() {
     // 步驟 2: 創建資料表 (如果不存在)
     await client.query(TABLE_CREATION_QUERY);
     console.log('✅ 資料表已創建或已存在');
+
+    // 步驟 2.1: 檢查並添加 cinemas.external_id 欄位 (如果不存在)
+    const checkColumnQuery = `
+      SELECT column_name
+      FROM information_schema.columns
+      WHERE table_schema = 'public' AND table_name = 'cinemas' AND column_name = 'external_id';
+    `;
+    const colResult = await client.query(checkColumnQuery);
+    if (colResult.rows.length === 0) {
+      console.log('🔧 cinemas.external_id 欄位不存在，正在添加...');
+      await client.query('ALTER TABLE cinemas ADD COLUMN external_id VARCHAR(255);');
+      console.log('✅ cinemas.external_id 欄位已添加');
+    } else {
+      console.log('ℹ️ cinemas.external_id 欄位已存在');
+    }
+
+    // 步驟 2.1b: 檢查並添加 cinemas.source 欄位 (如果不存在)
+    const checkSourceColumnQuery = `
+      SELECT column_name
+      FROM information_schema.columns
+      WHERE table_schema = 'public' AND table_name = 'cinemas' AND column_name = 'source';
+    `;
+    const sourceColResult = await client.query(checkSourceColumnQuery);
+    if (sourceColResult.rows.length === 0) {
+      console.log('🔧 cinemas.source 欄位不存在，正在添加...');
+      await client.query('ALTER TABLE cinemas ADD COLUMN source VARCHAR(50);');
+      console.log('✅ cinemas.source 欄位已添加');
+    } else {
+      console.log('ℹ️ cinemas.source 欄位已存在');
+    }
+
+    // 步驟 2.2: 檢查並添加 cinemas_source_external_id_key 唯一約束 (如果不存在)
+    const checkConstraintQuery = `
+      SELECT constraint_name
+      FROM information_schema.table_constraints
+      WHERE table_schema = 'public' AND table_name = 'cinemas' AND constraint_name = 'cinemas_source_external_id_key';
+    `;
+    const constraintResult = await client.query(checkConstraintQuery);
+    if (constraintResult.rows.length === 0) {
+      console.log('🔧 cinemas_source_external_id_key 約束不存在，正在添加...');
+      // 首先確保 source 和 external_id 欄位存在且允許 NULL (如果它們可能尚未有值)
+      // 然後再添加約束。如果欄位中已有重複的 NULL 值，直接添加 UNIQUE 約束會失敗。
+      // 這裡假設 external_id 剛被添加，所以是空的，或者已有資料但需要清理。
+      // 為了簡化，我們先嘗試直接添加，如果失敗，可能需要更複雜的資料清理邏輯。
+      try {
+        await client.query('ALTER TABLE cinemas ADD CONSTRAINT cinemas_source_external_id_key UNIQUE (source, external_id);');
+        console.log('✅ cinemas_source_external_id_key 約束已添加');
+      } catch (constraintError) {
+        console.error('❌ 添加 cinemas_source_external_id_key 約束失敗:', constraintError.message);
+        console.warn('⚠️ 請檢查 cinemas 資料表中 (source, external_id) 是否存在重複值或 NULL 值問題。');
+      }
+    } else {
+      console.log('ℹ️ cinemas_source_external_id_key 約束已存在');
+    }
 
     // 步驟 3: 確保 showtimes 表的唯一約束存在
     await client.query(`

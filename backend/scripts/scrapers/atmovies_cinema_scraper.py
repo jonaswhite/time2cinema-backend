@@ -102,7 +102,7 @@ class ATMoviesCinemaScraper:
         output_file = os.path.join(OUTPUT_DIR, f"atmovies_cinemas_{timestamp}.csv")
         
         try:
-            with open(output_file, 'w', newline='', encoding='utf-8-sig') as f:
+            with open(output_file, 'w', newline='', encoding='utf-8') as f:  # Changed from utf-8-sig to utf-8
                 fieldnames = ['cinema_id', 'name', 'address', 'url', 'region_code']
                 writer = csv.DictWriter(f, fieldnames=fieldnames)
                 writer.writeheader()
@@ -172,13 +172,20 @@ class ATMoviesCinemaScraper:
                 name = name_elem.get_text(strip=True)
                 detail_url = urljoin(BASE_URL, href)
                 # 從詳細頁面URL中提取電影院ID (例如: /showtime/t03902/a39/ 中的 t03902)
-                external_id = ''
+                external_id = '' # 確保初始化
                 if detail_url:
-                    parts = [p for p in detail_url.split('/') if p]
-                    for part in parts:
-                        if part.startswith('t') and part[1:].isdigit():
-                            external_id = part
-                            break
+                    try:
+                        # 例如 detail_url: "https://www.atmovies.com.tw/showtime/t02g04/a01/"
+                        # urlparse(detail_url).path 會得到 "/showtime/t02g04/a01/"
+                        parsed_path = urlparse(detail_url).path
+                        path_segments = [segment for segment in parsed_path.strip('/').split('/') if segment]
+                        # 預期格式: ['showtime', '電影院ID', '地區ID', ...]
+                        if len(path_segments) >= 2 and path_segments[0] == 'showtime' and path_segments[1].startswith('t'):
+                            external_id = path_segments[1]
+                        else:
+                            logger.warning(f"無法從 URL '{detail_url}' 解析電影院 '{name}' 的 external_id。路徑片段: {path_segments}")
+                    except Exception as e_parse:
+                        logger.error(f"為電影院 '{name}' 解析 URL '{detail_url}' 以提取 external_id 時發生錯誤: {e_parse}")
                 
                 # 提取地址
                 address = ''
@@ -198,7 +205,7 @@ class ATMoviesCinemaScraper:
                 
                 # 添加到電影院列表
                 cinemas.append({
-                    'cinema_id': cinema_id,
+                    'cinema_id': external_id,  # Use the correct theater-specific ID
                     'name': name,
                     'address': address,
                     'url': detail_url,

@@ -2,9 +2,6 @@ import { Pool } from 'pg';
 import fs from 'fs';
 import path from 'path';
 
-// 設定 NODE_TLS_REJECT_UNAUTHORIZED=0 來忽略自簽名憑證錯誤
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-
 // 建立資料庫連接池配置
 const connectionString = process.env.DATABASE_URL || 
   'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db';
@@ -15,12 +12,15 @@ if (!dbUrl.searchParams.has('sslmode')) {
   dbUrl.searchParams.set('sslmode', 'require');
 }
 
+// Log the final connection string before creating the pool
+console.log('Final connection string for pg.Pool:', dbUrl.toString());
+
 // 建立連接池
 const pool = new Pool({
   connectionString: dbUrl.toString(),
-  ssl: process.env.NODE_ENV === 'production' ? {
-    rejectUnauthorized: false
-  } : false,
+  ssl: {
+    rejectUnauthorized: true // Standard SSL for publicly trusted CAs like Supabase
+  },
   // 增加連線超時設定
   connectionTimeoutMillis: 10000, // 10 秒
   idleTimeoutMillis: 30000, // 30 秒

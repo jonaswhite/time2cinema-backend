@@ -14,6 +14,8 @@ env:
 jobs:
   update-movie-data:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     # 設置工作超時為 30 分鐘
     timeout-minutes: 30
     steps:
@@ -51,6 +53,7 @@ jobs:
       - name: Run ATMovies movie scraper
         timeout-minutes: 15  # 設置爬蟲超時時間
         env:
+          # DATABASE_URL is inherited from job-level env
           PGSSLMODE: require
           NODE_TLS_REJECT_UNAUTHORIZED: '0'  # 僅用於測試，生產環境應使用正確的 CA 證書
         run: |
@@ -168,13 +171,12 @@ jobs:
         run: |
           # 檢查 DATABASE_URL 是否存在
           if [ -z "${{ secrets.DATABASE_URL }}" ]; then
-            echo "::warning::secrets.DATABASE_URL 未設置，使用預設值"
-            echo "DATABASE_URL=postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db" >> $GITHUB_ENV
-            echo "DATABASE_URL 已設置，使用預設值"
+            echo "::error::secrets.DATABASE_URL 未設置! Workflow 將無法連接到資料庫。"
+            exit 1
           else
             echo "使用 secrets 中的 DATABASE_URL"
-            echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
-            echo "DATABASE_URL 已設置，使用 secrets 中的值"
+            # DATABASE_URL is already set at job level, this step now primarily ensures it was set.
+            echo "DATABASE_URL 已從 secrets 中獲取並在作業層級設定。"
           fi
           
           # 設置 LATEST_JSON 環境變數

@@ -8,12 +8,12 @@ const DB_CONFIGS = {
   local: {
     user: 'jonaswhite',
     host: 'localhost',
-    database: 'jonaswhite',
+    database: 'time2cinema',
     port: 5432,
     ssl: false
   },
   remote: {
-    connectionString: process.env.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
+    connectionString: process.env.DATABASE_URL,
     ssl: {
       rejectUnauthorized: false
     }

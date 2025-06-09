@@ -10,20 +10,8 @@ on:
 jobs:
   update-showtimes:
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:13 # 您可以根據需要調整版本
-        env:
-          POSTGRES_USER: postgres # 腳本中本地連接的預設使用者
-          POSTGRES_PASSWORD: mysecretpassword # 腳本中本地連接的預設密碼
-          POSTGRES_DB: time2cinema_db # 腳本中本地連接的預設資料庫
-        ports:
-          - 5432:5432 # 將服務容器的 5432 連接埠映射到執行的主機
-        options: >- # 健康檢查選項，確保服務啟動後再執行步驟
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -121,11 +109,7 @@ jobs:
               echo "匯入場次資料到遠端資料庫..."
               node scripts/importers/import_showtimes.js --remote
               
-              # 如果是本地測試環境，也可以同時匯入到本地資料庫
-              if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-                echo "檢測到手動觸發，同時匯入到本地資料庫..."
-                node scripts/importers/import_showtimes.js --local
-              fi
+              # 本地導入步驟已移除，因本地服務容器已移除
               
               echo "場次資料匯入完成"
             else
@@ -139,11 +123,4 @@ jobs:
         continue-on-error: false
         
       # 資料庫匯入步驟（如果上面的內聯方式有問題，可以取消註解下面的步驟）
-      # - name: Import showtimes to database
-      #   env:
-      #     DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db' }}
-      #   run: |
-      #     cd backend
-      #     echo "開始匯入場次資料到資料庫..."
-      #     node scripts/importers/import_showtimes_remote.js
-      #     echo "場次資料匯入完成"
+      # 已註解的舊導入步驟，確認移除

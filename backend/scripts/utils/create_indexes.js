@@ -3,7 +3,7 @@ const { Client } = require('pg');
 const client = new Client({
   user: 'jonaswhite',
   host: 'localhost',
-  database: 'jonaswhite',
+  database: 'time2cinema',
   password: '',
   port: 5432,
 });

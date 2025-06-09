@@ -3,8 +3,9 @@ const { Client } = require('pg');
 
 // 本地資料庫連接資訊
 const dbConfig = {
+  user: 'jonaswhite',
   host: 'localhost',
-  database: 'time2cinema_db_local',
+  database: 'time2cinema',
   port: 5432
 };
 
@@ -21,6 +22,8 @@ async function checkDatabaseStructure() {
       SELECT table_name 
       FROM information_schema.tables 
       WHERE table_schema = 'public'
+      AND table_name NOT LIKE 'pg_%'
+      AND table_name NOT LIKE 'sql_%'
     `);
     
     const tables = tablesResult.rows.map(row => row.table_name);

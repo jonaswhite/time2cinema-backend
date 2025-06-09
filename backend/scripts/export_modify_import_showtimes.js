@@ -22,7 +22,7 @@ const DB_CONFIGS = {
   local: {
     user: 'jonaswhite',
     host: 'localhost',
-    database: 'jonaswhite',
+    database: 'time2cinema',
     port: 5432,
     ssl: false
   },

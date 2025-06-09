@@ -76,7 +76,11 @@ MAX_RETRIES = 3  # 最大重試次數
 RETRY_DELAY = 3  # 重試間隔時間(秒)
 
 # 資料庫連接資訊
-DB_URL = "postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com:5432/time2cinema_db?sslmode=require"
+DATABASE_URL_ENV = os.environ.get('DATABASE_URL')
+if not DATABASE_URL_ENV:
+    logger.error("錯誤：DATABASE_URL 環境變數未設定。請設定該環境變數再執行腳本。")
+    sys.exit(1)
+DB_URL = DATABASE_URL_ENV
 
 # 電影清單頁面
 FIRST_RUN_URL = "https://www.atmovies.com.tw/movie/now/1/"
