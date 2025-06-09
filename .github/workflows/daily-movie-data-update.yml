@@ -205,16 +205,33 @@ jobs:
             sudo apt-get update && sudo apt-get install -y postgresql-client
           fi
           
-          # 從 DATABASE_URL 中提取主機名
-          DB_HOST=$(echo $DATABASE_URL | grep -oP 'postgresql://[^:]+:[^@]+@\K[^/]+')
-          echo "嘗試連接到資料庫主機: $DB_HOST"
+          # 從 DATABASE_URL 中提取主機名和端口
+          # Example DATABASE_URL: postgresql://user:pass@host.com:port/dbname
+          # 或 postgresql://user:pass@host.com/dbname (default port 5432)
           
-          # 測試連接
-          if ! pg_isready -h $DB_HOST -p 5432; then
-            echo "::error::無法連接到資料庫主機"
+          # 先移除協議頭和用戶信息部分
+          HOST_PORT_PATH=$(echo "$DATABASE_URL" | sed -E 's|postgresql://[^@]+@||')
+          # 再移除路徑部分，只留下 host:port 或 host
+          FULL_HOST_PORT=$(echo "$HOST_PORT_PATH" | cut -d'/' -f1)
+
+          echo "解析出的 HOST:PORT 字串: $FULL_HOST_PORT"
+
+          if [[ "$FULL_HOST_PORT" == *":"* ]]; then
+            ACTUAL_DB_HOST=$(echo "$FULL_HOST_PORT" | cut -d':' -f1)
+            ACTUAL_DB_PORT=$(echo "$FULL_HOST_PORT" | cut -d':' -f2)
+          else
+            ACTUAL_DB_HOST="$FULL_HOST_PORT"
+            ACTUAL_DB_PORT="5432" # Default PostgreSQL port if not specified
+          fi
+
+          echo "嘗試連接到資料庫主機: $ACTUAL_DB_HOST 在端口: $ACTUAL_DB_PORT"
+          
+          # 測試連接，增加超時
+          if ! pg_isready -h "$ACTUAL_DB_HOST" -p "$ACTUAL_DB_PORT" -t 5; then
+            echo "::error::無法連接到資料庫主機 $ACTUAL_DB_HOST 在端口 $ACTUAL_DB_PORT"
             exit 1
           fi
-          echo "資料庫連接測試通過"
+          echo "資料庫連接測試通過 ($ACTUAL_DB_HOST:$ACTUAL_DB_PORT)"
           
       # 執行資料庫匯入
       - name: Import movie data to database
