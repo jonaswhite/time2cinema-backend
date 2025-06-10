@@ -23,6 +23,7 @@ let sslConfig;
 if (fs.existsSync(caCertPath)) {
   console.log('Loading CA certificate from:', caCertPath);
   sslConfig = {
+    rejectUnauthorized: true, // Be explicit
     ca: fs.readFileSync(caCertPath).toString(),
   };
 } else {
