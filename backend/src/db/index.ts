@@ -15,16 +15,32 @@ if (!dbUrl.searchParams.has('sslmode')) {
 // Log the final connection string before creating the pool
 console.log('Final connection string for pg.Pool:', dbUrl.toString());
 
+// 讀取 CA 憑證
+// The path is relative from the compiled file in dist/db/index.js
+const caCertPath = path.join(__dirname, '..', '..', 'src', 'certs', 'AmazonRootCA1.pem');
+let sslConfig;
+
+if (fs.existsSync(caCertPath)) {
+  console.log('Loading CA certificate from:', caCertPath);
+  sslConfig = {
+    ca: fs.readFileSync(caCertPath).toString(),
+  };
+} else {
+  console.warn('CA certificate not found at:', caCertPath);
+  console.warn('Attempting connection without custom CA. This may fail.');
+  sslConfig = {
+    rejectUnauthorized: true, // Fallback for environments where the cert isn't needed/found
+  };
+}
+
 // 建立連接池
 const pool = new Pool({
   connectionString: dbUrl.toString(),
-  ssl: {
-    rejectUnauthorized: true // Standard SSL for publicly trusted CAs like Supabase
-  },
+  ssl: sslConfig,
   // 增加連線超時設定
   connectionTimeoutMillis: 10000, // 10 秒
   idleTimeoutMillis: 30000, // 30 秒
-  max: 20 // 最大連線數
+  max: 20, // 最大連線數
 });
 
 // 測試資料庫連線
