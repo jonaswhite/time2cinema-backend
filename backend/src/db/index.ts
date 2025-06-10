@@ -6,38 +6,31 @@ import path from 'path';
 const connectionString = process.env.DATABASE_URL || 
   'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db';
 
-// 確保連接字串包含 sslmode=require
-const dbUrl = new URL(connectionString);
-if (!dbUrl.searchParams.has('sslmode')) {
-  dbUrl.searchParams.set('sslmode', 'require');
-}
-
-// Log the final connection string before creating the pool
-console.log('Final connection string for pg.Pool:', dbUrl.toString());
-
-// 讀取 CA 憑證
 // The path is relative from the compiled file in dist/db/index.js
 const caCertPath = path.join(__dirname, '..', '..', 'src', 'certs', 'AmazonRootCA1.pem');
-let sslConfig;
+const dbUrl = new URL(connectionString);
 
 if (fs.existsSync(caCertPath)) {
-  console.log('Loading CA certificate from:', caCertPath);
-  sslConfig = {
-    rejectUnauthorized: true, // Be explicit
-    ca: fs.readFileSync(caCertPath).toString(),
-  };
+  console.log('CA certificate found. Configuring sslmode=verify-full with sslrootcert.');
+  // Use the stricter verify-full mode and provide the root cert path
+  dbUrl.searchParams.set('sslmode', 'verify-full');
+  dbUrl.searchParams.set('sslrootcert', caCertPath);
 } else {
   console.warn('CA certificate not found at:', caCertPath);
-  console.warn('Attempting connection without custom CA. This may fail.');
-  sslConfig = {
-    rejectUnauthorized: true, // Fallback for environments where the cert isn't needed/found
-  };
+  console.warn('Falling back to sslmode=require. This may fail.');
+  // Ensure sslmode=require is set if the cert is not found
+  if (!dbUrl.searchParams.has('sslmode')) {
+    dbUrl.searchParams.set('sslmode', 'require');
+  }
 }
+
+const finalConnectionString = dbUrl.toString();
+console.log('Final connection string for pg.Pool:', finalConnectionString);
 
 // 建立連接池
 const pool = new Pool({
-  connectionString: dbUrl.toString(),
-  ssl: sslConfig,
+  connectionString: finalConnectionString,
+  // SSL config is now entirely within the connection string.
   // 增加連線超時設定
   connectionTimeoutMillis: 10000, // 10 秒
   idleTimeoutMillis: 30000, // 30 秒
