@@ -18,8 +18,7 @@ const DB_CONFIGS = {
   remote: {
     connectionString: process.env.DATABASE_URL,
     ssl: {
-      rejectUnauthorized: process.env.NODE_TLS_REJECT_UNAUTHORIZED === '0' ? false : true,
-      sslmode: process.env.PGSSLMODE || 'require'
+      rejectUnauthorized: false
     }
   }
 };
