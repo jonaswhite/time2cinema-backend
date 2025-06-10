@@ -1,18 +1,36 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
+import path from 'path';
+
+// 從專案根目錄的 .env 檔案載入環境變數
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 import { Pool } from 'pg';
 
-// 線上資料庫配置
-const onlineDbConfig = {
-  connectionString: 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
-  ssl: { rejectUnauthorized: false }
+// 資料庫配置 (從環境變數讀取)
+if (!process.env.DATABASE_URL) {
+  console.error("錯誤：DATABASE_URL 環境變數未設定。");
+  process.exit(1);
+}
+
+const dbConfig = {
+  connectionString: process.env.DATABASE_URL,
+  // Supabase 通常需要 SSL。rejectUnauthorized: false 在本地開發或特定情況下使用，
+  // 當配合 NODE_TLS_REJECT_UNAUTHORIZED=0 時，此設定可能多餘，但保留以明確。
+  // 如果您的 Supabase 連線字串已包含 sslmode=require，則 pg 套件會自動處理。
+  // 為求一致性與明確，若 DATABASE_URL 中未指定 sslmode，可考慮在此處強制 SSL。
+  // 不過，Supabase 提供的標準連線字串通常已處理好 SSL。
+  // 暫時保留 rejectUnauthorized: false 以符合先前腳本的行為，並依賴 NODE_TLS_REJECT_UNAUTHORIZED=0。
+  ssl: { rejectUnauthorized: false } 
 };
 
-// 創建線上資料庫連接池
-const pool = new Pool(onlineDbConfig);
+// 創建資料庫連接池
+const pool = new Pool(dbConfig);
 
-// TMDB API 配置
-// 直接使用硬編碼的 API Key
-const TMDB_API_KEY = 'd4c9092656c3aa3cfa5761fbf093f7d0';
+// TMDB API 配置 (從環境變數讀取，若無則使用預設值)
+const TMDB_API_KEY = process.env.TMDB_API_KEY || 'd4c9092656c3aa3cfa5761fbf093f7d0';
+if (TMDB_API_KEY === 'd4c9092656c3aa3cfa5761fbf093f7d0' && !process.env.TMDB_API_KEY) {
+  console.warn("警告：TMDB_API_KEY 環境變數未設定，將使用程式碼中的預設值。建議在 .env 檔案中設定。");
+}
 const TMDB_API_BASE_URL = 'https://api.themoviedb.org/3';
 
 // 介面定義

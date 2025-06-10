@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from 'express';
+import cors from 'cors';
 import { boxofficeRouter } from './api/boxofficeRoutes';
 import { tmdbRouter } from './api/tmdbRoutes';
 import { cinemaRouter } from './api/cinemaRoutes';
@@ -10,36 +11,32 @@ import sitemapRouter from './api/sitemapRoutes';
 const app = express();
 const PORT = process.env.PORT || 4002;
 
+// 定義允許的來源
+const allowedOrigins = [
+  'https://www.time2cinema.com', // 正式環境
+  'https://time2cinema-frontend.vercel.app', // Vercel 部署
+  'http://localhost:3000', // 本地開發
+  'http://localhost:4000'  // 本地開發
+];
+
+const corsOptions: cors.CorsOptions = {
+  origin: (origin, callback) => {
+    // 允許沒有 origin 的請求 (例如 Postman 或 curl)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  optionsSuccessStatus: 200 // for legacy browser support
+};
+
 // 添加基本中間件
 app.use(express.json());
 
-// 添加 CORS 支援
-app.use((req: Request, res: Response, next: NextFunction): void => {
-  // 允許特定來源，包括 Vercel 和本地開發環境
-  const allowedOrigins = [
-    'https://time2cinema-frontend.vercel.app',
-    'http://localhost:3000',
-    'http://localhost:4000'
-  ];
-  
-  const origin = req.headers.origin as string | undefined;
-  if (origin && allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-  } else {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-  }
-  
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-  
-  // 處理 OPTIONS 請求
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-  } else {
-    next();
-  }
-});
+// 使用 CORS 中間件
+app.use(cors(corsOptions));
 
 // 首頁
 app.get('/', (req: Request, res: Response) => {

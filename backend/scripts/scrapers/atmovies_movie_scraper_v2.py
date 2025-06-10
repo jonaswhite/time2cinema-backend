@@ -16,6 +16,21 @@ from bs4 import BeautifulSoup
 from typing import Dict, List, Any, Optional, Set, Tuple
 from urllib.parse import urljoin
 from title_utils import split_chinese_english
+from dotenv import load_dotenv
+
+# Load environment variables
+# Correct path from backend/scripts/scrapers/ to the root .env file
+dotenv_path = os.path.join(os.path.dirname(__file__), '..', '..', '..', '.env')
+if os.path.exists(dotenv_path):
+    load_dotenv(dotenv_path)
+    print(f"INFO: Attempting to load .env file from: {dotenv_path}")
+else:
+    print(f"INFO: .env file not found at {dotenv_path}. Attempting to load from default location or environment.")
+    load_dotenv() # Fallback
+
+DATABASE_URL = os.getenv('DATABASE_URL')
+TMDB_API_KEY = os.getenv('TMDB_API_KEY')
+
 
 # 設定專案根目錄與輸出目錄
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))

@@ -3,6 +3,17 @@ const fs = require('fs');
 const path = require('path');
 const { Command } = require('commander');
 
+// Load environment variables from .env file
+const dotenv = require('dotenv');
+const envPath = path.resolve(__dirname, '..', '..', '..', '.env'); // Adjust path to root .env
+const envConfig = dotenv.config({ path: envPath });
+
+if (envConfig.error) {
+  console.warn(`Warning: Could not load .env file from ${envPath}. Relying on system environment variables. Error: ${envConfig.error.message}`);
+} else {
+  console.log(`INFO: Successfully loaded .env file from ${envPath}`);
+}
+
 // 設置命令行參數
 const program = new Command();
 program
