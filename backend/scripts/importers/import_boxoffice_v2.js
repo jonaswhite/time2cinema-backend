@@ -212,87 +212,69 @@ async function getOrCreateMovieId(client, movieName, releaseDate) {
 
 // 匯入票房資料
 async function importBoxoffice() {
+  const latestFile = options.file || await findLatestBoxofficeFile();
+  if (!latestFile) {
+    console.error('找不到最新的票房檔案，匯入中止。');
+    return;
+  }
+
+  console.log(`正在處理檔案: ${path.basename(latestFile)}`);
+
+  const fileContent = await fsPromises.readFile(latestFile, 'utf8');
+  const jsonData = JSON.parse(fileContent);
+
+  // 檢查是否有 data 屬性，如果沒有則使用整個 JSON 對象
+  const data = Array.isArray(jsonData) ? jsonData : 
+              (jsonData.data && Array.isArray(jsonData.data) ? jsonData.data : 
+              Object.values(jsonData).find(Array.isArray));
+
+  if (!data || data.length === 0) {
+    console.log('票房資料為空或格式不正確，無需匯入。');
+    return;
+  }
+
+  const dateMatch = path.basename(latestFile).match(/(\d{4}-\d{2}-\d{2})/);
+  const weekend_date = dateMatch ? dateMatch[1] : null;
+  const weekStartDate = getWeekStartDate(weekend_date);
+  if (!weekStartDate) {
+    console.error('無法從資料中解析週開始日期，匯入中止。');
+    return;
+  }
+
   const client = await pool.connect();
-  
+
   try {
     // 開始事務
     await client.query('BEGIN');
-    
-    // 找出票房檔案
-    const boxofficeFile = options.file || await findLatestBoxofficeFile();
-    if (!boxofficeFile) {
-      throw new Error('找不到票房資料檔案');
-    }
-    
-    console.log(`讀取票房檔案: ${boxofficeFile}`);
-    
-    // 讀取檔案內容
-    console.log(`讀取票房檔案: ${boxofficeFile}`);
-    const fileContent = await fsPromises.readFile(boxofficeFile, 'utf8');
-    const jsonData = JSON.parse(fileContent);
-    
-    // 檢查是否有 data 屬性，如果沒有則使用整個 JSON 對象
-    const data = Array.isArray(jsonData) ? jsonData : 
-                (jsonData.data && Array.isArray(jsonData.data) ? jsonData.data : 
-                Object.entries(jsonData).filter(([key]) => key !== 'headers' && key !== 'data' && Array.isArray(jsonData[key])).flatMap(([_, value]) => value));
-    
-    if (!data || data.length === 0) {
-      throw new Error('票房資料為空或格式不正確');
-    }
-    
-    console.log(`找到 ${data.length} 筆票房資料`);
-    
-    // 獲取 boxoffice 表格的欄位
+
+    // 在插入新資料前，刪除該週的所有舊資料
+    console.log(`正在刪除 ${weekStartDate} 的舊票房資料...`);
+    const deleteResult = await client.query('DELETE FROM boxoffice WHERE week_start_date = $1', [weekStartDate]);
+    console.log(`✅ 成功刪除 ${deleteResult.rowCount} 筆舊資料。`);
+
+    // 獲取 boxoffice 表的有效欄位
     const columnsResult = await client.query(`
       SELECT column_name 
       FROM information_schema.columns 
       WHERE table_name = 'boxoffice'
     `);
-    
     const validColumns = new Set(columnsResult.rows.map(row => row.column_name));
-    
-    // 處理每筆票房資料
+
     let importedCount = 0;
     let skippedCount = 0;
-    
+
     for (const item of data) {
       try {
-        // 轉換欄位名稱
         const mappedItem = mapChineseToEnglishFields(item);
-        
-        // 確保必要欄位存在
-        if (!mappedItem.movie_name) {
-          console.warn('跳過缺少片名的資料:', mappedItem);
-          skippedCount++;
-          continue;
-        }
-        
-        // 處理上映日期
-        let releaseDate = null;
-        if (mappedItem.release_date) {
-          try {
-            const dateStr = mappedItem.release_date.split(' ')[0]; // 只取日期部分
-            const date = new Date(dateStr);
-            if (!isNaN(date.getTime())) {
-              releaseDate = date.toISOString().split('T')[0];
-            }
-          } catch (error) {
-            console.warn(`解析上映日期失敗: ${mappedItem.release_date}`, error);
-          }
-        }
-        
-        // 計算週一日期
-        const weekStartDate = getWeekStartDate(mappedItem.week_start_date || new Date().toISOString());
-        
-        // 獲取或創建電影 ID
+        const releaseDate = mappedItem.release_date ? new Date(mappedItem.release_date).toISOString().split('T')[0] : null;
         const movieId = await getOrCreateMovieId(client, mappedItem.movie_name, releaseDate);
-        
+
         if (!movieId) {
-          console.log(`跳過找不到對應電影的資料: ${mappedItem.movie_name}`);
+          console.log(`⏭️  跳過找不到對應電影的資料: ${mappedItem.movie_name}`);
           skippedCount++;
           continue;
         }
-        
+
         // 準備要插入的資料
         const boxofficeData = {
           rank: parseInt(mappedItem.rank) || 0,
@@ -305,7 +287,7 @@ async function importBoxoffice() {
           created_at: new Date(),
           updated_at: new Date()
         };
-        
+
         // 過濾掉不存在的欄位
         const validData = {};
         for (const [key, value] of Object.entries(boxofficeData)) {
@@ -313,66 +295,36 @@ async function importBoxoffice() {
             validData[key] = value;
           }
         }
-        
-        // 檢查是否已存在相同的記錄
-        const checkQuery = `
-          SELECT id FROM boxoffice 
-          WHERE movie_id = $1 AND week_start_date = $2
-          LIMIT 1
+
+        // 直接插入新記錄
+        const insertFields = Object.keys(validData).join(', ');
+        const insertValues = Object.keys(validData)
+          .map((_, i) => `$${i + 1}`)
+          .join(', ');
+
+        const insertQuery = `
+          INSERT INTO boxoffice (${insertFields})
+          VALUES (${insertValues})
+          RETURNING id
         `;
-        
-        const checkResult = await client.query(checkQuery, [movieId, weekStartDate]);
-        
-        if (checkResult.rows.length > 0) {
-          // 更新現有記錄
-          const updateFields = Object.keys(validData)
-            .filter(key => !['id', 'created_at'].includes(key))
-            .map((key, i) => `${key} = $${i + 1}`)
-            .join(', ');
-          
-          const updateValues = Object.values(validData)
-            .filter((_, i) => !['id', 'created_at'].includes(Object.keys(validData)[i]));
-          
-          const updateQuery = `
-            UPDATE boxoffice 
-            SET ${updateFields}
-            WHERE id = $${updateValues.length + 1}
-            RETURNING id
-          `;
-          
-          await client.query(updateQuery, [...updateValues, checkResult.rows[0].id]);
-          console.log(`✅ 更新票房記錄: ${mappedItem.movie_name} (${weekStartDate})`);
-        } else {
-          // 插入新記錄
-          const insertFields = Object.keys(validData).join(', ');
-          const insertValues = Object.keys(validData)
-            .map((_, i) => `$${i + 1}`)
-            .join(', ');
-          
-          const insertQuery = `
-            INSERT INTO boxoffice (${insertFields})
-            VALUES (${insertValues})
-            RETURNING id
-          `;
-          
-          await client.query(insertQuery, Object.values(validData));
-          console.log(`✅ 新增票房記錄: ${mappedItem.movie_name} (${weekStartDate})`);
-        }
-        
+
+        await client.query(insertQuery, Object.values(validData));
+        // console.log(`✅ 新增票房記錄: ${mappedItem.movie_name} (${weekStartDate})`);
+
         importedCount++;
       } catch (error) {
-        console.error('處理票房記錄時出錯:', error);
+        console.error(`處理票房記錄 '${item['電影名稱']}' 時出錯:`, error);
         skippedCount++;
       }
     }
-    
+
     // 提交事務
     await client.query('COMMIT');
-    
+
     console.log('\n匯入完成！');
     console.log(`✅ 成功匯入: ${importedCount} 筆`);
     console.log(`⏭️  跳過: ${skippedCount} 筆`);
-    
+
     return {
       total: data.length,
       imported: importedCount,
