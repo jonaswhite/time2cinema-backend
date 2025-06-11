@@ -80,7 +80,7 @@ jobs:
           
           # 安裝必要的 Python 套件
           echo "安裝必要的 Python 套件..."
-          pip install --no-cache-dir requests beautifulsoup4 pandas lxml aiohttp asyncio psycopg2-binary
+          pip install --no-cache-dir requests beautifulsoup4 pandas lxml aiohttp asyncio psycopg2-binary python-dotenv
           
           # 創建輸出目錄
           echo "創建輸出目錄..."
