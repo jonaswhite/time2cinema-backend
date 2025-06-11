@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', async (req: Request, res: Response): Promise<void> => {
   try {
     const result = await pool.query(`
-      SELECT * FROM movies ORDER BY title
+      SELECT * FROM movies ORDER BY release_date DESC
     `);
     
     res.json(result.rows);
