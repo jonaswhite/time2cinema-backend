@@ -1,13 +1,4 @@
-import { Pool } from 'pg';
-
-// 線上資料庫配置
-const onlineDbConfig = {
-  connectionString: 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
-  ssl: { rejectUnauthorized: false }
-};
-
-// 創建線上資料庫連接池
-const pool = new Pool(onlineDbConfig);
+import pool from './index'; // 導入共享的 pool
 
 // 修改 boxoffice 表，將 movie_id 從文本改為整數外鍵
 export async function migrateBoxofficeTable(): Promise<boolean> {
@@ -66,10 +57,10 @@ export async function migrateBoxofficeTable(): Promise<boolean> {
       FOREIGN KEY (movie_id) REFERENCES movies(id);
     `);
     
-    console.log('boxoffice 表遷移完成');
+    console.log('boxoffice 表遷移完成。');
     return true;
   } catch (error) {
-    console.error('遷移 boxoffice 表時出錯:', error);
+    console.error('遷移 boxoffice 表時發生錯誤:', error);
     return false;
   }
 }

@@ -20,7 +20,7 @@ load_dotenv()
 def get_db_connection():
     """建立資料庫連線"""
     # 從環境變數或直接使用硬編碼的連接字串
-    db_url = os.getenv('DATABASE_URL', 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db')
+    db_url = os.getenv('DATABASE_URL', 'postgresql://postgres.bnfplxbaqnmwpjvjwqzx:[YOUR-PASSWORD]@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres')
     return create_engine(db_url)
 
 def fetch_all_movie_titles() -> List[Dict]:

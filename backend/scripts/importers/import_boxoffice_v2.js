@@ -1,54 +1,18 @@
 const fs = require('fs');
 const fsPromises = fs.promises;
-const { Pool } = require('pg');
+const { pool } = require('../../dist/db');
 const path = require('path');
 const { Command } = require('commander');
 const { parse } = require('json2csv');
 const MovieMatcher = require('../utils/movieMatcher');
 
-// 資料庫連線設定
-const DB_CONFIGS = {
-  local: {
-    user: 'jonaswhite',
-    host: 'localhost',
-    database: 'time2cinema',
-    port: 5432,
-    ssl: false
-  },
-  remote: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false
-    }
-  }
-};
-
 // 命令行參數解析
 const program = new Command();
 program
-  .option('--local', '使用本地資料庫')
-  .option('--remote', '使用遠端資料庫')
-  .option('--connection <string>', '自定義資料庫連接字串')
   .option('--file <path>', '指定票房資料檔案路徑')
   .parse(process.argv);
 
 const options = program.opts();
-
-// 確定使用哪個資料庫配置
-let dbConfig;
-if (options.connection) {
-  dbConfig = {
-    connectionString: options.connection,
-    ssl: options.connection.includes('render.com') ? { rejectUnauthorized: false } : false
-  };
-} else if (options.remote) {
-  dbConfig = DB_CONFIGS.remote;
-} else {
-  dbConfig = DB_CONFIGS.local;
-}
-
-// 創建資料庫連接池
-const pool = new Pool(dbConfig);
 
 // 初始化資料庫連接
 async function initDb() {
@@ -356,8 +320,8 @@ async function main() {
     console.error('❌ 執行匯入程序時發生錯誤:', error);
     process.exit(1);
   } finally {
-    // 關閉連接池
-    await pool.end();
+    // 不再關閉共享連接池
+    // await pool.end();
     process.exit(0);
   }
 }

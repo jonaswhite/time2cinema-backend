@@ -37,7 +37,7 @@ async function checkApiData() {
   // 測試線上 API
   try {
     console.log('\n===== 線上 API 返回的票房資料 =====');
-    const remoteResponse = await axios.get('https://time2cinema-backend.onrender.com/api/boxoffice');
+    const remoteResponse = await axios.get('https://interested-shirl-jonaswhite-1cd398c7.koyeb.app/api/boxoffice');
     
     // 計算總電影數量
     console.log(`線上 API 返回了 ${remoteResponse.data.length} 部電影的票房資料`);

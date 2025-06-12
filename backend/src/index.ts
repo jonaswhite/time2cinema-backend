@@ -22,7 +22,8 @@ const allowedOrigins = [
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
     // 允許沒有 origin 的請求 (例如 Postman 或 curl)
-    if (!origin || allowedOrigins.includes(origin)) {
+    // 允許來自 127.0.0.1 的請求 (通常是本地代理)
+    if (!origin || allowedOrigins.includes(origin) || (origin && origin.startsWith('http://127.0.0.1:'))) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));

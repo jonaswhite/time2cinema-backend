@@ -1,7 +1,7 @@
 // WARNING: This bypasses TLS certificate verification. Only for local development/debugging.
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-const { Pool } = require('pg');
+const { pool } = require('../../dist/db');
 const dotenv = require('dotenv');
 const path = require('path');
 
@@ -21,52 +21,13 @@ const SHOWTIMES_FILE = path.join(OUTPUT_DIR, 'atmovies_showtimes.json');
 // 輸出檔案路徑用於除錯
 console.log('使用場次檔案路徑:', SHOWTIMES_FILE);
 
-// 資料庫連線設定
-const DB_CONFIGS = {
-  local: {
-    user: 'jonaswhite',
-    host: 'localhost',
-    database: 'time2cinema',
-    port: 5432,
-    ssl: false
-  },
-  remote: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false // Allow self-signed certificates or chains with issues
-    }
-  }
-};
-
 // 命令行參數解析
 const program = new Command();
 program
-  .option('--local', '使用本地資料庫')
-  .option('--remote', '使用遠端資料庫')
-  .option('--connection <string>', '自定義資料庫連接字串')
   .option('--file <path>', '指定場次資料檔案路徑', SHOWTIMES_FILE)
   .parse(process.argv);
 
 const options = program.opts();
-
-// 確定使用哪個資料庫配置
-let dbConfig;
-if (options.connection) {
-  dbConfig = {
-    connectionString: options.connection,
-    ssl: options.connection.includes('render.com') ? { rejectUnauthorized: false } : false
-  };
-} else if (options.remote) {
-  dbConfig = DB_CONFIGS.remote;
-} else {
-  dbConfig = DB_CONFIGS.local;
-}
-
-// Log the dbConfig before creating the pool
-console.log('Using dbConfig:', JSON.stringify(dbConfig, null, 2));
-
-// 創建資料庫連接池
-const pool = new Pool(dbConfig);
 
 // In-memory caches
 
@@ -571,7 +532,8 @@ async function main() {
   } finally {
     if (client) {
       client.release();
-      await pool.end();
+      // 不再關閉共享連接池
+      // await pool.end();
     }
   }
 }

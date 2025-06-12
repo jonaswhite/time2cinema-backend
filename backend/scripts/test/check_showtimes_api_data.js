@@ -65,7 +65,7 @@ async function checkApiData() {
   // 測試線上 API
   try {
     console.log('\n===== 線上 API 返回的 5/9 場次資料 =====');
-    const remoteResponse = await axios.get('https://time2cinema-backend.onrender.com/api/showtimes');
+    const remoteResponse = await axios.get('https://interested-shirl-jonaswhite-1cd398c7.koyeb.app/api/showtimes');
     
     // 計算總電影院數量
     console.log(`線上 API 返回了 ${remoteResponse.data.length} 家電影院的資料`);

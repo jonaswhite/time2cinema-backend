@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+const { pool } = require('../../dist/db');
 const fs = require('fs');
 const path = require('path');
 const { Command } = require('commander');
@@ -29,22 +29,7 @@ function log(...args) {
   console.log(`[${timestamp}]`, ...args);
 }
 
-// 從環境變數獲取數據庫連接信息
-const DATABASE_URL = process.env.DATABASE_URL || '';
 
-// 驗證數據庫連接信息
-if (!DATABASE_URL) {
-  log('錯誤：未設置 DATABASE_URL 環境變數');
-  process.exit(1);
-}
-
-// 創建連接池
-const pool = new Pool({
-  connectionString: DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false // 對於 Render 的 PostgreSQL 需要這個選項
-  }
-});
 
 // 主函數
 async function importMovies() {
@@ -139,8 +124,8 @@ async function importMovies() {
     if (client) {
       client.release();
     }
-    // 關閉連接池
-    await pool.end();
+    // 不再關閉共享連接池
+    // await pool.end();
   }
 }
 

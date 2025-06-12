@@ -1,40 +1,52 @@
 import { Pool } from 'pg';
-import fs from 'fs';
-import path from 'path';
 
 // 建立資料庫連接池配置
-const connectionString = process.env.DATABASE_URL || 
-  'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db';
+const connectionString = process.env.DATABASE_URL;
 
-// The path is relative from the compiled file in dist/db/index.js
-const caCertPath = path.join(__dirname, '..', '..', 'src', 'certs', 'AmazonRootCA1.pem');
-const dbUrl = new URL(connectionString);
-
-if (fs.existsSync(caCertPath)) {
-  console.log('CA certificate found. Configuring sslmode=verify-full with sslrootcert.');
-  // Use the stricter verify-full mode and provide the root cert path
-  dbUrl.searchParams.set('sslmode', 'verify-full');
-  dbUrl.searchParams.set('sslrootcert', caCertPath);
-} else {
-  console.warn('CA certificate not found at:', caCertPath);
-  console.warn('Falling back to sslmode=require. This may fail.');
-  // Ensure sslmode=require is set if the cert is not found
-  if (!dbUrl.searchParams.has('sslmode')) {
-    dbUrl.searchParams.set('sslmode', 'require');
-  }
+if (!connectionString) {
+  console.error(
+    'FATAL ERROR: DATABASE_URL environment variable is not set. ' +
+    'Please provide the Supabase connection string in the environment variables.'
+  );
+  process.exit(1); // Exit if DATABASE_URL is not provided
 }
 
-const finalConnectionString = dbUrl.toString();
-console.log('Final connection string for pg.Pool:', finalConnectionString);
+// Supabase connection strings (DATABASE_URL) usually include necessary SSL parameters
+// (e.g., sslmode=require). The custom CA certificate logic previously used for
+// Render's PostgreSQL (AmazonRootCA1.pem and sslmode=verify-full) is likely
+// not needed for Supabase and has been removed for simplification.
+// If your Supabase setup requires a specific CA certificate, this section might
+// need to be revisited, but standard Supabase connections typically don't.
+
+console.log('Attempting to connect to database using DATABASE_URL.');
+// For debugging, you might want to log the connectionString, but be careful in production
+// console.log('Using connection string for pg.Pool:', connectionString);
 
 // 建立連接池
+// The connectionString from Supabase should handle SSL configuration.
+// If you encounter SSL issues (e.g., self-signed certificate errors with some proxy setups),
+// you might need to add an ssl object, for example:
+// const pool = new Pool({
+//   connectionString: connectionString,
+//   ssl: {
+//     rejectUnauthorized: false, // Use with caution, typically for development or specific trusted environments
+//   },
+// });
+// However, for Supabase, this is often not required. Start with the direct connection string.
 const pool = new Pool({
-  connectionString: finalConnectionString,
-  // SSL config is now entirely within the connection string.
-  // 增加連線超時設定
+  connectionString: connectionString,
   connectionTimeoutMillis: 10000, // 10 秒
   idleTimeoutMillis: 30000, // 30 秒
   max: 20, // 最大連線數
+});
+
+pool.on('connect', () => {
+  console.log('Successfully connected to the PostgreSQL database via pg.Pool.');
+});
+
+pool.on('error', (err) => {
+  console.error('Unexpected error on idle client in pg.Pool', err);
+  // process.exit(-1); // Consider if errors should be fatal
 });
 
 // 測試資料庫連線

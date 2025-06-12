@@ -1,13 +1,4 @@
-import { Pool } from 'pg';
-
-// 線上資料庫配置
-const onlineDbConfig = {
-  connectionString: 'postgresql://time2cinema_db_user:wUsukaH2Kiy8fIejuOqsk5yjn4FBb0RX@dpg-d0e9e749c44c73co4lsg-a.singapore-postgres.render.com/time2cinema_db',
-  ssl: { rejectUnauthorized: false }
-};
-
-// 創建線上資料庫連接池
-const pool = new Pool(onlineDbConfig);
+import pool from './index'; // 導入共享的 pool
 
 // 批量更新 showtimes 表
 async function bulkUpdateShowtimes(): Promise<void> {
@@ -78,8 +69,7 @@ async function bulkUpdateShowtimes(): Promise<void> {
     console.log('批量更新完成');
   } catch (error) {
     console.error('批量更新 showtimes 表時發生錯誤:', error);
-  } finally {
-    await pool.end();
+    throw error; // 重新拋出錯誤，以便上層呼叫者可以處理
   }
 }
 
