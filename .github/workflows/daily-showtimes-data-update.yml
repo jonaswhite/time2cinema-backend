@@ -114,7 +114,7 @@ jobs:
               
               # 匯入到遠端資料庫
               echo "匯入場次資料到遠端資料庫..."
-              node scripts/importers/import_showtimes.js --remote
+              node scripts/importers/import_showtimes.js
               
               # 本地導入步驟已移除，因本地服務容器已移除
               
