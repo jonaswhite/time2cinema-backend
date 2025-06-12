@@ -100,3 +100,6 @@ out
 
 # Ignore scraper output files
 scripts/scrapers/output/
+
+# Ignore frontend directory
+frontend
