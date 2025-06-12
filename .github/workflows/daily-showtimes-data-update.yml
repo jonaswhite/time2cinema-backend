@@ -42,10 +42,17 @@ jobs:
           npm install puppeteer@latest
           # 安裝其他依賴
           npm install
-          # 安裝其他必要的開發依賴
-          npm install --save-dev commander pg csv-parser
+          # 安裝 TypeScript 和其他必要的開發依賴
+          npm install --save-dev typescript @types/node @types/pg commander pg csv-parser
           # 確保 puppeteer 的瀏覽器已下載
           npx puppeteer install
+          
+      - name: Build TypeScript
+        run: |
+          cd backend
+          # 編譯 TypeScript 程式碼
+          npx tsc
+          echo "TypeScript 編譯完成"
 
       - name: Install Python dependencies
         run: |

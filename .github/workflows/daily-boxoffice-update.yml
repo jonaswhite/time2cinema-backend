@@ -31,9 +31,18 @@ jobs:
           cd backend
           npm ci
           npm install puppeteer@latest
+          # 安裝 TypeScript 和相關依賴
+          npm install --save-dev typescript @types/node @types/pg
           npx puppeteer install chrome
           # 確保使用正確的 Node.js 版本
           node -v
+          
+      - name: Build TypeScript
+        run: |
+          cd backend
+          # 編譯 TypeScript 程式碼
+          npx tsc
+          echo "TypeScript 編譯完成"
 
       - name: Create necessary directories
         run: |
