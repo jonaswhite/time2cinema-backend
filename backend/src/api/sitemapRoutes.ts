@@ -69,7 +69,7 @@ router.get('/api/sitemap.xml', async (req, res) => {
     const movies = await getMovies();
     movies.forEach(movie => {
       smStream.write({
-        url: `/movie/${movie.id}`,
+        url: `/showtimes/${movie.id}`,
         changefreq: 'daily',
         priority: 0.8,
         lastmod: movie.updated_at ? new Date(movie.updated_at).toISOString() : new Date().toISOString()
