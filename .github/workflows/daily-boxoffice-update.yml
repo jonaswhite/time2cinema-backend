@@ -102,6 +102,6 @@ jobs:
           # 顯示環境變數（不顯示敏感信息）
           echo "DATABASE_URL 長度: ${#DATABASE_URL}"
           echo "PGSSLMODE: $PGSSLMODE"
-          # 使用 --remote 參數指定使用遠端資料庫
-          node scripts/importers/import_boxoffice_v2.js --remote
+          # 執行導入腳本
+          node scripts/importers/import_boxoffice_v2.js
           echo "票房數據導入完成，時間: $(date)"
