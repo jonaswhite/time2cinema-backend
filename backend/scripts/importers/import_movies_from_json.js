@@ -81,13 +81,44 @@ async function importMovies() {
       // 批量處理電影數據
       let successCount = 0;
       let errorCount = 0;
+      let skippedCount = 0;
+      
+      // 先獲取所有現有的 atmovies_id
+      const existingIds = new Set();
+      const existingResult = await client.query('SELECT atmovies_id FROM movies WHERE atmovies_id IS NOT NULL');
+      existingResult.rows.forEach(row => existingIds.add(row.atmovies_id));
+      
+      log(`已找到 ${existingIds.size} 筆現有電影記錄`);
       
       for (const movie of jsonData) {
         try {
+          // 確保 atmovies_id 存在且有效
+          if (!movie.atmovies_id || typeof movie.atmovies_id !== 'string' || movie.atmovies_id.trim() === '') {
+            log(`警告: 跳過缺少 atmovies_id 的電影: ${movie.chinese_title || movie.english_title || '未知電影'}`);
+            skippedCount++;
+            continue;
+          }
+          
+          // 檢查是否已存在相同的 atmovies_id
+          if (existingIds.has(movie.atmovies_id)) {
+            if (options.debug) {
+              log(`跳過重複的 atmovies_id: ${movie.atmovies_id} (${movie.chinese_title || movie.english_title || '無標題'})`);
+            }
+            skippedCount++;
+            continue;
+          }
+          
+          // 檢查 atmovies_id 是否為自動生成的（以 generated_ 開頭）
+          if (movie.atmovies_id.startsWith('generated_')) {
+            log(`警告: 跳過使用自動生成 ID 的電影: ${movie.chinese_title || movie.english_title || '無標題'} (${movie.atmovies_id})`);
+            skippedCount++;
+            continue;
+          }
+          
           // 使用 JSON 中的欄位名稱
           const values = [
             movie.atmovies_id,
-            movie.full_title || '',
+            movie.full_title || `${movie.chinese_title || ''} ${movie.english_title || ''}`.trim() || '未知電影',
             movie.chinese_title || '',
             movie.english_title || null,
             movie.release_date || null,
@@ -96,10 +127,11 @@ async function importMovies() {
           ];
           
           await client.query(insertQuery, values);
+          existingIds.add(movie.atmovies_id);
           successCount++;
           
           if (options.debug) {
-            log(`成功處理: ${movie.display_title} (${movie.atmovies_id})`);
+            log(`成功處理: ${movie.chinese_title || movie.english_title || '無標題'} (${movie.atmovies_id})`);
           } else if (successCount % 10 === 0) {
             process.stdout.write('.');
           }
@@ -114,7 +146,7 @@ async function importMovies() {
       
       // Commit is not needed here as transactions are not managed globally for the batch.
       
-      log(`\n匯入完成！成功: ${successCount}, 失敗: ${errorCount}`);
+      log(`\n匯入完成！成功: ${successCount}, 跳過: ${skippedCount}, 失敗: ${errorCount}`);
       
     } catch (error) {
       // Rollback is not needed here as transactions are not managed globally for the batch.

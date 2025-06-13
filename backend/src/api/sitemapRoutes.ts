@@ -5,10 +5,10 @@ import pool from '../db';
 
 const router = Router();
 
-// 獲取所有電影的 ID 和最後更新時間
+// 獲取所有電影的 ID、名稱和最後更新時間
 async function getMovies() {
   const result = await pool.query(
-    'SELECT id, updated_at FROM movies ORDER BY updated_at DESC'
+    'SELECT id, chinese_title, updated_at FROM movies WHERE chinese_title IS NOT NULL ORDER BY updated_at DESC'
   );
   return result.rows;
 }
@@ -68,8 +68,14 @@ router.get('/api/sitemap.xml', async (req, res) => {
     // 添加所有電影頁面
     const movies = await getMovies();
     movies.forEach(movie => {
+      // 將電影名稱轉換為 URL 友好的格式
+      const movieSlug = movie.chinese_title
+        .toLowerCase()
+        .replace(/[^\w\u4e00-\u9fa5]+/g, '-') // 將非文字字元轉換為連字符
+        .replace(/^-+|-+$/g, ''); // 移除開頭和結尾的連字符
+      
       smStream.write({
-        url: `/showtimes/${movie.id}`,
+        url: `/showtimes/${movieSlug}-${movie.id}`, // 同時保留 ID 以確保唯一性
         changefreq: 'daily',
         priority: 0.8,
         lastmod: movie.updated_at ? new Date(movie.updated_at).toISOString() : new Date().toISOString()
