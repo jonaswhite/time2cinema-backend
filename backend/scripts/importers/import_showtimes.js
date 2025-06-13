@@ -1,12 +1,18 @@
 // WARNING: This bypasses TLS certificate verification. Only for local development/debugging.
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-const { pool } = require('../../dist/db');
+const { Pool } = require('pg');
 const dotenv = require('dotenv');
 const path = require('path');
 
 // Load .env file from project root
 dotenv.config({ path: path.resolve(__dirname, '..', '..', '..', '.env') });
+
+// 直接使用環境變數中的 DATABASE_URL
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+});
 const fs = require('fs').promises;
 const { Command } = require('commander');
 const format = require('pg-format');

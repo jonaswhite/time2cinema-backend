@@ -1,4 +1,4 @@
-const { pool } = require('../../dist/db');
+const { Pool } = require('pg');
 const fs = require('fs');
 const path = require('path');
 const { Command } = require('commander');
@@ -13,6 +13,12 @@ if (envConfig.error) {
 } else {
   console.log(`INFO: Successfully loaded .env file from ${envPath}`);
 }
+
+// 直接使用環境變數中的 DATABASE_URL
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+});
 
 // 設置命令行參數
 const program = new Command();
