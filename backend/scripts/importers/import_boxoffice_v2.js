@@ -1,10 +1,16 @@
 const fs = require('fs');
 const fsPromises = fs.promises;
-const { pool } = require('../../src/db');
+const { Pool } = require('pg');
+
 const path = require('path');
 const { Command } = require('commander');
 const { parse } = require('json2csv');
 const MovieMatcher = require('../utils/movieMatcher');
+
+// Create a new Pool instance
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL
+});
 
 // 命令行參數解析
 const program = new Command();
