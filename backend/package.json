@@ -22,6 +22,7 @@
     "json2csv": "^6.0.0-alpha.2",
     "node-fetch": "^2.7.0",
     "pg": "^8.16.0",
+    "pg-connection-string": "^2.9.0",
     "pg-format": "^1.0.4",
     "puppeteer": "^24.9.0",
     "sitemap": "^8.0.0",
