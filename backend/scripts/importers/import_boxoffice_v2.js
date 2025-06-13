@@ -1,6 +1,6 @@
 const fs = require('fs');
 const fsPromises = fs.promises;
-const { pool } = require('../../dist/db');
+const { pool } = require('../../src/db');
 const path = require('path');
 const { Command } = require('commander');
 const { parse } = require('json2csv');
