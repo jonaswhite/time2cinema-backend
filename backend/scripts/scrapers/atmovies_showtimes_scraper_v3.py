@@ -390,6 +390,15 @@ class ATMoviesScraper:
                 # 移除可能的星號標記
                 movie_name = re.sub(r'\*+$', '', movie_name)
                 
+                # 從電影連結中提取 atmovies_id
+                atmovies_id = None
+                film_href = film_link.get('href', '')
+                # 從 /movie/ 後面的部分提取 ID
+                match = re.search(r'/movie/([^/]+)', film_href)
+                if match:
+                    atmovies_id = match.group(1)
+                    logger.debug(f"找到電影 ID: {movie_name} -> {atmovies_id}")
+                
                 # 4. 獲取場次時間
                 # 場次時間通常在第二個 ul 中的 li 元素中
                 time_list = table.find_all('ul')
@@ -406,10 +415,14 @@ class ATMoviesScraper:
                         
                         # 確保時間格式正確
                         if re.match(r'\d{1,2}:\d{2}', time_text):
-                            showtimes.append({
-                                'time': time_text,
-                                'movie_name': movie_name
-                            })
+                            if atmovies_id: # Only add showtime if we have an atmovies_id
+                                showtime_data = {
+                                    'time': time_text,
+                                    'atmovies_id': atmovies_id
+                                }
+                                showtimes.append(showtime_data)
+                            else:
+                                logger.warning(f"電影 {movie_name} 缺少 atmovies_id，將跳過此場次")
             
             logger.info(f"在 {theater['atmovies_theater_name']} - {date['label']} 找到 {len(showtimes)} 個場次")
         except Exception as e:
@@ -469,8 +482,10 @@ class ATMoviesScraper:
         self.data = []
         
         # 獲取所有區域
-        regions = self.get_region_list()
+        all_regions = self.get_region_list()
+        regions = all_regions
         logger.info(f"成功載入 {len(regions)} 個區域")
+        logger.info(f"處理的區域: {[r['region_name'] for r in regions]}")
         
         # 獲取日期列表
         dates = self.get_dates()
@@ -585,7 +600,7 @@ class ATMoviesScraper:
         try:
             with open(filepath, 'w', encoding='utf-8', newline='') as f:
                 writer = csv.writer(f)
-                writer.writerow(['電影院ID', '電影院名稱', '日期', '場次時間', '電影名稱'])
+                writer.writerow(['電影院ID', '電影院名稱', '日期', '場次時間', 'atmovies_id'])
                 
                 for theater in self.data:
                     for date_data in theater['atmovies_showtimes_by_date']:
@@ -595,7 +610,7 @@ class ATMoviesScraper:
                                 theater['atmovies_theater_name'],
                                 date_data['date'],
                                 showtime['time'],
-                                showtime['movie_name']
+                                showtime['atmovies_id']
                             ])
                 
             logger.info(f"已將資料保存至 {filepath}")

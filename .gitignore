@@ -89,5 +89,3 @@ logs
 *.log
 npm-debug.log*
 
-# Ignore frontend directory
-frontend/

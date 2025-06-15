@@ -211,96 +211,63 @@ function formatDate(dateStr) {
 }
 
 // 根據電影名稱獲取或創建電影 ID
-async function getOrCreateMovieId(client, movieName, showDateString) {
-  if (movieCache.has(movieName)) {
-    return movieCache.get(movieName);
+async function getOrCreateMovieId(client, atmoviesId, movieName) { // movieName is now optional, for fallback
+  if (!atmoviesId) {
+    console.warn('⚠️ 缺少 atmoviesId，無法處理電影');
+    return null;
   }
-  if (!movieName) return null;
+  if (movieCache.has(atmoviesId)) {
+    return movieCache.get(atmoviesId);
+  }
 
   try {
-    let showYear = null;
-    if (showDateString && showDateString.length === 8) {
-      try {
-        showYear = parseInt(showDateString.substring(0, 4), 10);
-      } catch (e) {
-        console.warn(`⚠️ 無效的 showDateString 格式: ${showDateString}, 無法提取年份`);
-        showYear = null;
-      }
-    }
+    // Removed showYear logic as it depended on showDateString which is no longer a parameter.
+    // Matching is now primarily by atmovies_id.
 
-    // 嘗試 1: 中文標題 + 上映年份（如果 showDateString 有效）
-    if (showYear) {
-      const resYearMatch = await client.query(
-        `SELECT id FROM movies 
-         WHERE (chinese_title = $1 OR full_title = $1)
-           AND EXTRACT(YEAR FROM release_date) = $2
-         LIMIT 1`,
-        [movieName, showYear]
-      );
-      if (resYearMatch.rows.length > 0) {
-        movieCache.set(movieName, resYearMatch.rows[0].id); // Cache with movieName for simplicity, though ideally key could include year
-        return resYearMatch.rows[0].id;
-      }
-    }
-
-    // 嘗試 2: 先嘗試在 chinese_title 或 full_title 中查找完全匹配
+    // 嘗試使用 atmovies_id 查找電影
     const res = await client.query(
-      `SELECT id FROM movies 
-       WHERE chinese_title = $1 OR full_title = $1
-       LIMIT 1`,
-      [movieName]
+      'SELECT id FROM movies WHERE atmovies_id = $1 LIMIT 1',
+      [atmoviesId]
     );
 
-    
     if (res.rows.length > 0) {
-      movieCache.set(movieName, res.rows[0].id);
+      movieCache.set(atmoviesId, res.rows[0].id);
       return res.rows[0].id;
     }
-    
-    // 如果找不到完全匹配，嘗試模糊匹配
-    const likeRes = await client.query(
-      `SELECT id FROM movies 
-       WHERE chinese_title LIKE $1 OR full_title LIKE $1
-       LIMIT 1`,
-      [`%${movieName}%`]
-    );
-    
-    if (likeRes.rows.length > 0) {
-      console.log(`🔍 找到模糊匹配的電影: ${movieName} -> ${likeRes.rows[0].id}`);
-      movieCache.set(movieName, likeRes.rows[0].id);
-      return likeRes.rows[0].id;
-    }
-    
-    // 如果還是找不到，創建新電影
+
+    // 如果找不到，創建新電影
+    // 使用 movieName 作為 chinese_title 和 full_title 的 fallback
+    const titleToUse = movieName || `未知電影 (${atmoviesId})`;
     try {
       const insertRes = await client.query(
-        `INSERT INTO movies (chinese_title, full_title, created_at, updated_at)
-         VALUES ($1, $2, NOW(), NOW())
+        `INSERT INTO movies (atmovies_id, chinese_title, full_title, created_at, updated_at, source)
+         VALUES ($1, $2, $3, NOW(), NOW(), 'atmovies_showtimes_import')
          RETURNING id`,
-        [movieName, movieName]  // 將相同的名稱同時存入 chinese_title 和 full_title
+        [atmoviesId, titleToUse, titleToUse]
       );
       
-      console.log(`✅ 創建新電影: ${movieName} (ID: ${insertRes.rows[0].id})`);
-      movieCache.set(movieName, insertRes.rows[0].id);
-      return insertRes.rows[0].id;
+      const newMovieId = insertRes.rows[0].id;
+      console.log(`✅ 創建新電影: ${titleToUse} (atmovies_id: ${atmoviesId}, DB ID: ${newMovieId})`);
+      movieCache.set(atmoviesId, newMovieId);
+      return newMovieId;
     } catch (insertError) {
-      // 如果插入失敗（例如並發創建），再次嘗試查詢
-      console.log(`🔄 嘗試重新查詢電影: ${movieName}`);
-      const retryRes = await client.query(
-        `SELECT id FROM movies 
-         WHERE chinese_title = $1 OR full_title = $1
-         LIMIT 1`,
-        [movieName]
-      );
-      
-      if (retryRes.rows.length > 0) {
-        return retryRes.rows[0].id;
+      // 處理並發創建導致的唯一約束衝突
+      if (insertError.code === '23505') { // unique_violation for atmovies_id
+        console.warn(`🔄 插入電影 ${atmoviesId} 時發生唯一約束衝突，嘗試重新查詢...`);
+        const retryRes = await client.query(
+          'SELECT id FROM movies WHERE atmovies_id = $1 LIMIT 1',
+          [atmoviesId]
+        );
+        if (retryRes.rows.length > 0) {
+          movieCache.set(atmoviesId, retryRes.rows[0].id);
+          return retryRes.rows[0].id;
+        }
       }
-      
-      throw insertError; // 重新拋出錯誤
+      console.error(`❌ 創建電影 ${atmoviesId} (${titleToUse}) 時出錯:`, insertError.message);
+      throw insertError; // 重新拋出錯誤，讓上層處理
     }
   } catch (error) {
-    console.error(`❌ 處理電影 ${movieName} 時出錯:`, error.message);
+    console.error(`❌ 處理電影 atmovies_id: ${atmoviesId} / name: ${movieName} 時出錯:`, error.message);
     return null;
   }
 }
@@ -439,23 +406,27 @@ async function main() {
           for (const showtime of dateGroup.showtimes) {
             const movieName = showtime.movie_name;
             const timeStr = showtime.time; // 格式: HH:MM
-            
-            if (!movieName) {
-              console.error('❌ 缺少電影名稱');
-              continue;
-            }
+            // Removed check for movieName as we now rely on atmovies_id
             
             if (!timeStr || !/^\d{2}:\d{2}$/.test(timeStr)) {
               console.error(`❌ 無效的場次時間格式: ${timeStr}`);
               continue;
             }
             
+            // Validate atmovies_id before processing
+            const atmoviesIdPattern = /^[a-z]{4}\d{8}$/;
+            if (!showtime.atmovies_id || !atmoviesIdPattern.test(showtime.atmovies_id)) {
+              console.warn(`🚫 檢測到無效或空的 atmovies_id: '${showtime.atmovies_id}' (時間: ${timeStr})，跳過此場次。可能為休館或其他特殊情況。`);
+              continue;
+            }
+            
             try {
               // 獲取或創建電影 ID
               const showDateForMovie = showDate; // YYYYMMDD, from dateGroup.date
-              const movieId = await getOrCreateMovieId(client, movieName, showDateForMovie);
+              const movieId = await getOrCreateMovieId(client, showtime.atmovies_id, showtime.movie_name); // Pass atmovies_id and movie_name as fallback
               if (!movieId) {
-                throw new Error(`無法獲取或創建電影: ${movieName}`);
+                console.warn(`⚠️ 無法獲取或創建電影 ID for atmovies_id: ${showtime.atmovies_id}. 跳過此場次.`);
+                continue; // Skip this showtime if movie ID can't be resolved
               }
               
               // 記錄已處理的電影
@@ -470,7 +441,7 @@ async function main() {
               const dateStr = `${year}-${month}-${day}`;
               const timeWithSeconds = timeStr + ':00'; // 轉換為 HH:MM:SS
               
-              console.log(`🕒 處理場次: ${dateStr} ${timeWithSeconds} - ${movieName}`);
+              console.log(`🕒 處理場次: ${dateStr} ${timeWithSeconds} - atmovies_id: ${showtime.atmovies_id}`);
               
               showtimesToInsertBatch.push([theaterId, movieId, dateStr, timeWithSeconds, new Date(), new Date()]);
               totalShowtimes++;
