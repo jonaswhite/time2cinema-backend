@@ -1,0 +1,3 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/jonaswhite/time2cinema-frontend.git
