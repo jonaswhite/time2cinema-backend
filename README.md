@@ -1,23 +1,29 @@
-# Time2Cinema
+# Time2Cinema Backend
 
-這個專案是一個電影場次查詢平台，採用前後端分離架構：
+這個專案是 Time2Cinema 的後端服務，負責 API 與資料整合。
 
 ## 專案結構
 
-- frontend/  (Next.js + shadcn/ui，負責 UI 與互動)
-- backend/   (Node.js/Express，未來負責 API 與資料整合)
-
-## 前端技術說明
-- Next.js (React-based，支援 SSR 與 App Router)
-- shadcn/ui（極簡現代的 UI 元件庫，設計風格類似 Figma/Apple）
-- Tailwind CSS（用於 shadcn/ui 樣式）
+- backend/   (Node.js/Express，負責 API 與資料整合)
+- 前端代碼已移至獨立倉庫: [time2cinema-frontend](https://github.com/jonaswhite/time2cinema-frontend)
 
 ## 開發啟動
+
+1. 安裝依賴：
 ```sh
-cd frontend
 npm install
+```
+
+2. 啟動開發伺服器：
+```sh
 npm run dev
 ```
+
+## 前端專案
+
+前端代碼已移至獨立倉庫：
+- 倉庫位置: [time2cinema-frontend](https://github.com/jonaswhite/time2cinema-frontend)
+- 技術棧: Next.js, shadcn/ui, Tailwind CSS
 
 ## 功能規劃
 1. 首頁顯示每週票房榜（第一階段優先完成）
