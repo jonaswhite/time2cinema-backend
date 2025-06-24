@@ -26,5 +26,6 @@ jobs:
       - name: Run upcoming movies scraper
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        working-directory: ./backend/scripts/scrapers
         run: |
-          python backend/scripts/scrapers/atmovies_upcoming_scraper.py
+          python atmovies_upcoming_scraper.py
