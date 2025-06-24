@@ -10,8 +10,9 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
-# This is to ensure the script can be run directly and find the common modules
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Add the script's directory to the Python path to resolve local imports
+# This is crucial for running the script in different environments (e.g., CI/CD)
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from common.scraping_utils import BaseScraper
 from common import movie_utils
