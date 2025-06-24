@@ -43,11 +43,10 @@ jobs:
           sudo timedatectl set-timezone Asia/Taipei
           echo "當前時間: $(date)"
 
-      # 設置 Node.js 環境
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+      # 設置 Python 環境變數
+      - name: Set up Python environment
+        run: |
+          echo "PYTHONPATH=${{ github.workspace }}/backend/scripts:$PYTHONPATH" >> $GITHUB_ENV
 
       # 執行 ATMovies 電影爬蟲
       - name: Run ATMovies movie scraper
@@ -151,19 +150,6 @@ jobs:
             exit 1
           fi
 
-      # 安裝 Node.js 依賴
-      - name: Install Node.js dependencies
-        if: steps.env.outcome == 'success'
-        run: |
-          echo "正在安裝 Node.js 依賴..."
-          cd backend
-          echo "Installing production dependencies..."
-          npm install --omit=dev
-          echo "Installing development dependencies for TypeScript..."
-          npm install --save-dev @types/express @types/fs-extra @types/pg @types/node
-          echo "Building TypeScript projects..."
-          npm run build
-
       # 設置資料庫環境變數
       - name: Set up database environment
         id: db_env
@@ -233,8 +219,8 @@ jobs:
           fi
           echo "資料庫連接測試通過 ($ACTUAL_DB_HOST:$ACTUAL_DB_PORT)"
           
-      # 執行資料庫匯入
-      - name: Import movie data to database
+      # 執行資料庫更新
+      - name: Update movie data in database
         if: steps.db_env.outcome == 'success'
         env:
           DATABASE_URL: ${{ env.DATABASE_URL }}
@@ -245,27 +231,20 @@ jobs:
           echo "工作區內容:"
           ls -la
           
-          echo "使用電影文件進行匯入: ${{ env.LATEST_JSON }}"
-          echo "DATABASE_URL 長度: ${#DATABASE_URL}"
+          echo "開始更新電影資料到資料庫..."
+          cd backend/scripts/scrapers
           
-          # 確保 backend 目錄存在
-          if [ ! -d "backend" ]; then
-            echo "::error::找不到 backend 目錄"
-            ls -la
+          # 確保 Python 腳本存在
+          if [ ! -f "atmovies_movie_scraper_v2.py" ]; then
+            echo "::error::找不到 atmovies_movie_scraper_v2.py 腳本"
             exit 1
           fi
           
-          cd backend
+          # 執行 Python 爬蟲腳本進行資料庫更新
+          echo "執行電影資料更新..."
+          python atmovies_movie_scraper_v2.py --update-db
           
-          # 將 DATABASE_URL 寫入 .env 文件
-          echo "DATABASE_URL=$DATABASE_URL" > .env
-          echo "已創建 .env 文件，內容長度: $(wc -c < .env)"
-          
-          # 執行腳本並捕獲輸出
-          echo "開始執行匯入腳本..."
-          if ! node scripts/importers/import_movies_from_json.js -f "../${{ env.LATEST_JSON }}"; then
-            echo "::error::電影資料匯入失敗"
-            # 顯示 .env 文件內容（隱藏敏感信息）
+          echo "電影資料更新完成"
             if [ -f ".env" ]; then
               echo "檢查 .env 文件內容（前10個字元）: $(head -c 10 .env)..."
               rm -f .env
