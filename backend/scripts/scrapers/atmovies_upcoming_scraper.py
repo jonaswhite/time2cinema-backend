@@ -12,9 +12,9 @@ from dotenv import load_dotenv
 
 
 
-from common.scraping_utils import BaseScraper
-from common import movie_utils
-from common.db_handler import DatabaseHandler
+from .common.scraping_utils import BaseScraper
+from .common import movie_utils
+from .common.db_handler import DatabaseHandler
 
 # Load environment variables from the project root
 dotenv_path = os.path.join(os.path.dirname(__file__), '..', '..', '..', '.env')
