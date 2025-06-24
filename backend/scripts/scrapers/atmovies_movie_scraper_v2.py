@@ -55,16 +55,43 @@ from user_agents import USER_AGENTS
 sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
 
+# 確保日誌目錄存在
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 # 設置日誌
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("atmovies_movie_scraper_v2.log"),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('atmovies_movie_scraper')
+logger.setLevel(logging.DEBUG)
+
+# 創建文件處理器
+log_file = os.path.join(OUTPUT_DIR, 'atmovies_movie_scraper_v2.log')
+file_handler = logging.FileHandler(log_file, mode='w')
+file_handler.setLevel(logging.DEBUG)
+
+# 創建控制台處理器
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# 創建日誌格式
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# 添加處理器到日誌記錄器
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
+# 設置其他模組的日誌級別
+logging.getLogger('aiohttp').setLevel(logging.WARNING)
+logging.getLogger('asyncio').setLevel(logging.WARNING)
+
+# 設置根日誌記錄器
+root_logger = logging.getLogger()
+root_logger.setLevel(logging.WARNING)
+root_logger.addHandler(file_handler)
+root_logger.addHandler(console_handler)
+
+# 設置爬蟲日誌記錄器
+logger = logging.getLogger('atmovies_movie_scraper')
 
 # 常數設定
 BASE_URL = "https://www.atmovies.com.tw/"
@@ -118,20 +145,16 @@ class ATMoviesMovieScraper:
         from psycopg2.extras import DictCursor
         
         try:
-            # 建立資料庫連接
-            logger.info(f"正在連接到資料庫: {DB_URL.split('@')[-1]}")
+            # 使用 Supabase 連接字串（從 .env 檔案中獲取）
+            supabase_url = 'postgresql://postgres.bnfplxbaqnmwpjvjwqzx:Thisisjonas2021%40@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require'
             
-            # 添加 SSL 連接選項
-            ssl_params = {
-                'sslmode': 'require',
-                'sslrootcert': '/etc/ssl/certs/ca-certificates.crt'  # 標準的 CA 證書路徑
-            }
+            # 建立資料庫連接
+            logger.info("正在連接到 Supabase 資料庫")
             
             # 建立連接
             self.conn = psycopg2.connect(
-                DB_URL,
-                cursor_factory=DictCursor,
-                sslmode='require'
+                supabase_url,
+                cursor_factory=DictCursor
             )
             self.cursor = self.conn.cursor()
             
@@ -242,7 +265,6 @@ class ATMoviesMovieScraper:
             with open(filename, 'w', newline='', encoding='utf-8') as f:
                 writer = csv.DictWriter(f, fieldnames=fieldnames)
                 writer.writeheader()
-                writer.writerows(self.movies)
         else:
             logger.error(f"不支援的格式: {format_type}")
             return ""
@@ -636,88 +658,158 @@ class ATMoviesMovieScraper:
         return bool(valid_pattern.match(atmovies_id))
     
     async def save_movie_to_db(self, movie_data: Dict[str, Any]) -> bool:
-        """將電影資訊存入資料庫"""
+        """
+        將電影資訊存入資料庫
+        
+        Args:
+            movie_data: 包含電影資訊的字典，應包含以下欄位：
+                - atmovies_id (str): ATMovies 電影ID
+                - full_title (str): 完整標題
+                - chinese_title (str): 中文標題
+                - english_title (str): 英文標題
+                - runtime (int): 片長（分鐘）
+                - release_date (str): 上映日期（YYYY-MM-DD）
+                - poster_url (str, optional): 海報URL
+                
+        Returns:
+            bool: 操作是否成功
+        """
         try:
             if not hasattr(self, 'conn') or self.conn.closed:
                 logger.error("資料庫連接未建立或已關閉")
                 return False
-                
-            # 記錄要保存的電影資料
-            logger.debug(f"準備保存電影到資料庫: {movie_data['atmovies_id']}")
-            logger.debug(f"  完整標題: {movie_data['full_title']}")
-            logger.debug(f"  中文標題: {movie_data['chinese_title']}")
-            logger.debug(f"  英文標題: {movie_data['english_title']}")
-            logger.debug(f"  片長: {movie_data['runtime']}")
-            logger.debug(f"  上映日期: {movie_data['release_date']}")
+            
+            # 確保必要欄位存在
+            required_fields = ['atmovies_id', 'full_title']
+            for field in required_fields:
+                if field not in movie_data:
+                    logger.error(f"缺少必要欄位: {field}")
+                    return False
+            
+            # 記錄要保存的電影資料（使用 get 方法避免 KeyError）
+            atmovies_id = movie_data['atmovies_id']
+            full_title = movie_data.get('full_title', '未知電影')
+            
+            logger.info(f"準備保存電影到資料庫: {full_title} (ID: {atmovies_id})")
+            logger.debug(f"  完整標題: {full_title}")
+            logger.debug(f"  中文標題: {movie_data.get('chinese_title', '無')}")
+            logger.debug(f"  英文標題: {movie_data.get('english_title', '無')}")
+            logger.debug(f"  片長: {movie_data.get('runtime', '無')} 分鐘")
+            logger.debug(f"  上映日期: {movie_data.get('release_date', '無')}")
             logger.debug(f"  海報URL: {movie_data.get('poster_url', '無')}")
             
             # 檢查電影是否已存在
             self.cursor.execute(
-                "SELECT id, full_title, chinese_title, english_title FROM movies WHERE atmovies_id = %s",
-                (movie_data["atmovies_id"],)
+                """
+                SELECT id, full_title, chinese_title, english_title, 
+                       runtime, release_date, poster_url 
+                FROM movies 
+                WHERE atmovies_id = %s
+                """,
+                (atmovies_id,)
             )
             existing_movie = self.cursor.fetchone()
             
             if existing_movie:
                 # 記錄現有電影的資料
-                logger.debug(f"找到現有電影 (ID: {existing_movie[0]})")
-                logger.debug(f"  現有完整標題: {existing_movie[1]}")
-                logger.debug(f"  現有中文標題: {existing_movie[2]}")
-                logger.debug(f"  現有英文標題: {existing_movie[3]}")
+                logger.info(f"找到現有電影 (資料庫ID: {existing_movie[0]})")
+                logger.info(f"  現有完整標題: {existing_movie[1]}")
+                logger.info(f"  現有中文標題: {existing_movie[2]}")
+                logger.info(f"  現有英文標題: {existing_movie[3]}")
                 
-                # 更新現有電影
-                self.cursor.execute(
-                    """
+                # 構建更新語句，強制更新所有欄位，包括 None 值
+                update_fields = [
+                    'full_title = %s',
+                    'chinese_title = %s',
+                    'english_title = %s',
+                    'runtime = %s',
+                    'release_date = %s',
+                    'poster_url = %s',
+                    'updated_at = NOW()'
+                ]
+                
+                # 準備更新值，使用 get() 方法獲取值，如果不存在則為 None
+                update_values = [
+                    movie_data.get('full_title'),
+                    movie_data.get('chinese_title'),
+                    movie_data.get('english_title'),
+                    movie_data.get('runtime'),
+                    movie_data.get('release_date'),
+                    movie_data.get('poster_url')
+                ]
+                
+                if not update_fields:
+                    logger.info("沒有需要更新的欄位")
+                    return True
+                
+                # 添加 WHERE 條件
+                update_values.append(atmovies_id)
+                
+                # 構建並執行更新查詢
+                update_query = f"""
                     UPDATE movies 
-                    SET full_title = %s, chinese_title = %s, english_title = %s, 
-                        runtime = %s, release_date = %s, poster_url = %s, updated_at = NOW()
+                    SET {', '.join(update_fields)}
                     WHERE atmovies_id = %s
                     RETURNING id
-                    """,
-                    (
-                        movie_data["full_title"],
-                        movie_data["chinese_title"],
-                        movie_data["english_title"],
-                        movie_data["runtime"],
-                        movie_data["release_date"],
-                        movie_data.get("poster_url"),  # 使用 get 避免 KeyError
-                        movie_data["atmovies_id"]
-                    )
-                )
-                self.conn.commit()
-                logger.info(f"更新電影資訊: {movie_data['full_title']}")
-                logger.debug(f"  已更新中文標題為: {movie_data['chinese_title']}")
-                logger.debug(f"  已更新英文標題為: {movie_data['english_title']}")
-                return True
+                """
+                
+                logger.info(f"執行更新查詢: {update_query}")
+                logger.info(f"更新參數: {update_values}")
+                
+                try:
+                    # 執行更新
+                    self.cursor.execute(update_query, update_values)
+                    
+                    # 檢查更新是否成功
+                    if self.cursor.rowcount > 0:
+                        updated_id = self.cursor.fetchone()[0]
+                        logger.info(f"成功更新電影資料 (資料庫ID: {updated_id})")
+                        # 提交事務
+                        self.conn.commit()
+                        return True
+                    else:
+                        logger.warning(f"更新電影時沒有影響任何記錄: {full_title} (ID: {atmovies_id})")
+                        return False
+                        
+                except Exception as e:
+                    logger.error(f"更新電影資料時發生錯誤: {e}", exc_info=True)
+                    # 發生錯誤時回滾事務
+                    self.conn.rollback()
+                    return False
             else:
                 # 新增電影
-                self.cursor.execute(
-                    """
+                insert_query = """
                     INSERT INTO movies (
                         atmovies_id, full_title, chinese_title, english_title, 
                         runtime, release_date, poster_url, created_at, updated_at, source
                     )
                     VALUES (%s, %s, %s, %s, %s, %s, %s, NOW(), NOW(), 'atmovies')
                     RETURNING id
-                    """,
-                    (
-                        movie_data["atmovies_id"],
-                        movie_data["full_title"],
-                        movie_data["chinese_title"],
-                        movie_data["english_title"],
-                        movie_data["runtime"],
-                        movie_data["release_date"],
-                        movie_data.get("poster_url")  # 使用 get 避免 KeyError
-                    )
+                """
+                
+                insert_values = (
+                    atmovies_id,
+                    full_title,
+                    movie_data.get('chinese_title'),
+                    movie_data.get('english_title'),
+                    movie_data.get('runtime'),
+                    movie_data.get('release_date'),
+                    movie_data.get('poster_url')
                 )
+                
+                logger.debug(f"執行新增語句: {insert_query}")
+                logger.debug(f"新增值: {insert_values}")
+                
+                self.cursor.execute(insert_query, insert_values)
+                new_id = self.cursor.fetchone()[0]
                 self.conn.commit()
-                logger.info(f"新增電影: {movie_data['full_title']}")
-                logger.debug(f"  已新增中文標題: {movie_data['chinese_title']}")
-                logger.debug(f"  已新增英文標題: {movie_data['english_title']}")
+                
+                logger.info(f"成功新增電影: {full_title} (資料庫ID: {new_id}, ATMovies ID: {atmovies_id})")
                 return True
+                
         except Exception as e:
             self.conn.rollback()
-            logger.error(f"存入電影資訊時出錯: {e}")
+            logger.error(f"存入電影資訊時出錯: {str(e)}", exc_info=True)
             return False
     
     async def process_movie_list(self, page_url: str) -> int:
@@ -736,31 +828,32 @@ class ATMoviesMovieScraper:
         # 處理每部電影
         for index, movie in enumerate(movies):
             try:
-                logger.info(f"[進度 {index+1}/{len(movies)}] 處理電影: {movie['title']} ({movie['atmovies_id']})")
+                logger.info(f"[進度 {index+1}/{len(movies)}] 處理電影: {movie.get('full_title', '未知電影')} ({movie.get('atmovies_id', 'N/A')})")
                 
                 # 檢查資料完整性
                 if not self._validate_movie_data(movie):
-                    logger.warning(f"電影資料不完整，已跳過: {movie['title']}")
+                    logger.warning(f"電影資料不完整，已跳過: {movie.get('full_title', '未知電影')}")
                     failed_count += 1
                     continue
                 
                 # 存入資料庫
                 if await self.save_movie_to_db(movie):
                     processed_count += 1
-                    logger.info(f"成功處理電影: {movie['title']} ({movie['atmovies_id']})")
+                    logger.info(f"成功處理電影: {movie.get('full_title', '未知電影')} ({movie.get('atmovies_id', 'N/A')})")
                     
                     # 打印詳細資訊供檢查
-                    logger.info(f"  標題: {movie['title']}")
-                    logger.info(f"  原始標題: {movie['original_title']}")
-                    logger.info(f"  上映日期: {movie['release_date']}")
-                    logger.info(f"  片長: {movie['runtime']} 分鐘")
+                    logger.info(f"  完整標題: {movie.get('full_title', 'N/A')}")
+                    logger.info(f"  中文標題: {movie.get('chinese_title', 'N/A')}")
+                    logger.info(f"  英文標題: {movie.get('english_title', 'N/A')}")
+                    logger.info(f"  上映日期: {movie.get('release_date', 'N/A')}")
+                    logger.info(f"  片長: {movie.get('runtime', 'N/A')} 分鐘")
                 else:
                     failed_count += 1
                 
                 # 由於不需要訪問詳情頁面，可以減少延遲
                 await asyncio.sleep(0.2 + random.random() * 0.3)
             except Exception as e:
-                logger.error(f"處理電影時出錯: {e}")
+                logger.error(f"處理電影時出錯: {e}", exc_info=True)
                 failed_count += 1
         
         logger.info(f"頁面 {page_url} 處理完成: 成功 {processed_count} 部，失敗 {failed_count} 部")
@@ -854,6 +947,21 @@ class ATMoviesMovieScraper:
                 
             logger.info(f"總共找到 {total_movies} 部電影")
             
+            # 保存到資料庫
+            if hasattr(self, 'conn') and not self.conn.closed:
+                saved_count = 0
+                for movie in all_movies:
+                    try:
+                        success = await self.save_movie_to_db(movie)
+                        if success:
+                            saved_count += 1
+                    except Exception as e:
+                        logger.error(f"保存電影到資料庫時出錯: {e}", exc_info=True)
+                
+                logger.info(f"成功保存 {saved_count}/{total_movies} 部電影到資料庫")
+            else:
+                logger.warning("資料庫連接不可用，跳過保存到資料庫")
+            
             # 保存到文件
             if output_format.lower() == 'csv':
                 output_file = self.export_to_csv(all_movies)
@@ -876,30 +984,40 @@ class ATMoviesMovieScraper:
                 await self.session.close()
             # 不需要顯式調用 close_db_connection，因為 __aexit__ 會處理
 
-async def main(output_format: str = 'json') -> bool:
+async def main(output_format: str = 'json', skip_db: bool = False) -> bool:
     """主函數
     
     Args:
         output_format: 輸出格式，可選 'json' 或 'csv'
+        skip_db: 是否跳過資料庫操作，僅用於測試
         
     Returns:
         bool: 爬蟲執行是否成功
     """
-    async with ATMoviesMovieScraper() as scraper:
-        try:
-            success = await scraper.run(output_format)
+    try:
+        async with ATMoviesMovieScraper() as scraper:
+            if skip_db:
+                logger.info("跳過資料庫操作，僅爬取資料並輸出到文件")
+                # 執行爬蟲但不連接資料庫
+                success = await scraper.run(output_format, skip_db=True)
+            else:
+                # 執行爬蟲並更新資料庫
+                success = await scraper.run(output_format)
             return success
-        except Exception as e:
-            logger.error(f"執行主程式時發生錯誤: {e}", exc_info=True)
-            return False
+    except Exception as e:
+        logger.error(f"執行爬蟲時發生錯誤: {e}", exc_info=True)
+        return False
 
 if __name__ == "__main__":
     import argparse
     
     # 解析命令行參數
-    parser = argparse.ArgumentParser(description='ATMovies 電影爬蟲')
-    parser.add_argument('--format', type=str, default='json', choices=['json', 'csv'],
-                       help='輸出格式 (json 或 csv)，預設為 json')
+    parser = argparse.ArgumentParser(description='ATMovies 電影資訊爬蟲')
+    parser.add_argument('--format', type=str, default='json',
+                        choices=['json', 'csv'],
+                        help='輸出格式 (json 或 csv)')
+    parser.add_argument('--skip-db', action='store_true',
+                        help='跳過資料庫操作，僅爬取資料並輸出到文件')
     args = parser.parse_args()
     
     # 在 Windows 上需要使用事件循環策略
@@ -907,7 +1025,7 @@ if __name__ == "__main__":
         asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     
     # 執行主函數
-    success = asyncio.run(main(args.format))
+    success = asyncio.run(main(args.format, args.skip_db))
     
     # 根據執行結果返回適當的退出碼
     sys.exit(0 if success else 1)
